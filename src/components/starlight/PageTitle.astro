@@ -54,7 +54,8 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 		bootProgressUi();
 	}
 
-	document.addEventListener('astro:page-load', bootProgressUi);
+	// Runs before paint on client-side route transitions, preventing default-state flashes.
+	document.addEventListener('astro:after-swap', bootProgressUi);
 </script>
 
 <style>

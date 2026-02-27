@@ -8,6 +8,7 @@ import {
 
 const CHECKMARK = '✓'
 const MODULE_RING_CIRCUMFERENCE = 97.39
+let stopProgressListener: (() => void) | null = null
 
 const contentIdFromHref = (href: string): string => {
   try {
@@ -151,6 +152,11 @@ const renderLessonCard = (
 }
 
 export const initProgressUi = (lessonId: string | null): void => {
+  if (stopProgressListener) {
+    stopProgressListener()
+    stopProgressListener = null
+  }
+
   const card = document.querySelector<HTMLElement>('[data-lesson-progress-card]')
   const statusElement = card?.querySelector<HTMLElement>('[data-lesson-progress-status]') ?? null
   const actionButton = document.querySelector<HTMLButtonElement>('[data-lesson-progress-action]')
@@ -175,7 +181,7 @@ export const initProgressUi = (lessonId: string | null): void => {
 
   renderSidebarProgress()
 
-  $progress.listen((progressState) => {
+  stopProgressListener = $progress.listen((progressState) => {
     if (isLessonPage && card && actionButton && lessonId) {
       const completedSet = new Set(progressState.completedLessons)
       const complete = completedSet.has(lessonId)

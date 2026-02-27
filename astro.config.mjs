@@ -17,6 +17,8 @@ export default defineConfig({
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
       customCss: ['./src/styles/tailwind.css'],
       components: {
+        Head: './src/components/starlight/Head.astro',
+        PageFrame: './src/components/starlight/PageFrame.astro',
         PageTitle: './src/components/starlight/PageTitle.astro',
         Footer: './src/components/starlight/Footer.astro',
       },
