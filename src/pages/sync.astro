@@ -1,0 +1,92 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Syncing Progress | HAGAR Prep</title>
+		<style>
+			:root {
+				color-scheme: dark;
+			}
+			body {
+				margin: 0;
+				font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+				background: #091022;
+				color: #dce7ff;
+			}
+			main {
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+				padding: 1.25rem;
+			}
+			.panel {
+				width: min(560px, 100%);
+				padding: 1rem 1.1rem;
+				border-radius: 0.75rem;
+				border: 1px solid #304064;
+				background: rgba(16, 22, 38, 0.9);
+			}
+			h1 {
+				margin: 0 0 0.65rem;
+				font-size: 1.1rem;
+			}
+			p {
+				margin: 0.25rem 0;
+				color: #b9c9e8;
+				font-size: 0.95rem;
+			}
+			a {
+				color: #8cd1ff;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section class="panel">
+				<h1>Syncing Progress</h1>
+				<p id="sync-status">Applying progress data...</p>
+				<p>
+					If this page does not redirect automatically, go to
+					<a href="/curriculum/">Curriculum</a>.
+				</p>
+			</section>
+		</main>
+
+		<script>
+			import { deserializeProgress } from '../lib/progress/sync';
+			import { mergeProgress } from '../lib/stores/progressStore';
+
+			const status = document.getElementById('sync-status');
+			const params = new URLSearchParams(window.location.search);
+			const data = params.get('data');
+
+			try {
+				if (!data) {
+					throw new Error('No sync data found in this URL.');
+				}
+
+				const incoming = deserializeProgress(data);
+				mergeProgress(incoming);
+
+				if (status) {
+					status.textContent = `Imported ${incoming.completedLessons.length} completed lessons. Redirecting...`;
+				}
+
+				window.setTimeout(() => {
+					window.location.replace('/curriculum/');
+				}, 650);
+			} catch (error) {
+				if (status) {
+					status.textContent =
+						error instanceof Error
+							? `Unable to import progress: ${error.message}`
+							: 'Unable to import progress data from this link.';
+				}
+			}
+		</script>
+	</body>
+</html>

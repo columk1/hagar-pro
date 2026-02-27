@@ -16,6 +16,9 @@ export default defineConfig({
       description: 'HPAC/ACVL-aligned study curriculum for the Transport Canada HAGAR exam.',
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
       customCss: ['./src/styles/tailwind.css'],
+      components: {
+        PageTitle: './src/components/starlight/PageTitle.astro',
+      },
       sidebar: [
         {
           label: 'Curriculum',
@@ -49,6 +52,7 @@ export default defineConfig({
               label: 'Final Module: Examination',
               autogenerate: { directory: 'curriculum/final-module-examination' },
             },
+            { label: 'Progress Sync', slug: 'progress-sync' },
           ],
         },
       ],

@@ -1,0 +1,118 @@
+---
+import { isLessonId } from '../../lib/progress/lessonIds';
+
+const pageTitle = Astro.locals.starlightRoute.entry.data.title;
+const routeId = Astro.locals.starlightRoute.id;
+const lessonId = isLessonId(routeId) ? routeId : null;
+---
+
+<h1 id="_top">{pageTitle}</h1>
+
+{
+	lessonId && (
+		<div
+			class="lesson-progress-card"
+			data-lesson-progress-card
+			data-lesson-id={lessonId}
+			data-complete="false"
+		>
+			<div class="lesson-progress-copy">
+				<p class="label">Lesson Progress</p>
+				<p class="status" data-lesson-progress-status>
+					Not completed
+				</p>
+			</div>
+			<button type="button" class="lesson-progress-action" data-lesson-progress-action>
+				Mark Complete
+			</button>
+		</div>
+	)
+}
+
+<script>
+	import { initProgressUi } from '../../lib/progress/clientUi';
+
+	const bootProgressUi = () => {
+		const card = document.querySelector('[data-lesson-progress-card]');
+		const lessonId = card instanceof HTMLElement ? card.dataset.lessonId ?? null : null;
+		initProgressUi(lessonId);
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', bootProgressUi, { once: true });
+	} else {
+		bootProgressUi();
+	}
+
+	document.addEventListener('astro:page-load', bootProgressUi);
+</script>
+
+<style>
+	@layer starlight.core {
+		h1 {
+			margin-top: 1rem;
+			font-size: var(--sl-text-h1);
+			line-height: var(--sl-line-height-headings);
+			font-weight: 600;
+			color: var(--sl-color-white);
+		}
+
+		.lesson-progress-card {
+			margin-top: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0.75rem;
+			padding: 0.875rem 1rem;
+			border: 1px solid var(--sl-color-gray-5);
+			border-radius: 0.75rem;
+			background: color-mix(in srgb, var(--sl-color-gray-6) 60%, transparent);
+		}
+
+		.lesson-progress-copy .label {
+			margin: 0;
+			font-size: var(--sl-text-xs);
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: var(--sl-color-gray-3);
+		}
+
+		.lesson-progress-copy .status {
+			margin: 0.2rem 0 0;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-gray-2);
+		}
+
+		.lesson-progress-card[data-complete='true'] .status {
+			color: #6ee7a8;
+		}
+
+		.lesson-progress-action {
+			border: 1px solid color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
+			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+			color: #d7ffe9;
+			border-radius: 0.65rem;
+			padding: 0.5rem 0.85rem;
+			font-size: var(--sl-text-xs);
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		.lesson-progress-indicator {
+			display: inline-block;
+			margin-left: 0.45rem;
+			color: #6ee7a8;
+			font-weight: 700;
+		}
+
+		.module-progress-count {
+			display: inline-block;
+			margin-left: 0.55rem;
+			padding: 0.05rem 0.35rem;
+			border-radius: 999px;
+			font-size: 0.68rem;
+			color: var(--sl-color-gray-3);
+			background: color-mix(in srgb, var(--sl-color-gray-6) 80%, transparent);
+		}
+	}
+</style>
