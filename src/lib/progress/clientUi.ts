@@ -1,4 +1,4 @@
-import { canonicalizePathToContentId, isLessonId } from './lessonIds'
+import { canonicalizePathToContentId, getModuleIdFromLessonId, isLessonId } from './lessonIds'
 import {
   $progress,
   isLessonCompleted,
@@ -7,6 +7,7 @@ import {
 } from '../stores/progressStore'
 
 const CHECKMARK = '✓'
+const MODULE_RING_CIRCUMFERENCE = 97.39
 
 const contentIdFromHref = (href: string): string => {
   try {
@@ -90,27 +91,73 @@ const renderSidebarProgress = (): void => {
   decorateSidebarModuleCounts(completedLessonIds)
 }
 
+const getModuleProgress = (
+  lessonId: string,
+  completedLessonIds: Set<string>,
+): { completed: number; total: number } => {
+  const moduleId = getModuleIdFromLessonId(lessonId)
+  if (!moduleId) {
+    return { completed: 0, total: 0 }
+  }
+
+  const moduleLessonLinks = document.querySelectorAll<HTMLAnchorElement>(
+    `nav[aria-label="Main"] a[href^="/${moduleId}/lesson-"]`,
+  )
+
+  const moduleLessonIds = Array.from(moduleLessonLinks)
+    .map((link) => contentIdFromHref(link.getAttribute('href') ?? ''))
+    .filter(isLessonId)
+
+  const uniqueLessonIds = Array.from(new Set(moduleLessonIds))
+  const total = uniqueLessonIds.length
+  const completed = uniqueLessonIds.filter((id) => completedLessonIds.has(id)).length
+
+  return { completed, total }
+}
+
+const renderModuleProgress = (
+  card: HTMLElement,
+  lessonId: string,
+  completedLessonIds: Set<string>,
+): void => {
+  const fill = card.querySelector<SVGCircleElement>('[data-module-progress-fill]')
+  const text = card.querySelector<HTMLElement>('[data-module-progress-text]')
+  if (!fill || !text) {
+    return
+  }
+
+  const { completed, total } = getModuleProgress(lessonId, completedLessonIds)
+  const ratio = total > 0 ? completed / total : 0
+  const dashOffset = MODULE_RING_CIRCUMFERENCE * (1 - ratio)
+
+  fill.style.strokeDashoffset = dashOffset.toFixed(2)
+  text.textContent = `${completed}/${total}`
+}
+
 const renderLessonCard = (
   card: HTMLElement,
   lessonId: string,
-  statusElement: HTMLElement,
+  statusElement: HTMLElement | null,
   actionButton: HTMLButtonElement,
 ): void => {
   const complete = isLessonCompleted(lessonId)
-  statusElement.textContent = complete ? 'Completed' : 'Not completed'
+  if (statusElement) {
+    statusElement.textContent = complete ? 'Completed' : 'Not completed'
+  }
   actionButton.textContent = complete ? 'Mark Incomplete' : 'Mark Complete'
   actionButton.setAttribute('aria-pressed', complete ? 'true' : 'false')
   card.dataset.complete = complete ? 'true' : 'false'
+  renderModuleProgress(card, lessonId, new Set($progress.get().completedLessons))
 }
 
 export const initProgressUi = (lessonId: string | null): void => {
   const card = document.querySelector<HTMLElement>('[data-lesson-progress-card]')
-  const statusElement = card?.querySelector<HTMLElement>('[data-lesson-progress-status]')
-  const actionButton = card?.querySelector<HTMLButtonElement>('[data-lesson-progress-action]')
+  const statusElement = card?.querySelector<HTMLElement>('[data-lesson-progress-status]') ?? null
+  const actionButton = document.querySelector<HTMLButtonElement>('[data-lesson-progress-action]')
 
   const isLessonPage = !!lessonId && isLessonId(lessonId)
 
-  if (isLessonPage && card && statusElement && actionButton) {
+  if (isLessonPage && card && actionButton) {
     if (!actionButton.dataset.progressBound) {
       actionButton.addEventListener('click', () => {
         if (!lessonId) return
@@ -129,13 +176,16 @@ export const initProgressUi = (lessonId: string | null): void => {
   renderSidebarProgress()
 
   $progress.listen((progressState) => {
-    if (isLessonPage && card && statusElement && actionButton && lessonId) {
+    if (isLessonPage && card && actionButton && lessonId) {
       const completedSet = new Set(progressState.completedLessons)
       const complete = completedSet.has(lessonId)
-      statusElement.textContent = complete ? 'Completed' : 'Not completed'
+      if (statusElement) {
+        statusElement.textContent = complete ? 'Completed' : 'Not completed'
+      }
       actionButton.textContent = complete ? 'Mark Incomplete' : 'Mark Complete'
       actionButton.setAttribute('aria-pressed', complete ? 'true' : 'false')
       card.dataset.complete = complete ? 'true' : 'false'
+      renderModuleProgress(card, lessonId, completedSet)
     }
 
     renderSidebarProgress()

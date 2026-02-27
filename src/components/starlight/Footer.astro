@@ -1,0 +1,107 @@
+---
+import EditLink from 'virtual:starlight/components/EditLink';
+import LastUpdated from 'virtual:starlight/components/LastUpdated';
+import Pagination from 'virtual:starlight/components/Pagination';
+import config from 'virtual:starlight/user-config';
+import { Icon } from '@astrojs/starlight/components';
+import { isLessonId } from '../../lib/progress/lessonIds';
+
+const routeId = Astro.locals.starlightRoute.id;
+const lessonId = isLessonId(routeId) ? routeId : null;
+---
+
+<footer class="sl-flex">
+	<div class="meta sl-flex">
+		<EditLink />
+		<LastUpdated />
+	</div>
+
+	{
+		lessonId && (
+			<div class="lesson-progress-footer-wrap">
+				<div class="lesson-progress-card">
+					<button type="button" class="lesson-progress-action" data-lesson-progress-action>
+						Mark Complete
+					</button>
+				</div>
+			</div>
+		)
+	}
+
+	<Pagination />
+
+	{
+		config.credits && (
+			<a class="kudos sl-flex" href="https://starlight.astro.build">
+				<Icon name={'starlight'} /> {Astro.locals.t('builtWithStarlight.label')}
+			</a>
+		)
+	}
+</footer>
+
+<style>
+	@layer starlight.core {
+		footer {
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+
+		.meta {
+			gap: 0.75rem 3rem;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 3rem;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-gray-3);
+		}
+
+		.meta > :global(p:only-child) {
+			margin-inline-start: auto;
+		}
+
+		.lesson-progress-footer-wrap {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+
+		.lesson-progress-card {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			border: 0;
+			background: transparent;
+		}
+
+		.lesson-progress-action {
+			border: 1px solid color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
+			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+			color: #d7ffe9;
+			border-radius: 0.65rem;
+			padding: 0.5rem 0.85rem;
+			font-size: var(--sl-text-xs);
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		.kudos {
+			align-items: center;
+			gap: 0.5em;
+			margin: 1.5rem auto;
+			font-size: var(--sl-text-xs);
+			text-decoration: none;
+			color: var(--sl-color-gray-3);
+		}
+
+		.kudos:hover {
+			color: var(--sl-color-white);
+		}
+	}
+
+	@layer starlight.components {
+		.kudos :global(svg) {
+			color: var(--sl-color-orange);
+		}
+	}
+</style>

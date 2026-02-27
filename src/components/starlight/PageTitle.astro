@@ -22,9 +22,19 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 					Not completed
 				</p>
 			</div>
-			<button type="button" class="lesson-progress-action" data-lesson-progress-action>
-				Mark Complete
-			</button>
+			<div class="module-progress-circle" data-module-progress-circle>
+				<svg class="module-progress-svg" viewBox="0 0 36 36" aria-hidden="true">
+					<circle class="module-progress-track" cx="18" cy="18" r="15.5"></circle>
+					<circle
+						class="module-progress-fill"
+						data-module-progress-fill
+						cx="18"
+						cy="18"
+						r="15.5"
+					></circle>
+				</svg>
+				<p class="module-progress-text" data-module-progress-text>0/0</p>
+			</div>
 		</div>
 	)
 }
@@ -87,15 +97,45 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 			color: #6ee7a8;
 		}
 
-		.lesson-progress-action {
-			border: 1px solid color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
-			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
-			color: #d7ffe9;
-			border-radius: 0.65rem;
-			padding: 0.5rem 0.85rem;
-			font-size: var(--sl-text-xs);
-			font-weight: 600;
-			cursor: pointer;
+		.module-progress-circle {
+			position: relative;
+			width: 3rem;
+			height: 3rem;
+			display: grid;
+			place-items: center;
+			flex-shrink: 0;
+		}
+
+		.module-progress-svg {
+			width: 100%;
+			height: 100%;
+			transform: rotate(-90deg);
+		}
+
+		.module-progress-track,
+		.module-progress-fill {
+			fill: none;
+			stroke-width: 3.25;
+		}
+
+		.module-progress-track {
+			stroke: var(--sl-color-gray-5);
+		}
+
+		.module-progress-fill {
+			stroke: #6ee7a8;
+			stroke-linecap: round;
+			stroke-dasharray: 97.39;
+			stroke-dashoffset: 97.39;
+			transition: stroke-dashoffset 220ms ease;
+		}
+
+		.module-progress-text {
+			position: absolute;
+			margin: 0;
+			font-size: 0.58rem;
+			font-weight: 700;
+			color: var(--sl-color-gray-2);
 		}
 
 		.lesson-progress-indicator {

@@ -18,6 +18,7 @@ export default defineConfig({
       customCss: ['./src/styles/tailwind.css'],
       components: {
         PageTitle: './src/components/starlight/PageTitle.astro',
+        Footer: './src/components/starlight/Footer.astro',
       },
       sidebar: [
         {
