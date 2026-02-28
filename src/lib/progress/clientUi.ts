@@ -145,7 +145,7 @@ const renderLessonCard = (
   if (statusElement) {
     statusElement.textContent = complete ? 'Completed' : 'Not completed'
   }
-  actionButton.textContent = complete ? 'Mark Incomplete' : 'Mark Complete'
+  actionButton.textContent = complete ? 'Lesson Completed' : 'Mark Complete'
   actionButton.setAttribute('aria-pressed', complete ? 'true' : 'false')
   card.dataset.complete = complete ? 'true' : 'false'
   renderModuleProgress(card, lessonId, new Set($progress.get().completedLessons))
@@ -183,15 +183,7 @@ export const initProgressUi = (lessonId: string | null): void => {
 
   stopProgressListener = $progress.listen((progressState) => {
     if (isLessonPage && card && actionButton && lessonId) {
-      const completedSet = new Set(progressState.completedLessons)
-      const complete = completedSet.has(lessonId)
-      if (statusElement) {
-        statusElement.textContent = complete ? 'Completed' : 'Not completed'
-      }
-      actionButton.textContent = complete ? 'Mark Incomplete' : 'Mark Complete'
-      actionButton.setAttribute('aria-pressed', complete ? 'true' : 'false')
-      card.dataset.complete = complete ? 'true' : 'false'
-      renderModuleProgress(card, lessonId, completedSet)
+      renderLessonCard(card, lessonId, statusElement, actionButton)
     }
 
     renderSidebarProgress()

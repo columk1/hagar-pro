@@ -1,0 +1,377 @@
+---
+type QuizChoice = {
+	value: string;
+	label: string;
+};
+
+type QuizQuestion = {
+	id: string;
+	prompt: string;
+	choices: QuizChoice[];
+	correctAnswer: string;
+	explanation?: string;
+};
+
+type Props = {
+	questions: QuizQuestion[];
+	quizId?: string;
+};
+
+const { questions, quizId } = Astro.props;
+const routeId = Astro.locals.starlightRoute.id;
+const resolvedQuizId = (quizId ?? routeId ?? '').trim();
+---
+
+<section class="quiz" data-quiz-root data-quiz-id={resolvedQuizId} data-feedback-visible="false">
+	<script
+		type="application/json"
+		data-quiz-state
+		set:html={JSON.stringify(
+			questions.map((question) => ({
+				id: question.id,
+				correctAnswer: question.correctAnswer,
+				choices: question.choices,
+				explanation: question.explanation ?? '',
+			})),
+		)}
+	></script>
+
+	{
+		questions.map((question, index) => (
+			<fieldset class="quiz-question" data-question-id={question.id}>
+					<legend class="legend">
+						<span class="quiz-question-number">Question {index + 1}</span>
+						<span class="quiz-question-prompt">{question.prompt}</span>
+					</legend>
+
+				<div class="quiz-choices">
+					{question.choices.map((choice) => (
+						<label class="quiz-choice" data-choice-value={choice.value}>
+							<input
+								type="radio"
+								name={`question-${question.id}`}
+								value={choice.value}
+								autocomplete="off"
+							/>
+							<span><strong>{choice.value.toUpperCase()}.</strong> {choice.label}</span>
+						</label>
+					))}
+				</div>
+
+				<p class="quiz-feedback" data-question-feedback><span></span></p>
+			</fieldset>
+		))
+	}
+
+	<div class="quiz-actions">
+		<p class="quiz-score" data-quiz-score hidden></p>
+		<button type="button" class="quiz-check-button" data-quiz-check-button>Check Answers</button>
+	</div>
+</section>
+
+<script>
+	import { canonicalizePathToContentId } from '../../lib/progress/lessonIds';
+	import { isLessonCompleted, markLessonComplete } from '../../lib/stores/progressStore';
+
+	type QuizQuestionData = {
+		id: string;
+		correctAnswer: string;
+		choices: { value: string; label: string }[];
+		explanation: string;
+	};
+
+	const BUTTON_TEXT_CHECK = 'Check Answers';
+	const BUTTON_TEXT_RESET = 'Reset';
+
+	const hideFeedback = (root: HTMLElement, checkButton: HTMLButtonElement, scoreElement: HTMLElement) => {
+		root.dataset.feedbackVisible = 'false';
+		checkButton.textContent = BUTTON_TEXT_CHECK;
+		scoreElement.hidden = true;
+		scoreElement.textContent = '';
+
+		for (const questionElement of root.querySelectorAll('[data-question-id]')) {
+			if (!(questionElement instanceof HTMLElement)) continue;
+			for (const choiceLabel of questionElement.querySelectorAll('[data-choice-value]')) {
+				if (!(choiceLabel instanceof HTMLElement)) continue;
+				choiceLabel.dataset.state = '';
+			}
+
+			const feedbackElement = questionElement.querySelector('[data-question-feedback]');
+			if (!(feedbackElement instanceof HTMLElement)) continue;
+			const feedbackText = feedbackElement.querySelector('span');
+			if (!feedbackText) continue;
+			feedbackText.textContent = '';
+			feedbackElement.dataset.status = '';
+		}
+	};
+
+	const showFeedback = (root: HTMLElement, quizDefinition: QuizQuestionData[], checkButton: HTMLButtonElement, scoreElement: HTMLElement) => {
+		let correctCount = 0;
+
+		for (const questionElement of root.querySelectorAll('[data-question-id]')) {
+			if (!(questionElement instanceof HTMLElement)) continue;
+			const questionId = questionElement.dataset.questionId ?? '';
+			const question = quizDefinition.find((candidate) => candidate.id === questionId);
+			if (!question) continue;
+
+			const selectedInput = questionElement.querySelector(
+				'input[type="radio"]:checked',
+			);
+			const selectedAnswer = selectedInput instanceof HTMLInputElement ? selectedInput.value : '';
+			const isAnswered = selectedAnswer.length > 0;
+			const isCorrect = isAnswered && selectedAnswer === question.correctAnswer;
+
+			if (isCorrect) {
+				correctCount += 1;
+			}
+
+			for (const choiceLabel of questionElement.querySelectorAll('[data-choice-value]')) {
+				if (!(choiceLabel instanceof HTMLElement)) continue;
+				const choiceValue = choiceLabel.dataset.choiceValue ?? '';
+				if (choiceValue === question.correctAnswer) {
+					choiceLabel.dataset.state = 'correct';
+				} else if (isAnswered && choiceValue === selectedAnswer) {
+					choiceLabel.dataset.state = 'incorrect';
+				} else {
+					choiceLabel.dataset.state = '';
+				}
+			}
+
+			const feedbackElement = questionElement.querySelector('[data-question-feedback]');
+			if (!(feedbackElement instanceof HTMLElement)) continue;
+			const feedbackText = feedbackElement.querySelector('span');
+			if (!feedbackText) continue;
+
+			if (!isAnswered) {
+				feedbackText.textContent = `No answer selected. Correct answer: ${question.correctAnswer.toUpperCase()}.`;
+				feedbackElement.dataset.status = 'incorrect';
+			} else if (isCorrect) {
+				feedbackText.textContent = question.explanation
+					? `Correct. ${question.explanation}`
+					: 'Correct.';
+				feedbackElement.dataset.status = 'correct';
+			} else {
+				const correctChoice = question.choices.find(
+					(choice) => choice.value === question.correctAnswer,
+				);
+				const correctLabel = correctChoice
+					? `${question.correctAnswer.toUpperCase()}. ${correctChoice.label}`
+					: question.correctAnswer.toUpperCase();
+				feedbackText.textContent = question.explanation
+					? `Incorrect. Correct answer: ${correctLabel}. ${question.explanation}`
+					: `Incorrect. Correct answer: ${correctLabel}.`;
+				feedbackElement.dataset.status = 'incorrect';
+			}
+		}
+
+		checkButton.textContent = BUTTON_TEXT_RESET;
+		scoreElement.textContent = `Score: ${correctCount}/${quizDefinition.length}`;
+		scoreElement.hidden = false;
+		root.dataset.feedbackVisible = 'true';
+	};
+
+	const initQuiz = (): void => {
+		const quizRoots = document.querySelectorAll('[data-quiz-root]');
+		for (const root of quizRoots) {
+			if (!(root instanceof HTMLElement) || root.dataset.quizBound === 'true') {
+				continue;
+			}
+
+			const definitionElement = root.querySelector('[data-quiz-state]');
+			const checkButton = root.querySelector('[data-quiz-check-button]');
+			const scoreElement = root.querySelector('[data-quiz-score]');
+			if (
+				!(definitionElement instanceof HTMLScriptElement) ||
+				!(checkButton instanceof HTMLButtonElement) ||
+				!(scoreElement instanceof HTMLElement)
+			) {
+				continue;
+			}
+
+			let quizDefinition: QuizQuestionData[] = [];
+			try {
+				quizDefinition = JSON.parse(definitionElement.textContent ?? '[]');
+			} catch {
+				quizDefinition = [];
+			}
+
+			if (!Array.isArray(quizDefinition) || quizDefinition.length === 0) {
+				continue;
+			}
+
+			const rawQuizId = root.dataset.quizId ?? '';
+			const quizId = rawQuizId || canonicalizePathToContentId(window.location.pathname);
+			let completionMarked = quizId ? isLessonCompleted(quizId) : false;
+
+			const updateReviewState = () => {
+				const feedbackVisible = root.dataset.feedbackVisible === 'true';
+				if (feedbackVisible) {
+					showFeedback(root, quizDefinition, checkButton, scoreElement);
+				} else {
+					hideFeedback(root, checkButton, scoreElement);
+				}
+			};
+
+			checkButton.addEventListener('click', () => {
+				const currentlyVisible = root.dataset.feedbackVisible === 'true';
+				const nextVisible = !currentlyVisible;
+				root.dataset.feedbackVisible = nextVisible ? 'true' : 'false';
+				updateReviewState();
+
+				if (nextVisible && quizId && !completionMarked) {
+					markLessonComplete(quizId);
+					completionMarked = true;
+				}
+			});
+
+			root.addEventListener('change', (event) => {
+				if (!(event.target instanceof HTMLInputElement)) return;
+				if (event.target.type !== 'radio') return;
+				if (root.dataset.feedbackVisible === 'true') {
+					showFeedback(root, quizDefinition, checkButton, scoreElement);
+				}
+			});
+
+			root.dataset.quizBound = 'true';
+			hideFeedback(root, checkButton, scoreElement);
+		}
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initQuiz, { once: true });
+	} else {
+		initQuiz();
+	}
+
+	document.addEventListener('astro:after-swap', initQuiz);
+</script>
+
+<style>
+	@layer starlight.core {
+		.quiz {
+			display: grid;
+			gap: 0.75rem;
+		}
+
+		.legend {
+			float: left;
+		}
+
+		.quiz-question {
+			border: 1px solid var(--sl-color-gray-5);
+			border-radius: 0.85rem;
+			padding: 0.8rem 0.85rem;
+			margin: 0;
+			display: grid;
+			gap: 0.65rem;
+			background: color-mix(in srgb, var(--sl-color-gray-6) 50%, transparent);
+			transition: padding 0.3s ease;
+		}
+
+		.quiz-question-number {
+			display: inline-block;
+			font-size: var(--sl-text-xs);
+			color: var(--sl-color-gray-3);
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+		}
+
+		.quiz-question-prompt {
+			display: block;
+			margin-top: 0.2rem;
+			font-size: var(--sl-text-sm);
+			color: var(--sl-color-white);
+			font-weight: 550;
+		}
+
+		.quiz-choices {
+			display: grid;
+		}
+
+		.quiz-choice {
+			display: flex;
+			align-items: center;
+			gap: 0.45rem;
+			padding: 0.48rem 0.6rem;
+			border-radius: 0.6rem;
+			border: 1px solid var(--sl-color-gray-5);
+			background: color-mix(in srgb, var(--sl-color-bg) 84%, transparent);
+			cursor: pointer;
+			font-size: var(--sl-text-sm);
+			line-height: 1.35;
+		}
+
+		.quiz-choice:hover {
+			border-color: color-mix(in srgb, var(--sl-color-accent) 52%, var(--sl-color-gray-4));
+		}
+
+		.quiz-choice input[type='radio'] {
+			margin: 0;
+		}
+
+		.quiz-choice[data-state='correct'] {
+			border-color: color-mix(in srgb, #6ee7a8 70%, var(--sl-color-gray-4));
+			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+		}
+
+		.quiz-choice[data-state='incorrect'] {
+			border-color: color-mix(in srgb, #f87171 70%, var(--sl-color-gray-4));
+			background: color-mix(in srgb, #f87171 14%, var(--sl-color-bg));
+		}
+
+		.quiz-feedback {
+			margin: 0;
+			font-size: var(--sl-text-xs);
+			border-radius: 0.55rem;
+			display: grid;
+			grid-template-rows: 0fr;
+			transition: grid-template-rows 0.1s ease;
+		}
+
+		.quiz-feedback span {
+			overflow: hidden;
+		}
+
+		.quiz-feedback[data-status='correct'],
+		.quiz-feedback[data-status='incorrect'] {
+			grid-template-rows: 1fr;
+			padding: 0.42rem 0.5rem;
+		}
+
+		.quiz-feedback[data-status='correct'] {
+			color: #d7ffe9;
+			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+		}
+
+		.quiz-feedback[data-status='incorrect'] {
+			color: #ffd9d9;
+			background: color-mix(in srgb, #f87171 16%, var(--sl-color-bg));
+		}
+
+		.quiz-actions {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 0.4rem;
+		}
+
+		.quiz-check-button {
+			border: 1px solid color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
+			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+			color: #d7ffe9;
+			border-radius: 0.65rem;
+			padding: 0.48rem 0.75rem;
+			font-size: var(--sl-text-xs);
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		.quiz-score {
+			margin: 0;
+			font-size: var(--sl-text-xs);
+			font-weight: 700;
+			color: var(--sl-color-gray-2);
+		}
+	}
+</style>

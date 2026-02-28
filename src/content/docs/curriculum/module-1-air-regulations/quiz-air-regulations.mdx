@@ -3,6 +3,67 @@ title: "Quiz: Air Regulations"
 description: "End-of-module quiz for Module 1."
 ---
 
+import Quiz from '../../../../components/quiz/Quiz.astro';
+
 # Quiz: Air Regulations
 
-Module quiz placeholder. This page is ready to be wired to the Annex A question bank entries tagged `Module 1: Air Regulations`.
+Select one answer per question, then use **Check Answers** to review your selections.
+
+<Quiz
+	questions={[
+		{
+			id: 'm1-q1',
+			prompt:
+				'Except for taking off or landing, what is the minimum height over a built-up area unless ATC directs otherwise?',
+			correctAnswer: 'a',
+			explanation: 'CAR 602.14 guidance in this course emphasizes 1,000 feet over built-up areas.',
+			choices: [
+				{ value: 'a', label: '1,000 feet' },
+				{ value: 'b', label: '2,000 feet' },
+				{ value: 'c', label: '3,000 feet' },
+				{ value: 'd', label: '500 feet' },
+			],
+		},
+		{
+			id: 'm1-q2',
+			prompt: 'On final approach for landing, right of way is normally given to which aircraft?',
+			correctAnswer: 'd',
+			explanation: 'The lower aircraft on final generally has priority.',
+			choices: [
+				{ value: 'a', label: 'The faster aircraft' },
+				{ value: 'b', label: 'The slower aircraft' },
+				{ value: 'c', label: 'The aircraft at higher altitude' },
+				{ value: 'd', label: 'The aircraft at lower altitude' },
+			],
+		},
+		{
+			id: 'm1-q3',
+			prompt: 'Why should pilots avoid low flying near farming activities?',
+			correctAnswer: 'd',
+			explanation:
+				'Noise, shadows, and close overflight can all disturb livestock and create safety issues.',
+			choices: [
+				{ value: 'a', label: 'Noise can frighten livestock' },
+				{ value: 'b', label: 'Shadows can frighten livestock' },
+				{ value: 'c', label: 'It can cause stampeding' },
+				{ value: 'd', label: 'Any of the above can occur' },
+			],
+		},
+		{
+			id: 'm1-q4',
+			prompt: 'An airport is best defined as:',
+			correctAnswer: 'c',
+			explanation:
+				'In this context, an airport is an aerodrome with an airport certificate in force.',
+			choices: [
+				{ value: 'a', label: 'Any registered aerodrome' },
+				{ value: 'b', label: 'An aerodrome with a control tower' },
+				{
+					value: 'c',
+					label: 'An aerodrome in respect of which a certificate is in force',
+				},
+				{ value: 'd', label: 'An aerodrome with paved runways' },
+			],
+		},
+	]}
+/>
