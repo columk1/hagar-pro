@@ -16,6 +16,7 @@
     "@nanostores/persistent": "^1.3.3",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.18.0",
+    "leaflet": "^1.9.4",
     "nanostores": "^1.1.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -23,7 +24,10 @@
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@types/leaflet": "^1.9.21",
     "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
   }
 }

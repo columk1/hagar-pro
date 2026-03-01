@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">VNC placeholder chart</title>
+  <desc id="desc">Placeholder background for the VNC viewer while real Vancouver or Montreal VNC chart tiles are prepared.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecf4ff" />
+      <stop offset="100%" stop-color="#e5f7ef" />
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#80a0bf" stroke-width="1" opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)" />
+  <rect width="1600" height="1200" fill="url(#grid)" />
+
+  <g fill="none" stroke="#375a7f" opacity="0.55" stroke-width="2">
+    <path d="M120 180C280 240 420 180 560 260C700 340 820 320 940 300C1120 270 1280 320 1480 240" />
+    <path d="M140 460C320 420 460 500 620 470C780 440 920 530 1060 500C1240 460 1380 560 1520 520" />
+    <path d="M100 760C260 710 390 780 550 740C720 700 860 800 1020 760C1180 720 1320 810 1510 760" />
+  </g>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" fill="#1f3550">
+    <text x="120" y="100" font-size="42" font-weight="700">VNC Chart Placeholder</text>
+    <text x="120" y="152" font-size="28">Drop in real Vancouver / Montreal chart tiles or a georeferenced chart image.</text>
+    <text x="120" y="198" font-size="24">Current overlay is only for interaction testing.</text>
+
+    <text x="140" y="330" font-size="22">50°00'N 124°00'W</text>
+    <text x="1260" y="330" font-size="22">50°00'N 122°20'W</text>
+    <text x="140" y="1030" font-size="22">48°36'N 124°00'W</text>
+    <text x="1220" y="1030" font-size="22">48°36'N 122°20'W</text>
+  </g>
+</svg>

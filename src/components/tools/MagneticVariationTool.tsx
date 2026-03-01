@@ -180,10 +180,26 @@ export function MagneticVariationTool() {
               <text x="110" y="210" textAnchor="middle" fontSize="12">S</text>
               <text x="18" y="114" textAnchor="middle" fontSize="12">W</text>
 
-              <line x1="110" y1="110" x2="110" y2="34" stroke="#22c55e" strokeWidth="3" markerEnd="url(#trueArrow)" />
+              <line
+                x1="110"
+                y1="110"
+                x2="110"
+                y2="34"
+                stroke="var(--hp-tool-positive)"
+                strokeWidth="3"
+                markerEnd="url(#trueArrow)"
+              />
 
               <g transform={`rotate(${magneticNorthRotation}, 110, 110)`}>
-                <line x1="110" y1="110" x2="110" y2="34" stroke="#ef4444" strokeWidth="3" markerEnd="url(#magArrow)" />
+                <line
+                  x1="110"
+                  y1="110"
+                  x2="110"
+                  y2="34"
+                  stroke="var(--hp-tool-negative)"
+                  strokeWidth="3"
+                  markerEnd="url(#magArrow)"
+                />
               </g>
 
               <g transform={`rotate(${trueHeadingForVisual}, 110, 110)`}>
@@ -192,19 +208,19 @@ export function MagneticVariationTool() {
                   y1="110"
                   x2="110"
                   y2="48"
-                  stroke="#3b82f6"
+                  stroke="var(--hp-tool-heading)"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
-                <circle cx="110" cy="44" r="4" fill="#3b82f6" />
+                <circle cx="110" cy="44" r="4" fill="var(--hp-tool-heading)" />
               </g>
 
               <defs>
                 <marker id="trueArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-                  <path d="M0,0 L0,6 L8,3 z" fill="#22c55e" />
+                  <path d="M0,0 L0,6 L8,3 z" fill="var(--hp-tool-positive)" />
                 </marker>
                 <marker id="magArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-                  <path d="M0,0 L0,6 L8,3 z" fill="#ef4444" />
+                  <path d="M0,0 L0,6 L8,3 z" fill="var(--hp-tool-negative)" />
                 </marker>
               </defs>
             </svg>
@@ -476,15 +492,15 @@ export function MagneticVariationTool() {
         }
 
         .mvt-dot.true {
-          background: #22c55e;
+          background: var(--hp-tool-positive);
         }
 
         .mvt-dot.magnetic {
-          background: #ef4444;
+          background: var(--hp-tool-negative);
         }
 
         .mvt-dot.heading {
-          background: #3b82f6;
+          background: var(--hp-tool-heading);
         }
 
         .mvt-note {

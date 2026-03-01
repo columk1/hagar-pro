@@ -1,1 +1,21 @@
 @import 'tailwindcss';
+
+@layer base {
+  :root {
+    /* Core brand/tool palette */
+    --hp-color-blue: #3b82f6;
+    --hp-color-green: #22c55e;
+    --hp-color-red: #ef4444;
+
+    /* Semantic usage tokens for interactive learning tools */
+    --hp-tool-heading: var(--hp-color-blue);
+    --hp-tool-positive: var(--hp-color-green);
+    --hp-tool-negative: var(--hp-color-red);
+
+    --hp-tool-map-surface: #f4f6f8;
+    --hp-tool-tooltip-bg: rgba(16, 24, 40, 0.92);
+    --hp-tool-tooltip-border: rgba(255, 255, 255, 0.12);
+    --hp-tool-tooltip-text: #f8fafc;
+    --hp-tool-alert-text: color-mix(in srgb, var(--hp-tool-negative) 30%, white);
+  }
+}

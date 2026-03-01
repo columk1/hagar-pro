@@ -40,7 +40,7 @@ const decorateSidebarLessons = (completedLessonIds: Set<string>): void => {
     }
 
     const isComplete = completedLessonIds.has(contentId)
-    indicator.textContent = isComplete ? CHECKMARK : ''
+    indicator.textContent = isComplete ? `${CHECKMARK}` : ''
     link.dataset.lessonComplete = isComplete ? 'true' : 'false'
   }
 }
@@ -82,7 +82,9 @@ const decorateSidebarModuleCounts = (completedLessonIds: Set<string>): void => {
       label.append(count)
     }
 
-    count.textContent = total > 0 ? `${completed}/${total}` : ''
+    const isModuleComplete = total > 0 && completed === total
+    count.textContent = isModuleComplete ? ` ${CHECKMARK}` : ''
+    summary.dataset.moduleComplete = isModuleComplete ? 'true' : 'false'
   }
 }
 
