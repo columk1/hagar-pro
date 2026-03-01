@@ -224,6 +224,8 @@ export function MagneticVariationTool() {
 
       <style>{`
         .magnetic-variation-tool {
+          --mvt-accent-border: color-mix(in srgb, var(--sl-color-accent) 45%, var(--sl-color-gray-5));
+          --mvt-accent-surface: color-mix(in srgb, var(--sl-color-accent) 18%, var(--sl-color-bg));
           margin: 1rem 0;
           padding: 1.25rem;
           border-radius: 1rem;
@@ -293,8 +295,8 @@ export function MagneticVariationTool() {
         }
 
         .mvt-toggle.active {
-          border-color: color-mix(in srgb, var(--sl-color-accent) 45%, var(--sl-color-gray-5));
-          background: color-mix(in srgb, var(--sl-color-accent) 18%, var(--sl-color-bg));
+          border-color: var(--mvt-accent-border);
+          background: var(--mvt-accent-surface);
           color: var(--sl-color-white);
         }
 
@@ -306,6 +308,49 @@ export function MagneticVariationTool() {
 
         .mvt-slider {
           width: 100%;
+          accent-color: var(--sl-color-accent);
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          height: 1.15rem;
+          background: transparent;
+          cursor: pointer;
+        }
+
+        .mvt-slider::-webkit-slider-runnable-track {
+          -webkit-appearance: none;
+          height: 0.4rem;
+          border-radius: 999px;
+          background: var(--mvt-accent-surface);
+        }
+
+        .mvt-slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 1rem;
+          height: 1rem;
+          margin-top: -0.3rem;
+          border-radius: 999px;
+          border: 1px solid var(--mvt-accent-border);
+          background: var(--mvt-accent-surface) !important;
+          background-color: var(--mvt-accent-surface) !important;
+          box-shadow: 0 0 0 2px color-mix(in srgb, var(--sl-color-bg) 90%, transparent);
+        }
+
+        .mvt-slider::-moz-range-track {
+          height: 0.4rem;
+          border-radius: 999px;
+          background: var(--mvt-accent-surface);
+        }
+
+        .mvt-slider::-moz-range-thumb {
+          -moz-appearance: none;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 999px;
+          border: 1px solid var(--mvt-accent-border);
+          background: var(--mvt-accent-surface) !important;
+          background-color: var(--mvt-accent-surface) !important;
         }
 
         .mvt-value-pill {
@@ -352,9 +397,9 @@ export function MagneticVariationTool() {
         }
 
         .mvt-result {
-          border: 1px solid color-mix(in srgb, var(--sl-color-accent) 34%, var(--sl-color-gray-5));
+          border: 1px solid var(--sl-color-gray-5);
           border-radius: 0.7rem;
-          background: color-mix(in srgb, var(--sl-color-accent) 14%, var(--sl-color-bg));
+          background: color-mix(in srgb, var(--sl-color-bg) 92%, transparent);
           padding: 0.65rem;
           display: grid;
           gap: 0.3rem;
