@@ -4,11 +4,15 @@ import starlight from '@astrojs/starlight'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
 import mdx from '@astrojs/mdx'
+import rehypeFigureTitle from 'rehype-figure-title'
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+  },
+  markdown: {
+    rehypePlugins: [rehypeFigureTitle],
   },
   integrations: [
     starlight({
@@ -36,8 +40,22 @@ export default defineConfig({
               autogenerate: { directory: 'curriculum/module-2-vnc-charts' },
             },
             {
-              label: 'Module 3: Canadian Airspace',
-              autogenerate: { directory: 'curriculum/module-3-canadian-airspace' },
+              label: 'Module 3: Canadian Airspace & Airspace Regulations',
+              items: [
+                { label: 'Overview', slug: 'curriculum/module-3-canadian-airspace' },
+                {
+                  label: 'Lesson 3.1: The Structure of Canadian Airspace',
+                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-1-domestic-airspace',
+                },
+                {
+                  label: 'Lesson 3.2: Airspace Classes (A to G) & Flight Rules',
+                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-2-airspace-classes-flight-rules',
+                },
+                {
+                  label: 'Quiz: Canadian Airspace',
+                  slug: 'curriculum/module-3-canadian-airspace/quiz-canadian-airspace',
+                },
+              ],
             },
             {
               label: 'Module 4: Map Work',

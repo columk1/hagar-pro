@@ -18,4 +18,34 @@
     --hp-tool-tooltip-text: #f8fafc;
     --hp-tool-alert-text: color-mix(in srgb, var(--hp-tool-negative) 30%, white);
   }
+
+  .sl-markdown-content figure.rehype-figure-title {
+    margin-top: 1.25rem;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .sl-markdown-content figure.rehype-figure-title img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .sl-markdown-content figure.rehype-figure-title figcaption {
+    font-size: 0.875rem;
+    line-height: 1;
+    color: var(--sl-color-gray-2);
+    text-align: center;
+    font-style: italic;
+  }
+
+  .sl-markdown-content section[data-footnotes],
+  .sl-markdown-content .footnotes {
+    margin-top: 3rem !important;
+    border-top: 1px solid var(--sl-color-gray-5);
+  }
+
+  .sl-markdown-content section[data-footnotes] > .sl-heading-wrapper,
+  .sl-markdown-content .footnotes > .sl-heading-wrapper {
+    display: none;
+  }
 }
