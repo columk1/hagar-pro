@@ -40,7 +40,7 @@
   }
 
   .sl-markdown-content figure.rehype-figure-title {
-    margin-top: 1.25rem;
+    margin-top: 1.75rem !important;
     margin-bottom: 1.75rem !important;
   }
 

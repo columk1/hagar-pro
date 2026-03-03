@@ -57,7 +57,7 @@ const decorateSidebarModuleCounts = (completedLessonIds: Set<string>): void => {
     }
 
     const labelText = label.textContent?.trim() ?? ''
-    if (!labelText.startsWith('Module ') && !labelText.startsWith('Final Module')) {
+    if (!labelText.startsWith('Chapter ') && !labelText.startsWith('Final Chapter')) {
       continue
     }
 

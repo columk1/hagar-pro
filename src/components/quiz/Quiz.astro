@@ -7,9 +7,54 @@ type QuizChoice = {
 type QuizQuestion = {
 	id: string;
 	prompt: string;
+	multiline?: boolean;
 	choices: QuizChoice[];
 	correctAnswer: string;
 	explanation?: string;
+};
+
+
+const parseAlphaListPrompt = (prompt: string) => {
+	const lines = prompt.split('\n');
+	const isAlphaItem = (line: string) => /^[A-Z]\.[ \t]+/.test(line.trim());
+
+	let listStart = -1;
+	let listEnd = -1;
+	for (let i = 0; i < lines.length; i += 1) {
+		if (isAlphaItem(lines[i] ?? '')) {
+			listStart = i;
+			break;
+		}
+	}
+
+	if (listStart === -1) {
+		return {
+			intro: prompt.trim(),
+			items: [] as string[],
+			outro: '',
+		};
+	}
+
+	listEnd = listStart;
+	for (let i = listStart; i < lines.length; i += 1) {
+		if (isAlphaItem(lines[i] ?? '')) {
+			listEnd = i + 1;
+			continue;
+		}
+		if ((lines[i] ?? '').trim().length === 0) {
+			continue;
+		}
+		break;
+	}
+
+	const intro = lines.slice(0, listStart).join('\n').trim();
+	const items = lines
+		.slice(listStart, listEnd)
+		.map((line) => line.trim().replace(/^[A-Z]\.[ \t]+/, '').trim())
+		.filter(Boolean);
+	const outro = lines.slice(listEnd).join('\n').trim();
+
+	return { intro, items, outro };
 };
 
 type Props = {
@@ -38,10 +83,35 @@ const resolvedQuizId = (quizId ?? routeId ?? '').trim();
 
 	{
 		questions.map((question, index) => (
-			<fieldset class="quiz-question" data-question-id={question.id}>
+			<fieldset
+				class="quiz-question"
+				data-question-id={question.id}
+				data-multiline={question.multiline ? 'true' : 'false'}
+			>
 					<legend class="legend">
 						<span class="quiz-question-number">Question {index + 1}</span>
-						<span class="quiz-question-prompt">{question.prompt}</span>
+						<span class="quiz-question-prompt">
+							{
+								question.multiline
+									? (() => {
+										const parsed = parseAlphaListPrompt(question.prompt);
+										return (
+											<>
+												{parsed.intro ? <p>{parsed.intro}</p> : null}
+												{parsed.items.length > 0 ? (
+													<ol type="A" class="quiz-prompt-alpha-list">
+														{parsed.items.map((item) => (
+															<li>{item}</li>
+														))}
+													</ol>
+												) : null}
+												{parsed.outro ? <p>{parsed.outro}</p> : null}
+											</>
+										);
+									})()
+									: question.prompt
+							}
+						</span>
 					</legend>
 
 				<div class="quiz-choices">
@@ -282,6 +352,18 @@ const resolvedQuizId = (quizId ?? routeId ?? '').trim();
 			font-size: var(--sl-text-sm);
 			color: var(--sl-color-white);
 			font-weight: 550;
+		}
+
+		.quiz-question[data-multiline='true'] .quiz-question-prompt {
+			white-space: pre-wrap;
+		}
+
+		.quiz-question-prompt p {
+			margin: 0.35rem 0 0;
+		}
+
+		.quiz-question-prompt p:first-child {
+			margin-top: 0.25rem;
 		}
 
 		.quiz-choices {

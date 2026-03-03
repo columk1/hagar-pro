@@ -41,7 +41,7 @@ Canadian paragliding and hang-gliding pilots who wish to fly in controlled airsp
 
 Mapped directly to the HPAC/ACVL HAGAR Study Guide V3.1.
 
-### Module 1: Air Regulations (CARs)
+### Chapter 1: Air Regulations (CARs)
 
 1.1 **Definitions**: Night/Day (civil twilight), Aircraft, Aerodrome.
 1.2 **Exemptions from CARs**: What HG/PG pilots don't need (registration, C of A, logbooks, day VFR instruments, ELTs).
@@ -49,38 +49,38 @@ Mapped directly to the HPAC/ACVL HAGAR Study Guide V3.1.
 1.4 **Right-of-Way Rules**: Converging, overtaking, head-on rules, and right-of-way hierarchy (gliders vs. balloons vs. powered).
 1.5 **HG Specific Operations (CAR 602.29)**: Conditions for flying in Class E, C, and D airspace.
 
-### Module 2: VNC Charts
+### Chapter 2: VNC Charts
 
 2.1 **Chart Projections**: Lambert Conformal Conic vs. Mercator projections.
 2.2 **Chart Symbology**: Reading the legend, identifying aerodromes, radio navigation aids (VORs/NDBs).
 2.3 **Airspace Depictions**: Identifying Class C, D, E, and F on the VNC.
 
-### Module 3: Canadian Airspace
+### Chapter 3: Canadian Airspace
 
 3.1 **Domestic Airspace**: Southern vs. Northern Domestic Airspace (and why magnetic compasses aren't used in the North).
 3.2 **The "Inverted Cake"**: Visualizing Class A, B, C, D, E, and G airspace. Control Zones (CZ) vs. Terminal Control Areas (TCA).
 3.3 **Airways**: VHF/UHF vs. LF/MF airway dimensions.
 3.4 **Special Use Airspace**: Class F (CYA Advisory vs. CYR Restricted) and their specific codes (A, F, H, M, P, S, T).
 
-### Module 4: Map Work
+### Chapter 4: Map Work
 
 4.1 **Coordinates**: Locating features using Latitude and Longitude (Degrees and Minutes).
 4.2 **Magnetic Variation**: True North (TN) vs. Magnetic North (MN), Isogonic lines, Agonic lines. Converting TH to MH and vice versa.
 4.3 **Compass Errors**: Acceleration/Deceleration errors and Turning errors (Lead/Lag).
 
-### Module 5: Flight Operations
+### Chapter 5: Flight Operations
 
 5.1 **Pre-Flight**: NOTAMs and weather.
 5.2 **Wake Turbulence**: Causes, effects, and avoidance of wingtip vortices.
 5.3 **Communications**: VHF frequencies (121.5, 122.75, 123.2, 126.7), Standard Radio Usage, Phonetic Alphabet, declaring emergencies (MAYDAY vs. PAN PAN).
 5.4 **Time & Wildlife**: UTC to Local Time conversions, wildlife protection rules.
 
-### Module 6: Human Factors
+### Chapter 6: Human Factors
 
 6.1 **Physiology**: Hypoxia, hyperventilation, decompression sickness (the bends), middle ear/sinus pain.
 6.2 **Pilot Psychology & Senses**: Substance abuse (alcohol metabolism), over-the-counter medications, vision/scanning techniques (empty-field myopia), disorientation.
 
-### Final Module: Examination
+### Final Chapter: Examination
 
 - **Full Mock Exam**: Timed and graded.
 

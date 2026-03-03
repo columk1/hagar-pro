@@ -1,0 +1,104 @@
+---
+title: 'Lesson 3.5: Magnetic Variation and Navigation'
+description: 'True North vs Magnetic North, isogonic lines, heading conversions, and compass errors for HAGAR prep.'
+---
+
+import MagneticVariationTool from '../../../../components/tools/MagneticVariationTool.astro'
+
+# Lesson 3.5: Magnetic Variation and Navigation
+
+In the old days (before GPS), the magnetic compass was the main instrument used to navigate by pilotage.
+
+Unlike a GPS, the magnetic compass does not point to geographical North (True North), but to Magnetic North. Pilots therefore had to translate headings from magnetic to true, and vice versa.
+
+You still need to be able to do these conversions because they are examinable.
+
+:::note
+A compass is a very poor instrument for a hang glider pilot because a compass is only accurate in steady, level flight.
+
+For example, when an aircraft turns, the compass will lag for a northerly turn and lead for a southerly turn.
+
+When an aircraft accelerates going east-to-west or west-to-east, the compass indicates a northerly turn. When the aircraft decelerates, the compass indicates a southerly turn.
+
+Acceleration and deceleration have no effect on a north-south heading.
+
+In any case, a hang glider is not an aircraft that spends much time in steady level flight.
+:::
+
+## 1. The Earth's Magnetic Field
+
+The Earth is a magnet with a north and south magnetic pole. Lines of force flow between these poles, creating a magnetic field that surrounds the Earth.
+
+A compass needle is influenced by the Earth’s magnetic field and lies parallel to one of these magnetic lines of force.
+
+The magnetic poles are not co-located with the geographical poles (True North). Therefore, the north direction indicated by a compass is different from geographical north.
+
+## 2. Magnetic Variation & Chart Lines
+
+The angle between the direction indicated by the compass and the true geographical direction is called **magnetic variation**. This magnetic variation is indicated on VNCs so users can apply the required corrections.
+
+### Isogonic Lines
+
+Isogonic lines are lines joining points that have the same magnetic variation.
+
+Check the VNC legend to see what isogonic lines look like (dashed curved magenta lines, roughly north to south).
+
+The variation for a specific isogonic line is shown on the VNC along the line (for example, **14°W**).
+
+### Agonic Line
+
+The isogonic line with zero magnetic variation (the only line where True North is the same as Magnetic North) is called the **Agonic line**.
+
+:::tip[Did you know?]
+The magnetic poles are not stationary. The north magnetic pole rotates around the geographical North Pole in an east-to-west circle, completing that circle roughly every 960 years.
+
+As a result, magnetic variation changes continuously. If you compare the same VNC several years apart, magnetic variation may have changed significantly.
+:::
+
+## 3. Converting Headings
+
+If the magnetic pole lies west of the geographical pole from a given point, the compass needle points west of True North, so the variation is **westerly**.
+
+If the compass needle points east of True North, the variation is **easterly**.
+
+To convert magnetic headings to true headings, subtract westerly variation and add easterly variation.
+
+To convert true headings to magnetic headings, do the opposite.
+
+### West Variation
+
+- True Heading = Magnetic Heading - West variation
+- Magnetic Heading = True Heading + West variation
+
+### East Variation
+
+- True Heading = Magnetic Heading + East variation
+- Magnetic Heading = True Heading - East variation
+
+Example: A magnetic heading of 135 near the 13°W isogonic line means a true heading of 135 - 13 = 122° true.
+
+## Magnetic Variation Practice
+
+Use this interactive component to practice entering a true heading and a variation to calculate the correct magnetic heading.
+
+<MagneticVariationTool />
+
+## 4. Specific Compass Errors
+
+As mentioned earlier, compasses are only accurate in steady level flight. Errors occur when the aircraft turns or accelerates.
+
+### Turning Errors
+
+When an aircraft makes a turn from a northerly heading (in the Northern Hemisphere), the compass briefly indicates a turn in the opposite direction (lags).
+
+When an aircraft makes a turn from a southerly heading, the compass indicates a turn in the correct direction but at a much faster rate than actually occurs (leads).
+
+Thus, in a 360° turn, the compass may lead or lag depending on where the aircraft is in the turn.
+
+### Acceleration Errors
+
+When an aircraft accelerates going east-to-west or west-to-east, the compass indicates a northerly turn.
+
+When the aircraft decelerates going east-to-west or west-to-east, the compass indicates a southerly turn.
+
+However, acceleration and deceleration have no effect on a north-south heading.

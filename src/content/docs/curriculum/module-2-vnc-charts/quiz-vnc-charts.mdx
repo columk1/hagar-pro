@@ -1,8 +1,63 @@
 ---
-title: "Quiz: VNC Charts"
-description: "End-of-module quiz for Module 2."
+title: 'Quiz: VNC Charts'
+description: 'End-of-chapter quiz for Chapter 2.'
 ---
+
+import Quiz from '../../../../components/quiz/Quiz.astro'
 
 # Quiz: VNC Charts
 
-Module quiz placeholder. This page is ready to be wired to the Annex A question bank entries tagged `Module 2: VNC Charts`.
+Select one answer per question, then use **Check Answers** to review your selections.
+
+<Quiz
+  questions={[
+    {
+      id: 'm2-q1',
+      multiline: true,
+      prompt:
+        'VFR Navigation Charts (VNC Series) are based on a Lambert Conformal Conic Projection. The following list contains three properties characteristic of this projection and three other properties characteristics of a Mercator projection.\n\nA. Meridians are straight, parallel lines, intersecting the parallel (which are also straight, parallel lines) at right angles\nB. Meridians are converging lines, intersecting the parallels (which are concentric arcs of circles) at right angles\nC. A straight line represents a great circle\nD. A straight line represents a rhumb line\nE. Scale errors are small, hence the scale may be considered constant over a single sheet\nF. Scale varies with latitude and is only constant at the equator, hence distance must be measured on the latitude scale adjacent to the area.\n\nWhich of the following includes the three items which are characteristic of the Lambert Conformal Conic Projection?',
+      correctAnswer: 'd',
+      choices: [
+        { value: 'a', label: 'A-C-F' },
+        { value: 'b', label: 'B-D-F' },
+        { value: 'c', label: 'A-D-E' },
+        { value: 'd', label: 'B-C-E' },
+      ],
+    },
+    {
+      id: 'm2-q2',
+      prompt: 'What does a map scale expressed in 1:1,000,000 mean?',
+      correctAnswer: 'd',
+      choices: [
+        { value: 'a', label: '1 inch = 8 miles' },
+        { value: 'b', label: '1 inch on the map = one millionth of a mile' },
+        { value: 'c', label: '1 mile equals 1,000,000 inches' },
+        { value: 'd', label: '1 inch on the map = 1,000,000 inches on the ground' },
+      ],
+    },
+    {
+      id: 'm2-q3',
+      prompt:
+        'To determine the location and base of low level controlled airspace, you should consult:',
+      correctAnswer: 'd',
+      choices: [
+        { value: 'a', label: 'The VFR Navigation Charts' },
+        { value: 'b', label: 'The VFR Terminal Area Charts' },
+        { value: 'c', label: 'The Designated Airspace Handbook' },
+        { value: 'd', label: 'Any of the above' },
+      ],
+    },
+    {
+      id: 'm2-q4',
+      prompt:
+        'Chrome yellow and black strips painted on pylons or on the roof of a building identifies:',
+      correctAnswer: 'd',
+      choices: [
+        { value: 'a', label: 'An area where explosives are in used' },
+        { value: 'b', label: 'An open pit mine' },
+        { value: 'c', label: 'An artillery range' },
+        { value: 'd', label: 'A fur farm' },
+      ],
+    },
+  ]}
+/>

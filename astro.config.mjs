@@ -32,15 +32,18 @@ export default defineConfig({
           items: [
             { label: 'Overview', slug: 'curriculum' },
             {
-              label: 'Module 1: Air Regulations',
+              label: 'Chapter 1: Air Regulations',
               autogenerate: { directory: 'curriculum/module-1-air-regulations' },
+              collapsed: true,
             },
             {
-              label: 'Module 2: VNC Charts',
+              label: 'Chapter 2: VNC Charts',
               autogenerate: { directory: 'curriculum/module-2-vnc-charts' },
+              collapsed: true,
             },
             {
-              label: 'Module 3: Canadian Airspace & Airspace Regulations',
+              label: 'Chapter 3: Canadian Airspace & Airspace Regulations',
+              collapsed: true,
               items: [
                 { label: 'Overview', slug: 'curriculum/module-3-canadian-airspace' },
                 {
@@ -70,20 +73,24 @@ export default defineConfig({
               ],
             },
             {
-              label: 'Module 4: Map Work',
-              autogenerate: { directory: 'curriculum/module-4-map-work' },
+              label: 'Chapter 4: Flight Operations',
+              autogenerate: { directory: 'curriculum/module-4-flight-operations' },
+              collapsed: true,
             },
             {
-              label: 'Module 5: Flight Operations',
-              autogenerate: { directory: 'curriculum/module-5-flight-operations' },
+              label: 'Chapter 5: Human Factors',
+              autogenerate: { directory: 'curriculum/module-5-human-factors' },
+              collapsed: true,
             },
             {
-              label: 'Module 6: Human Factors',
+              label: 'Chapter 6: Human Factors',
               autogenerate: { directory: 'curriculum/module-6-human-factors' },
+              collapsed: true,
             },
             {
-              label: 'Final Module: Examination',
+              label: 'Final Chapter: Examination',
               autogenerate: { directory: 'curriculum/final-module-examination' },
+              collapsed: true,
             },
             { label: 'Progress Sync', slug: 'progress-sync' },
           ],
