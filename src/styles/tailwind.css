@@ -19,6 +19,26 @@
     --hp-tool-alert-text: color-mix(in srgb, var(--hp-tool-negative) 30%, white);
   }
 
+  .sl-markdown-content ol {
+    list-style: decimal !important;
+    list-style-position: outside;
+    padding-inline-start: 1.5rem;
+  }
+
+  .sl-markdown-content ul {
+    list-style: disc !important;
+    list-style-position: outside;
+    padding-inline-start: 1.5rem;
+  }
+
+  .sl-markdown-content ul ul {
+    list-style-type: circle !important;
+  }
+
+  .sl-markdown-content ol ol {
+    list-style-type: lower-alpha !important;
+  }
+
   .sl-markdown-content figure.rehype-figure-title {
     margin-top: 1.25rem;
     margin-bottom: 1.75rem !important;

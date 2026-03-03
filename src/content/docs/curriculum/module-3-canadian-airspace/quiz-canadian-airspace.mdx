@@ -1,8 +1,85 @@
 ---
-title: "Quiz: Canadian Airspace"
-description: "End-of-module quiz for Module 3."
+title: 'Quiz: Canadian Airspace'
+description: 'End-of-module quiz for Module 3.'
 ---
+
+import Quiz from '../../../../components/quiz/Quiz.astro'
 
 # Quiz: Canadian Airspace
 
-Module quiz placeholder. This page is ready to be wired to the Annex A question bank entries tagged `Module 3: Canadian Airspace`.
+Select one answer per question, then use **Check Answers** to review your selections.
+
+<Quiz
+  questions={[
+    {
+      id: 'm3-q1',
+      prompt: 'To transit VFR through any part of Class C airspace, what must a pilot do?',
+      correctAnswer: 'c',
+      explanation:
+        'Class C VFR transit requires two-way communication and an ATC clearance before entry.',
+      choices: [
+        { value: 'a', label: 'Hold a special Class C endorsement on your HAGAR' },
+        { value: 'b', label: 'Monitor 126.7 MHz only' },
+        { value: 'c', label: 'Advise ATC of intentions and obtain a clearance' },
+        { value: 'd', label: 'Obtain prior written permission from ATC' },
+      ],
+    },
+    {
+      id: 'm3-q2',
+      prompt:
+        'For VFR, what are the minimum flight visibilities outside controlled airspace vs. within control zones?',
+      correctAnswer: 'b',
+      explanation:
+        'The Annex A pair is 1 mile outside controlled airspace (with listed exceptions) and 3 miles within control zones.',
+      choices: [
+        { value: 'a', label: '500 feet, 1 mile' },
+        { value: 'b', label: '1 mile, 3 miles' },
+        { value: 'c', label: '1 mile, 1 mile' },
+        { value: 'd', label: '3 miles, 3 miles' },
+      ],
+    },
+    {
+      id: 'm3-q3',
+      prompt: 'Low Level Airspace is defined as all airspace:',
+      correctAnswer: 'a',
+      explanation: 'Low level airspace is all Canadian Domestic Airspace below 18,000 feet ASL.',
+      choices: [
+        {
+          value: 'a',
+          label:
+            'Within the Canadian Domestic Airspace below 18,000 feet ASL, extending upward from the surface',
+        },
+        { value: 'b', label: 'Within designated airways, extending upward from 700 feet AGL' },
+        { value: 'c', label: 'Within designated airspace, extending upward from 2,200 feet AGL' },
+        { value: 'd', label: 'Within designated airways, extending upward from the surface' },
+      ],
+    },
+    {
+      id: 'm3-q4',
+      prompt:
+        'The airspace around an airport under control tower control to a specific height is called:',
+      correctAnswer: 'c',
+      explanation:
+        'This is a control zone (CZ), not a terminal control area or a generic control area.',
+      choices: [
+        { value: 'a', label: 'A terminal control area' },
+        { value: 'b', label: 'A control area' },
+        { value: 'c', label: 'A control zone' },
+        { value: 'd', label: 'An aerodrome traffic zone' },
+      ],
+    },
+    {
+      id: 'm3-q5',
+      prompt:
+        'The minimum flight visibility for VFR flights outside controlled airspace, aerodrome traffic zones, and special BC areas is:',
+      correctAnswer: 'b',
+      explanation: 'The Annex A value is 1 mile for this case.',
+      choices: [
+        { value: 'a', label: '2,000 feet' },
+        { value: 'b', label: '1 mile' },
+        { value: 'c', label: '2 miles' },
+        { value: 'd', label: '3 miles' },
+      ],
+    },
+  ]}
+/>
