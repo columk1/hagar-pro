@@ -44,12 +44,24 @@ export default defineConfig({
               items: [
                 { label: 'Overview', slug: 'curriculum/module-3-canadian-airspace' },
                 {
-                  label: 'Lesson 3.1: The Structure of Canadian Airspace',
+                  label: 'Lesson 3.1: Canadian Domestic Airspace & Uncontrolled Airspace',
                   slug: 'curriculum/module-3-canadian-airspace/lesson-3-1-domestic-airspace',
                 },
                 {
-                  label: 'Lesson 3.2: Airspace Classes (A to G) & Flight Rules',
+                  label: 'Lesson 3.2: Controlled Airspace (Classes A through E)',
                   slug: 'curriculum/module-3-canadian-airspace/lesson-3-2-airspace-classes-flight-rules',
+                },
+                {
+                  label: 'Lesson 3.3: Special Use Airspace (Class F)',
+                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-3-special-use-airspace-class-f',
+                },
+                {
+                  label: 'Lesson 3.4: Map Work & Locating Features',
+                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-4-map-work-locating-features',
+                },
+                {
+                  label: 'Lesson 3.5: Magnetic Variation and Navigation',
+                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-5-magnetic-variation-navigation',
                 },
                 {
                   label: 'Quiz: Canadian Airspace',
