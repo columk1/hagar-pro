@@ -32,64 +32,58 @@ export default defineConfig({
           items: [
             { label: 'Overview', slug: 'curriculum' },
             {
-              label: 'Chapter 1: Air Regulations',
-              autogenerate: { directory: 'curriculum/module-1-air-regulations' },
+              label: '1. Air Regulations',
+              autogenerate: { directory: 'curriculum/1-air-regulations' },
               collapsed: true,
             },
             {
-              label: 'Chapter 2: VNC Charts',
-              autogenerate: { directory: 'curriculum/module-2-vnc-charts' },
+              label: '2. VNC Charts',
+              autogenerate: { directory: 'curriculum/2-vnc-charts' },
               collapsed: true,
             },
             {
-              label: 'Chapter 3: Canadian Airspace & Airspace Regulations',
+              label: '3. Canadian Airspace & Airspace Regulations',
               collapsed: true,
               items: [
-                { label: 'Overview', slug: 'curriculum/module-3-canadian-airspace' },
                 {
                   label: 'Lesson 3.1: Canadian Domestic Airspace & Uncontrolled Airspace',
-                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-1-domestic-airspace',
+                  slug: 'curriculum/3-canadian-airspace/lesson-3-1-domestic-airspace',
                 },
                 {
                   label: 'Lesson 3.2: Controlled Airspace (Classes A through E)',
-                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-2-airspace-classes-flight-rules',
+                  slug: 'curriculum/3-canadian-airspace/lesson-3-2-airspace-classes-flight-rules',
                 },
                 {
                   label: 'Lesson 3.3: Special Use Airspace (Class F)',
-                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-3-special-use-airspace-class-f',
+                  slug: 'curriculum/3-canadian-airspace/lesson-3-3-special-use-airspace-class-f',
                 },
                 {
                   label: 'Lesson 3.4: Map Work & Locating Features',
-                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-4-map-work-locating-features',
+                  slug: 'curriculum/3-canadian-airspace/lesson-3-4-map-work-locating-features',
                 },
                 {
                   label: 'Lesson 3.5: Magnetic Variation and Navigation',
-                  slug: 'curriculum/module-3-canadian-airspace/lesson-3-5-magnetic-variation-navigation',
+                  slug: 'curriculum/3-canadian-airspace/lesson-3-5-magnetic-variation-navigation',
                 },
                 {
                   label: 'Quiz: Canadian Airspace',
-                  slug: 'curriculum/module-3-canadian-airspace/quiz-canadian-airspace',
+                  slug: 'curriculum/3-canadian-airspace/quiz-canadian-airspace',
                 },
               ],
             },
             {
-              label: 'Chapter 4: Flight Operations',
-              autogenerate: { directory: 'curriculum/module-4-flight-operations' },
+              label: '4. Flight Operations',
+              autogenerate: { directory: 'curriculum/4-flight-operations' },
               collapsed: true,
             },
             {
-              label: 'Chapter 5: Human Factors',
-              autogenerate: { directory: 'curriculum/module-5-human-factors' },
+              label: '5. Human Factors',
+              autogenerate: { directory: 'curriculum/5-human-factors' },
               collapsed: true,
             },
             {
-              label: 'Chapter 6: Human Factors',
-              autogenerate: { directory: 'curriculum/module-6-human-factors' },
-              collapsed: true,
-            },
-            {
-              label: 'Final Chapter: Examination',
-              autogenerate: { directory: 'curriculum/final-module-examination' },
+              label: '6. Practice Exam',
+              autogenerate: { directory: 'curriculum/practice-exam' },
               collapsed: true,
             },
             { label: 'Progress Sync', slug: 'progress-sync' },

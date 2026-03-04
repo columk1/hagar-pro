@@ -5,7 +5,7 @@
     {
       "id": "Q1",
       "questionNumber": 1,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "When operating in accordance with VFR, hang gliders shall be flown",
       "answer": "c",
       "rawAnnexText": "When operating in accordance with VFR, hang gliders shall be flown: a. outside designated airways b. outside control zones c. d. with visual reference to the ground or water only in Class D Airspace",
@@ -17,7 +17,7 @@
     {
       "id": "Q2",
       "questionNumber": 2,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "Except for the purpose of taking off or landing, a hang glider may not be flown at a height of less than ________ over an build-up area, except as otherwise directed by the ATC unit.",
       "answer": "a",
       "rawAnnexText": "Except for the purpose of taking off or landing, a hang glider may not be flown at a height of less than ________ over an build-up area, except as otherwise directed by the ATC unit. a. 1000 feet b. 2000 feet c. 3000 feet d. 500 feet",
@@ -35,7 +35,7 @@
     {
       "id": "Q3",
       "questionNumber": 3,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "When on final approach for landing, the right of way is normally given to",
       "answer": "d",
       "rawAnnexText": "When on final approach for landing, the right of way is normally given to: a. faster aircrafts b. slower aircrafts c. aircraft at a higher altitude d. aircraft at a lower altitude",
@@ -53,7 +53,7 @@
     {
       "id": "Q4",
       "questionNumber": 4,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "Hazardous wake turbulence is produced by",
       "answer": "a",
       "rawAnnexText": "Hazardous wake turbulence is produced by a. all fixed and rotary wing aircraft b. turbo-jet powered aircraft only c. fast moving aeroplanes only, regardless of their weight d. heavy aeroplanes only, regardless of their speed",
@@ -71,7 +71,7 @@
     {
       "id": "Q5",
       "questionNumber": 5,
-      "module": "Chapter 4: Map Work",
+      "section": "Chapter 4: Map Work",
       "question": "Magnetic variation is defined as",
       "answer": "c",
       "rawAnnexText": "Magnetic variation is defined as a. an error in the compass caused by the magnetic field associated with metal in the airplane b. c. d. frame and engine the difference between the magnetic track and the magnetic heading of the airplane the angle between true north and magnetic north at any given point on the earth the difference between true track and magnetic track",
@@ -83,7 +83,7 @@
     {
       "id": "Q6",
       "questionNumber": 6,
-      "module": "Chapter 4: Map Work",
+      "section": "Chapter 4: Map Work",
       "question": "In the northern hemisphere, if your airplane is on a northerly heading and if a turn is made towards the east, the compass reading",
       "answer": "a",
       "rawAnnexText": "In the northern hemisphere, if your airplane is on a northerly heading and if a turn is made towards the east, the compass reading a. b. c. d. will lag or indicate a turn in the opposite direction will lead or indicate a turn in the opposite direction will not lead or lag will be correct, providing the turn has been perfectly co-ordinated",
@@ -95,7 +95,7 @@
     {
       "id": "Q7",
       "questionNumber": 7,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "Pilots should not low fly near farming activities because aircraft",
       "answer": "d",
       "rawAnnexText": "Pilots should not low fly near farming activities because aircraft a. noise frighten livestock b. shadows frighten livestock c. may cause stampeding d. may cause any of the above to occur.",
@@ -113,7 +113,7 @@
     {
       "id": "Q8",
       "questionNumber": 8,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "than Pilots should not overfly reindeer, caribou, moose or musk-oxen at an altitude of less",
       "answer": "c",
       "rawAnnexText": "than Pilots should not overfly reindeer, caribou, moose or musk-oxen at an altitude of less a. 1,000 feet AGL b. 1,500 feet AGL c. 2,000 feet AGL d. 2,500 feet AGL",
@@ -131,7 +131,7 @@
     {
       "id": "Q9",
       "questionNumber": 9,
-      "module": "Chapter 2: VNC Charts",
+      "section": "Chapter 2: VNC Charts",
       "question": "VFR Navigation Charts (VNC Series) are based on a Lambert Conformal Conic Projection. The following list contains three properties characteristic of this projection and three other properties characteristics of a Mercator projection. A. Meridians are straight, parallel lines, intersecting the parallel (which are also straight, parallel lines) at right angles B. Meridians are converging lines, intersecting the parallels (which are concentric arcs of circles) at right angles C. A straight line represents a great circle D. A straight line represents a rhumb line E. Scale errors are small, hence the scale may be considered constant over a single sheet F. Scale varies with latitude and is only constant at the equator, hence distance must be measured on the latitude scale adjacent to the area. Which of the following includes the three items which are characteristic of the Lambert Conformal Conic Projection?",
       "answer": "d",
       "rawAnnexText": "VFR Navigation Charts (VNC Series) are based on a Lambert Conformal Conic Projection. The following list contains three properties characteristic of this projection and three other properties characteristics of a Mercator projection. A. B. C. D. E. F. Meridians are straight, parallel lines, intersecting the parallel (which are also straight, parallel lines) at right angles Meridians are converging lines, intersecting the parallels (which are concentric arcs of circles) at right angles A straight line represents a great circle A straight line represents a rhumb line Scale errors are small, hence the scale may be considered constant over a single sheet Scale varies with latitude and is only constant at the equator, hence distance must be measured on the latitude scale adjacent to the area. Which of the following includes the three items which are characteristic of the Lambert Conformal Conic Projection? a. A-C-F b. B-D-F c. A-D-E d. B-C-E",
@@ -149,7 +149,7 @@
     {
       "id": "Q10",
       "questionNumber": 10,
-      "module": "Chapter 2: VNC Charts",
+      "section": "Chapter 2: VNC Charts",
       "question": "What does a map scale expressed in 1:1,000,000 mean",
       "answer": "d",
       "rawAnnexText": "What does a map scale expressed in 1:1,000,000 mean: a. b. c. d. 1 inch = 8 miles 1 inch on the map = one millionth of a mile 1 mile equals 1,000,000 inches 1 inch on the map = 1,000,000 inches on the ground",
@@ -161,7 +161,7 @@
     {
       "id": "Q11",
       "questionNumber": 11,
-      "module": "Chapter 4: Map Work",
+      "section": "Chapter 4: Map Work",
       "question": "Complete familiarity with the compass rose is essential to navigation. Which of these statements is true?",
       "answer": "c",
       "rawAnnexText": "Complete familiarity with the compass rose is essential to navigation. Which of these statements is true? a. b. c. d. the reciprocal of 267 degrees is 117 degrees the direction NE is 090 degrees to turn right 90 degrees from a heading of 145 degrees would be a turn to 235 degrees the reciprocal of 115 degrees is 225 degrees",
@@ -173,7 +173,7 @@
     {
       "id": "Q12",
       "questionNumber": 12,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "An airport is",
       "answer": "c",
       "rawAnnexText": "An airport is a. a registered aerodrome b. c. d. an aerodrome with a control tower an aerodrome in respect of which a certificate is in force an aerodrome with paved runways",
@@ -185,7 +185,7 @@
     {
       "id": "Q13",
       "questionNumber": 13,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "The effect of alcohol decreases the brain's tolerance to hypoxi",
       "answer": "b",
       "rawAnnexText": "The effect of alcohol decreases the brain's tolerance to hypoxia. This effect a. b. c. d. decreases with an increase in altitude increases with an increase in altitude does not change with altitude may be reduced by drinking coffee",
@@ -197,7 +197,7 @@
     {
       "id": "Q14",
       "questionNumber": 14,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "The specified area associated with a mandatory frequency and within which a pilot is required to contact the ground station and report his intentions normally is",
       "answer": "a",
       "rawAnnexText": "The specified area associated with a mandatory frequency and within which a pilot is required to contact the ground station and report his intentions normally is a. b. c. d. 5 n.m. in radius and extends up to 3000 ft. AGL 10 n.m. in radius and extends up to 3000 ft. AGL 5 n.m. in radius and extends up to 5000 ft. AGL 10 n.m. in radius and extends up to 5000 ft. AGL",
@@ -209,7 +209,7 @@
     {
       "id": "Q15",
       "questionNumber": 15,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "A pilot flying VFR and intending to land at an aerodrome where no mandatory frequency, aerodrome traffic frequency or ground station exists, should broadcast their intentions on",
       "answer": "a",
       "rawAnnexText": "A pilot flying VFR and intending to land at an aerodrome where no mandatory frequency, aerodrome traffic frequency or ground station exists, should broadcast their intentions on a. 123.2 MHz b. 122.8 MHz c. 126.7 MHz d. 121.5 MHz",
@@ -227,7 +227,7 @@
     {
       "id": "Q16",
       "questionNumber": 16,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "To transit VFR through any part of Class C Airspace, pilots must",
       "answer": "c",
       "rawAnnexText": "To transit VFR through any part of Class C Airspace, pilots must a. have a special Class C endorsement to their HAGAR b. monitor 126.7 MHz c. advise ATC of their intentions and obtain a clearance d. obtain prior permission in writing from ATC",
@@ -245,7 +245,7 @@
     {
       "id": "Q17",
       "questionNumber": 17,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "Hazardous wake turbulence caused by aeroplanes in still air",
       "answer": "c",
       "rawAnnexText": "Hazardous wake turbulence caused by aeroplanes in still air a. dissipates immediately b. dissipates rapidly c. may persist for five minutes or more d. persists indefinitely",
@@ -263,7 +263,7 @@
     {
       "id": "Q18",
       "questionNumber": 18,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "An airspace classified as Class F and indicated on an aeronautical chart by the code CYA(S) denotes",
       "answer": "c",
       "rawAnnexText": "An airspace classified as Class F and indicated on an aeronautical chart by the code CYA(S) denotes a. b. c. a danger area with artillery activity a restricted area with surveillance activity an alert area with soaring activity d. an airspace reservation",
@@ -275,7 +275,7 @@
     {
       "id": "Q19",
       "questionNumber": 19,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "What should a pilot broadcast to indicate serious or imminent danger, and to request immediate assistance?",
       "answer": "a",
       "rawAnnexText": "What should a pilot broadcast to indicate serious or imminent danger, and to request immediate assistance? a. MAYDAY, MAYDAY, MAYDAY b. PAN PAN, PAN PAN, PAN PAN c. SECUTITY, SECURITY, SECURITY d. EMERGENCY, EMERGENCY, EMERGENCY",
@@ -293,7 +293,7 @@
     {
       "id": "Q20",
       "questionNumber": 20,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "An Air Traffic Control \"Instruction\"",
       "answer": "b",
       "rawAnnexText": "a. b. c. d.",
@@ -311,7 +311,7 @@
     {
       "id": "Q21",
       "questionNumber": 21,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "An Air Traffic Control \u201cInstruction\u201d is the same as an Air traffic Control \u201cClearance\u201d must be complied with when received by the pilot to whom it is directed unless he considers it unsafe to do so must be \u201cread back\u201d in full to the controller and confirmed before coming effective is in effect advice provided by ATC and does not require acceptance or formal acknowledgement by the pilot concerned \u201cDaylight\u201d in Canada, at any place where the sun rises and sets daily, may be considered to be that period of time",
       "answer": "c",
       "rawAnnexText": "An Air Traffic Control \u201cInstruction\u201d is the same as an Air traffic Control \u201cClearance\u201d must be complied with when received by the pilot to whom it is directed unless he considers it unsafe to do so must be \u201cread back\u201d in full to the controller and confirmed before coming effective is in effect advice provided by ATC and does not require acceptance or formal acknowledgement by the pilot concerned \u201cDaylight\u201d in Canada, at any place where the sun rises and sets daily, may be considered to be that period of time a. between sunrise and sunset b. c. d. commencing one hour before sunrise and ending one hour after sunset commencing one-half hour before sunrise and ending one-half hour after sunset when the center of the sun\u2019s disc is not more than 12 degrees below the horizon when viewed from the surface.",
@@ -323,7 +323,7 @@
     {
       "id": "Q22",
       "questionNumber": 22,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "The minimum flight visibility for airplanes under VFR outside controlled airspace, aerodrome traffic zones and special areas of British Columbia is ______; within control zones, the minimum visibility is ______. The missing figures are",
       "answer": "b",
       "rawAnnexText": "The minimum flight visibility for airplanes under VFR outside controlled airspace, aerodrome traffic zones and special areas of British Columbia is ______; within control zones, the minimum visibility is ______. The missing figures are: a. 500 feet, 1 mile b. 1 mile, 3 miles c. 1 mile, 1 mile d. 3 miles, 3 miles",
@@ -341,7 +341,7 @@
     {
       "id": "Q23",
       "questionNumber": 23,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "The emergency VHF frequency is",
       "answer": "c",
       "rawAnnexText": "The emergency VHF frequency is a. 122.1 MHz b. 118.3 MHz c. 121.5 MHz d. 123.2 MHz",
@@ -359,7 +359,7 @@
     {
       "id": "Q24",
       "questionNumber": 24,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "Daylight in Canada, at any place where the sun rises and sets daily, is defined as that period of time",
       "answer": "c",
       "rawAnnexText": "Daylight in Canada, at any place where the sun rises and sets daily, is defined as that period of time a. between sunrise and sunset b. c. d. commencing one half hour before sunrise and ending one half hour after sunset beginning at morning civil twilight and ending at evening civil twilight when the centre of the sun\u2019s disk is not more than 12 degrees below the horizon when viewed from the surface",
@@ -371,7 +371,7 @@
     {
       "id": "Q25",
       "questionNumber": 25,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "At high altitude, a pilot is subject to hypoxi",
       "answer": "d",
       "rawAnnexText": "At high altitude, a pilot is subject to hypoxia. Hypoxia is: a. b. d. excess carbon monoxide in the hemoglobin imbalance of oxygen and carbon dioxide in the body system c. spatial disorientation lack of sufficient oxygen in the body cells",
@@ -383,7 +383,7 @@
     {
       "id": "Q26",
       "questionNumber": 26,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "To prevent hypoxia, a pilot should",
       "answer": "a",
       "rawAnnexText": "To prevent hypoxia, a pilot should a. b. c. use oxygen above 5,000 feet ASL during daytime breathe into a paper bag use oxygen above 15,000 feet ASL during daytime d. breathe deeply",
@@ -395,7 +395,7 @@
     {
       "id": "Q27",
       "questionNumber": 27,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "No aircraft shall be flown in any aerobatic flight",
       "answer": "d",
       "rawAnnexText": "No aircraft shall be flown in any aerobatic flight a. at an altitude below 2,000 feet AGL b. in uncontrolled airspace c. unless the flight has been authorized by the minister d. over any urban or other populous area",
@@ -413,7 +413,7 @@
     {
       "id": "Q28",
       "questionNumber": 28,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "One alcoholic drink taken at 5000 feet as compared to the same drink taken at sea level",
       "answer": "b",
       "rawAnnexText": "One alcoholic drink taken at 5000 feet as compared to the same drink taken at sea level a. has a lesser effect b. has a greater effect c. has no appreciable difference in effect d. increases the chance of coriolis effect",
@@ -431,7 +431,7 @@
     {
       "id": "Q29",
       "questionNumber": 29,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "Which of the following statements pertaining to the use of alcohol is true?",
       "answer": "a",
       "rawAnnexText": "Which of the following statements pertaining to the use of alcohol is true? a. b. c. d. relatively small amount of alcohol significantly decrease a pilot\u2019s tolerance to hypoxia Small amount of alcohol will not affect a pilot\u2019s judgment The effects of alcohol are constant regardless of altitude Coffee accelerates the body\u2019s ability to recover from the effects of alcohol",
@@ -443,7 +443,7 @@
     {
       "id": "Q30",
       "questionNumber": 30,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "Select the statement that best describe the effects of fatigue.",
       "answer": "b",
       "rawAnnexText": "Select the statement that best describe the effects of fatigue. a. b. c. d. Financial or family problems do not influence fatigue Fatigue slows reaction time and contributes to errors. A fatigues person recuperates more quickly as altitude is gained A fatigue person must have food immediately before and after a flight",
@@ -455,7 +455,7 @@
     {
       "id": "Q31",
       "questionNumber": 31,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "After any underwater activity where compressed air is used for respiration, it is recommended that within 24 hours following such activity a pilot should",
       "answer": "a",
       "rawAnnexText": "After any underwater activity where compressed air is used for respiration, it is recommended that within 24 hours following such activity a pilot should a. not fly b. c. d. restrict flights to altitude of less than 7000 feet restricts rate of climbs and descent to less than 300 feet per minutes restricts flight to passenger status only.",
@@ -467,7 +467,7 @@
     {
       "id": "Q32",
       "questionNumber": 32,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "Many common drugs such as cold tablets, cough mixtures, antihistamines and other over- the-counter remedies may seriously impair the judgment and co-ordination needed while flying. The safest rule is to",
       "answer": "d",
       "rawAnnexText": "Many common drugs such as cold tablets, cough mixtures, antihistamines and other over- the-counter remedies may seriously impair the judgment and co-ordination needed while flying. The safest rule is to a. read the manufacturer\u2019s warning to ensure that you are aware of possible reactions to b. c. d. such drugs allow at least 8 hours between taking any medicine or drugs and flying allow at least 48 hours after commencing medication to check for possible side effects take no medicine while flying except on the advice of your aviation medical examiner",
@@ -479,7 +479,7 @@
     {
       "id": "Q33",
       "questionNumber": 33,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "A condition in which there is a lowering of the temperature of the body\u2019s core is called",
       "answer": "d",
       "rawAnnexText": "A condition in which there is a lowering of the temperature of the body\u2019s core is called a. hyperventilation b. hypoglycemia c. coriolis effect d. hypothermia",
@@ -497,7 +497,7 @@
     {
       "id": "Q34",
       "questionNumber": 34,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "1045 Mountain Daylight Time is",
       "answer": "b",
       "rawAnnexText": "1045 Mountain Daylight Time is a. 1745 Z b. 1645 Z c. 0245 Z d. 0345 Z",
@@ -515,7 +515,7 @@
     {
       "id": "Q35",
       "questionNumber": 35,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "Normally a NOTAM is",
       "answer": "b",
       "rawAnnexText": "Normally a NOTAM is a. issued at least 48 hours before becoming effective b. distributed by telecommunication systems c. distributed by first-class mail d. issued only to high-level airspace users",
@@ -533,7 +533,7 @@
     {
       "id": "Q36",
       "questionNumber": 36,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "A responsibility of flight service specialists is to",
       "answer": "b",
       "rawAnnexText": "A responsibility of flight service specialists is to a. control air traffic b. provide flight planning services c. provide air traffic services in uncontrolled airspace only d. monitor pilot and aircraft licenses",
@@ -551,7 +551,7 @@
     {
       "id": "Q37",
       "questionNumber": 37,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "Within what distance from the center of an uncontrolled airport are hang gliders flight prohibited, unless prior permission has been obtained?",
       "answer": "a",
       "rawAnnexText": "Within what distance from the center of an uncontrolled airport are hang gliders flight prohibited, unless prior permission has been obtained? a. 5 nautical miles b. 7 nautical miles c. 10 nautical miles d. 15 nautical miles",
@@ -569,7 +569,7 @@
     {
       "id": "Q38",
       "questionNumber": 38,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "Ear pain, caused by a rapid decrease in altitude, may be relieved by",
       "answer": "a",
       "rawAnnexText": "Ear pain, caused by a rapid decrease in altitude, may be relieved by a. swallowing or yawning b. pulling on the ear lobes c. reducing breathing rate d. inducing extra \u201cG\u201d force",
@@ -587,7 +587,7 @@
     {
       "id": "Q39",
       "questionNumber": 39,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "Controlled Airspace means all airspace of defined dimensions within which",
       "answer": "a",
       "rawAnnexText": "Controlled Airspace means all airspace of defined dimensions within which a. b. c. d. an air traffic control service is provided security regulations are in force special VFR flight only is permitted control zone regulations are in force",
@@ -599,7 +599,7 @@
     {
       "id": "Q40",
       "questionNumber": 40,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "The airspace around an airport under control tower control to a specific height is known as",
       "answer": "c",
       "rawAnnexText": "The airspace around an airport under control tower control to a specific height is known as a. a terminal control area b. a control area c. a control zone d. an aerodrome traffic zone",
@@ -617,7 +617,7 @@
     {
       "id": "Q41",
       "questionNumber": 41,
-      "module": "Chapter 2: VNC Charts",
+      "section": "Chapter 2: VNC Charts",
       "question": "To determine the location and base of low level controlled airspace, you should consult",
       "answer": "d",
       "rawAnnexText": "To determine the location and base of low level controlled airspace, you should consult a. the VFR Navigation Charts b. the VFR Terminal Area Charts c. the Designated Airspace Handbook d. Any of the above",
@@ -635,7 +635,7 @@
     {
       "id": "Q42",
       "questionNumber": 42,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "Low Level Airspace is defined as all airspace",
       "answer": "a",
       "rawAnnexText": "Low Level Airspace is defined as all airspace a. b. c. d. within the Canadian Domestic Airspace below 18,000 feet ASL extending upwards from the surface of the earth within designated airways extending upwards from 700 feet AGL within designated airspace extending upwards from 2,200 feet AGL within designated airways",
@@ -647,7 +647,7 @@
     {
       "id": "Q43",
       "questionNumber": 43,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "Which statement is correct with regard to \u201crestricted areas\u201d?",
       "answer": "d",
       "rawAnnexText": "Which statement is correct with regard to \u201crestricted areas\u201d? a. Transient aircraft entering active restricted areas shall be equipped with two-way radio b. c. communication Only military aircraft may enter restricted area depicted on aeronautical charts Aircrafts may enter restricted areas provided pilots adhere to entry times specified in the flight plan d. No aircraft may enter active restricted areas except in accordance with permission issued by the controlling authority",
@@ -659,7 +659,7 @@
     {
       "id": "Q44",
       "questionNumber": 44,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "The pilot of a hang glider shall make initial radio contact with a control tower in Class C airspace",
       "answer": "c",
       "rawAnnexText": "The pilot of a hang glider shall make initial radio contact with a control tower in Class C airspace a. b. c. d. immediately after entering the control zone 10 NM outside the control zone prior to entering the control zone immediately prior to joining the circuit",
@@ -671,7 +671,7 @@
     {
       "id": "Q45",
       "questionNumber": 45,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "Where a forest fire area has been designated, no aircraft shall be operated below",
       "answer": "d",
       "rawAnnexText": "Where a forest fire area has been designated, no aircraft shall be operated below a. b. c. d. 1,000 feet AGL within 3 NM of this area 2,000 feet AGL within 3 NM of this area 2,000 feet AGL within 5 NM of this area 3,000 feet AGL within 5 NM of this area",
@@ -683,7 +683,7 @@
     {
       "id": "Q46",
       "questionNumber": 46,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "Hang gliders shall be flown",
       "answer": "d",
       "rawAnnexText": "Hang gliders shall be flown a. clear of designated airways b. c. d. clear of terminal control areas with visual reference to the ground or water in compliance with all of the above",
@@ -695,7 +695,7 @@
     {
       "id": "Q47",
       "questionNumber": 47,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "When in VFR flight within a control zone, a pilot shall remain clear of cloud by at least",
       "answer": "a",
       "rawAnnexText": "When in VFR flight within a control zone, a pilot shall remain clear of cloud by at least a. b. c. d. 500 feet vertically and 1 mile horizontally 500 feet vertically and 2,000 feet horizontally 1,000 feet vertically and 1 mile horizontally 1,000 feet vertically and 3 miles horizontally",
@@ -707,7 +707,7 @@
     {
       "id": "Q48",
       "questionNumber": 48,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "The minimum flight visibility for aircraft in VFR flights outside controlled airspace, Aerodrome Traffic Zones and special areas of British Columbia is",
       "answer": "b",
       "rawAnnexText": "The minimum flight visibility for aircraft in VFR flights outside controlled airspace, Aerodrome Traffic Zones and special areas of British Columbia is a. 2,000 feet b. 1 mile c. 2 miles d. 3 miles",
@@ -725,7 +725,7 @@
     {
       "id": "Q49",
       "questionNumber": 49,
-      "module": "Chapter 3: Canadian Airspace",
+      "section": "Chapter 3: Canadian Airspace",
       "question": "An aircraft is in level VFR flight above 3,000 feet AGL in Class E airspace. As the track is 315 degrees, the aircraft shall be operated at an",
       "answer": "b",
       "rawAnnexText": "An aircraft is in level VFR flight above 3,000 feet AGL in Class E airspace. As the track is 315 degrees, the aircraft shall be operated at an a. even thousand foot altitude b. d. even thousand plus 500 foot altitude c. odd thousand foot altitude odd thousand plus 500 foot altitude",
@@ -737,7 +737,7 @@
     {
       "id": "Q50",
       "questionNumber": 50,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "Before setting out on any VFR flight, a pilot is required to",
       "answer": "d",
       "rawAnnexText": "Before setting out on any VFR flight, a pilot is required to a. file a flight notification b. obtain an ATC clearance c. d. read all weather reports received from stations within 100 miles of destination familiarize himself with all available information appropriate to the flight",
@@ -749,7 +749,7 @@
     {
       "id": "Q51",
       "questionNumber": 51,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "No person shall drop anything from an aircraft in flight",
       "answer": "d",
       "rawAnnexText": "No person shall drop anything from an aircraft in flight a. b. c. d. unless it is attached to a parachute unless approval has been granted by the minister of Transport unless over an authorized jettison area which will create a hazard to person or property",
@@ -761,7 +761,7 @@
     {
       "id": "Q52",
       "questionNumber": 52,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "When two hang gliders are converging at approximately the same altitude",
       "answer": "d",
       "rawAnnexText": "When two hang gliders are converging at approximately the same altitude a. b. c. d. both hang glider will alter heading to the left the hang glider on the right will avoid the other by descending the hang glider that has the other on its left shall give way the hang glider that has the other on its right shall give way",
@@ -773,7 +773,7 @@
     {
       "id": "Q53",
       "questionNumber": 53,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "An aircraft overtaking another aircraft shall keep out of the way by",
       "answer": "a",
       "rawAnnexText": "An aircraft overtaking another aircraft shall keep out of the way by a. altering heading to the right b. descending c. climbing d. altering heading to the left",
@@ -791,7 +791,7 @@
     {
       "id": "Q54",
       "questionNumber": 54,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "When two aircraft are approaching head-on and there is a danger of collision, each shall",
       "answer": "c",
       "rawAnnexText": "When two aircraft are approaching head-on and there is a danger of collision, each shall a. b. c. wait for the opposite to climb or descend and do the opposite alter heading to the left alter heading to the right d. reduce speed",
@@ -803,7 +803,7 @@
     {
       "id": "Q55",
       "questionNumber": 55,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "When two aircraft are converging in flight",
       "answer": "c",
       "rawAnnexText": "When two aircraft are converging in flight a. b. c. d. helicopters shall give way to ultra-light aeroplanes an aeroplane towing a banner shall give way to ultra-light aeroplanes ultra-light aeroplanes shall give way to hang gliders balloons shall give way to hang gliders",
@@ -815,7 +815,7 @@
     {
       "id": "Q56",
       "questionNumber": 56,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "Except for the purpose of taking off or landing, an aircraft shall not be flown over an aerodrome at a height of less than",
       "answer": "a",
       "rawAnnexText": "Except for the purpose of taking off or landing, an aircraft shall not be flown over an aerodrome at a height of less than a. 2,000 feet AGL b. 2,000 feet ASL c. 1,000 feet AGL d. 1,000 feet ASL",
@@ -833,7 +833,7 @@
     {
       "id": "Q57",
       "questionNumber": 57,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "A pilot may, over non-populous areas or over open water, fly an aircraft at a lower attitude than _____ above the highest obstacle provided the flight is conducted without creating a hazard to persons or property and the aircraft is not flown at a distance less than _____ from any person, vessel, vehicle or structure. The correct entries to complete the blank spaces are respectively",
       "answer": "b",
       "rawAnnexText": "A pilot may, over non-populous areas or over open water, fly an aircraft at a lower attitude than _____ above the highest obstacle provided the flight is conducted without creating a hazard to persons or property and the aircraft is not flown at a distance less than _____ from any person, vessel, vehicle or structure. The correct entries to complete the blank spaces are respectively: a. 500 feet, 200 feet b. 500 feet, 500 feet c. 1,000 feet, 2,000 feet d. 1,000 feet, 1 mile",
@@ -851,7 +851,7 @@
     {
       "id": "Q58",
       "questionNumber": 58,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "Except as provided by Air regulations, unless taking off, landing or attempting to land, no person shall fly an aircraft over the built-up area of any city, town or other settlement or over any open air assembly of persons except at an altitude that will permit, in the event of an emergency, the landing of the aircraft without creating a hazard to persons or property on the surface of the earth, and such altitude shall not in any case be less than _____ above the highest obstacle within a radius of ______ from the aircraft. The correct entries to complete the blank space are respectively",
       "answer": "b",
       "rawAnnexText": "Except as provided by Air regulations, unless taking off, landing or attempting to land, no person shall fly an aircraft over the built-up area of any city, town or other settlement or over any open air assembly of persons except at an altitude that will permit, in the event of an emergency, the landing of the aircraft without creating a hazard to persons or property on the surface of the earth, and such altitude shall not in any case be less than _____ above the highest obstacle within a radius of ______ from the aircraft. The correct entries to complete the blank space are respectively: a. 500 feet, 500 feet b. 1,000 feet, 2,000 feet c. 2,000 feet, 1,000 feet d. 3,000 feet, 1 mile",
@@ -869,7 +869,7 @@
     {
       "id": "Q59",
       "questionNumber": 59,
-      "module": "Chapter 1: Air Regulations",
+      "section": "Chapter 1: Air Regulations",
       "question": "Formation flying is permitted only if such flights",
       "answer": "a",
       "rawAnnexText": "Formation flying is permitted only if such flights a. b. c. d. have been pre-arranged by the pilots in command are conducted above 3,000 feet AGL are conducted by commercial pilots are led by a pilot who has previous experience with formation flying",
@@ -881,7 +881,7 @@
     {
       "id": "Q60",
       "questionNumber": 60,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "No person shall fly a hang glider for more than _____ at an altitude between 10,000 and 13,000 feet ASL unless an oxygen mask and a supply of oxygen is readily available to the pilot. The correct entry to complete the blank space is",
       "answer": "b",
       "rawAnnexText": "No person shall fly a hang glider for more than _____ at an altitude between 10,000 and 13,000 feet ASL unless an oxygen mask and a supply of oxygen is readily available to the pilot. The correct entry to complete the blank space is: a. 15 minutes b. 30 minutes c. 1 hour d. 2 hour",
@@ -899,7 +899,7 @@
     {
       "id": "Q61",
       "questionNumber": 61,
-      "module": "Chapter 6: Human Factors",
+      "section": "Chapter 6: Human Factors",
       "question": "Unless oxygen and oxygen masks are used, no person shall fly an aircraft above",
       "answer": "a",
       "rawAnnexText": "Unless oxygen and oxygen masks are used, no person shall fly an aircraft above a. 13,000 feet ASL b. 12,500 feet ASL c. 10,000 feet ASL d. 9,500 feet ASL",
@@ -917,7 +917,7 @@
     {
       "id": "Q62",
       "questionNumber": 62,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "At uncontrolled aerodromes where no ground stations exists, the Aerodrome Traffic frequency (ATF) is usually designated as",
       "answer": "c",
       "rawAnnexText": "At uncontrolled aerodromes where no ground stations exists, the Aerodrome Traffic frequency (ATF) is usually designated as a. 121.5 MHz b. 122.2 MHz c. 123.2 MHz d. 126.7 MHz",
@@ -935,7 +935,7 @@
     {
       "id": "Q63",
       "questionNumber": 63,
-      "module": "Chapter 5: Flight Operations",
+      "section": "Chapter 5: Flight Operations",
       "question": "Which statement most completely describes the movement of wing tip vortices?",
       "answer": "d",
       "rawAnnexText": "a. b. c. d.",
@@ -953,7 +953,7 @@
     {
       "id": "Q64",
       "questionNumber": 64,
-      "module": "Chapter 2: VNC Charts",
+      "section": "Chapter 2: VNC Charts",
       "question": "Chrome yellow and black strips painted on pylons or on the roof of a building identifies",
       "answer": "d",
       "rawAnnexText": "Which statement most completely describes the movement of wing tip vortices? Vortices normally settle below and behind the generating aircraft With a light crosswind, one vortex can remain stationary over the ground for some time Lateral movement of vortices may place a vortex core over a parallel runway Statement (a), (b) and (c) Chrome yellow and black strips painted on pylons or on the roof of a building identifies a. an area where explosives are in used b. an open pit mine c. an artillery range d. a fur farm",

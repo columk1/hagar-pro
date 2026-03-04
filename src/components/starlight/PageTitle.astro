@@ -22,18 +22,18 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 					Not completed
 				</p>
 			</div>
-			<div class="module-progress-circle" data-module-progress-circle>
-				<svg class="module-progress-svg" viewBox="0 0 36 36" aria-hidden="true">
-					<circle class="module-progress-track" cx="18" cy="18" r="15.5"></circle>
+			<div class="section-progress-circle" data-section-progress-circle>
+				<svg class="section-progress-svg" viewBox="0 0 36 36" aria-hidden="true">
+					<circle class="section-progress-track" cx="18" cy="18" r="15.5"></circle>
 					<circle
-						class="module-progress-fill"
-						data-module-progress-fill
+						class="section-progress-fill"
+						data-section-progress-fill
 						cx="18"
 						cy="18"
 						r="15.5"
 					></circle>
 				</svg>
-				<p class="module-progress-text" data-module-progress-text>0/0</p>
+				<p class="section-progress-text" data-section-progress-text>0/0</p>
 			</div>
 		</div>
 	)
@@ -98,7 +98,7 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 			color: #6ee7a8;
 		}
 
-		.module-progress-circle {
+		.section-progress-circle {
 			position: relative;
 			width: 3rem;
 			height: 3rem;
@@ -107,23 +107,23 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 			flex-shrink: 0;
 		}
 
-		.module-progress-svg {
+		.section-progress-svg {
 			width: 100%;
 			height: 100%;
 			transform: rotate(-90deg);
 		}
 
-		.module-progress-track,
-		.module-progress-fill {
+		.section-progress-track,
+		.section-progress-fill {
 			fill: none;
 			stroke-width: 3.25;
 		}
 
-		.module-progress-track {
+		.section-progress-track {
 			stroke: var(--sl-color-gray-5);
 		}
 
-		.module-progress-fill {
+		.section-progress-fill {
 			stroke: #6ee7a8;
 			stroke-linecap: round;
 			stroke-dasharray: 97.39;
@@ -131,7 +131,7 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 			transition: stroke-dashoffset 220ms ease;
 		}
 
-		.module-progress-text {
+		.section-progress-text {
 			position: absolute;
 			margin: 0;
 			font-size: 0.58rem;
@@ -146,7 +146,7 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 			font-weight: 700;
 		}
 
-		.module-progress-count {
+		.section-progress-count {
 			display: inline-block;
 			margin-left: 0.55rem;
 			padding: 0.05rem 0.35rem;
