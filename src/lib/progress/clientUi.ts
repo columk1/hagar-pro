@@ -59,7 +59,8 @@ const decorateSidebarLessons = (completedLessonIds: Set<string>): void => {
     }
 
     const isComplete = completedLessonIds.has(contentId)
-    indicator.textContent = isComplete ? `${CHECKMARK}` : ''
+    // TODO: Causes layout shift in sidebar on navigation - re-implement or remove
+    // indicator.textContent = isComplete ? `${CHECKMARK}` : ''
     link.dataset.lessonComplete = isComplete ? 'true' : 'false'
   }
 }
