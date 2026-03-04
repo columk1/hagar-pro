@@ -352,6 +352,8 @@ const resolvedQuizId = (quizId ?? routeId ?? '').trim();
 			font-size: var(--sl-text-sm);
 			color: var(--sl-color-white);
 			font-weight: 550;
+			/* Difficult to read so much bold text, revisit after any change */
+			letter-spacing: 0.01em; 
 		}
 
 		.quiz-question[data-multiline='true'] .quiz-question-prompt {
