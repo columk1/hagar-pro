@@ -66,7 +66,7 @@ const decorateSidebarSectionCounts = (completedLessonIds: Set<string>): void => 
       continue
     }
 
-    const lessonLinks = detail.querySelectorAll<HTMLAnchorElement>('a[href*="/lesson-"]')
+    const lessonLinks = detail.querySelectorAll<HTMLAnchorElement>('a[href^="/curriculum/"]')
     const lessonIds = Array.from(lessonLinks)
       .map((link) => contentIdFromHref(link.getAttribute('href') ?? ''))
       .filter(isLessonId)
@@ -104,7 +104,7 @@ const getSectionProgress = (
   }
 
   const sectionLessonLinks = document.querySelectorAll<HTMLAnchorElement>(
-    `nav[aria-label="Main"] a[href^="/${sectionId}/lesson-"]`,
+    `nav[aria-label="Main"] a[href^="/${sectionId}/"]`,
   )
 
   const sectionLessonIds = Array.from(sectionLessonLinks)

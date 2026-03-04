@@ -1,4 +1,4 @@
-const LESSON_ID_PATTERN = /^curriculum\/[^/]+\/lesson-[^/]+$/
+const LESSON_ID_PATTERN = /^curriculum\/[^/]+\/(?!index$)(?!quiz-)[^/]+$/
 
 export const canonicalizePathToContentId = (pathname: string): string => {
   const withoutQuery = pathname.split('?')[0]?.split('#')[0] ?? ''
