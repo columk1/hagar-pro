@@ -10,6 +10,25 @@ const CHECKMARK = '✓'
 const SECTION_RING_CIRCUMFERENCE = 97.39
 let stopProgressListener: (() => void) | null = null
 
+const applyProgressCircle = (
+  parent: ParentNode,
+  fillSelector: string,
+  textSelector: string,
+  completed: number,
+  total: number,
+): void => {
+  const fill = parent.querySelector<SVGCircleElement>(fillSelector)
+  const text = parent.querySelector<HTMLElement>(textSelector)
+  if (!fill || !text) {
+    return
+  }
+
+  const ratio = total > 0 ? completed / total : 0
+  const dashOffset = SECTION_RING_CIRCUMFERENCE * (1 - ratio)
+  fill.style.strokeDashoffset = dashOffset.toFixed(2)
+  text.textContent = `${completed}/${total}`
+}
+
 const contentIdFromHref = (href: string): string => {
   try {
     const url = new URL(href, window.location.origin)
@@ -94,28 +113,47 @@ const renderSidebarProgress = (): void => {
   decorateSidebarSectionCounts(completedLessonIds)
 }
 
-const getSectionProgress = (
-  lessonId: string,
-  completedLessonIds: Set<string>,
-): { completed: number; total: number } => {
-  const sectionId = getSectionIdFromLessonId(lessonId)
-  if (!sectionId) {
-    return { completed: 0, total: 0 }
+const getSectionLessonIds = (sectionId: string): string[] => {
+  const normalizedSectionId = sectionId.trim()
+  if (!normalizedSectionId) {
+    return []
   }
 
   const sectionLessonLinks = document.querySelectorAll<HTMLAnchorElement>(
-    `nav[aria-label="Main"] a[href^="/${sectionId}/"]`,
+    `nav[aria-label="Main"] a[href^="/${normalizedSectionId}/"]`,
   )
 
   const sectionLessonIds = Array.from(sectionLessonLinks)
     .map((link) => contentIdFromHref(link.getAttribute('href') ?? ''))
     .filter(isLessonId)
 
-  const uniqueLessonIds = Array.from(new Set(sectionLessonIds))
-  const total = uniqueLessonIds.length
-  const completed = uniqueLessonIds.filter((id) => completedLessonIds.has(id)).length
+  return Array.from(new Set(sectionLessonIds))
+}
+
+const getSectionProgress = (
+  sectionId: string,
+  completedLessonIds: Set<string>,
+): { completed: number; total: number } => {
+  const sectionLessonIds = getSectionLessonIds(sectionId)
+  const total = sectionLessonIds.length
+  const completed = sectionLessonIds.filter((id) => completedLessonIds.has(id)).length
 
   return { completed, total }
+}
+
+const getSectionFirstUncompletedHref = (
+  sectionId: string,
+  completedLessonIds: Set<string>,
+): string | null => {
+  const sectionLessonIds = getSectionLessonIds(sectionId)
+  if (sectionLessonIds.length === 0) {
+    return null
+  }
+
+  const firstUncompletedLessonId =
+    sectionLessonIds.find((lessonId) => !completedLessonIds.has(lessonId)) ?? sectionLessonIds[0]
+
+  return `/${firstUncompletedLessonId}/`
 }
 
 const renderSectionProgress = (
@@ -123,18 +161,43 @@ const renderSectionProgress = (
   lessonId: string,
   completedLessonIds: Set<string>,
 ): void => {
-  const fill = card.querySelector<SVGCircleElement>('[data-section-progress-fill]')
-  const text = card.querySelector<HTMLElement>('[data-section-progress-text]')
-  if (!fill || !text) {
+  const sectionId = getSectionIdFromLessonId(lessonId)
+  if (!sectionId) {
     return
   }
 
-  const { completed, total } = getSectionProgress(lessonId, completedLessonIds)
-  const ratio = total > 0 ? completed / total : 0
-  const dashOffset = SECTION_RING_CIRCUMFERENCE * (1 - ratio)
+  const { completed, total } = getSectionProgress(sectionId, completedLessonIds)
+  applyProgressCircle(
+    card,
+    '[data-section-progress-fill]',
+    '[data-section-progress-text]',
+    completed,
+    total,
+  )
+}
 
-  fill.style.strokeDashoffset = dashOffset.toFixed(2)
-  text.textContent = `${completed}/${total}`
+const renderHomeSectionProgress = (completedLessonIds: Set<string>): void => {
+  const sectionItems = document.querySelectorAll<HTMLElement>('[data-section-progress-item]')
+
+  for (const item of sectionItems) {
+    const sectionId = item.dataset.sectionId?.trim() ?? ''
+    const { completed, total } = getSectionProgress(sectionId, completedLessonIds)
+    const titleLink = item.querySelector<HTMLAnchorElement>('[data-section-progress-link]')
+    const firstUncompletedHref = getSectionFirstUncompletedHref(sectionId, completedLessonIds)
+    if (titleLink && firstUncompletedHref) {
+      titleLink.href = firstUncompletedHref
+    }
+
+    applyProgressCircle(
+      item,
+      '[data-section-progress-fill]',
+      '[data-section-progress-text]',
+      completed,
+      total,
+    )
+
+    item.dataset.complete = total > 0 && completed === total ? 'true' : 'false'
+  }
 }
 
 const renderLessonCard = (
@@ -182,6 +245,7 @@ export const initProgressUi = (lessonId: string | null): void => {
   }
 
   renderSidebarProgress()
+  renderHomeSectionProgress(new Set($progress.get().completedLessons))
 
   stopProgressListener = $progress.listen((progressState) => {
     if (isLessonPage && card && actionButton && lessonId) {
@@ -189,5 +253,6 @@ export const initProgressUi = (lessonId: string | null): void => {
     }
 
     renderSidebarProgress()
+    renderHomeSectionProgress(new Set(progressState.completedLessons))
   })
 }

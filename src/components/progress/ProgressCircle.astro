@@ -1,0 +1,91 @@
+---
+interface Props {
+  size?: 'sm' | 'lg'
+  class?: string
+  fillDataAttr?: string
+  textDataAttr?: string
+  initialText?: string
+}
+
+const {
+  size = 'sm',
+  class: className = '',
+  fillDataAttr = 'data-progress-fill',
+  textDataAttr = 'data-progress-text',
+  initialText = '0/0',
+} = Astro.props as Props
+
+const fillAttrs: Record<string, string> = { [fillDataAttr]: '' }
+const textAttrs: Record<string, string> = { [textDataAttr]: '' }
+---
+
+<div class={`progress-circle progress-circle--${size} ${className}`.trim()} aria-hidden="true">
+  <svg class="progress-circle__svg" viewBox="0 0 36 36">
+    <circle class="progress-circle__track" cx="18" cy="18" r="15.5"></circle>
+    <circle class="progress-circle__fill" cx="18" cy="18" r="15.5" {...fillAttrs}></circle>
+  </svg>
+  <p class="progress-circle__text" {...textAttrs}>{initialText}</p>
+</div>
+
+<style>
+  @layer starlight.core {
+    .progress-circle {
+      --progress-circle-size: 3rem;
+      --progress-circle-text-size: 0.58rem;
+      --progress-circle-stroke-width: 3.25;
+
+      position: relative;
+      width: var(--progress-circle-size);
+      height: var(--progress-circle-size);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .progress-circle--lg {
+      --progress-circle-size: 5.3rem;
+      --progress-circle-text-size: 0.94rem;
+      --progress-circle-stroke-width: 3.1;
+    }
+
+    .progress-circle__svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .progress-circle__track,
+    .progress-circle__fill {
+      fill: none;
+      stroke-width: var(--progress-circle-stroke-width);
+    }
+
+    .progress-circle__track {
+      stroke: var(--sl-color-gray-5);
+    }
+
+    .progress-circle__fill {
+      stroke: #6ee7a8;
+      stroke-linecap: round;
+      stroke-dasharray: 97.39;
+      stroke-dashoffset: 97.39;
+      transition: stroke-dashoffset 220ms ease;
+    }
+
+    .progress-circle__text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-size: var(--progress-circle-text-size);
+      line-height: 1;
+      font-weight: 700;
+      text-align: center;
+      color: var(--sl-color-gray-2);
+      pointer-events: none;
+    }
+  }
+</style>

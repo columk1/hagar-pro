@@ -1,5 +1,6 @@
 ---
 import { isLessonId } from '../../lib/progress/lessonIds';
+import ProgressCircle from '../progress/ProgressCircle.astro';
 
 const pageTitle = Astro.locals.starlightRoute.entry.data.title;
 const routeId = Astro.locals.starlightRoute.id;
@@ -22,19 +23,11 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 					Not completed
 				</p>
 			</div>
-			<div class="section-progress-circle" data-section-progress-circle>
-				<svg class="section-progress-svg" viewBox="0 0 36 36" aria-hidden="true">
-					<circle class="section-progress-track" cx="18" cy="18" r="15.5"></circle>
-					<circle
-						class="section-progress-fill"
-						data-section-progress-fill
-						cx="18"
-						cy="18"
-						r="15.5"
-					></circle>
-				</svg>
-				<p class="section-progress-text" data-section-progress-text>0/0</p>
-			</div>
+			<ProgressCircle
+				fillDataAttr="data-section-progress-fill"
+				textDataAttr="data-section-progress-text"
+				initialText="0/0"
+			/>
 		</div>
 	)
 }
@@ -96,47 +89,6 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 
 		.lesson-progress-card[data-complete='true'] .status {
 			color: #6ee7a8;
-		}
-
-		.section-progress-circle {
-			position: relative;
-			width: 3rem;
-			height: 3rem;
-			display: grid;
-			place-items: center;
-			flex-shrink: 0;
-		}
-
-		.section-progress-svg {
-			width: 100%;
-			height: 100%;
-			transform: rotate(-90deg);
-		}
-
-		.section-progress-track,
-		.section-progress-fill {
-			fill: none;
-			stroke-width: 3.25;
-		}
-
-		.section-progress-track {
-			stroke: var(--sl-color-gray-5);
-		}
-
-		.section-progress-fill {
-			stroke: #6ee7a8;
-			stroke-linecap: round;
-			stroke-dasharray: 97.39;
-			stroke-dashoffset: 97.39;
-			transition: stroke-dashoffset 220ms ease;
-		}
-
-		.section-progress-text {
-			position: absolute;
-			margin: 0;
-			font-size: 0.58rem;
-			font-weight: 700;
-			color: var(--sl-color-gray-2);
 		}
 
 		.lesson-progress-indicator {

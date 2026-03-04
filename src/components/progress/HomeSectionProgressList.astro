@@ -1,0 +1,96 @@
+---
+import ProgressCircle from './ProgressCircle.astro'
+
+const sections = [
+  { id: 'curriculum/1-air-regulations', title: '1. Air Regulations' },
+  { id: 'curriculum/2-vnc-charts', title: '2. VNC Charts' },
+  { id: 'curriculum/3-canadian-airspace', title: '3. Canadian Airspace & Airspace Regulations' },
+  { id: 'curriculum/4-flight-operations', title: '4. Flight Operations' },
+  { id: 'curriculum/5-human-factors', title: '5. Human Factors' },
+  { id: 'curriculum/6-practice-exam', title: 'Final Exam' },
+]
+---
+
+<div class="section-progress-list" role="list" aria-label="Section progress overview">
+  {
+    sections.map((section) => (
+      <div
+        class="section-progress-list__item"
+        role="listitem"
+        data-section-progress-item
+        data-section-id={section.id}
+        data-complete="false"
+      >
+        <ProgressCircle
+          size="lg"
+          class="section-progress-list__circle"
+          fillDataAttr="data-section-progress-fill"
+          textDataAttr="data-section-progress-text"
+          initialText="0/0"
+        />
+        <a
+          class="section-progress-list__title-link"
+          data-section-progress-link
+          href={`/${section.id}/`}
+        >
+          {section.title}
+        </a>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  @layer starlight.core {
+    .section-progress-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--sl-color-gray-5);
+    }
+
+    .section-progress-list__item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.25rem;
+      padding: 1.15rem 0;
+      border-bottom: 1px solid var(--sl-color-gray-5);
+    }
+
+    .section-progress-list__circle {
+      align-self: center;
+    }
+
+    .section-progress-list__title-link {
+      margin: 0 !important;
+      text-decoration: none;
+      font-size: clamp(1.1rem, 2.1vw, 1.7rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--sl-color-white);
+      transition: color 160ms ease;
+    }
+
+    .section-progress-list__title-link:hover,
+    .section-progress-list__title-link:focus-visible {
+      color: #6ee7a8;
+    }
+
+    @media (max-width: 42rem) {
+      .section-progress-list__item {
+        gap: 0.95rem;
+      }
+
+      :global(.section-progress-list__circle.progress-circle--lg) {
+        --progress-circle-size: 4.5rem;
+        --progress-circle-text-size: 0.86rem;
+      }
+
+      .section-progress-list__title-link {
+        font-size: 1.3rem;
+      }
+    }
+  }
+</style>
