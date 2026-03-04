@@ -18,7 +18,7 @@ export default defineConfig({
     starlight({
       title: 'HAGAR Prep',
       description: 'HPAC/ACVL-aligned study curriculum for the Transport Canada HAGAR exam.',
-      social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+      social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/columk1/hagar-prep' }],
       customCss: ['./src/styles/tailwind.css'],
       components: {
         Head: './src/components/starlight/Head.astro',
@@ -30,7 +30,7 @@ export default defineConfig({
         {
           label: 'Curriculum',
           items: [
-            { label: 'Overview', slug: 'curriculum' },
+            { label: 'Introduction', slug: 'introduction' },
             {
               label: '1. Air Regulations',
               autogenerate: { directory: 'curriculum/1-air-regulations' },
@@ -46,24 +46,24 @@ export default defineConfig({
               collapsed: true,
               items: [
                 {
-                  label: 'Lesson 3.1: Canadian Domestic Airspace & Uncontrolled Airspace',
-                  slug: 'curriculum/3-canadian-airspace/lesson-3-1-domestic-airspace',
+                  label: '3.1 Canadian Domestic Airspace & Uncontrolled Airspace',
+                  slug: 'curriculum/3-canadian-airspace/3-1-domestic-airspace',
                 },
                 {
-                  label: 'Lesson 3.2: Controlled Airspace (Classes A through E)',
-                  slug: 'curriculum/3-canadian-airspace/lesson-3-2-airspace-classes-flight-rules',
+                  label: '3.2 Controlled Airspace (Classes A through E)',
+                  slug: 'curriculum/3-canadian-airspace/3-2-airspace-classes-flight-rules',
                 },
                 {
-                  label: 'Lesson 3.3: Special Use Airspace (Class F)',
-                  slug: 'curriculum/3-canadian-airspace/lesson-3-3-special-use-airspace-class-f',
+                  label: '3.3 Special Use Airspace (Class F)',
+                  slug: 'curriculum/3-canadian-airspace/3-3-special-use-airspace-class-f',
                 },
                 {
-                  label: 'Lesson 3.4: Map Work & Locating Features',
-                  slug: 'curriculum/3-canadian-airspace/lesson-3-4-map-work-locating-features',
+                  label: '3.4 Map Work & Locating Features',
+                  slug: 'curriculum/3-canadian-airspace/3-4-map-work-locating-features',
                 },
                 {
-                  label: 'Lesson 3.5: Magnetic Variation and Navigation',
-                  slug: 'curriculum/3-canadian-airspace/lesson-3-5-magnetic-variation-navigation',
+                  label: '3.5 Magnetic Variation and Navigation',
+                  slug: 'curriculum/3-canadian-airspace/3-5-magnetic-variation-navigation',
                 },
                 {
                   label: 'Quiz: Canadian Airspace',
