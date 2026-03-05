@@ -1,6 +1,7 @@
 ---
 import annexQuestionBank from '../../lib/data/annex-a-question-bank.json';
-import VNCViewer from '../tools/VNCViewer.astro';
+import ExamApp from './ExamApp';
+import type { ExamQuestion } from './examTypes';
 
 type RawQuestion = {
 	id: string;
@@ -9,22 +10,6 @@ type RawQuestion = {
 	question: string;
 	answer: string;
 	choices?: Record<string, string>;
-};
-
-type ExamChoice = {
-	value: 'a' | 'b' | 'c' | 'd';
-	label: string;
-};
-
-type ExamQuestion = {
-	id: string;
-	section: string;
-	mapRegion: 'vancouver' | 'montreal' | null;
-	prompt: string;
-	correctAnswer: 'a' | 'b' | 'c' | 'd';
-	choices: ExamChoice[];
-	isMapQuestion: boolean;
-	multiline: boolean;
 };
 
 const CHOICE_KEYS = ['a', 'b', 'c', 'd'] as const;
@@ -80,468 +65,9 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 	.filter((question): question is ExamQuestion => question !== null);
 ---
 
-<section class="exam" data-exam-root>
-	<script type="application/json" data-exam-pool set:html={JSON.stringify(examQuestionPool)}></script>
-
-	<div class="exam-intro" data-exam-intro>
-		<h2>Ready to Begin?</h2>
-		<p>
-			When you click <strong>Start Exam</strong>, the system will dynamically generate your randomized 40-question practice test with a balanced spread across all subjects.
-		</p>
-		<p><strong>Before you start:</strong></p>
-		<ul>
-			<li>Find a quiet space where you can focus without interruptions.</li>
-			<li>Have your map and navigation tools ready.</li>
-			<li>Set a timer for <strong>2.5 hours</strong> right when you click start to practice your official pacing.</li>
-		</ul>
-		<button type="button" class="exam-start-button" data-exam-start>Start Exam</button>
-	</div>
-
-	<div class="exam-run" data-exam-run hidden>
-		<div class="exam-toolbar">
-			<p class="exam-timer-reminder">
-				Exam in progress. Ensure your external timer is running for <strong>2.5 hours</strong>.
-			</p>
-			<button type="button" class="exam-reset-button" data-exam-reset>
-				Generate New Exam
-			</button>
-		</div>
-
-		<details class="exam-vnc">
-			<summary>Open Vancouver VNC reference map</summary>
-			<div class="exam-vnc-viewer">
-				<VNCViewer />
-			</div>
-		</details>
-
-		<section class="quiz" data-quiz-root data-feedback-visible="false">
-			<script type="application/json" data-quiz-state>[]</script>
-			<div class="quiz-questions" data-exam-questions></div>
-			<div class="quiz-actions">
-				<p class="quiz-score" data-quiz-score hidden></p>
-				<button type="button" class="quiz-check-button" data-quiz-check-button>Check Answers</button>
-			</div>
-		</section>
-	</div>
+<section class="exam">
+	<ExamApp client:load questionPool={examQuestionPool} />
 </section>
-
-<script>
-	type QuizChoice = { value: string; label: string };
-	type QuizQuestionData = {
-		id: string;
-		section: string;
-		mapRegion: 'vancouver' | 'montreal' | null;
-		prompt: string;
-		correctAnswer: string;
-		choices: QuizChoice[];
-		isMapQuestion: boolean;
-		multiline: boolean;
-	};
-
-	const GENERAL_TARGET = 33;
-	const MAP_TARGET = 7;
-	const TOTAL_TARGET = GENERAL_TARGET + MAP_TARGET;
-	const BUTTON_TEXT_CHECK = 'Check Answers';
-	const BUTTON_TEXT_RESET = 'Reset';
-
-	const shuffle = <T,>(items: T[]): T[] => {
-		const copy = [...items];
-		for (let i = copy.length - 1; i > 0; i -= 1) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[copy[i], copy[j]] = [copy[j], copy[i]];
-		}
-		return copy;
-	};
-
-	const pickBalanced = (poolBySection: Record<string, QuizQuestionData[]>, targetCount: number): QuizQuestionData[] => {
-		const sections = Object.entries(poolBySection).map(([section, questions]) => ({
-			section,
-			questions: shuffle(questions),
-		}));
-		const picked: QuizQuestionData[] = [];
-
-		while (picked.length < targetCount) {
-			let selectedInRound = false;
-			for (const section of shuffle(sections)) {
-				if (picked.length >= targetCount) {
-					break;
-				}
-				const next = section.questions.pop();
-				if (!next) {
-					continue;
-				}
-				picked.push(next);
-				selectedInRound = true;
-			}
-
-			if (!selectedInRound) {
-				break;
-			}
-		}
-
-		if (picked.length < targetCount) {
-			const remaining = sections.flatMap((section) => section.questions);
-			picked.push(...shuffle(remaining).slice(0, targetCount - picked.length));
-		}
-
-		return picked.slice(0, targetCount);
-	};
-
-	const parseAlphaListPrompt = (prompt: string) => {
-		const normalizedPrompt = prompt.replace(/\s([A-Z]\.\s+)/g, '\n$1');
-		const lines = normalizedPrompt.split('\n');
-		const isAlphaItem = (line: string) => /^[A-Z]\.[ \t]+/.test(line.trim());
-
-		let listStart = -1;
-		let listEnd = -1;
-		for (let i = 0; i < lines.length; i += 1) {
-			if (isAlphaItem(lines[i] ?? '')) {
-				listStart = i;
-				break;
-			}
-		}
-
-		if (listStart === -1) {
-			return { intro: prompt.trim(), items: [] as string[], outro: '' };
-		}
-
-		listEnd = listStart;
-		for (let i = listStart; i < lines.length; i += 1) {
-			if (isAlphaItem(lines[i] ?? '')) {
-				listEnd = i + 1;
-				continue;
-			}
-			if ((lines[i] ?? '').trim().length === 0) {
-				continue;
-			}
-			break;
-		}
-
-		const intro = lines.slice(0, listStart).join('\n').trim();
-		const items = lines
-			.slice(listStart, listEnd)
-			.map((line) => line.trim().replace(/^[A-Z]\.[ \t]+/, '').trim())
-			.filter(Boolean);
-		const outro = lines.slice(listEnd).join('\n').trim();
-		return { intro, items, outro };
-	};
-
-	const groupBySection = (questions: QuizQuestionData[]): Record<string, QuizQuestionData[]> => {
-		return questions.reduce<Record<string, QuizQuestionData[]>>((acc, question) => {
-			acc[question.section] ??= [];
-			acc[question.section].push(question);
-			return acc;
-		}, {});
-	};
-
-	const createQuestionElement = (question: QuizQuestionData, index: number): HTMLElement => {
-		const fieldset = document.createElement('fieldset');
-		fieldset.className = 'quiz-question';
-		fieldset.dataset.questionId = question.id;
-		fieldset.dataset.multiline = question.multiline ? 'true' : 'false';
-		fieldset.dataset.mapQuestion = question.isMapQuestion ? 'true' : 'false';
-
-		const legend = document.createElement('legend');
-		legend.className = 'legend';
-
-		const number = document.createElement('span');
-		number.className = 'quiz-question-number';
-		number.textContent = `Question ${index + 1}`;
-		legend.append(number);
-
-		const prompt = document.createElement('span');
-		prompt.className = 'quiz-question-prompt';
-		if (question.multiline) {
-			const parsed = parseAlphaListPrompt(question.prompt);
-			if (parsed.intro) {
-				const intro = document.createElement('p');
-				intro.textContent = parsed.intro;
-				prompt.append(intro);
-			}
-			if (parsed.items.length > 0) {
-				const list = document.createElement('ol');
-				list.type = 'A';
-				list.className = 'quiz-prompt-alpha-list';
-				for (const item of parsed.items) {
-					const li = document.createElement('li');
-					li.textContent = item;
-					list.append(li);
-				}
-				prompt.append(list);
-			}
-			if (parsed.outro) {
-				const outro = document.createElement('p');
-				outro.textContent = parsed.outro;
-				prompt.append(outro);
-			}
-		} else {
-			prompt.textContent = question.prompt;
-		}
-		legend.append(prompt);
-
-		if (question.isMapQuestion) {
-			const badge = document.createElement('span');
-			badge.className = 'quiz-map-badge';
-			badge.textContent = 'Map reading';
-			legend.append(badge);
-		}
-
-		fieldset.append(legend);
-
-		const choices = document.createElement('div');
-		choices.className = 'quiz-choices';
-		for (const choice of question.choices) {
-			const label = document.createElement('label');
-			label.className = 'quiz-choice';
-			label.dataset.choiceValue = choice.value;
-
-			const input = document.createElement('input');
-			input.type = 'radio';
-			input.name = `question-${question.id}`;
-			input.value = choice.value;
-			input.autocomplete = 'off';
-
-			const text = document.createElement('span');
-			const letter = document.createElement('strong');
-			letter.textContent = `${choice.value.toUpperCase()}.`;
-			text.append(letter, ` ${choice.label}`);
-
-			label.append(input, text);
-			choices.append(label);
-		}
-		fieldset.append(choices);
-
-		const feedback = document.createElement('p');
-		feedback.className = 'quiz-feedback';
-		feedback.dataset.questionFeedback = 'true';
-		feedback.innerHTML = '<span></span>';
-		fieldset.append(feedback);
-
-		return fieldset;
-	};
-
-	const hideFeedback = (root: HTMLElement, checkButton: HTMLButtonElement, scoreElement: HTMLElement): void => {
-		root.dataset.feedbackVisible = 'false';
-		checkButton.textContent = BUTTON_TEXT_CHECK;
-		scoreElement.hidden = true;
-		scoreElement.textContent = '';
-
-		for (const questionElement of root.querySelectorAll('[data-question-id]')) {
-			if (!(questionElement instanceof HTMLElement)) continue;
-			for (const choiceLabel of questionElement.querySelectorAll('[data-choice-value]')) {
-				if (!(choiceLabel instanceof HTMLElement)) continue;
-				choiceLabel.dataset.state = '';
-			}
-
-			const feedbackElement = questionElement.querySelector('[data-question-feedback]');
-			if (!(feedbackElement instanceof HTMLElement)) continue;
-			const feedbackText = feedbackElement.querySelector('span');
-			if (!feedbackText) continue;
-			feedbackText.textContent = '';
-			feedbackElement.dataset.status = '';
-		}
-	};
-
-	const showFeedback = (root: HTMLElement, quizDefinition: QuizQuestionData[], checkButton: HTMLButtonElement, scoreElement: HTMLElement): void => {
-		let correctCount = 0;
-		for (const questionElement of root.querySelectorAll('[data-question-id]')) {
-			if (!(questionElement instanceof HTMLElement)) continue;
-			const questionId = questionElement.dataset.questionId ?? '';
-			const question = quizDefinition.find((candidate) => candidate.id === questionId);
-			if (!question) continue;
-
-			const selectedInput = questionElement.querySelector('input[type="radio"]:checked');
-			const selectedAnswer = selectedInput instanceof HTMLInputElement ? selectedInput.value : '';
-			const isAnswered = selectedAnswer.length > 0;
-			const isCorrect = isAnswered && selectedAnswer === question.correctAnswer;
-			if (isCorrect) {
-				correctCount += 1;
-			}
-
-			for (const choiceLabel of questionElement.querySelectorAll('[data-choice-value]')) {
-				if (!(choiceLabel instanceof HTMLElement)) continue;
-				const choiceValue = choiceLabel.dataset.choiceValue ?? '';
-				if (choiceValue === question.correctAnswer) {
-					choiceLabel.dataset.state = 'correct';
-				} else if (isAnswered && choiceValue === selectedAnswer) {
-					choiceLabel.dataset.state = 'incorrect';
-				} else {
-					choiceLabel.dataset.state = '';
-				}
-			}
-
-			const feedbackElement = questionElement.querySelector('[data-question-feedback]');
-			if (!(feedbackElement instanceof HTMLElement)) continue;
-			const feedbackText = feedbackElement.querySelector('span');
-			if (!feedbackText) continue;
-
-			if (!isAnswered) {
-				feedbackText.textContent = `No answer selected. Correct answer: ${question.correctAnswer.toUpperCase()}.`;
-				feedbackElement.dataset.status = 'incorrect';
-			} else if (isCorrect) {
-				feedbackText.textContent = 'Correct.';
-				feedbackElement.dataset.status = 'correct';
-			} else {
-				const correctChoice = question.choices.find((choice) => choice.value === question.correctAnswer);
-				const correctLabel = correctChoice
-					? `${question.correctAnswer.toUpperCase()}. ${correctChoice.label}`
-					: question.correctAnswer.toUpperCase();
-				feedbackText.textContent = `Incorrect. Correct answer: ${correctLabel}.`;
-				feedbackElement.dataset.status = 'incorrect';
-			}
-		}
-
-		checkButton.textContent = BUTTON_TEXT_RESET;
-		scoreElement.textContent = `Score: ${correctCount}/${quizDefinition.length}`;
-		scoreElement.hidden = false;
-		root.dataset.feedbackVisible = 'true';
-	};
-
-	const generateExam = (pool: QuizQuestionData[]): QuizQuestionData[] => {
-		const eligiblePool = pool.filter((question) => question.mapRegion !== 'montreal');
-		const mapQuestions = eligiblePool.filter((question) => question.mapRegion === 'vancouver');
-		const generalQuestions = eligiblePool.filter((question) => question.mapRegion !== 'vancouver');
-
-		let effectiveMapTarget = Math.min(MAP_TARGET, mapQuestions.length);
-		let effectiveGeneralTarget = Math.min(GENERAL_TARGET, generalQuestions.length);
-
-		let remainingTarget = TOTAL_TARGET - (effectiveMapTarget + effectiveGeneralTarget);
-		if (remainingTarget > 0) {
-			const extraGeneralCapacity = Math.max(0, generalQuestions.length - effectiveGeneralTarget);
-			const extraGeneral = Math.min(remainingTarget, extraGeneralCapacity);
-			effectiveGeneralTarget += extraGeneral;
-			remainingTarget -= extraGeneral;
-
-			if (remainingTarget > 0) {
-				const extraMapCapacity = Math.max(0, mapQuestions.length - effectiveMapTarget);
-				const extraMap = Math.min(remainingTarget, extraMapCapacity);
-				effectiveMapTarget += extraMap;
-				remainingTarget -= extraMap;
-			}
-		}
-
-		const selectedMap = pickBalanced(groupBySection(mapQuestions), effectiveMapTarget);
-		const selectedGeneral = pickBalanced(groupBySection(generalQuestions), effectiveGeneralTarget);
-		const selected = shuffle([...selectedGeneral, ...selectedMap]);
-
-		if (selected.length === 0) {
-			throw new Error('No exam questions available to build this exam.');
-		}
-
-		if (selected.length < TOTAL_TARGET) {
-			console.warn(
-				`Exam generated with ${selected.length}/${TOTAL_TARGET} questions due to limited valid question data.`,
-			);
-		}
-
-		return selected;
-	};
-
-	const initExam = (): void => {
-		const roots = document.querySelectorAll('[data-exam-root]');
-		for (const root of roots) {
-			if (!(root instanceof HTMLElement) || root.dataset.examBound === 'true') {
-				continue;
-			}
-
-			const poolElement = root.querySelector('[data-exam-pool]');
-			const startButton = root.querySelector('[data-exam-start]');
-			const resetButton = root.querySelector('[data-exam-reset]');
-			const intro = root.querySelector('[data-exam-intro]');
-			const run = root.querySelector('[data-exam-run]');
-			const quizRoot = root.querySelector('[data-quiz-root]');
-			const questionsContainer = root.querySelector('[data-exam-questions]');
-			const stateElement = root.querySelector('[data-quiz-state]');
-			const checkButton = root.querySelector('[data-quiz-check-button]');
-			const scoreElement = root.querySelector('[data-quiz-score]');
-
-			if (
-				!(poolElement instanceof HTMLScriptElement) ||
-				!(startButton instanceof HTMLButtonElement) ||
-				!(resetButton instanceof HTMLButtonElement) ||
-				!(intro instanceof HTMLElement) ||
-				!(run instanceof HTMLElement) ||
-				!(quizRoot instanceof HTMLElement) ||
-				!(questionsContainer instanceof HTMLElement) ||
-				!(stateElement instanceof HTMLScriptElement) ||
-				!(checkButton instanceof HTMLButtonElement) ||
-				!(scoreElement instanceof HTMLElement)
-			) {
-				continue;
-			}
-
-			let pool: QuizQuestionData[] = [];
-			try {
-				pool = JSON.parse(poolElement.textContent ?? '[]');
-			} catch {
-				pool = [];
-			}
-
-			if (!Array.isArray(pool) || pool.length === 0) {
-				continue;
-			}
-
-			let currentExam: QuizQuestionData[] = [];
-
-			const renderExam = () => {
-				currentExam = generateExam(pool);
-				stateElement.textContent = JSON.stringify(
-					currentExam.map((question) => ({
-						id: question.id,
-						correctAnswer: question.correctAnswer,
-						choices: question.choices,
-					})),
-				);
-
-				questionsContainer.textContent = '';
-				for (const [index, question] of currentExam.entries()) {
-					questionsContainer.append(createQuestionElement(question, index));
-				}
-
-				hideFeedback(quizRoot, checkButton, scoreElement);
-			};
-
-			startButton.addEventListener('click', () => {
-				renderExam();
-				intro.hidden = true;
-				run.hidden = false;
-				run.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			});
-
-			resetButton.addEventListener('click', () => {
-				renderExam();
-				run.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			});
-
-			checkButton.addEventListener('click', () => {
-				const currentlyVisible = quizRoot.dataset.feedbackVisible === 'true';
-				if (currentlyVisible) {
-					hideFeedback(quizRoot, checkButton, scoreElement);
-					return;
-				}
-				showFeedback(quizRoot, currentExam, checkButton, scoreElement);
-			});
-
-			quizRoot.addEventListener('change', (event) => {
-				if (!(event.target instanceof HTMLInputElement)) return;
-				if (event.target.type !== 'radio') return;
-				if (quizRoot.dataset.feedbackVisible === 'true') {
-					showFeedback(quizRoot, currentExam, checkButton, scoreElement);
-				}
-			});
-
-			root.dataset.examBound = 'true';
-		}
-	};
-
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initExam, { once: true });
-	} else {
-		initExam();
-	}
-
-	document.addEventListener('astro:after-swap', initExam);
-</script>
 
 <style is:global>
 	@layer starlight.core {
@@ -607,6 +133,20 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 			gap: 0.75rem;
 		}
 
+		.exam .quiz-map-work {
+			display: grid;
+			gap: 0.75rem;
+			margin-top: 0.6rem;
+			padding-top: 0.9rem;
+			border-top: 1px solid var(--sl-color-gray-5);
+		}
+
+		.exam .quiz-section-title {
+			margin: 0;
+			font-size: var(--sl-text-base);
+			letter-spacing: 0.01em;
+		}
+
 		.exam .legend {
 			float: left;
 		}
@@ -641,6 +181,7 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 
 		.exam .quiz-question[data-multiline='true'] .quiz-question-prompt {
 			white-space: pre-wrap;
+			font-weight: 400;
 		}
 
 		.exam .quiz-map-badge {
@@ -659,6 +200,15 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 
 		.exam .quiz-question-prompt p:first-child {
 			margin-top: 0.25rem;
+		}
+
+		.exam .quiz-question-prompt .quiz-prompt-alpha-list,
+		.exam .quiz-question-prompt .quiz-prompt-alpha-list li {
+			font-weight: 400;
+		}
+
+		.exam .quiz-question[data-multiline='true'] .quiz-question-prompt .quiz-prompt-outro {
+			font-weight: 550;
 		}
 
 		.exam .quiz-choices {
