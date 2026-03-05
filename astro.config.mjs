@@ -83,7 +83,7 @@ export default defineConfig({
             },
             {
               label: '6. Practice Exam',
-              autogenerate: { directory: 'curriculum/practice-exam' },
+              autogenerate: { directory: 'curriculum/6-practice-exam' },
               collapsed: true,
             },
             { label: 'Progress Sync', slug: 'progress-sync' },
