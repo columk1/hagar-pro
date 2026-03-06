@@ -8,8 +8,9 @@ type ExamAppProps = {
 	questionPool: ExamQuestion[];
 };
 
-const BUTTON_TEXT_CHECK = 'Check Answers';
+const BUTTON_TEXT_CHECK = 'Submit';
 const BUTTON_TEXT_RESET = 'Reset';
+const PASSING_PERCENTAGE = 60;
 
 const getMapQuestionOrder = (question: ExamQuestion): number => {
 	const match = /^A(\d+)$/i.exec(question.id);
@@ -38,6 +39,22 @@ export function ExamApp({ questionPool }: ExamAppProps) {
 				: correctCount;
 		}, 0);
 	}, [answersByQuestionId, currentExam, reviewMode]);
+
+	const scorePercentage = useMemo(() => {
+		if (!reviewMode || currentExam.length === 0) {
+			return 0;
+		}
+
+		return Math.round((score / currentExam.length) * 100);
+	}, [currentExam.length, reviewMode, score]);
+
+	const didPass = useMemo(() => {
+		if (!reviewMode || currentExam.length === 0) {
+			return false;
+		}
+
+		return scorePercentage >= PASSING_PERCENTAGE;
+	}, [currentExam.length, reviewMode, scorePercentage]);
 
 	const generalQuestions = useMemo(
 		() => currentExam.filter((question) => !question.isMapQuestion),
@@ -167,7 +184,10 @@ export function ExamApp({ questionPool }: ExamAppProps) {
 
 						<div className="quiz-actions">
 							<p className="quiz-score" hidden={!reviewMode}>
-								Score: {score}/{currentExam.length}
+								Score: {score}/{currentExam.length} ({scorePercentage}%)
+							</p>
+							<p className="quiz-score" hidden={!reviewMode}>
+								Result: {didPass ? 'Pass' : 'Fail'}
 							</p>
 							<button type="button" className="quiz-check-button" onClick={handleCheckOrReset}>
 								{reviewMode ? BUTTON_TEXT_RESET : BUTTON_TEXT_CHECK}

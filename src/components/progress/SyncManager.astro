@@ -1,19 +1,11 @@
 <section class="sync-manager" data-sync-manager>
-	<h2>Sync Progress</h2>
-	<p>
-		Generate a link from this browser, then open it on another device to import your completed
-		lessons.
-	</p>
+	<h2>Resume Progress</h2>
 	<p class="sync-meta" data-sync-meta>
 		Completed lessons: 0
 	</p>
 	<div class="sync-actions">
-		<button type="button" data-generate-link>Generate Sync Link</button>
-		<button type="button" data-copy-link disabled>
-			Copy Link
-		</button>
+		<button type="button" class="btn-primary" data-copy-link>Copy Link</button>
 	</div>
-	<textarea readonly rows="4" data-sync-link placeholder="Generate a link to sync your progress"></textarea>
 </section>
 
 <script>
@@ -26,18 +18,34 @@
 	}
 
 	const meta = root.querySelector('[data-sync-meta]');
-	const generateButton = root.querySelector('[data-generate-link]');
 	const copyButton = root.querySelector('[data-copy-link]');
-	const output = root.querySelector('[data-sync-link]');
 
 	if (
 		!(meta instanceof HTMLElement) ||
-		!(generateButton instanceof HTMLButtonElement) ||
-		!(copyButton instanceof HTMLButtonElement) ||
-		!(output instanceof HTMLTextAreaElement)
+		!(copyButton instanceof HTMLButtonElement)
 	) {
 		throw new Error('Sync manager UI did not initialize');
 	}
+
+	const copyIcon =
+		'<svg class="sync-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"/></svg>';
+	const copiedIcon =
+		'<svg class="sync-icon sync-icon--copied" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/></svg>';
+
+	const setCopyButtonLabel = (
+		state: 'copy' | 'copied' | 'failed'
+	) => {
+		switch (state) {
+			case 'copied':
+				copyButton.innerHTML = `${copiedIcon}<span>Copied</span>`;
+				break;
+			case 'failed':
+				copyButton.innerHTML = `${copyIcon}<span>Copy failed</span>`;
+				break;
+			default:
+				copyButton.innerHTML = `${copyIcon}<span>Copy Link</span>`;
+		}
+	};
 
 	const renderMeta = () => {
 		meta.textContent = `Completed lessons: ${$progress.get().completedLessons.length}`;
@@ -45,35 +53,43 @@
 
 	renderMeta();
 	$progress.listen(renderMeta);
+	setCopyButtonLabel('copy');
 
-	generateButton.addEventListener('click', async () => {
-		try {
-			generateButton.disabled = true;
-			generateButton.textContent = 'Generating...';
-			output.value = await createSyncLink(window.location.origin, $progress.get());
-			copyButton.disabled = output.value.length === 0;
-		} catch {
-			output.value = 'Failed to generate sync link';
-			copyButton.disabled = true;
-		} finally {
-			generateButton.disabled = false;
-			generateButton.textContent = 'Generate Sync Link';
+	let copyStatusResetTimer: number | null = null;
+
+	const queueCopyButtonReset = (delayMs = 750) => {
+		if (copyStatusResetTimer !== null) {
+			window.clearTimeout(copyStatusResetTimer);
 		}
-	});
+
+		copyStatusResetTimer = window.setTimeout(() => {
+			setCopyButtonLabel('copy');
+			copyButton.disabled = false;
+			copyStatusResetTimer = null;
+		}, delayMs);
+	};
+
+	window.addEventListener(
+		'pagehide',
+		() => {
+			if (copyStatusResetTimer !== null) {
+				window.clearTimeout(copyStatusResetTimer);
+				copyStatusResetTimer = null;
+			}
+		},
+		{ once: true }
+	);
 
 	copyButton.addEventListener('click', async () => {
-		if (!output.value) return;
 		try {
-			await navigator.clipboard.writeText(output.value);
-			copyButton.textContent = 'Copied';
-			window.setTimeout(() => {
-				copyButton.textContent = 'Copy Link';
-			}, 1000);
+			copyButton.disabled = true;
+			const syncLink = await createSyncLink(window.location.origin, $progress.get());
+			await navigator.clipboard.writeText(syncLink);
+			setCopyButtonLabel('copied');
+			queueCopyButtonReset();
 		} catch {
-			copyButton.textContent = 'Copy failed';
-			window.setTimeout(() => {
-				copyButton.textContent = 'Copy Link';
-			}, 1200);
+			setCopyButtonLabel('failed');
+			queueCopyButtonReset();
 		}
 	});
 </script>
@@ -106,29 +122,13 @@
 		flex-wrap: wrap;
 	}
 
-	.sync-actions button {
-		border: 1px solid var(--sl-color-gray-4);
-		border-radius: 0.65rem;
-		padding: 0.45rem 0.75rem;
-		font-size: var(--sl-text-xs);
-		font-weight: 600;
-		cursor: pointer;
-		background: color-mix(in srgb, var(--sl-color-gray-6) 50%, transparent);
-		color: var(--sl-color-white);
+	.sync-icon {
+		width: 1rem;
+		height: 1rem;
+		flex: 0 0 auto;
 	}
 
-	.sync-actions button:disabled {
-		opacity: 0.55;
-		cursor: not-allowed;
-	}
-
-	.sync-manager textarea {
-		width: 100%;
-		border-radius: 0.65rem;
-		border: 1px solid var(--sl-color-gray-4);
-		padding: 0.65rem;
-		font-size: var(--sl-text-xs);
-		background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent);
-		color: var(--sl-color-white);
+	.sync-icon--copied {
+		color: var(--sl-color-accent-high);
 	}
 </style>

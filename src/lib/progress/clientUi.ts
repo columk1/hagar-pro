@@ -103,7 +103,7 @@ const decorateSidebarSectionCounts = (completedLessonIds: Set<string>): void => 
     }
 
     const isSectionComplete = total > 0 && completed === total
-    count.textContent = isSectionComplete ? ` ${CHECKMARK}` : ''
+    // count.textContent = isSectionComplete ? ` ${CHECKMARK}` : ''
     summary.dataset.sectionComplete = isSectionComplete ? 'true' : 'false'
   }
 }
