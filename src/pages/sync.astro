@@ -64,29 +64,31 @@
 			const params = new URLSearchParams(window.location.search);
 			const data = params.get('data');
 
-			try {
-				if (!data) {
-					throw new Error('No sync data found in this URL.');
-				}
+			(async () => {
+				try {
+					if (!data) {
+						throw new Error('No sync data found in this URL.');
+					}
 
-				const incoming = deserializeProgress(data);
-				mergeProgress(incoming);
+					const incoming = await deserializeProgress(data);
+					mergeProgress(incoming);
 
-				if (status) {
-					status.textContent = `Imported ${incoming.completedLessons.length} completed lessons. Redirecting...`;
-				}
+					if (status) {
+						status.textContent = `Imported ${incoming.completedLessons.length} completed lessons. Redirecting...`;
+					}
 
-				window.setTimeout(() => {
-					window.location.replace('/curriculum/');
-				}, 650);
-			} catch (error) {
-				if (status) {
-					status.textContent =
-						error instanceof Error
-							? `Unable to import progress: ${error.message}`
-							: 'Unable to import progress data from this link.';
+					window.setTimeout(() => {
+						window.location.replace('/');
+					}, 650);
+				} catch (error) {
+					if (status) {
+						status.textContent =
+							error instanceof Error
+								? `Unable to import progress: ${error.message}`
+								: 'Unable to import progress data from this link.';
+					}
 				}
-			}
+			})();
 		</script>
 	</body>
 </html>

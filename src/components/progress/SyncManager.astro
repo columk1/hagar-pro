@@ -46,9 +46,19 @@
 	renderMeta();
 	$progress.listen(renderMeta);
 
-	generateButton.addEventListener('click', () => {
-		output.value = createSyncLink(window.location.origin, $progress.get());
-		copyButton.disabled = output.value.length === 0;
+	generateButton.addEventListener('click', async () => {
+		try {
+			generateButton.disabled = true;
+			generateButton.textContent = 'Generating...';
+			output.value = await createSyncLink(window.location.origin, $progress.get());
+			copyButton.disabled = output.value.length === 0;
+		} catch {
+			output.value = 'Failed to generate sync link';
+			copyButton.disabled = true;
+		} finally {
+			generateButton.disabled = false;
+			generateButton.textContent = 'Generate Sync Link';
+		}
 	});
 
 	copyButton.addEventListener('click', async () => {
