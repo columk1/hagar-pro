@@ -20,7 +20,7 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 		lessonId && (
 			<div class="lesson-progress-footer-wrap">
 				<div class="lesson-progress-card">
-					<button type="button" class="lesson-progress-action" data-lesson-progress-action>
+					<button type="button" class="lesson-progress-action btn-primary" data-lesson-progress-action>
 						Mark Complete
 					</button>
 				</div>
@@ -75,14 +75,7 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 		}
 
 		.lesson-progress-action {
-			border: 1px solid color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
-			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
-			color: #d7ffe9;
-			border-radius: 0.65rem;
 			padding: 0.5rem 0.85rem;
-			font-size: var(--sl-text-xs);
-			font-weight: 600;
-			cursor: pointer;
 		}
 
 		.kudos {

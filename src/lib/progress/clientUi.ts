@@ -213,6 +213,8 @@ const renderLessonCard = (
   }
   actionButton.textContent = complete ? 'Lesson Completed' : 'Mark Complete'
   actionButton.setAttribute('aria-pressed', complete ? 'true' : 'false')
+  actionButton.classList.toggle('btn-primary', !complete)
+  actionButton.classList.toggle('btn-success', complete)
   card.dataset.complete = complete ? 'true' : 'false'
   renderSectionProgress(card, lessonId, new Set($progress.get().completedLessons))
 }

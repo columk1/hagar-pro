@@ -75,7 +75,7 @@ export function QuizApp({ questions, quizId }: QuizAppProps) {
 				<p className="quiz-score" hidden={!reviewMode}>
 					Score: {score}/{questions.length}
 				</p>
-				<button type="button" className="quiz-check-button" onClick={handleCheckOrReset}>
+				<button type="button" className="btn-primary" onClick={handleCheckOrReset}>
 					{reviewMode ? BUTTON_TEXT_RESET : BUTTON_TEXT_CHECK}
 				</button>
 			</div>

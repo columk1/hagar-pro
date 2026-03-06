@@ -1,0 +1,131 @@
+/* Custom CSS styles for Hagar Prep */
+
+:root {
+  /* Core brand/tool palette */
+  --hp-color-blue: #3b82f6;
+  --hp-color-green: #22c55e;
+  --hp-color-red: #ef4444;
+
+  /* Semantic usage tokens for interactive learning tools */
+  --hp-tool-heading: var(--hp-color-blue);
+  --hp-tool-positive: var(--hp-color-green);
+  --hp-tool-negative: var(--hp-color-red);
+
+  --hp-tool-map-surface: #f4f6f8;
+  --hp-tool-tooltip-bg: rgba(16, 24, 40, 0.92);
+  --hp-tool-tooltip-border: rgba(255, 255, 255, 0.12);
+  --hp-tool-tooltip-text: #f8fafc;
+  --hp-tool-alert-text: color-mix(in srgb, var(--hp-tool-negative) 30%, white);
+
+  --btn-primary-border: color-mix(in srgb, var(--sl-color-accent) 45%, var(--sl-color-gray-5));
+  --btn-primary-bg: color-mix(in srgb, var(--sl-color-accent) 18%, var(--sl-color-bg));
+  --btn-primary-text: var(--sl-color-white);
+  --btn-secondary-border: var(--sl-color-gray-5);
+  --btn-secondary-bg: color-mix(in srgb, var(--sl-color-bg) 84%, transparent);
+  --btn-secondary-text: var(--sl-color-gray-2);
+  --btn-success-border: color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
+  --btn-success-bg: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+  --btn-success-text: #d7ffe9;
+  --btn-radius: 0.65rem;
+  --btn-font-size: var(--sl-text-xs);
+  --btn-font-weight: 600;
+  --btn-transition: opacity 0.2s ease;
+}
+
+/* Global button class */
+.btn-primary,
+.btn-secondary,
+.btn-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border-radius: var(--btn-radius);
+  padding: 0.48rem 0.75rem;
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  cursor: pointer;
+  transition: var(--btn-transition);
+}
+
+.btn-primary {
+  border: 1px solid var(--btn-primary-border);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn-secondary {
+  border: 1px solid var(--btn-secondary-border);
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+}
+
+.btn-success {
+  border: 1px solid var(--btn-success-border);
+  background: var(--btn-success-bg);
+  color: var(--btn-success-text);
+}
+
+.btn-primary:hover:not(:disabled),
+.btn-secondary:hover:not(:disabled),
+.btn-success:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-success:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Starlight content overrides */
+.sl-markdown-content ol {
+  list-style: decimal;
+  list-style-position: outside;
+  padding-inline-start: 1.5rem;
+}
+
+.sl-markdown-content ul {
+  list-style: disc;
+  list-style-position: outside;
+  padding-inline-start: 1.5rem;
+}
+
+.sl-markdown-content ul ul {
+  list-style-type: circle;
+}
+
+.sl-markdown-content ol ol {
+  list-style-type: lower-alpha;
+}
+
+.sl-markdown-content figure.rehype-figure-title {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.sl-markdown-content figure.rehype-figure-title img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.sl-markdown-content figure.rehype-figure-title figcaption {
+  font-size: 0.875rem;
+  line-height: 1;
+  color: var(--sl-color-gray-2);
+  text-align: center;
+  font-style: italic;
+}
+
+.sl-markdown-content section[data-footnotes],
+.sl-markdown-content .footnotes {
+  margin-top: 3rem;
+  border-top: 1px solid var(--sl-color-gray-5);
+}
+
+.sl-markdown-content section[data-footnotes] > .sl-heading-wrapper,
+.sl-markdown-content .footnotes > .sl-heading-wrapper {
+  display: none;
+}

@@ -93,26 +93,14 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 			padding-left: 1.2rem;
 		}
 
-		.exam .exam-start-button,
-		.exam .exam-reset-button,
-		.exam .quiz-check-button {
-			border: 1px solid color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
-			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
-			color: #d7ffe9;
-			border-radius: 0.65rem;
-			padding: 0.48rem 0.75rem;
-			font-size: var(--sl-text-xs);
-			font-weight: 600;
-			cursor: pointer;
-		}
-
 		.exam .exam-toolbar {
 			display: flex;
 			justify-content: space-between;
-			gap: 0.75rem;
 			align-items: center;
-			margin-bottom: 0.85rem;
-			flex-wrap: wrap;
+			padding: 0.75rem;
+			border: 1px solid var(--sl-color-gray-5);
+			border-radius: 0.85rem;
+			background: var(--sl-color-bg);
 		}
 
 		.exam .exam-timer-reminder {

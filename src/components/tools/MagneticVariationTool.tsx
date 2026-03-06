@@ -56,6 +56,10 @@ export function MagneticVariationTool() {
 
   const magneticNorthRotation = isEast ? variationDegrees : -variationDegrees;
   const trueHeadingForVisual = mode === 'TRUE_TO_MAG' ? knownHeading : resultHeading;
+  const modeTrueToMagClass = mode === 'TRUE_TO_MAG' ? 'btn-primary' : 'btn-secondary';
+  const modeMagToTrueClass = mode === 'MAG_TO_TRUE' ? 'btn-primary' : 'btn-secondary';
+  const variationWestClass = variationDirection === 'W' ? 'btn-primary' : 'btn-secondary';
+  const variationEastClass = variationDirection === 'E' ? 'btn-primary' : 'btn-secondary';
 
   return (
     <div className="magnetic-variation-tool not-content">
@@ -73,7 +77,7 @@ export function MagneticVariationTool() {
             <div className="mvt-toggle-row" role="group" aria-label="Conversion direction">
               <button
                 type="button"
-                className={`mvt-toggle ${mode === 'TRUE_TO_MAG' ? 'active' : ''}`}
+                className={`mvt-toggle ${modeTrueToMagClass}`}
                 onClick={() => setMode('TRUE_TO_MAG')}
                 aria-pressed={mode === 'TRUE_TO_MAG'}
               >
@@ -81,7 +85,7 @@ export function MagneticVariationTool() {
               </button>
               <button
                 type="button"
-                className={`mvt-toggle ${mode === 'MAG_TO_TRUE' ? 'active' : ''}`}
+                className={`mvt-toggle ${modeMagToTrueClass}`}
                 onClick={() => setMode('MAG_TO_TRUE')}
                 aria-pressed={mode === 'MAG_TO_TRUE'}
               >
@@ -95,7 +99,7 @@ export function MagneticVariationTool() {
             <div className="mvt-toggle-row" role="group" aria-label="Variation direction">
               <button
                 type="button"
-                className={`mvt-toggle ${variationDirection === 'W' ? 'active' : ''}`}
+                className={`mvt-toggle ${variationWestClass}`}
                 onClick={() => setVariationDirection('W')}
                 aria-pressed={variationDirection === 'W'}
               >
@@ -103,7 +107,7 @@ export function MagneticVariationTool() {
               </button>
               <button
                 type="button"
-                className={`mvt-toggle ${variationDirection === 'E' ? 'active' : ''}`}
+                className={`mvt-toggle ${variationEastClass}`}
                 onClick={() => setVariationDirection('E')}
                 aria-pressed={variationDirection === 'E'}
               >
@@ -300,20 +304,10 @@ export function MagneticVariationTool() {
         }
 
         .mvt-toggle {
-          border: 1px solid var(--sl-color-gray-5);
           border-radius: 0.6rem;
           padding: 0.45rem 0.6rem;
-          background: color-mix(in srgb, var(--sl-color-bg) 84%, transparent);
-          color: var(--sl-color-gray-2);
           font-size: 0.84rem;
           font-weight: 600;
-          cursor: pointer;
-        }
-
-        .mvt-toggle.active {
-          border-color: var(--mvt-accent-border);
-          background: var(--mvt-accent-surface);
-          color: var(--sl-color-white);
         }
 
         .mvt-slider-row {

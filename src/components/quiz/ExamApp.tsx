@@ -124,7 +124,7 @@ export function ExamApp({ questionPool }: ExamAppProps) {
 							your official pacing.
 						</li>
 					</ul>
-					<button type="button" className="exam-start-button" onClick={handleStartExam}>
+					<button type="button" className="btn-primary" onClick={handleStartExam}>
 						Start Exam
 					</button>
 				</div>
@@ -136,7 +136,7 @@ export function ExamApp({ questionPool }: ExamAppProps) {
 						<p className="exam-timer-reminder">
 							Exam in progress. Ensure your external timer is running for <strong>2.5 hours</strong>.
 						</p>
-						<button type="button" className="exam-reset-button" onClick={handleRegenerateExam}>
+						<button type="button" className="btn-primary" onClick={handleRegenerateExam}>
 							Generate New Exam
 						</button>
 					</div>
@@ -189,7 +189,7 @@ export function ExamApp({ questionPool }: ExamAppProps) {
 							<p className="quiz-score" hidden={!reviewMode}>
 								Result: {didPass ? 'Pass' : 'Fail'}
 							</p>
-							<button type="button" className="quiz-check-button" onClick={handleCheckOrReset}>
+							<button type="button" className="btn-primary" onClick={handleCheckOrReset}>
 								{reviewMode ? BUTTON_TEXT_RESET : BUTTON_TEXT_CHECK}
 							</button>
 						</div>
