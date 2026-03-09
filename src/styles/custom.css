@@ -81,7 +81,7 @@
 
 /* Starlight content overrides */
 .sl-markdown-content {
-  & ol {
+  & ol:not(.quiz-prompt-alpha-list) {
     list-style: decimal;
     list-style-position: outside;
     padding-inline-start: 1.5rem;
