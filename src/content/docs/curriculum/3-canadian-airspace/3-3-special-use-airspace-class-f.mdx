@@ -3,7 +3,9 @@ title: '3.3 Special Use Airspace (Class F)'
 description: 'Class F advisory vs restricted airspace, activity codes, and VNC interpretation example.'
 ---
 
-Special use airspace (Class F) is airspace within which activities must be confined because of their nature and/or within which limitations may be imposed upon aircraft operations that are not part of those activities.
+import AirspaceDiagram from '@/components/tools/AirspaceDiagram.astro'
+
+Special use airspace (Class F) is airspace of defined dimensions where certain activities must be confined because of their nature, and where limitations may be imposed on aircraft operations that are not a part of those activities.
 
 It can be controlled, uncontrolled, or a combination of both.
 
@@ -11,8 +13,17 @@ When areas of Class F airspace are inactive, they assume the rules of the approp
 
 ## 1. Advisory vs. Restricted
 
-- **Class F Advisory (CYA):** A hang glider can enter a CYA (if it could enter the underlying airspace if the CYA did not exist) but must exercise caution.
-- **Class F Restricted (CYR):** A hang glider cannot enter an active CYR unless authorization has been obtained from the user agency.
+### Class F Advisory (CYA)
+
+"CY" is the Canadian airspace designator, and "A" stands for Advisory. This is airspace where specific, often high-volume or unusual activities are taking place—such as flight training, parachuting, soaring, or military exercises. Non-participating aircraft are encouraged to avoid these areas.
+
+- **Rules for HG/PG:** A hang glider can enter a CYA (provided it's allowed to enter the underlying airspace) but must exercise caution.
+
+### Class F Restricted (CYR)
+
+This is airspace where the flight of aircraft is heavily restricted for safety or national security reasons. Examples include active fires, military artillery firing ranges, federal prisons, or test facilities.
+
+- **Rules for HG/PG:** A hang glider cannot enter an active CYR unless authorization has been obtained from the user agency controlling that airspace.
 
 ## 2. Activity Codes
 
@@ -32,10 +43,14 @@ Below is one example of a CYA: **CYA 516(P)** in Southern Ontario.
 
 ![Example of CYA 516(P) on a VNC chart](/images/cyp-example.avif)
 
-As you can see, the VNC has all of the conditions associated with the CYA. In this case, the CYA is active for parachuting operations during daylight hours every Friday, Saturday, Sunday and Holidays between 1 Apr and 31 Oct from the ground up to 12,500 ASL.
+As you can see, the VNC has all of the conditions associated with the CYA. In this case, the CYA is active for parachuting operations during daylight hours every Friday, Saturday, Sunday and Holidays between April 1st and October 31st, from the ground up to 12,500 ASL.
 
 On occasion, it will be active on other days and/or will extend up to 14,000 ASL and that will be promulgated by NOTAM.
 
 :::note
 There is an aerodrome in the middle of the CYA, which is consistent with parachuting operations. The aircraft has to take off from somewhere, and it is efficient to have the parachutists land where the aircraft takes off from.
 :::
+
+## Recap - Interactive Airspace Viewer
+
+<AirspaceDiagram />

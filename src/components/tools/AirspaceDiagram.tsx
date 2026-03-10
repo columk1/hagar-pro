@@ -26,25 +26,25 @@ const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {
     title: 'Class C',
     color: '#ddd8b7',
     vfr: ['Flight visibility: 3 SM.', 'Cloud clearance: 500 ft vertical and 1 SM horizontal.'],
-    hgpg: ['Two-way radio and ATC clearance required before entry.', 'Maintain visual reference to ground/water.'],
+    hgpg: ['Two-way radio and ATC clearance required before entry.', 'Maintain visual reference to ground/water.', 'Can be denied entry.'],
   },
   D: {
     title: 'Class D',
     color: '#d5d4ba',
     vfr: ['Flight visibility: 3 SM.', 'Cloud clearance: 500 ft vertical and 1 SM horizontal.'],
-    hgpg: ['Establish two-way communications before entry.', 'Comply with tower instructions.'],
+    hgpg: ['Establish two-way communications before entry.', 'Comply with tower instructions.', 'Can\'t be denied entry if requirements are met.'],
   },
   E: {
     title: 'Class E',
     color: '#89a6cb',
     vfr: ['Flight visibility: 3 SM.', 'Cloud clearance: 500 ft vertical and 1 SM horizontal.'],
-    hgpg: ['No ATC clearance required for VFR transit.', 'Remain outside control zones unless entry requirements are met.'],
+    hgpg: ['No ATC clearance required for VFR transit.', 'Remain outside controlled areas unless entry requirements are met.'],
   },
   F: {
     title: 'Class F (CYR / Special-use)',
     color: '#d2d2d2',
     vfr: ['Requirements depend on the CYR type and published restrictions.', 'Entry may be prohibited or require prior authorization.'],
-    hgpg: ['Check NOTAMs/CFS and chart notes before flight.', 'Do not enter active restricted areas without required authorization.'],
+    hgpg: ['Check NOTAMs/CFS and chart notes before flight.', 'Can\'t enter an active CYR without authorization', 'Can enter an active CYA with caution.'],
   },
   G: {
     title: 'Class G',
@@ -60,7 +60,7 @@ const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {
 const CLASS_ORDER: AirspaceClass[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
 export function AirspaceDiagram() {
-  const [activeClass, setActiveClass] = useState<AirspaceClass>('E');
+  const [activeClass, setActiveClass] = useState<AirspaceClass>('A');
 
   const activeData = AIRSPACE_INFO[activeClass];
 
@@ -160,6 +160,7 @@ export function AirspaceDiagram() {
 
         .airspace-output {
           width: 100%;
+          min-height: 200px;
           border: 1px solid #2b5fb9;
           background: color-mix(in srgb, #0d2039 78%, var(--sl-color-bg));
           box-shadow: 0 14px 30px rgba(5, 12, 30, 0.36);
