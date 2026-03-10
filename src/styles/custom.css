@@ -2,9 +2,9 @@
 
 :root {
   /* Core brand/tool palette */
-  --hp-color-blue: #3b82f6;
-  --hp-color-green: #22c55e;
-  --hp-color-red: #ef4444;
+  --hp-color-blue: var(--sl-color-blue);
+  --hp-color-green: var(--sl-color-green);
+  --hp-color-red: var(--sl-color-red);
 
   /* Semantic usage tokens for interactive learning tools */
   --hp-tool-heading: var(--hp-color-blue);

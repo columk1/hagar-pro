@@ -56,6 +56,7 @@ export function MagneticVariationTool() {
 
   const magneticNorthRotation = isEast ? variationDegrees : -variationDegrees;
   const trueHeadingForVisual = mode === 'TRUE_TO_MAG' ? knownHeading : resultHeading;
+  const magneticHeadingForVisual = mode === 'TRUE_TO_MAG' ? resultHeading : knownHeading;
   const modeTrueToMagClass = mode === 'TRUE_TO_MAG' ? 'btn-primary' : 'btn-secondary';
   const modeMagToTrueClass = mode === 'MAG_TO_TRUE' ? 'btn-primary' : 'btn-secondary';
   const variationWestClass = variationDirection === 'W' ? 'btn-primary' : 'btn-secondary';
@@ -63,12 +64,11 @@ export function MagneticVariationTool() {
 
   return (
     <div className="magnetic-variation-tool not-content">
-      <h3 className="mvt-title">Magnetic Variation Practice Tool</h3>
+      <h3 className="mvt-title">Magnetic Variation Tool</h3>
 
-      <p className="mvt-intro">
-        Use this to convert headings quickly. Set your local variation, choose conversion direction,
-        and apply: <strong>East is Least, West is Best</strong>.
-      </p>
+      {/* <p className="mvt-intro">
+        Use this to interactive tool to practice converting between true headings and magnetic headings.
+      </p> */}
 
       <div className="mvt-grid">
         <section className="mvt-panel" aria-label="Heading conversion controls">
@@ -184,22 +184,12 @@ export function MagneticVariationTool() {
               <text x="110" y="210" textAnchor="middle" fontSize="12">S</text>
               <text x="18" y="114" textAnchor="middle" fontSize="12">W</text>
 
-              <line
-                x1="110"
-                y1="110"
-                x2="110"
-                y2="34"
-                stroke="var(--hp-tool-positive)"
-                strokeWidth="3"
-                markerEnd="url(#trueArrow)"
-              />
-
               <g transform={`rotate(${magneticNorthRotation}, 110, 110)`}>
                 <line
                   x1="110"
                   y1="110"
                   x2="110"
-                  y2="34"
+                  y2="50"
                   stroke="var(--hp-tool-negative)"
                   strokeWidth="3"
                   markerEnd="url(#magArrow)"
@@ -211,28 +201,39 @@ export function MagneticVariationTool() {
                   x1="110"
                   y1="110"
                   x2="110"
-                  y2="48"
+                  y2="14"
+                  stroke="var(--hp-tool-positive)"
+                  strokeWidth="2"
+                />
+                <circle cx="110" cy="14" r="2.5" fill="var(--hp-tool-positive)" />
+              </g>
+
+              <g transform={`rotate(${magneticHeadingForVisual}, 110, 110)`}>
+                <line
+                  x1="110"
+                  y1="110"
+                  x2="110"
+                  y2="14"
                   stroke="var(--hp-tool-heading)"
                   strokeWidth="2"
-                  strokeDasharray="4 3"
+                  opacity="0.7"
                 />
-                <circle cx="110" cy="44" r="4" fill="var(--hp-tool-heading)" />
+                <circle cx="110" cy="14" r="2.5" fill="var(--hp-tool-heading)" opacity="0.7" />
               </g>
 
               <defs>
-                <marker id="trueArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-                  <path d="M0,0 L0,6 L8,3 z" fill="var(--hp-tool-positive)" />
-                </marker>
-                <marker id="magArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-                  <path d="M0,0 L0,6 L8,3 z" fill="var(--hp-tool-negative)" />
+                <marker id="magArrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L8,3 L0,6 z" fill="var(--hp-tool-negative)" />
                 </marker>
               </defs>
+
+              <circle cx="110" cy="110" r="6" fill="black" stroke="var(--sl-color-gray-4)" strokeWidth="1" />
             </svg>
 
             <ul className="mvt-legend">
-              <li><span className="mvt-dot true" /> True North</li>
               <li><span className="mvt-dot magnetic" /> Magnetic North ({variationLabel})</li>
-              <li><span className="mvt-dot heading" /> True Heading ({trueHeadingForVisual}°)</li>
+              <li><span className="mvt-dot heading-solid" /> True Heading ({trueHeadingForVisual}°)</li>
+              <li><span className="mvt-dot heading" /> Magnetic Heading ({magneticHeadingForVisual}°)</li>
             </ul>
           </div>
 
@@ -495,6 +496,15 @@ export function MagneticVariationTool() {
 
         .mvt-dot.heading {
           background: var(--hp-tool-heading);
+        }
+
+        .mvt-dot.heading-solid {
+          background: var(--hp-tool-positive);
+        }
+
+        .mvt-dot.heading-dotted {
+          background: var(--hp-tool-heading);
+          opacity: 0.7;
         }
 
         .mvt-note {
