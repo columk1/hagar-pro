@@ -1,40 +1,40 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react'
 
-type ConversionMode = 'TRUE_TO_MAG' | 'MAG_TO_TRUE';
-type VariationDirection = 'E' | 'W';
+type ConversionMode = 'TRUE_TO_MAG' | 'MAG_TO_TRUE'
+type VariationDirection = 'E' | 'W'
 
 function normalizeHeading(value: number): number {
-  return ((value % 360) + 360) % 360;
+  return ((value % 360) + 360) % 360
 }
 
 export function MagneticVariationTool() {
-  const [mode, setMode] = useState<ConversionMode>('TRUE_TO_MAG');
-  const [variationDirection, setVariationDirection] = useState<VariationDirection>('W');
-  const [variationDegrees, setVariationDegrees] = useState<number>(14);
-  const [knownHeading, setKnownHeading] = useState<number>(90);
-  const [headingInput, setHeadingInput] = useState<string>('90');
+  const [mode, setMode] = useState<ConversionMode>('TRUE_TO_MAG')
+  const [variationDirection, setVariationDirection] = useState<VariationDirection>('W')
+  const [variationDegrees, setVariationDegrees] = useState<number>(14)
+  const [knownHeading, setKnownHeading] = useState<number>(90)
+  const [headingInput, setHeadingInput] = useState<string>('90')
 
   const resultHeading = useMemo(() => {
     if (mode === 'TRUE_TO_MAG') {
       return normalizeHeading(
         variationDirection === 'E'
           ? knownHeading - variationDegrees
-          : knownHeading + variationDegrees
-      );
+          : knownHeading + variationDegrees,
+      )
     }
 
     return normalizeHeading(
       variationDirection === 'E'
         ? knownHeading + variationDegrees
-        : knownHeading - variationDegrees
-    );
-  }, [mode, variationDirection, variationDegrees, knownHeading]);
+        : knownHeading - variationDegrees,
+    )
+  }, [mode, variationDirection, variationDegrees, knownHeading])
 
-  const variationLabel = `${variationDegrees}°${variationDirection}`;
-  const isEast = variationDirection === 'E';
-  const knownLabel = mode === 'TRUE_TO_MAG' ? 'True Heading (TH)' : 'Magnetic Heading (MH)';
-  const resultLabel = mode === 'TRUE_TO_MAG' ? 'Magnetic Heading (MH)' : 'True Heading (TH)';
-  const resultShortLabel = mode === 'TRUE_TO_MAG' ? 'MH' : 'TH';
+  const variationLabel = `${variationDegrees}°${variationDirection}`
+  const isEast = variationDirection === 'E'
+  const knownLabel = mode === 'TRUE_TO_MAG' ? 'True Heading (TH)' : 'Magnetic Heading (MH)'
+  const resultLabel = mode === 'TRUE_TO_MAG' ? 'Magnetic Heading (MH)' : 'True Heading (TH)'
+  const resultShortLabel = mode === 'TRUE_TO_MAG' ? 'MH' : 'TH'
 
   const formula =
     mode === 'TRUE_TO_MAG'
@@ -43,24 +43,17 @@ export function MagneticVariationTool() {
         : 'MH = TH + Variation'
       : isEast
         ? 'TH = MH + Variation'
-        : 'TH = MH - Variation';
+        : 'TH = MH - Variation'
 
-  const arithmeticSign =
-    mode === 'TRUE_TO_MAG'
-      ? isEast
-        ? '-'
-        : '+'
-      : isEast
-        ? '+'
-        : '-';
+  const arithmeticSign = mode === 'TRUE_TO_MAG' ? (isEast ? '-' : '+') : isEast ? '+' : '-'
 
-  const magneticNorthRotation = isEast ? variationDegrees : -variationDegrees;
-  const trueHeadingForVisual = mode === 'TRUE_TO_MAG' ? knownHeading : resultHeading;
-  const magneticHeadingForVisual = mode === 'TRUE_TO_MAG' ? resultHeading : knownHeading;
-  const modeTrueToMagClass = mode === 'TRUE_TO_MAG' ? 'btn-primary' : 'btn-secondary';
-  const modeMagToTrueClass = mode === 'MAG_TO_TRUE' ? 'btn-primary' : 'btn-secondary';
-  const variationWestClass = variationDirection === 'W' ? 'btn-primary' : 'btn-secondary';
-  const variationEastClass = variationDirection === 'E' ? 'btn-primary' : 'btn-secondary';
+  const magneticNorthRotation = isEast ? variationDegrees : -variationDegrees
+  const trueHeadingForVisual = mode === 'TRUE_TO_MAG' ? knownHeading : resultHeading
+  const magneticHeadingForVisual = mode === 'TRUE_TO_MAG' ? resultHeading : knownHeading
+  const modeTrueToMagClass = mode === 'TRUE_TO_MAG' ? 'btn-primary' : 'btn-secondary'
+  const modeMagToTrueClass = mode === 'MAG_TO_TRUE' ? 'btn-primary' : 'btn-secondary'
+  const variationWestClass = variationDirection === 'W' ? 'btn-primary' : 'btn-secondary'
+  const variationEastClass = variationDirection === 'E' ? 'btn-primary' : 'btn-secondary'
 
   return (
     <div className="magnetic-variation-tool not-content">
@@ -141,17 +134,17 @@ export function MagneticVariationTool() {
                 type="number"
                 value={headingInput}
                 onChange={(event) => {
-                  setHeadingInput(event.target.value);
-                  const parsed = parseInt(event.target.value, 10);
+                  setHeadingInput(event.target.value)
+                  const parsed = parseInt(event.target.value, 10)
                   if (!Number.isNaN(parsed)) {
-                    setKnownHeading(normalizeHeading(parsed));
+                    setKnownHeading(normalizeHeading(parsed))
                   }
                 }}
                 onBlur={(event) => {
-                  const parsed = parseInt(event.target.value, 10);
-                  const bounded = Number.isNaN(parsed) ? 0 : Math.min(359, Math.max(0, parsed));
-                  setKnownHeading(bounded);
-                  setHeadingInput(String(bounded));
+                  const parsed = parseInt(event.target.value, 10)
+                  const bounded = Number.isNaN(parsed) ? 0 : Math.min(359, Math.max(0, parsed))
+                  setKnownHeading(bounded)
+                  setHeadingInput(String(bounded))
                 }}
                 aria-describedby="mvt-heading-hint"
               />
@@ -169,17 +162,40 @@ export function MagneticVariationTool() {
             </p>
             <p className="mvt-formula">{formula}</p>
             <p className="mvt-math">
-              {resultShortLabel} = {knownHeading}° {arithmeticSign} {variationDegrees}° = {resultHeading}°
+              {resultShortLabel} = {knownHeading}° {arithmeticSign} {variationDegrees}° ={' '}
+              {resultHeading}°
             </p>
           </div>
         </section>
 
         <section className="mvt-visual" aria-label="True north and magnetic north diagram">
           <div className="mvt-visual-main">
-            <svg viewBox="0 0 220 220" className="mvt-compass" role="img" aria-label="Compass showing true north and magnetic north offset">
-              <circle cx="110" cy="110" r="96" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.35" />
+            <svg
+              viewBox="0 0 220 220"
+              className="mvt-compass"
+              role="img"
+              aria-label="Compass showing true north and magnetic north offset"
+            >
+              <circle
+                cx="110"
+                cy="110"
+                r="96"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                opacity="0.35"
+              />
 
-              <text x="110" y="20" textAnchor="middle" fontSize="14" fontWeight="700" className="mvt-north-label">N</text>
+              <text
+                x="110"
+                y="20"
+                textAnchor="middle"
+                fontSize="14"
+                fontWeight="700"
+                className="mvt-north-label"
+              >
+                N
+              </text>
 
               <g transform={`rotate(${magneticNorthRotation}, 110, 110)`}>
                 <line
@@ -219,23 +235,47 @@ export function MagneticVariationTool() {
               </g>
 
               <defs>
-                <marker id="magArrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                <marker
+                  id="magArrow"
+                  markerWidth="10"
+                  markerHeight="10"
+                  refX="0"
+                  refY="3"
+                  orient="auto"
+                  markerUnits="strokeWidth"
+                >
                   <path d="M0,0 L8,3 L0,6 z" fill="var(--hp-tool-negative)" />
                 </marker>
               </defs>
 
-              <circle cx="110" cy="110" r="6" fill="black" stroke="var(--sl-color-gray-4)" strokeWidth="1" />
+              <circle
+                cx="110"
+                cy="110"
+                r="6"
+                fill="black"
+                stroke="var(--sl-color-gray-4)"
+                strokeWidth="1"
+              />
             </svg>
 
             <ul className="mvt-legend">
-              <li><span className="mvt-dot magnetic" /> Magnetic North ({variationLabel})</li>
-              <li><span className="mvt-dot heading-solid" /> True Heading ({trueHeadingForVisual}°)</li>
-              <li><span className="mvt-dot heading" /> Magnetic Heading ({magneticHeadingForVisual}°)</li>
+              <li>
+                <span className="mvt-dot magnetic" /> Magnetic North ({variationLabel})
+              </li>
+              <li>
+                <span className="mvt-dot heading-solid" /> True Heading ({trueHeadingForVisual}°)
+              </li>
+              <li>
+                <span className="mvt-dot heading" /> Magnetic Heading ({magneticHeadingForVisual}°)
+              </li>
             </ul>
           </div>
 
           <div className="mvt-note">
-            <p><strong>Flight note:</strong> A compass is most reliable in steady, level flight. Turns and acceleration can cause errors.</p>
+            <p>
+              <strong>Flight note:</strong> A compass is most reliable in steady, level flight.
+              Turns and acceleration can cause errors.
+            </p>
           </div>
         </section>
       </div>
@@ -526,7 +566,7 @@ export function MagneticVariationTool() {
         }
       `}</style>
     </div>
-  );
+  )
 }
 
-export default MagneticVariationTool;
+export default MagneticVariationTool

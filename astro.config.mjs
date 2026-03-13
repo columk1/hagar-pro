@@ -1,8 +1,8 @@
 // @ts-check
-import { defineConfig } from 'astro/config'
-import starlight from '@astrojs/starlight'
-import react from '@astrojs/react'
 import mdx from '@astrojs/mdx'
+import react from '@astrojs/react'
+import starlight from '@astrojs/starlight'
+import { defineConfig } from 'astro/config'
 import rehypeFigureTitle from 'rehype-figure-title'
 
 // https://astro.build/config

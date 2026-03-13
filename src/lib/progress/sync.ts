@@ -1,6 +1,7 @@
+import { compress, decompress } from 'lz-utils'
+
 import type { ProgressState } from '../stores/progressStore'
 import { sanitizeProgressState } from '../stores/progressStore'
-import { compress, decompress } from 'lz-utils'
 
 type SyncPayload = {
   v: 1

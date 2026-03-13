@@ -1,10 +1,10 @@
-import { canonicalizePathToContentId, getSectionIdFromLessonId, isLessonId } from './lessonIds'
 import {
   $progress,
   isLessonCompleted,
   markLessonComplete,
   markLessonIncomplete,
 } from '../stores/progressStore'
+import { canonicalizePathToContentId, getSectionIdFromLessonId, isLessonId } from './lessonIds'
 
 const CHECKMARK = '✓'
 const SECTION_RING_CIRCUMFERENCE = 97.39

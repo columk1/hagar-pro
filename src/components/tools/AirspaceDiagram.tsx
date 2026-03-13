@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-type AirspaceClass = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
+type AirspaceClass = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
 
 type AirspaceInfo = {
-  title: string;
-  color: string;
-  vfr: string[];
-  hgpg: string[];
-};
+  title: string
+  color: string
+  vfr: string[]
+  hgpg: string[]
+}
 
 const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {
   A: {
@@ -26,25 +26,43 @@ const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {
     title: 'Class C',
     color: '#ddd8b7',
     vfr: ['Flight visibility: 3 SM.', 'Cloud clearance: 500 ft vertical and 1 SM horizontal.'],
-    hgpg: ['Two-way radio and ATC clearance required before entry.', 'Maintain visual reference to ground/water.', 'Can be denied entry.'],
+    hgpg: [
+      'Two-way radio and ATC clearance required before entry.',
+      'Maintain visual reference to ground/water.',
+      'Can be denied entry.',
+    ],
   },
   D: {
     title: 'Class D',
     color: '#d5d4ba',
     vfr: ['Flight visibility: 3 SM.', 'Cloud clearance: 500 ft vertical and 1 SM horizontal.'],
-    hgpg: ['Establish two-way communications before entry.', 'Comply with tower instructions.', 'Can\'t be denied entry if requirements are met.'],
+    hgpg: [
+      'Establish two-way communications before entry.',
+      'Comply with tower instructions.',
+      "Can't be denied entry if requirements are met.",
+    ],
   },
   E: {
     title: 'Class E',
     color: '#89a6cb',
     vfr: ['Flight visibility: 3 SM.', 'Cloud clearance: 500 ft vertical and 1 SM horizontal.'],
-    hgpg: ['No ATC clearance required for VFR transit.', 'Remain outside controlled areas unless entry requirements are met.'],
+    hgpg: [
+      'No ATC clearance required for VFR transit.',
+      'Remain outside controlled areas unless entry requirements are met.',
+    ],
   },
   F: {
     title: 'Class F (CYR / Special-use)',
     color: '#d2d2d2',
-    vfr: ['Requirements depend on the CYR type and published restrictions.', 'Entry may be prohibited or require prior authorization.'],
-    hgpg: ['Check NOTAMs/CFS and chart notes before flight.', 'Can\'t enter an active CYR without authorization', 'Can enter an active CYA with caution.'],
+    vfr: [
+      'Requirements depend on the CYR type and published restrictions.',
+      'Entry may be prohibited or require prior authorization.',
+    ],
+    hgpg: [
+      'Check NOTAMs/CFS and chart notes before flight.',
+      "Can't enter an active CYR without authorization",
+      'Can enter an active CYA with caution.',
+    ],
   },
   G: {
     title: 'Class G',
@@ -53,26 +71,31 @@ const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {
       'Above 1,000 ft AGL: 1 SM visibility, 500 ft vertical and 2,000 ft horizontal from cloud.',
       'At or below 1,000 ft AGL (day): 2 SM visibility, clear of cloud.',
     ],
-    hgpg: ['Uncontrolled airspace: no ATC clearance required.', 'Maintain visual reference to ground/water and avoid restricted/prohibited areas.'],
+    hgpg: [
+      'Uncontrolled airspace: no ATC clearance required.',
+      'Maintain visual reference to ground/water and avoid restricted/prohibited areas.',
+    ],
   },
-};
+}
 
-const CLASS_ORDER: AirspaceClass[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+const CLASS_ORDER: AirspaceClass[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
 export function AirspaceDiagram() {
-  const [activeClass, setActiveClass] = useState<AirspaceClass>('A');
+  const [activeClass, setActiveClass] = useState<AirspaceClass>('A')
 
-  const activeData = AIRSPACE_INFO[activeClass];
+  const activeData = AIRSPACE_INFO[activeClass]
 
   const activate = (classKey: AirspaceClass) => {
-    setActiveClass(classKey);
-  };
+    setActiveClass(classKey)
+  }
 
   return (
     <section className="airspace-diagram not-content" aria-label="Canadian domestic airspace model">
       <header className="airspace-header">
         <h3>Aerodromes and Air Navigation (AARN) Airspace Model</h3>
-        <p>Use the class buttons below to view VFR minima and HG/PG-focused operating requirements.</p>
+        <p>
+          Use the class buttons below to view VFR minima and HG/PG-focused operating requirements.
+        </p>
       </header>
 
       <div className="airspace-canvas">
@@ -88,7 +111,11 @@ export function AirspaceDiagram() {
         </div>
       </div>
 
-      <div className="airspace-class-buttons" role="group" aria-label="Select airspace class details">
+      <div
+        className="airspace-class-buttons"
+        role="group"
+        aria-label="Select airspace class details"
+      >
         {CLASS_ORDER.map((classKey) => (
           <button
             key={classKey}
@@ -101,7 +128,11 @@ export function AirspaceDiagram() {
         ))}
       </div>
 
-      <section className="airspace-output" aria-live="polite" aria-label="Selected airspace requirements">
+      <section
+        className="airspace-output"
+        aria-live="polite"
+        aria-label="Selected airspace requirements"
+      >
         <p className="tip-title">{activeData.title}</p>
 
         <p className="tip-label">VFR minima</p>
@@ -224,7 +255,7 @@ export function AirspaceDiagram() {
         }
       `}</style>
     </section>
-  );
+  )
 }
 
-export default AirspaceDiagram;
+export default AirspaceDiagram

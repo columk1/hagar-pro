@@ -2,9 +2,9 @@
 name: astro
 description: Skill for using Astro projects. Includes CLI commands, project structure, core config options, and adapters. Use this skill when the user needs to work with Astro or when the user mentions Astro.
 license: MIT
-metadata: 
-  authors: "Astro Team"
-  version: "0.0.1"
+metadata:
+  authors: 'Astro Team'
+  version: '0.0.1'
 ---
 
 # Astro Usage Guide
@@ -18,11 +18,12 @@ Astro is the web framework for content-driven websites.
 ## Quick Reference
 
 ### File Location
+
 CLI looks for `astro.config.js`, `astro.config.mjs`, `astro.config.cjs`, and `astro.config.ts` in: `./`. Use `--config` for custom path.
 
 ### CLI Commands
 
-- `npx astro dev` -  Start the development server.
+- `npx astro dev` - Start the development server.
 - `npx astro build` - Build your project and write it to disk.
 - `npx astro check` - Check your project for errors.
 - `npx astro add` - Add an integration.
@@ -48,8 +49,8 @@ Astro leverages an opinionated folder layout for your project. Every Astro proje
 
 ## Core Config Options
 
-| Option | Notes |
-|--------|-------|
+| Option | Notes                                                                                                               |
+| ------ | ------------------------------------------------------------------------------------------------------------------- |
 | `site` | Your final, deployed URL. Astro uses this full URL to generate your sitemap and canonical URLs in your final build. |
 
 ---
@@ -59,21 +60,25 @@ Astro leverages an opinionated folder layout for your project. Every Astro proje
 Deploy to your favorite server, serverless, or edge host with build adapters. Use an adapter to enable on-demand rendering in your Astro project.
 
 **Add [Node.js](https://docs.astro.build/en/guides/integrations-guide/node) adapter using astro add:**
+
 ```
 npx astro add node --yes
 ```
 
 **Add [Cloudflare](https://docs.astro.build/en/guides/integrations-guide/cloudflare) adapter using astro add:**
+
 ```
 npx astro add cloudflare --yes
 ```
 
 **Add [Netlify](https://docs.astro.build/en/guides/integrations-guide/netlify) adapter using astro add:**
+
 ```
 npx astro add netlify --yes
 ```
 
 **Add [Vercel](https://docs.astro.build/en/guides/integrations-guide/vercel) adapter using astro add:**
+
 ```
 npx astro add vercel --yes
 ```
