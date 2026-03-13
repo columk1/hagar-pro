@@ -12,8 +12,13 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'HAGAR Prep',
+      title: 'HAGAR Pro',
       description: 'HPAC/ACVL-aligned study curriculum for the Transport Canada HAGAR exam.',
+      logo: {
+        light: './src/assets/logo-header-light.svg',
+        dark: './src/assets/logo-header-dark.svg',
+        replacesTitle: true,
+      },
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/columk1/hagar-prep' }],
       customCss: ['./src/styles/custom.css'],
       components: {
