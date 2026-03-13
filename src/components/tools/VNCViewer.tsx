@@ -459,14 +459,24 @@ export function VNCViewer({
         .vnc-reset {
           margin-top: 0.25rem;
           justify-self: start;
-          border-radius: 0.6rem;
-          border: 1px solid color-mix(in srgb, var(--sl-color-accent) 45%, var(--sl-color-gray-4));
-          background: color-mix(in srgb, var(--sl-color-accent) 16%, var(--sl-color-bg));
-          color: var(--sl-color-white);
+          border-radius: var(--btn-radius);
+          border: 1px solid var(--btn-primary-border);
+          background: var(--btn-primary-bg);
+          color: var(--btn-primary-text);
           padding: 0.42rem 0.65rem;
-          font-size: var(--sl-text-xs);
-          font-weight: 600;
+          font-size: var(--btn-font-size);
+          font-weight: var(--btn-font-weight);
           cursor: pointer;
+          transition: var(--btn-transition);
+        }
+
+        .vnc-reset:hover:not(:disabled) {
+          opacity: 0.9;
+        }
+
+        .vnc-reset:disabled {
+          opacity: 0.55;
+          cursor: not-allowed;
         }
 
         .vnc-error {

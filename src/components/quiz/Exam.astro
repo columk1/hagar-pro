@@ -225,13 +225,13 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 		}
 
 		.exam .quiz-choice[data-state='correct'] {
-			border-color: color-mix(in srgb, #6ee7a8 70%, var(--sl-color-gray-4));
-			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+			border-color: var(--quiz-correct-border);
+			background: var(--quiz-correct-bg);
 		}
 
 		.exam .quiz-choice[data-state='incorrect'] {
-			border-color: color-mix(in srgb, #f87171 70%, var(--sl-color-gray-4));
-			background: color-mix(in srgb, #f87171 14%, var(--sl-color-bg));
+			border-color: var(--quiz-incorrect-border);
+			background: var(--quiz-incorrect-bg);
 		}
 
 		.exam .quiz-feedback {
@@ -254,13 +254,13 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 		}
 
 		.exam .quiz-feedback[data-status='correct'] {
-			color: #d7ffe9;
-			background: color-mix(in srgb, #6ee7a8 16%, var(--sl-color-bg));
+			color: var(--quiz-correct-text);
+			background: var(--quiz-correct-bg);
 		}
 
 		.exam .quiz-feedback[data-status='incorrect'] {
-			color: #ffd9d9;
-			background: color-mix(in srgb, #f87171 16%, var(--sl-color-bg));
+			color: var(--quiz-incorrect-text);
+			background: var(--quiz-incorrect-bg);
 		}
 
 		.exam .quiz-actions {

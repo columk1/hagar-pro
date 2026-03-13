@@ -84,11 +84,12 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 		.lesson-progress-copy .status {
 			margin: 0.2rem 0 0;
 			font-size: var(--sl-text-sm);
+			font-weight: 600;
 			color: var(--sl-color-gray-2);
 		}
 
 		.lesson-progress-card[data-complete='true'] .status {
-			color: #6ee7a8;
+			color: var(--hp-progress-circle-fill);
 		}
 
 		.lesson-progress-indicator {

@@ -180,9 +180,6 @@ export function MagneticVariationTool() {
               <circle cx="110" cy="110" r="96" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.35" />
 
               <text x="110" y="20" textAnchor="middle" fontSize="14" fontWeight="700" className="mvt-north-label">N</text>
-              <text x="202" y="114" textAnchor="middle" fontSize="12">E</text>
-              <text x="110" y="210" textAnchor="middle" fontSize="12">S</text>
-              <text x="18" y="114" textAnchor="middle" fontSize="12">W</text>
 
               <g transform={`rotate(${magneticNorthRotation}, 110, 110)`}>
                 <line
