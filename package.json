@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fmt": "oxfmt"
+    "fmt": "oxfmt",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -29,7 +30,12 @@
     "@types/leaflet": "^1.9.21",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.3",
     "oxfmt": "^0.40.0",
     "typescript": "^5.9.3"
+  },
+  "lint-staged": {
+    "*": "oxfmt --check --no-error-on-unmatched-pattern"
   }
 }
