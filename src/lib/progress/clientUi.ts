@@ -6,7 +6,7 @@ import {
 } from '../stores/progressStore'
 import { canonicalizePathToContentId, getSectionIdFromLessonId, isLessonId } from './lessonIds'
 
-const CHECKMARK = '✓'
+// const CHECKMARK = '✓'
 const SECTION_RING_CIRCUMFERENCE = 97.39
 let stopProgressListener: (() => void) | null = null
 
