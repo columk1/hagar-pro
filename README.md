@@ -1,49 +1,60 @@
-# Starlight Starter Kit: Basics
+# HAGAR Pro
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+HPAC/ACVL-aligned study curriculum for the Transport Canada HAGAR exam.
+
+## Overview
+
+HAGAR Pro is a comprehensive study platform for hang glider and paraglider pilots preparing for the Transport Canada Hang Glider Air Regulations (HAGAR) examination. The course covers all required topics including air regulations, VNC charts, Canadian airspace, flight operations, and human factors.
+
+## Features
+
+- **Structured Curriculum**: 6-section syllabus aligned with HPAC/ACVL standards
+- **Interactive Components**: Includes airspace diagrams and map work tools
+- **Progress Tracking**: Monitor study progress across all sections
+- **Practice Quizzes**: Section-specific quizzes with 6 questions each
+- **Mobile-Friendly**: Responsive design for studying on any device
+
+## Course Structure
+
+1. **Air Regulations** - Canadian Aviation Regulations, operating rules, and procedures
+2. **VNC Charts** - Chart reading, symbology, and navigation
+3. **Canadian Airspace** - Airspace classes, regulations, and special use areas
+4. **Flight Operations** - NOTAMs, communications, and operational procedures
+5. **Human Factors** - Medical fitness, altitude effects, and safety considerations
+6. **Practice Exam** - Exam preparation using a random sample of questions
+
+## Tech Stack
+
+- **Astro Starlight** - Documentation framework
+- **React** - Interactive components
+
+## Project Structure
 
 ```
-pnpm create astro@latest -- --template starlight
+src/
+├── components/          # React/Astro components
+│   ├── progress/        # Progress tracking UI
+│   ├── quiz/           # Quiz components
+│   └── tools/          # Interactive learning tools
+├── content/docs/        # Course content (MDX)
+│   └── curriculum/      # Main curriculum sections
+├── lib/                # Utilities and data
+│   ├── data/           # Question banks and reference data
+│   └── stores/         # State management
+└── assets/             # Static assets
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Contributing
 
-## 🚀 Project Structure
+This course is maintained for the HPAC/ACVL community. You can help improve it by:
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+1. Opening an [issue](https://github.com/columk1/hagar-pro/issues) or starting a [discussion](https://github.com/columk1/hagar-pro/discussions) on GitHub.
+2. Emailing me at columk1@gmail.com for general suggestions or questions.
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+For course feedback or corrections after taking the exam, please open an issue or contact me at columk1@gmail.com.
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## Copyright Notice
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+Portions of this course reproduce material from the "HPAC/ACVL Study Guide for the HAGAR Examination Version 3.1" (2016), originally authored by Andre Nadeau.
 
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+This material is used with permission from HPAC/ACVL and remains their property.
