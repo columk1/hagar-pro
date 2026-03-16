@@ -1,0 +1,116 @@
+.viewer {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  background: color-mix(in srgb, var(--sl-color-bg) 94%, var(--sl-color-gray-6));
+}
+
+.head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.head p {
+  margin: 0.35rem 0 0;
+  color: var(--sl-color-gray-2);
+  font-size: 0.9rem;
+}
+
+.mapShell {
+  position: relative;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  min-height: 420px;
+  background: var(--hp-tool-map-surface);
+}
+
+.map {
+  width: 100%;
+  height: 420px;
+}
+
+.dataPanel {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.75rem;
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.35rem;
+  background: color-mix(in srgb, var(--sl-color-bg) 90%, transparent);
+}
+
+.label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sl-color-gray-3);
+  font-size: var(--sl-text-xs);
+  font-weight: 700;
+}
+
+.value {
+  margin: 0;
+  color: var(--sl-color-gray-2);
+  font-size: 0.87rem;
+  line-height: 1.4;
+}
+
+.reset {
+  margin-top: 0.25rem;
+  justify-self: start;
+  border-radius: var(--btn-radius);
+  border: 1px solid var(--btn-primary-border);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  padding: 0.42rem 0.65rem;
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  cursor: pointer;
+  transition: var(--btn-transition);
+}
+
+.reset:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.reset:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 0;
+  padding: 0.8rem;
+  color: var(--hp-tool-alert-text);
+  background: var(--sl-color-red-low);
+}
+
+:global(.vnc-measure-tooltip) {
+  background: var(--hp-tool-tooltip-bg);
+  border: 1px solid var(--hp-tool-tooltip-border);
+  color: var(--hp-tool-tooltip-text);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.25);
+}
+
+:global(.vnc-measure-tooltip::before) {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .mapShell,
+  .map {
+    min-height: 340px;
+    height: 340px;
+  }
+
+  .head p,
+  .value {
+    font-size: 0.82rem;
+  }
+}

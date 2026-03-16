@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from 'react'
 
-import VNCViewer from '../tools/VNCViewer'
+import VNCViewer from '../tools/VNCViewer/VNCViewer'
 import type { ExamQuestion } from './examTypes'
 import { generateExamQuestions } from './examUtils'
 import QuestionCard from './QuestionCard'

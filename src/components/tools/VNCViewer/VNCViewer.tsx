@@ -3,6 +3,8 @@ import type { LatLngTuple, Layer, LeafletMouseEvent, Map, Polyline, Tooltip } fr
 import 'leaflet/dist/leaflet.css'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
+import styles from './VNCViewer.module.css'
+
 type VariationDirection = 'E' | 'W'
 
 type VNCViewerProps = {
@@ -276,9 +278,9 @@ export function VNCViewer({
     if (pointA) {
       pointAMarkerRef.current = L.circleMarker(pointA, {
         radius: 7,
-        color: 'var(--hp-tool-heading)',
+        color: 'var(--sl-color-accent)',
         weight: 2,
-        fillColor: 'var(--hp-tool-heading)',
+        fillColor: 'var(--sl-color-accent)',
         fillOpacity: 0.95,
       })
         .bindTooltip('Point A', { direction: 'top', permanent: true, offset: [0, -10] })
@@ -288,9 +290,9 @@ export function VNCViewer({
     if (pointB) {
       pointBMarkerRef.current = L.circleMarker(pointB, {
         radius: 7,
-        color: 'var(--hp-tool-negative)',
+        color: 'var(--sl-color-red)',
         weight: 2,
-        fillColor: 'var(--hp-tool-negative)',
+        fillColor: 'var(--sl-color-red)',
         fillOpacity: 0.95,
       })
         .bindTooltip('Point B', { direction: 'top', permanent: true, offset: [0, -10] })
@@ -299,7 +301,7 @@ export function VNCViewer({
 
     if (pointA && pointB && routeMetrics) {
       routeLineRef.current = L.polyline([pointA, pointB], {
-        color: 'var(--hp-tool-positive)',
+        color: 'var(--sl-color-green)',
         weight: 4,
         opacity: 0.92,
       }).addTo(map)
@@ -324,8 +326,8 @@ export function VNCViewer({
     : 'Move your cursor over the chart to inspect coordinates.'
 
   return (
-    <section className="vnc-viewer not-content" aria-label="VNC chart viewer">
-      <header className="vnc-head">
+    <section className={`${styles.viewer} not-content`} aria-label="VNC chart viewer">
+      <header className={styles.head}>
         <h3>VNC Chart Viewer + Virtual Plotter</h3>
         <p>
           Click Point A, then Point B to draw a route and measure its distance. A third click resets
@@ -333,38 +335,35 @@ export function VNCViewer({
         </p>
       </header>
 
-      <div className="vnc-map-shell">
+      <div className={styles.mapShell}>
         {loadError ? (
-          <p className="vnc-error" role="alert">
+          <p className={styles.error} role="alert">
             {loadError}
           </p>
         ) : (
-          <>
-            <div ref={mapElementRef} className="vnc-map" />
-            <div className="vnc-crosshair" aria-hidden="true" />
-          </>
+          <div ref={mapElementRef} className={styles.map} />
         )}
       </div>
 
-      <div className="vnc-data-panel" aria-live="polite">
-        <p className="vnc-label">Coordinate finder</p>
-        <p className="vnc-value">{cursorLabel}</p>
+      <div className={styles.dataPanel} aria-live="polite">
+        <p className={styles.label}>Coordinate finder</p>
+        <p className={styles.value}>{cursorLabel}</p>
 
-        <p className="vnc-label">Plotter</p>
+        <p className={styles.label}>Plotter</p>
         {routeMetrics ? (
-          <p className="vnc-value">
+          <p className={styles.value}>
             True Track: <strong>{routeMetrics.trueTrack.toFixed(0)}deg</strong> | Magnetic Track (
             {magneticVariationDegrees}deg{magneticVariationDirection}):{' '}
             <strong>{routeMetrics.magneticTrack.toFixed(0)}deg</strong> | Distance:{' '}
             <strong>{routeMetrics.distanceNm.toFixed(1)} NM</strong>
           </p>
         ) : (
-          <p className="vnc-value">Set two points to calculate true track and distance.</p>
+          <p className={styles.value}>Set two points to calculate true track and distance.</p>
         )}
 
         <button
           type="button"
-          className="vnc-reset"
+          className={styles.reset}
           onClick={() => {
             setPointA(null)
             setPointB(null)
@@ -373,134 +372,6 @@ export function VNCViewer({
           Clear Plotter
         </button>
       </div>
-
-      <style>{`
-        .vnc-viewer {
-          display: grid;
-          gap: 0.75rem;
-          padding: 1rem;
-          border-radius: 1rem;
-          border: 1px solid var(--sl-color-gray-5);
-          background: color-mix(in srgb, var(--sl-color-bg) 94%, var(--sl-color-gray-6));
-        }
-
-        .vnc-head h3 {
-          margin: 0;
-          font-size: 1.05rem;
-        }
-
-        .vnc-head p {
-          margin: 0.35rem 0 0;
-          color: var(--sl-color-gray-2);
-          font-size: 0.9rem;
-        }
-
-        .vnc-map-shell {
-          position: relative;
-          border: 1px solid var(--sl-color-gray-5);
-          border-radius: 0.85rem;
-          overflow: hidden;
-          min-height: 420px;
-          background: var(--hp-tool-map-surface);
-        }
-
-        .vnc-map {
-          width: 100%;
-          height: 420px;
-        }
-
-        .vnc-crosshair {
-          pointer-events: none;
-          position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(to right, transparent calc(50% - 0.5px), rgba(12, 23, 39, 0.45) 50%, transparent calc(50% + 0.5px)),
-            linear-gradient(to bottom, transparent calc(50% - 0.5px), rgba(12, 23, 39, 0.45) 50%, transparent calc(50% + 0.5px));
-        }
-
-        .vnc-data-panel {
-          border: 1px solid var(--sl-color-gray-5);
-          border-radius: 0.75rem;
-          padding: 0.7rem;
-          display: grid;
-          gap: 0.35rem;
-          background: color-mix(in srgb, var(--sl-color-bg) 90%, transparent);
-        }
-
-        .vnc-label {
-          margin: 0;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: var(--sl-color-gray-3);
-          font-size: var(--sl-text-xs);
-          font-weight: 700;
-        }
-
-        .vnc-value {
-          margin: 0;
-          color: var(--sl-color-gray-2);
-          font-size: 0.87rem;
-          line-height: 1.4;
-        }
-
-        .vnc-reset {
-          margin-top: 0.25rem;
-          justify-self: start;
-          border-radius: var(--btn-radius);
-          border: 1px solid var(--btn-primary-border);
-          background: var(--btn-primary-bg);
-          color: var(--btn-primary-text);
-          padding: 0.42rem 0.65rem;
-          font-size: var(--btn-font-size);
-          font-weight: var(--btn-font-weight);
-          cursor: pointer;
-          transition: var(--btn-transition);
-        }
-
-        .vnc-reset:hover:not(:disabled) {
-          opacity: 0.9;
-        }
-
-        .vnc-reset:disabled {
-          opacity: 0.55;
-          cursor: not-allowed;
-        }
-
-        .vnc-error {
-          margin: 0;
-          padding: 0.8rem;
-          color: var(--hp-tool-alert-text);
-          background: color-mix(in srgb, var(--hp-tool-negative) 20%, var(--sl-color-bg));
-        }
-
-        :global(.vnc-measure-tooltip) {
-          background: var(--hp-tool-tooltip-bg);
-          border: 1px solid var(--hp-tool-tooltip-border);
-          color: var(--hp-tool-tooltip-text);
-          border-radius: 999px;
-          font-size: 0.72rem;
-          font-weight: 600;
-          padding: 0.25rem 0.5rem;
-          box-shadow: 0 8px 24px rgba(2, 6, 23, 0.25);
-        }
-
-        :global(.vnc-measure-tooltip::before) {
-          display: none;
-        }
-
-        @media (max-width: 760px) {
-          .vnc-map-shell,
-          .vnc-map {
-            min-height: 340px;
-            height: 340px;
-          }
-
-          .vnc-head p,
-          .vnc-value {
-            font-size: 0.82rem;
-          }
-        }
-      `}</style>
     </section>
   )
 }

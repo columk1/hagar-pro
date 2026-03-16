@@ -1,66 +1,45 @@
 /* Custom CSS styles for Hagar Pro */
 
 :root {
-  /* Core brand/tool palette */
-  --hp-color-blue: var(--sl-color-blue);
-  --hp-color-green: var(--sl-color-green);
-  --hp-color-red: var(--sl-color-red);
-
-  /* Semantic usage tokens for interactive learning tools */
-  --hp-tool-heading: var(--hp-color-blue);
-  --hp-tool-positive: var(--hp-color-green);
-  --hp-tool-negative: var(--hp-color-red);
-
   --hp-tool-map-surface: #f4f6f8;
   --hp-tool-tooltip-bg: rgba(16, 24, 40, 0.92);
   --hp-tool-tooltip-border: rgba(255, 255, 255, 0.12);
   --hp-tool-tooltip-text: #f8fafc;
-  --hp-tool-alert-text: color-mix(in srgb, var(--hp-tool-negative) 30%, white);
+  --hp-tool-alert-text: var(--sl-color-red);
 
-  --hp-progress-circle-fill: #6ee7a8;
+  --hp-progress-circle-fill: var(--sl-color-green);
 
-  --btn-primary-border: color-mix(in srgb, var(--sl-color-accent) 45%, var(--sl-color-gray-5));
-  --btn-primary-bg: color-mix(in srgb, var(--sl-color-accent) 18%, var(--sl-color-bg));
+  --btn-primary-border: var(--sl-color-accent);
+  --btn-primary-bg: var(--sl-color-accent-low);
   --btn-primary-text: var(--sl-color-white);
+
   --btn-secondary-border: var(--sl-color-gray-5);
   --btn-secondary-bg: color-mix(in srgb, var(--sl-color-bg) 84%, transparent);
   --btn-secondary-text: var(--sl-color-gray-2);
-  --btn-success-border: color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4));
-  --btn-success-bg: color-mix(in srgb, #6ee7a8 20%, var(--sl-color-bg));
+
+  --btn-success-border: var(--sl-color-green);
+  --btn-success-bg: var(--sl-color-green-low);
   --btn-success-text: var(--sl-color-white);
+
   --btn-radius: 0.65rem;
   --btn-font-size: var(--sl-text-xs);
   --btn-font-weight: 600;
   --btn-transition: opacity 0.2s ease;
 
-  --quiz-correct-bg: var(--hp-progress-circle-fill);
-  /* --quiz-incorrect-bg: #f87171; */
-  --quiz-correct-text: #d7ffe9;
+  --quiz-correct-bg: var(--sl-color-green-low);
+  --quiz-correct-text: var(--sl-color-white);
   --quiz-incorrect-text: var(--sl-color-white);
 
   /* Quiz feedback */
-  --quiz-correct-border: color-mix(
-    in srgb,
-    var(--hp-progress-circle-fill) 70%,
-    var(--sl-color-gray-4)
-  );
-  --quiz-correct-bg: color-mix(in srgb, var(--hp-progress-circle-fill) 16%, var(--sl-color-bg));
+  --quiz-correct-border: var(--btn-success-border);
+  --quiz-correct-bg: var(--sl-color-green-low);
   --quiz-incorrect-border: var(--sl-color-red);
   --quiz-incorrect-bg: var(--sl-color-red-low);
 }
 
 :root[data-theme='light'] {
-  --hp-progress-circle-fill: #51c388;
-
-  --btn-primary-border: var(--sl-color-accent);
-  --btn-primary-bg: var(--sl-color-accent);
-  --btn-primary-text: var(--sl-color-black);
-
-  /* --btn-success-border: color-mix(in srgb, #6ee7a8 45%, var(--sl-color-gray-4)); */
-  /* --btn-success-bg: var(--hp-progress-circle-fill); */
-  --btn-success-border: var(--btn-primary-border);
-  --btn-success-bg: var(--btn-primary-bg);
-  --btn-success-text: var(--sl-color-black);
+  --sl-color-accent: #325ce1;
+  --sl-color-accent-low: #c7d7fa;
 }
 
 /* Global button class */

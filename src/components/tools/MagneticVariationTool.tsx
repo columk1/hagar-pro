@@ -203,7 +203,7 @@ export function MagneticVariationTool() {
                   y1="110"
                   x2="110"
                   y2="50"
-                  stroke="var(--hp-tool-negative)"
+                  stroke="var(--sl-color-red)"
                   strokeWidth="3"
                   markerEnd="url(#magArrow)"
                 />
@@ -215,10 +215,10 @@ export function MagneticVariationTool() {
                   y1="110"
                   x2="110"
                   y2="14"
-                  stroke="var(--hp-tool-positive)"
+                  stroke="var(--sl-color-green)"
                   strokeWidth="2"
                 />
-                <circle cx="110" cy="14" r="2.5" fill="var(--hp-tool-positive)" />
+                <circle cx="110" cy="14" r="2.5" fill="var(--sl-color-green)" />
               </g>
 
               <g transform={`rotate(${magneticHeadingForVisual}, 110, 110)`}>
@@ -227,11 +227,11 @@ export function MagneticVariationTool() {
                   y1="110"
                   x2="110"
                   y2="14"
-                  stroke="var(--hp-tool-heading)"
+                  stroke="var(--sl-color-accent)"
                   strokeWidth="2"
                   opacity="0.7"
                 />
-                <circle cx="110" cy="14" r="2.5" fill="var(--hp-tool-heading)" opacity="0.7" />
+                <circle cx="110" cy="14" r="2.5" fill="var(--sl-color-accent)" opacity="0.7" />
               </g>
 
               <defs>
@@ -244,7 +244,7 @@ export function MagneticVariationTool() {
                   orient="auto"
                   markerUnits="strokeWidth"
                 >
-                  <path d="M0,0 L8,3 L0,6 z" fill="var(--hp-tool-negative)" />
+                  <path d="M0,0 L8,3 L0,6 z" fill="var(--sl-color-red)" />
                 </marker>
               </defs>
 
@@ -524,23 +524,23 @@ export function MagneticVariationTool() {
         }
 
         .mvt-dot.true {
-          background: var(--hp-tool-positive);
+          background: var(--sl-color-green);
         }
 
         .mvt-dot.magnetic {
-          background: var(--hp-tool-negative);
+          background: var(--sl-color-red);
         }
 
         .mvt-dot.heading {
-          background: var(--hp-tool-heading);
+          background: var(--sl-color-accent);
         }
 
         .mvt-dot.heading-solid {
-          background: var(--hp-tool-positive);
+          background: var(--sl-color-green);
         }
 
         .mvt-dot.heading-dotted {
-          background: var(--hp-tool-heading);
+          background: var(--sl-color-accent);
           opacity: 0.7;
         }
 
