@@ -19,13 +19,14 @@ export default defineConfig({
         dark: './src/assets/logo-header-dark.svg',
         replacesTitle: true,
       },
-      social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/columk1/hagar-prep' }],
+      social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/columk1/hagar-pro' }],
       customCss: ['./src/styles/custom.css'],
       components: {
         Head: './src/components/starlight/Head.astro',
         PageFrame: './src/components/starlight/PageFrame.astro',
         PageTitle: './src/components/starlight/PageTitle.astro',
         Footer: './src/components/starlight/Footer.astro',
+        SocialIcons: './src/components/starlight/SocialIcons.astro',
       },
       sidebar: [
         {

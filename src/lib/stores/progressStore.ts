@@ -1,7 +1,7 @@
 import { persistentAtom } from '@nanostores/persistent'
 import { computed } from 'nanostores'
 
-export const PROGRESS_STORAGE_KEY = 'hagar-prep-progress-v1'
+export const PROGRESS_STORAGE_KEY = 'hagar-pro-progress-v1'
 
 export type ProgressState = {
   completedLessons: string[]

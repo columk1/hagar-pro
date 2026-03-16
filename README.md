@@ -53,6 +53,8 @@ This course is maintained for the HPAC/ACVL community. You can help improve it b
 
 For course feedback or corrections after taking the exam, please open an issue or contact me at columk1@gmail.com.
 
+You can also support development by making a donation at https://ko-fi.com/columkelly
+
 ## Copyright Notice
 
 Portions of this course reproduce material from the "HPAC/ACVL Study Guide for the HAGAR Examination Version 3.1" (2016), originally authored by Andre Nadeau.
