@@ -3,12 +3,13 @@ import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config'
+import rehypeExternalLinks from 'rehype-external-links'
 import rehypeFigureTitle from 'rehype-figure-title'
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
-    rehypePlugins: [rehypeFigureTitle],
+    rehypePlugins: [rehypeFigureTitle, [rehypeExternalLinks, { target: '_blank', rel: [] }]],
   },
   integrations: [
     starlight({
@@ -82,10 +83,13 @@ export default defineConfig({
             },
           ],
         },
+        { label: 'Resources', slug: 'resources' },
         { label: 'Continue on Another Device', slug: 'continue-on-another-device' },
       ],
     }),
-    mdx(),
+    mdx({
+      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: [] }]],
+    }),
     react(),
   ],
 })
