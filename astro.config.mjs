@@ -33,52 +33,56 @@ export default defineConfig({
         {
           label: 'Curriculum',
           items: [
-            { label: 'Introduction', slug: 'introduction' },
             {
-              label: '1. Air Regulations',
-              autogenerate: { directory: 'curriculum/1-air-regulations' },
+              label: '1. Introduction',
+              autogenerate: { directory: 'curriculum/1-introduction' },
               collapsed: true,
             },
             {
-              label: '2. VNC Charts',
-              autogenerate: { directory: 'curriculum/2-vnc-charts' },
+              label: '2. Air Regulations',
+              autogenerate: { directory: 'curriculum/2-air-regulations' },
               collapsed: true,
             },
             {
-              label: '3. Canadian Airspace & Airspace Regulations',
+              label: '3. VNC Charts',
+              autogenerate: { directory: 'curriculum/3-vnc-charts' },
+              collapsed: true,
+            },
+            {
+              label: '4. Canadian Airspace & Airspace Regulations',
               collapsed: true,
               items: [
                 {
-                  label: '3.1 Canadian Domestic Airspace & Uncontrolled Airspace',
-                  slug: 'curriculum/3-canadian-airspace/3-1-domestic-airspace',
+                  label: '4.1 Canadian Domestic Airspace & Uncontrolled Airspace',
+                  slug: 'curriculum/4-canadian-airspace/4-1-domestic-airspace',
                 },
                 {
-                  label: '3.2 Controlled Airspace (Classes A through E)',
-                  slug: 'curriculum/3-canadian-airspace/3-2-airspace-classes-flight-rules',
+                  label: '4.2 Controlled Airspace (Classes A through E)',
+                  slug: 'curriculum/4-canadian-airspace/4-2-airspace-classes-flight-rules',
                 },
                 {
-                  label: '3.3 Special Use Airspace (Class F)',
-                  slug: 'curriculum/3-canadian-airspace/3-3-special-use-airspace-class-f',
+                  label: '4.3 Special Use Airspace (Class F)',
+                  slug: 'curriculum/4-canadian-airspace/4-3-special-use-airspace-class-f',
                 },
                 {
                   label: 'Quiz: Canadian Airspace',
-                  slug: 'curriculum/3-canadian-airspace/quiz-canadian-airspace',
+                  slug: 'curriculum/4-canadian-airspace/quiz-canadian-airspace',
                 },
               ],
             },
             {
-              label: '4. Flight Operations',
-              autogenerate: { directory: 'curriculum/4-flight-operations' },
+              label: '5. Flight Operations',
+              autogenerate: { directory: 'curriculum/5-flight-operations' },
               collapsed: true,
             },
             {
-              label: '5. Human Factors',
-              autogenerate: { directory: 'curriculum/5-human-factors' },
+              label: '6. Human Factors',
+              autogenerate: { directory: 'curriculum/6-human-factors' },
               collapsed: true,
             },
             {
-              label: '6. Practice Exam',
-              autogenerate: { directory: 'curriculum/6-practice-exam' },
+              label: '7. Practice Exam',
+              autogenerate: { directory: 'curriculum/7-practice-exam' },
               collapsed: true,
             },
           ],
