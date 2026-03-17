@@ -60,14 +60,6 @@ export default defineConfig({
                   slug: 'curriculum/3-canadian-airspace/3-3-special-use-airspace-class-f',
                 },
                 {
-                  label: '3.4 Map Work & Locating Features',
-                  slug: 'curriculum/3-canadian-airspace/3-4-map-work-locating-features',
-                },
-                {
-                  label: '3.5 Magnetic Variation and Navigation',
-                  slug: 'curriculum/3-canadian-airspace/3-5-magnetic-variation-navigation',
-                },
-                {
                   label: 'Quiz: Canadian Airspace',
                   slug: 'curriculum/3-canadian-airspace/quiz-canadian-airspace',
                 },

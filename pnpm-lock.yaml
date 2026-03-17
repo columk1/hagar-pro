@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@astro-community/astro-embed-youtube':
+        specifier: ^0.5.10
+        version: 0.5.10
       '@astrojs/mdx':
         specifier: ^4.3.13
         version: 4.3.13(astro@5.18.0(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2))
@@ -74,6 +77,9 @@ importers:
         version: 5.9.3
 
 packages:
+
+  '@astro-community/astro-embed-youtube@0.5.10':
+    resolution: {integrity: sha512-hVlx77KQLjKzElVQnrU5znQ5/E60keVSAPrhuWvQQHuqva5auJtt8YBpOThkwDMuEKXjQybEF1/3C07RZ8MAOQ==}
 
   '@astrojs/check@0.9.6':
     resolution: {integrity: sha512-jlaEu5SxvSgmfGIFfNgcn5/f+29H61NJzEMfAZ82Xopr4XBchXB1GVlcJsE+elUlsYSbXlptZLX+JMG3b/wZEA==}
@@ -1933,6 +1939,9 @@ packages:
     resolution: {integrity: sha512-ME4Fb83LgEgwNw96RKNvKV4VTLuXfoKudAmm2lP8Kk87KaMK0/Xrx/aAkMWmT8mDb+3MlFDspfbCs7adjRxA2g==}
     engines: {node: '>=20.0.0'}
 
+  lite-youtube-embed@0.3.4:
+    resolution: {integrity: sha512-aXgxpwK7AIW58GEbRzA8EYaY4LWvF3FKak6B9OtSJmuNyLhX2ouD4cMTxz/yR5HFInhknaYd2jLWOTRTvT8oAw==}
+
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -2922,6 +2931,10 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@astro-community/astro-embed-youtube@0.5.10':
+    dependencies:
+      lite-youtube-embed: 0.3.4
 
   '@astrojs/check@0.9.6(prettier@3.8.1)(typescript@5.9.3)':
     dependencies:
@@ -4788,6 +4801,8 @@ snapshots:
       log-update: 6.1.0
       rfdc: 1.4.1
       wrap-ansi: 9.0.2
+
+  lite-youtube-embed@0.3.4: {}
 
   lodash@4.17.21: {}
 
