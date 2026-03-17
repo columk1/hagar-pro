@@ -133,13 +133,12 @@ export function ExamApp({ questionPool }: ExamAppProps) {
 
       {hasStarted ? (
         <div className="exam-run" ref={runPanelRef}>
-          <div className="exam-toolbar">
+          <div className="exam-toolbar not-content">
             <p className="exam-timer-reminder">
-              Exam in progress. Ensure your external timer is running for <strong>2.5 hours</strong>
-              .
+              Exam in progress. You have <strong>2.5 hours</strong> to answer all questions.
             </p>
             <button type="button" className="btn-primary" onClick={handleRegenerateExam}>
-              Generate New Exam
+              Reset
             </button>
           </div>
 
