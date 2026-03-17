@@ -4,6 +4,7 @@ This is an educational resource for hang glider and paraglider pilots studying f
 
 ## Development
 
+- Use `pnpm` for package management.
 - Always assume there is a dev server running at http://localhost:4321
 
 ## Style
