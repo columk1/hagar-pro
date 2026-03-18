@@ -4,17 +4,11 @@ import { generateOGURL } from '../../lib/og.ts';
 const { head } = Astro.locals.starlightRoute;
 const currentPath = Astro.url.pathname;
 
-// Generate dynamic OG image URL
-const pageTitle = head.find(item => item.tag === 'title')?.content || 'HAGAR Pro';
-const pageDescription = head.find(item => item.tag === 'meta' && item.attrs?.name === 'description')?.attrs?.content as string || 'Structured preparation for the Transport Canada HAGAR exam';
+// Automatically map current path to generated static image
+const ogImagePath = generateOGURL(currentPath);
 
-// Clean up the title - remove site name suffix if present
-const cleanTitle = pageTitle.replace(' | HAGAR Pro', '').trim() || 'HAGAR Pro';
-
-const ogImageURL = generateOGURL({
-  title: cleanTitle,
-  description: pageDescription
-});
+// Combine site origin with the static path
+const ogImageURL = new URL(ogImagePath, Astro.site ?? Astro.url.origin).toString();
 ---
 
 {head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}

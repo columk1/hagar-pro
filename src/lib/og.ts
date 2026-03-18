@@ -1,11 +1,14 @@
-export function generateOGURL(params: { title?: string; description?: string }): string {
-  const searchParams = new URLSearchParams()
+export function generateOGURL(currentPath: string): string {
+  // Strip leading/trailing slashes
+  let slug = currentPath.replace(/^\/|\/$/g, '')
 
-  if (params.title) searchParams.set('title', params.title)
-  if (params.description) searchParams.set('description', params.description)
+  // Map root path to 'index'
+  if (!slug) slug = 'index'
 
-  const queryString = searchParams.toString()
-  return `/og/image/default.png${queryString ? '?' + queryString : ''}`
+  // Remove trailing '/index' from directory paths just in case
+  if (slug.endsWith('/index')) slug = slug.replace(/\/index$/, '')
+
+  return `/og/${slug}.png`
 }
 
 export function getOGTypeFromPath(path: string): 'default' | 'quiz' | 'curriculum' {

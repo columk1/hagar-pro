@@ -1,0 +1,74 @@
+---
+// export const prerender = false;
+
+const title = Astro.url.searchParams.get("title") || "Untitled";
+const image = Astro.url.searchParams.get("image") || "/images/logo.png";
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 1200px;
+        height: 630px;
+        display: flex;
+        flex-direction: row; /* changed from column */
+        font-family: 'Inter', sans-serif;
+        background: #000; /* black background to match your version */
+        color: white;
+      }
+
+      .left {
+        width: 600px;
+        height: 100%;
+      }
+
+      .left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .right {
+        width: 600px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 50px;
+      }
+
+      .title {
+        font-size: 42px;
+        font-weight: 400;
+        opacity: 0.9;
+        line-height: 1.3;
+      }
+
+      .logo {
+        display: none; /* logo is replaced by left image */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <img src={image} alt="Logo" />
+    </div>
+
+    <div class="right">
+      <div class="title">{title}</div>
+    </div>
+  </body>
+</html>
