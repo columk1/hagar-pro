@@ -1,5 +1,28 @@
 ---
+import { generateOGURL } from '../../lib/og.ts';
+
 const { head } = Astro.locals.starlightRoute;
+const currentPath = Astro.url.pathname;
+
+// Generate dynamic OG image URL
+const pageTitle = head.find(item => item.tag === 'title')?.content || 'HAGAR Pro';
+const pageDescription = head.find(item => item.tag === 'meta' && item.attrs?.name === 'description')?.attrs?.content as string || 'Structured preparation for the Transport Canada HAGAR exam';
+
+// Clean up the title - remove site name suffix if present
+const cleanTitle = pageTitle.replace(' | HAGAR Pro', '').trim() || 'HAGAR Pro';
+
+const ogImageURL = generateOGURL({
+  title: cleanTitle,
+  description: pageDescription
+});
 ---
 
 {head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
+
+<!-- Dynamic Open Graph tags -->
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content={ogImageURL} />

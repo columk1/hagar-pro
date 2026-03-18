@@ -14,7 +14,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'HAGAR Pro',
-      description: 'HPAC/ACVL-aligned study curriculum for the Transport Canada HAGAR exam.',
+      description: 'Structured preparation for the Transport Canada HAGAR exam.',
       logo: {
         light: './src/assets/logo-header-light.svg',
         dark: './src/assets/logo-header-dark.svg',

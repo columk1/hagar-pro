@@ -20,6 +20,7 @@
     "@astrojs/starlight": "^0.37.6",
     "@nanostores/persistent": "^1.3.3",
     "astro": "^5.18.0",
+    "cf-workers-og": "^3.0.1",
     "leaflet": "^1.9.4",
     "lz-utils": "^2.1.0",
     "nanostores": "^1.1.1",
