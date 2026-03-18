@@ -1,6 +1,6 @@
 # HAGAR Pro
 
-HPAC/ACVL-aligned study curriculum for the Transport Canada HAGAR exam.
+An interactive course to help pilots prepare for the Transport Canada HAGAR exam.
 
 ## Overview
 
@@ -8,10 +8,10 @@ HAGAR Pro is a comprehensive study platform for hang glider and paraglider pilot
 
 ## Features
 
-- **Structured Curriculum**: 6-section syllabus aligned with HPAC/ACVL standards
+- **Structured Curriculum**: 7-section syllabus aligned with HPAC/ACVL standards
 - **Interactive Components**: Includes airspace diagrams and map work tools
 - **Progress Tracking**: Monitor study progress across all sections
-- **Practice Quizzes**: Section-specific quizzes with 6 questions each
+- **Practice Quizzes**: Section-specific quizzes to test knowledge
 - **Mobile-Friendly**: Responsive design for studying on any device
 
 ## Course Structure
@@ -22,11 +22,6 @@ HAGAR Pro is a comprehensive study platform for hang glider and paraglider pilot
 4. **Flight Operations** - NOTAMs, communications, and operational procedures
 5. **Human Factors** - Medical fitness, altitude effects, and safety considerations
 6. **Practice Exam** - Exam preparation using a random sample of questions
-
-## Tech Stack
-
-- **Astro Starlight** - Documentation framework
-- **React** - Interactive components
 
 ## Project Structure
 
@@ -48,15 +43,15 @@ src/
 
 This course is maintained for the HPAC/ACVL community. You can help improve it by:
 
-1. Opening an [issue](https://github.com/columk1/hagar-pro/issues) or starting a [discussion](https://github.com/columk1/hagar-pro/discussions) on GitHub.
-2. Emailing me at columk1@gmail.com for general suggestions or questions.
+- Opening an [issue](https://github.com/columk1/hagar-pro/issues) on GitHub.
+- Emailing info@hagarpro.ca with suggestions, feedback, or corrections.
 
-For course feedback or corrections after taking the exam, please open an issue or contact me at columk1@gmail.com.
+Feedback after taking the exam is especially valuable.
 
 You can also support development by making a donation at https://ko-fi.com/columkelly
 
 ## Copyright Notice
 
-Portions of this course reproduce material from the "HPAC/ACVL Study Guide for the HAGAR Examination Version 3.1" (2016), originally authored by Andre Nadeau.
+Portions of this course reproduce material from the "HPAC/ACVL Study Guide for the HAGAR Examination Version 3.1" (Andre Nadeau, 2016).
 
 This material is used with permission from HPAC/ACVL and remains their property.
