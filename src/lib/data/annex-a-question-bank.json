@@ -814,10 +814,10 @@
       "section": "Chapter 4: Map Work",
       "mapRegion": "vancouver",
       "question": "What activities can you expect in CYA 118 (A) (T) (H)?",
-      "answer": "a",
+      "answer": "b",
       "choices": {
         "a": "Soaring, training and helicopters",
-        "b": "Training, hang gliding and aerobatics",
+        "b": "Aerobatics, training and hang gliding",
         "c": "Testing, aerobatics and helicopters",
         "d": "Helicopters, testing and surveying work"
       }
