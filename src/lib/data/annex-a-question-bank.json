@@ -149,7 +149,7 @@
     {
       "id": "Q13",
       "section": "Chapter 6: Human Factors",
-      "question": "The effect of alcohol decreases the brain's tolerance to hypoxi",
+      "question": "The effect of alcohol decreases the brain's tolerance to hypoxia",
       "answer": "b",
       "choices": {
         "a": "Decreases with an increase in altitude",
@@ -293,7 +293,7 @@
     {
       "id": "Q25",
       "section": "Chapter 6: Human Factors",
-      "question": "At high altitude, a pilot is subject to hypoxi",
+      "question": "At high altitude, a pilot is subject to hypoxia",
       "answer": "d",
       "choices": {
         "a": "Excess carbon monoxide in the hemoglobin",
@@ -358,8 +358,8 @@
       "choices": {
         "a": "Financial or family problems do not influence fatigue",
         "b": "Fatigue slows reaction time and contributes to errors.",
-        "c": "A fatigues person recuperates more quickly as altitude is gained",
-        "d": "A fatigue person must have food immediately before and after a flight"
+        "c": "A fatigued person recuperates more quickly as altitude is gained",
+        "d": "A fatigued person must have food immediately before and after a flight"
       }
     },
     {
