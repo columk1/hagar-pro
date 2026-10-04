@@ -188,8 +188,8 @@ us to any discrepancies between this Study Guide and the Examination.
 30. Select the statement that best describe the effects of fatigue.
     a. Financial or family problems do not influence fatigue
     b. Fatigue slows reaction time and contributes to errors.
-    c. A fatigues person recuperates more quickly as altitude is gained
-    d. A fatigue person must have food immediately before and after a flight
+    c. A fatigued person recuperates more quickly as altitude is gained
+    d. A fatigued person must have food immediately before and after a flight
 31. After any underwater activity where compressed air is used for respiration, it is
     recommended that within 24 hours following such activity a pilot should
     a. not fly
