@@ -1,0 +1,208 @@
+---
+title: '3.6 Exemple de lecture de carte (aéroport de Yarmouth)'
+description: 'Reconnaître les espaces aériens et les éléments d’un extrait réel de la VNC d’Halifax centré sur Yarmouth.'
+---
+
+## Légende VNC
+
+Les images suivantes montrent les symboles utilisés sur une VNC. Il n’est pas nécessaire de les mémoriser, mais il faut savoir les utiliser pour interpréter la carte.
+
+### Aérodromes
+
+Les symboles peuvent être décalés pour faciliter la représentation. Pour les services et autres données, consultez le Supplément de vol. Seules les pistes utilisables sont montrées; les tracés sont à l’échelle de la carte.
+
+- Avec services : pistes à revêtement dur
+- Avec services : sans piste à revêtement dur — terrestre ou sur l’eau
+- Autres aérodromes : terrestre
+- Hydroaérodrome
+- Héliport
+- Héliport d’hôpital
+- Aérodrome abandonné
+- Statut inconnu
+
+![Symboles de la légende : Aérodromes](/images/vnc-legend-aerodromes.avif)
+
+Les aérodromes se distinguent par le type de surface, leur statut, le type d’installation et les services disponibles : carburant, douanes, éclairage, etc.
+
+### Données d’aérodrome
+
+NAME signifie « nom ». Les encadrements indiquent les services douaniers. Les abréviations ci-dessous sont celles imprimées sur la carte.
+
+- ATIS : service automatique d’information de région terminale
+- 371 : altitude en pieds ASL
+- L : balisage lumineux de piste disponible
+- L encadré : ARCAL (balisage lumineux télécommandé d’aérodrome)
+- Étoile pleine : heures limitées ou sur demande (O/R); voir le CFS
+- H : piste à revêtement dur
+- 53 : plus longue distance d’atterrissage, en centaines de pieds (53 indique une longueur de 5 270 à 5 369 pieds)
+- DAYS 60 : distance d’atterrissage de jour
+- M : fréquence obligatoire (MF)
+- A : fréquence de trafic d’aérodrome (ATF)
+- U : station consultative privée (UNICOM); U1 : 122,8, U2 : 123,0
+- C : fréquence commune d’avis de circulation (États-Unis)
+- S : aire d’amarrage abritée
+- (M) : aérodrome militaire; utilisation restreinte, autorisation préalable (PPR) requise
+- (R) : utilisation restreinte, autorisation préalable (PPR) requise
+- Étoile vide : phare d’aérodrome
+- NO SVFR : vol VFR spécial interdit aux aéronefs à voilure fixe (États-Unis)
+
+![Symboles de la légende : Données d’aérodrome](/images/vnc-legend-aerodrome-data.avif)
+
+Ces données apparaissent généralement près du symbole d’aérodrome et donnent des renseignements supplémentaires sur l’aéroport et ses procédures de communication.
+
+### Renseignements sur l’espace aérien
+
+Tous les relèvements sont magnétiques. L’espace aérien contrôlé sous le FL 180 est représenté. Le transpondeur mode C est obligatoire dans tous les espaces de classes B et C.
+
+Les altitudes sont inclusives, sauf indication contraire. (CZQM) est l’indicateur du fichier NOTAM.
+
+Tous les parcs nationaux, provinciaux et municipaux sont fermés aux aéronefs, sauf indication contraire dans l’AIP Canada ou ses suppléments, ou autorisation préalable de l’autorité compétente du parc.
+
+- Limite d’une région contrôlée
+- Axe de voie aérienne VHF/UHF
+- Axe de voie aérienne LF/MF (relèvements fondés sur la déclinaison au quart de la distance)
+- Axe de route aérienne
+- Route d’entraînement militaire
+- Route VFR : voir AIM de TC, AIR 2.13
+- Points de compte rendu obligatoire ou sur demande
+- Point de changement (non indiqué lorsqu’il est à mi-distance)
+- Limite d’espace aérien (classe indiquée)
+- MODE C : transpondeur mode C obligatoire
+- Limite entre régions contrôlées de planchers différents : 2 200 pi AGL au Canada et 1 200 pi AGL aux États-Unis, sauf indication contraire; E700 indique la classe E avec un plancher à 700 pi AGL
+- CZ 3000 (2700) : zone de contrôle de classe B, plafond de 3 000 pi ASL (2 700 pi au-dessus de l’aérodrome)
+- CZ « D » 3000 (2700) : zone de contrôle de classe C ou D selon l’indication, mêmes altitudes
+- Zone de contrôle de classe E (zone de contrôle d’aérodrome dans d’autres pays)
+- Classe F : espace aérien à usage spécial; au Canada, CYA : zone consultative, CYD : zone de danger, CYR : zone réglementée
+- États-Unis : A, zone d’alerte; P, zone interdite; R, zone réglementée; W, zone d’avertissement
+- Codes d’activité : A, voltige; F, essais d’aéronefs; H, deltaplane; M, opérations militaires; P, parachutisme; S, vol à voile; T, entraînement
+- MOA : zone d’opérations militaires (États-Unis)
+- Symboles d’activité : parachutisme, deltaplane, vol à voile, ultra-léger et entraînement
+
+![Symboles de la légende : Renseignements sur l’espace aérien](/images/vnc-legend-airspace-information.avif)
+
+Ces symboles et lignes de délimitation indiquent les types d’espace aérien et leurs limites d’altitude. Ils permettent de repérer où commencent et finissent les espaces contrôlés ou à usage spécial le long d’une route.
+
+### Aides à la radionavigation
+
+Les installations exploitées par NAV CANADA ou le ministère de la Défense nationale et les stations de radiodiffusion commerciales sont sujettes à des pannes ou modifications sans NOTAM.
+
+VHF/UHF : VOR, DME, UHF, UHF/DF et VHF, VHF/DF. Les roses des compas sont orientées vers le nord magnétique, sauf indication contraire.
+
+Les installations TACAN et DME militaires sont encadrées et soulignées. Les installations VORTAC comprennent une radiodiffusion météorologique transcrite (TWEB). Un soulignement indique l’absence de communications ATS sur cette fréquence.
+
+- VOR
+- DME
+- VORTAC
+- TACAN
+- NDB
+- Station de radiodiffusion commerciale
+- Le point indique l’emplacement de l’installation
+- Case TORONTO : aide à la navigation VHF/UHF; 112,15 YYZ est la fréquence ou le canal DME; DME Ch 58(Y) indique obligatoirement le mode TACAN « Y »
+- Case HALIFAX : aides combinées VHF/UHF et LF/MF; DME Ch 98, 248 HZ
+- Case KAMLOOPS : aide à la navigation LF/MF; 223 YKA
+
+![Symboles de la légende : Aides à la radionavigation](/images/vnc-legend-radio-aids-to-navigation.avif)
+
+Cette section montre la représentation des émetteurs de radionavigation au sol et des renseignements qui leur sont associés. Appelés collectivement NAVAID, ils servent à déterminer une direction ou une position par rapport à la station.
+
+### Cases de communications air-sol
+
+Les cases à bordure épaisse indiquent les FSS et leurs fréquences du groupe standard : 126,7, 121,5 et 243,0. Les autres fréquences disponibles sont au-dessus de la case. Une fréquence barrée, comme 243,0, n’est pas disponible.
+
+Aux États-Unis, les cases à bordure épaisse indiquent les stations d’information de vol avec les fréquences standard 255,4 et 122,2 et les fréquences d’urgence 243,0 et 121,5.
+
+Dans les cases à bordure fine, les fréquences au-dessus sont télécommandées vers le site inscrit dans la case depuis le site indiqué en dessous. L’absence de fréquence et de nom de FSS de contrôle indique qu’aucune fréquence FSS n’est disponible.
+
+- FSS combinée à une aide à la navigation
+- FSS non associée à une aide à la navigation
+- FSS opr ltd hrs : heures d’exploitation limitées de la FSS
+- O/T see CFS : autres services de communications disponibles en dehors des heures FSS; consulter le CFS
+- RCO ou DRCO combinée à une aide à la navigation
+- RCO ou DRCO non associée à une aide à la navigation
+- bcst : radiodiffusion
+- DRCO : instructions de composition décrites dans le CFS
+- A/G : station air-sol privée, représentée seulement lorsqu’elle est à plus de 75 NM d’une station publique
+- AIRPORT RADIO (ARPT RDO), CARS : station radio d’aérodrome communautaire
+
+![Symboles de la légende : Cases de communications air-sol](/images/vnc-legend-communication-boxes.avif)
+
+Ces cases représentent les stations d’information de vol (FSS) et d’autres installations fournissant des services de la circulation aérienne. Les cases à bordure épaisse indiquent les FSS avec les fréquences du groupe standard. Les cases à bordure fine représentent des sites éloignés qui acheminent les communications vers les FSS et depuis celles-ci : installations radio télécommandées (RCO), installations radio télécommandées à composition (DRCO), stations air-sol privées (A/G) et stations radio d’aérodrome communautaire (CARS).
+
+### Divers
+
+Les obstacles connus de 300 pi ou plus et les obstacles importants de moins de 300 pi sont montrés. S’il y en a plusieurs dans une même zone, seul le plus haut est représenté. Ils sont balisés, sauf mention « Unlighted » (non balisé).
+
+La cote d’élévation maximale (MEF) est donnée en milliers et centaines de pieds ASL. Elle représente l’élément le plus élevé de chaque quadrilatère. À cette altitude ou en dessous, on peut être au niveau du plus haut obstacle ou en dessous. Il faut ajouter une marge pour le terrain, les obstacles et l’erreur altimétrique. Voir AIM de TC, RAC 5.4, 602.15(2)b) (note), et AIR 1.5. La MEF est calculée à partir du relief et des obstacles connus et inconnus.
+
+- Lignes isogones : même déclinaison magnétique (valeur de 2013)
+- Lignes électriques importantes : certaines sont représentées pour faciliter la navigation à vue
+- Câbles tendus : traversées dangereuses connues
+- Feu maritime : blanc, sauf indication contraire
+- Obstacle isolé ou groupe d’obstacles sous 1 000 pi AGL
+- Obstacle isolé ou groupe d’obstacles à 1 000 pi AGL ou plus
+- 1749 (1064) : altitude en pieds ASL; hauteur en pieds AGL entre parenthèses
+- Annotations des feux : Al, alternance blanc/rouge si la couleur n’est pas précisée; F, fixe; Fl, à éclats; Iso, isophase; Q, éclats rapides; Oc, à occultations; Fl(3), groupe d’éclats; Oc(2), groupe d’occultations; SEC, secteur; sec, seconde; W, blanc; R, rouge; B, bleu; G, vert; Y, jaune; (3), nombre d’éclats par période
+- 3⁸ : cote d’élévation maximale de 3 800 pi ASL
+
+![Symboles de la légende : Divers](/images/vnc-legend-miscellaneous.avif)
+
+Obstacles, feux, lignes électriques et symbole des lignes de même déclinaison magnétique, ou lignes isogones.
+
+## Autres légendes des cartes VFR
+
+### Légende générale des cartes VFR (VTA et VNC)
+
+Seuls les symboles pouvant être difficiles à interpréter sont montrés. Les listes suivent l’ordre des deux colonnes de l’image de référence.
+
+- Limites : internationale; provinciale, d’État ou territoriale; parc national ou provincial; refuge faunique; mer territoriale; limite extérieure de la zone de pêche
+- Hydrographie : lac intermittent (deux symboles possibles); cours d’eau intermittent ou littoral; chutes et rapides; barrage; écluse; rochers à découvert ou à fleur d’eau; marais; terrain sujet aux inondations; tourbière réticulée; récif rocheux; réservoir (en bleu)
+- Éléments du terrain : esker (deux symboles possibles); moraine (deux symboles possibles); digue (côté faisant face à l’eau); sable (dépôts et plages surélevées); escarpement ou dépression
+- Transport terrestre : autoroute à chaussées séparées; route principale; route secondaire; sentier ou ligne déboisée; chemin de fer à voie simple avec gare; chemin de fer à voie double avec triage; voie ferrée abandonnée
+- Relief : point coté critique en pieds (11386); point coté en pieds (9015); altitude fondée sur des données non fiables (8073); col de montagne (4525)
+- Divers : tunnel; tour d’observation; bâtiment (sauf autre désignation); cheminée, silo, réservoir d’eau, etc. (désignation); puits autre qu’un puits d’eau (désignation, p. ex. pétrole); mine; piste de course; pipeline (souterrain si indiqué); ligne électrique (deux symboles possibles); téléphérique, remontée mécanique, convoyeur ou élément semblable
+- L’extrémité pointue de la case indique une altitude de croisière PAIRE (p. ex. V300)
+- Attention : zone de dynamitage. Ne pas survoler à moins de 3 000 pi AGL.
+
+![Symboles de la légende : Légende générale des cartes VFR (VTA et VNC)](/images/vfr-legend-general.avif)
+
+### Légende des croquis d’aérodrome et cartes de procédures terminales VFR (VTPC)
+
+Distances en milles nautiques, dimensions de piste en pieds, altitudes en pieds au-dessus du niveau de la mer. Les relèvements sont magnétiques, sauf G (grille) ou T (vrai). Tous les croquis d’aérodrome sont orientés vers le nord vrai. Pour les symboles absents, consultez ceux des cartes VFR. Les textes ou symboles superposés à un bâtiment ou à une autre zone noire sont blancs sur fond noir.
+
+Les altitudes sont inclusives, sauf indication contraire : par exemple « au-dessus de 5 000 pi jusqu’à 10 000 pi » ou « de 5 000 pi à moins de 10 000 pi ».
+
+Point de contrôle VFR : lorsqu’un aéronef est autorisé à effectuer des orbites, il devrait rester à moins de 2 NM du point. Il est recommandé d’effectuer tous les virages à gauche.
+
+- Surfaces d’aérodrome : piste à revêtement dur; aire de demi-tour; surface en construction, fermée ou abandonnée; piste en sable, gravier, gazon, etc.; piste pour skis, ultra-légers ou planeurs (activité indiquée)
+- Seuil de piste décalé (deux symboles possibles); voie de circulation, aire de trafic ou baie d’attente; désignation de voie de circulation (A)
+- Feux : phare d’aérodrome (rotatif ou stroboscopique); balise de danger; feu d’obstacle; obstacles (hauteurs ASL sauf indication contraire); indicateur de direction d’atterrissage; indicateur de direction du vent
+- Annotations des feux : F, fixe; Fl, à éclats; Occ, à occultations; R, rouge; G, vert; Bl, bleu. Feux blancs sauf indication contraire. « lighted » : balisé; « group » : groupe.
+- Balisage lumineux d’approche : consulter la section A, Balisage lumineux
+- Aides radio : NDB; VOR; VOR/DME; TACAN; VORTAC; aide radio (désignation)
+- Communications en espace aérien de classe C : plafond en centaines de pieds ASL (125); organisme à appeler (ADVSY); fréquences (125,4 et 238,3); plancher en centaines de pieds ASL (30)
+- Espace aérien : zone de contrôle de classe B; zone de contrôle de classe C ou D; zone de contrôle de classe E; séparation des planchers; routes d’hélicoptères; routes VFR à sens fixe (flèche de direction)
+- Classe F : CYA, zone consultative; CYD, zone de danger; CYR, zone réglementée
+- Codes d’activité : A, voltige; F, essais d’aéronefs; H, deltaplane; M, opérations militaires; P, parachutisme; S, vol à voile; T, entraînement
+- Divers : câble d’arrêt unidirectionnel; câble d’arrêt bidirectionnel; barrière d’arrêt; escarpement ou dépression; ligne électrique; câble tendu; arbres; clôture; zone sensible au bruit; zone bâtie; cimetière; point de cheminement d’approche aux instruments; point de contrôle VFR
+- Héliport (FATO et TLOF imbriquées ou confondues); héliport d’hôpital (FATO et TLOF imbriquées ou confondues); FATO (TLOF non confondue); aire de stationnement d’héliport
+- FATO : aire d’approche finale et de décollage; TLOF : aire de prise de contact et d’envol
+- Activités et aérodromes : vol à voile; deltaplane; exploitation d’ultra-légers; entraînement; parachutisme; aérodrome terrestre; hydroaérodrome; statut inconnu; aérodrome abandonné
+
+![Symboles de la légende : Légende des croquis d’aérodrome et cartes de procédures terminales VFR (VTPC)](/images/vtpc-legend.avif)
+
+## Lire une carte VNC
+
+Il est essentiel de savoir reconnaître ces éléments sur une carte réelle. Voici un petit extrait de la VNC d’Halifax centré sur Yarmouth. Essayez d’y reconnaître certains éléments.
+
+![VNC d’Halifax](/images/halifax-vnc.avif 'Yarmouth — VNC d’Halifax')
+
+1. Une zone de contrôle de classe E entoure l’aéroport de Yarmouth.
+2. La fréquence de l’aéroport de Yarmouth est obligatoire : 123,0 MHz. Il n’y a pas de tour de contrôle en service. L’altitude de l’aéroport est de 141 pi ASL. Des services douaniers y sont disponibles.
+3. Un prolongement de région de contrôle (CAE) entoure l’aéroport. Il est de classe E et son plancher est à 700 pi AGL. Le transpondeur n’y est pas obligatoire.
+4. Un héliport (Regional) se trouve juste au nord-ouest de l’aéroport. Sa fréquence est aussi 123,0 MHz. Vu sa proximité, cela est logique : les pilotes des deux installations sur une même fréquence améliorent la sécurité.
+5. Une zone d’entraînement se trouve à l’est de l’extrait, ce qui indique la présence d’une école de pilotage à l’aéroport de Yarmouth.
+6. Le VOR de Yarmouth est à l’aéroport. Il n’a pas de symbole distinct parce qu’il partage l’emplacement de l’aéroport. Le DME de Yarmouth est juste au sud-ouest de l’aéroport et deux voies aériennes lui sont associées. Un autre DME, Pleasance Lake, se trouve au nord-est.
+7. L’aérodrome Findlay Airpark est au nord-est de l’aéroport de Yarmouth. Sa fréquence est 123,2 MHz et sa piste est en gazon. L’hydroaérodrome Hooper Lake est juste au sud-est de Findlay Airpark; sa fréquence est aussi 123,2 MHz.
+8. L’espace aérien à l’extérieur du CAE est également de classe E. Son plancher est inconnu, car il n’apparaît pas sur ce petit extrait, mais on peut s’attendre à ce qu’il soit supérieur à 700 pi AGL.
+9. La plus haute altitude du terrain dans le quadrilatère est de 800 pi ASL. L’obstacle le plus élevé se trouve dans la partie nord-est de l’extrait, à 640 pi ASL (240 pi AGL).
+10. Une ligne isogone, de même déclinaison magnétique, se trouve juste à l’est de l’aéroport. Sa déclinaison est inconnue, car elle n’apparaît pas sur ce petit extrait de la VNC.

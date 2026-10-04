@@ -1,4 +1,6 @@
 ---
+import { localeFromLang, ui } from '../../lib/i18n/ui';
+const t = ui(localeFromLang(Astro.locals.starlightRoute.lang));
 import { isLessonId } from '../../lib/progress/lessonIds';
 import ProgressCircle from '../progress/ProgressCircle.astro';
 
@@ -18,9 +20,9 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 			data-complete="false"
 		>
 			<div class="lesson-progress-copy">
-				<p class="label">Lesson Progress</p>
+				<p class="label">{t('Lesson Progress')}</p>
 				<p class="status" data-lesson-progress-status>
-					Not completed
+					{t('Not completed')}
 				</p>
 			</div>
 			<ProgressCircle

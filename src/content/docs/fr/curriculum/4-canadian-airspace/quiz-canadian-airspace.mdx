@@ -1,0 +1,173 @@
+---
+title: 'Quiz : espace aérien canadien'
+description: 'Quiz de fin de section 4.'
+---
+
+import Quiz from '../../../../../components/quiz/Quiz.astro'
+
+# Quiz : espace aérien canadien
+
+Sélectionnez une réponse par question, puis cliquez sur **Vérifier les réponses** pour revoir vos choix.
+
+<Quiz
+  questions={[
+    {
+      id: 'm3-q1',
+      prompt:
+        'Pour traverser en VFR une partie quelconque de l’espace aérien de classe C, que doit faire un pilote?',
+      correctAnswer: 'c',
+      explanation:
+        'La traversée VFR de la classe C exige une communication bilatérale et une autorisation ATC avant l’entrée.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Détenir une annotation spéciale de classe C sur son HAGAR',
+        },
+        {
+          value: 'b',
+          label: 'Écouter uniquement 126,7 MHz',
+        },
+        {
+          value: 'c',
+          label: 'Informer l’ATC de ses intentions et obtenir une autorisation',
+        },
+        {
+          value: 'd',
+          label: 'Obtenir au préalable une permission écrite de l’ATC',
+        },
+      ],
+    },
+    {
+      id: 'm3-q2',
+      prompt:
+        'En VFR, quelles sont les visibilités minimales en vol à l’extérieur de l’espace contrôlé et à l’intérieur des zones de contrôle, respectivement?',
+      correctAnswer: 'b',
+      explanation:
+        'L’annexe A donne 1 mille à l’extérieur de l’espace contrôlé, sous réserve des exceptions indiquées, et 3 milles dans les zones de contrôle.',
+      choices: [
+        {
+          value: 'a',
+          label: '500 pieds, 1 mille',
+        },
+        {
+          value: 'b',
+          label: '1 mille, 3 milles',
+        },
+        {
+          value: 'c',
+          label: '1 mille, 1 mille',
+        },
+        {
+          value: 'd',
+          label: '3 milles, 3 milles',
+        },
+      ],
+    },
+    {
+      id: 'm3-q3',
+      prompt: 'L’espace aérien inférieur est défini comme tout l’espace :',
+      correctAnswer: 'a',
+      explanation:
+        'L’espace aérien inférieur comprend tout l’espace aérien intérieur canadien sous 18 000 pieds ASL.',
+      choices: [
+        {
+          value: 'a',
+          label:
+            'Dans l’espace aérien intérieur canadien sous 18 000 pieds ASL, à partir de la surface',
+        },
+        {
+          value: 'b',
+          label: 'Dans les voies aériennes désignées, à partir de 700 pieds AGL',
+        },
+        {
+          value: 'c',
+          label: 'Dans les espaces désignés, à partir de 2 200 pieds AGL',
+        },
+        {
+          value: 'd',
+          label: 'Dans les voies aériennes désignées, à partir de la surface',
+        },
+      ],
+    },
+    {
+      id: 'm3-q4',
+      prompt:
+        'L’espace autour d’un aéroport contrôlé par une tour jusqu’à une hauteur déterminée s’appelle :',
+      correctAnswer: 'c',
+      explanation:
+        'Il s’agit d’une zone de contrôle (CZ), et non d’une région de contrôle terminal ou d’une région de contrôle générale.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Une région de contrôle terminal',
+        },
+        {
+          value: 'b',
+          label: 'Une région de contrôle',
+        },
+        {
+          value: 'c',
+          label: 'Une zone de contrôle',
+        },
+        {
+          value: 'd',
+          label: 'Une zone de circulation d’aérodrome',
+        },
+      ],
+    },
+    {
+      id: 'm3-q5',
+      prompt:
+        'La visibilité minimale en vol VFR à l’extérieur de l’espace contrôlé, des zones de circulation d’aérodrome et des régions spéciales de Colombie-Britannique est :',
+      correctAnswer: 'b',
+      explanation: 'L’annexe A donne 1 mille dans ce cas.',
+      choices: [
+        {
+          value: 'a',
+          label: '2 000 pieds',
+        },
+        {
+          value: 'b',
+          label: '1 mille',
+        },
+        {
+          value: 'c',
+          label: '2 milles',
+        },
+        {
+          value: 'd',
+          label: '3 milles',
+        },
+      ],
+    },
+    {
+      id: 'm3-q6',
+      prompt: 'Quel énoncé concernant les zones réglementées est correct?',
+      correctAnswer: 'd',
+      explanation:
+        'Une zone réglementée active exige la permission de l’autorité responsable avant l’entrée.',
+      choices: [
+        {
+          value: 'a',
+          label:
+            'Les aéronefs de passage entrant dans une zone réglementée active doivent être équipés d’une radio émetteur-récepteur',
+        },
+        {
+          value: 'b',
+          label:
+            'Seuls les aéronefs militaires peuvent entrer dans les zones réglementées indiquées sur les cartes aéronautiques',
+        },
+        {
+          value: 'c',
+          label:
+            'Les aéronefs peuvent y entrer si les pilotes respectent les heures d’entrée indiquées au plan de vol',
+        },
+        {
+          value: 'd',
+          label:
+            'Aucun aéronef ne peut entrer dans une zone réglementée active sans permission de l’autorité responsable',
+        },
+      ],
+    },
+  ]}
+/>

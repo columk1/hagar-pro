@@ -1,0 +1,84 @@
+---
+title: '3.4 Déclinaison magnétique et navigation'
+description: 'Nord vrai et nord magnétique, lignes isogones, conversion des caps et erreurs du compas pour préparer le HAGAR.'
+---
+
+import MagneticVariationTool from '../../../../../components/tools/MagneticVariationTool.astro'
+
+Autrefois, avant le GPS, le compas magnétique était le principal instrument utilisé pour la navigation à vue.
+
+Contrairement au GPS, le compas ne pointe pas vers le nord géographique, ou nord vrai, mais vers le nord magnétique. Les pilotes devaient donc convertir les caps magnétiques en caps vrais, et inversement. Il faut encore savoir le faire, car cette matière est évaluée à l’examen.
+
+:::note
+Le compas convient mal au pilote d’aile libre, car il n’est précis qu’en vol rectiligne et en palier.
+
+Lorsqu’un aéronef vire, le compas retarde dans un virage vers le nord et avance dans un virage vers le sud.
+
+Lorsqu’un aéronef accélère sur un cap est-ouest ou ouest-est, le compas indique un virage vers le nord. Lorsqu’il ralentit, le compas indique un virage vers le sud.
+
+L’accélération et la décélération n’ont pas d’effet sur un cap nord-sud.
+
+De toute façon, une aile libre passe peu de temps en vol rectiligne et en palier.
+:::
+
+## 1. Le champ magnétique terrestre
+
+La Terre est un aimant avec un pôle magnétique nord et un pôle magnétique sud. Des lignes de force relient ces pôles et créent un champ magnétique autour de la Terre.
+
+L’aiguille du compas est influencée par ce champ et s’aligne parallèlement à l’une de ces lignes de force.
+
+Les pôles magnétiques ne coïncident pas avec les pôles géographiques, dont le nord vrai. Le nord indiqué par le compas diffère donc du nord géographique.
+
+![Pôles magnétiques et pôles géographiques](/images/faa-magnetic-meridians.avif 'Pôles magnétiques et géographiques — Source : manuel de connaissances aéronautiques du pilote de la FAA')
+
+Dans l’image ci-dessus, TN représente le nord vrai et MN le nord magnétique. Les lignes rouges sont les méridiens magnétiques. Elles permettent de déterminer l’effet de la déclinaison magnétique locale sur le compas.
+
+## 2. Déclinaison magnétique et lignes sur la carte
+
+L’angle entre la direction indiquée par le compas et la direction géographique vraie est la **déclinaison magnétique**. Elle est indiquée sur les VNC pour permettre les corrections nécessaires.
+
+### Lignes isogones
+
+Les lignes isogones, aussi appelées lignes isogoniques, relient les points de même déclinaison magnétique.
+
+Consultez la légende VNC pour les reconnaître : des courbes pointillées magenta, orientées approximativement du nord au sud.
+
+La déclinaison d’une ligne isogone est indiquée le long de cette ligne sur la VNC, par exemple **14°W** (14° ouest). Vous pouvez le voir sur l’[extrait VNC](/images/vnc-detail-coordinates.avif) de la [section 3.5](../3-5-map-work-locating-features).
+
+### Ligne agone
+
+La ligne isogone de déclinaison nulle, seule ligne où le nord vrai et le nord magnétique coïncident, est appelée **ligne agone**, ou ligne agonique.
+
+:::tip[Le saviez-vous?]
+Les pôles magnétiques ne sont pas immobiles. Le pôle Nord magnétique tourne autour du pôle Nord géographique en décrivant un cercle d’est en ouest, en environ 960 ans.
+
+La déclinaison magnétique change donc constamment. Si vous comparez la même VNC à plusieurs années d’intervalle, elle peut avoir changé considérablement.
+:::
+
+## 3. Conversion des caps
+
+Si, depuis un point donné, le pôle magnétique se trouve à l’ouest du pôle géographique, l’aiguille pointe à l’ouest du nord vrai : la déclinaison est **ouest**.
+
+Si l’aiguille pointe à l’est du nord vrai, la déclinaison est **est**.
+
+Pour convertir un cap magnétique en cap vrai, soustrayez la déclinaison ouest ou ajoutez la déclinaison est. Pour convertir un cap vrai en cap magnétique, faites l’inverse.
+
+Le moyen mnémotechnique anglais **« East is Least, West is Best »** aide à retenir l’opération : du vrai au magnétique, on soustrait à l’est et on ajoute à l’ouest.
+
+### Déclinaison ouest
+
+- Cap vrai = Cap magnétique − Déclinaison ouest
+- Cap magnétique = Cap vrai + Déclinaison ouest
+
+### Déclinaison est
+
+- Cap vrai = Cap magnétique + Déclinaison est
+- Cap magnétique = Cap vrai − Déclinaison est
+
+**Exemple :** un cap magnétique de 135° près de la ligne isogone 13°W correspond à un cap vrai de 135° − 13° = 122°.
+
+## Exercice de déclinaison magnétique
+
+Utilisez cet outil interactif pour vous exercer à convertir les caps vrais en caps magnétiques et inversement.
+
+<MagneticVariationTool />

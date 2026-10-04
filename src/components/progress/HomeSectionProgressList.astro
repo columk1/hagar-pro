@@ -1,6 +1,13 @@
 ---
+import { getCollection } from 'astro:content'
+import { canonicalizePathToContentId, isLessonId } from '../../lib/progress/lessonIds'
+import { localeFromLang, ui } from '../../lib/i18n/ui'
+import { localeUrl } from '../../lib/i18n/routes'
+const locale = localeFromLang(Astro.locals.starlightRoute.lang)
+const t = ui(locale)
 import ProgressCircle from './ProgressCircle.astro'
 
+const lessonIds = (await getCollection('docs')).map((doc) => canonicalizePathToContentId(doc.id)).filter(isLessonId).sort()
 const sections = [
   { id: 'curriculum/1-introduction', title: '1. Introduction' },
   { id: 'curriculum/2-air-regulations', title: '2. Air Regulations' },
@@ -12,7 +19,7 @@ const sections = [
 ]
 ---
 
-<div class="section-progress-list" role="list" aria-label="Section progress overview">
+<div class="section-progress-list" role="list" aria-label={t('Section progress overview')}>
   {
     sections.map((section) => (
       <div
@@ -32,9 +39,9 @@ const sections = [
         <a
           class="section-progress-list__title-link"
           data-section-progress-link
-          href={`/${section.id}/`}
+          href={localeUrl(locale, lessonIds.find((id) => id.startsWith(`${section.id}/`)) ?? section.id)}
         >
-          {section.title}
+          {t(section.title)}
         </a>
       </div>
     ))

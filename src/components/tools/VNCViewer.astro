@@ -1,5 +1,6 @@
 ---
+import { localeFromLang } from '../../lib/i18n/ui';
 import VNCViewerReact from './VNCViewer/VNCViewer';
 ---
 
-<VNCViewerReact client:load />
+<VNCViewerReact locale={localeFromLang(Astro.locals.starlightRoute.lang)} client:load />

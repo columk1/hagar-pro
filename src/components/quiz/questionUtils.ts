@@ -1,7 +1,7 @@
 export const parseAlphaListPrompt = (prompt: string) => {
   const splitTrailingPromptFromLastItem = (text: string): { item: string; outro: string } => {
     const trailingPromptMatcher =
-      /^(.*?)(?:\s+)((?:Which|What|When|Where|Who|How|Select|Choose|Identify|From\s+the\s+following)\b[\s\S]*)$/i
+      /^(.*?)(?:\s+)((?:Quel(?:le)?s?|Que|Quoi|Quand|Où|Qui|Comment|Sélectionnez|Choisissez|Identifiez|Parmi|Lequel|Laquelle|Lesquels|Lesquelles|Which|What|When|Where|Who|How|Select|Choose|Identify|From\s+the\s+following)\b[\s\S]*)$/i
     const match = text.match(trailingPromptMatcher)
 
     if (!match) {

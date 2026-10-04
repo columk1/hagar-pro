@@ -1,0 +1,164 @@
+---
+title: 'Quiz : facteurs humains'
+description: 'Quiz de fin de section 6.'
+---
+
+import Quiz from '../../../../../components/quiz/Quiz.astro'
+
+# Quiz : facteurs humains
+
+Sélectionnez une réponse par question, puis cliquez sur **Vérifier les réponses** pour revoir vos choix.
+
+<Quiz
+  questions={[
+    {
+      id: 'm5-q1',
+      prompt:
+        'Un verre d’alcool consommé à 5 000 pieds, comparativement au même verre au niveau de la mer, généralement :',
+      correctAnswer: 'b',
+      explanation: 'Même une faible quantité d’alcool peut avoir un effet plus marqué en altitude.',
+      choices: [
+        {
+          value: 'a',
+          label: 'A un effet moindre',
+        },
+        {
+          value: 'b',
+          label: 'A un effet plus marqué',
+        },
+        {
+          value: 'c',
+          label: 'N’a pas de différence d’effet appréciable',
+        },
+        {
+          value: 'd',
+          label: 'Augmente le risque d’effet de Coriolis',
+        },
+      ],
+    },
+    {
+      id: 'm5-q2',
+      prompt: 'Une diminution de la température centrale du corps s’appelle :',
+      correctAnswer: 'd',
+      explanation: 'Une baisse de la température centrale du corps est une hypothermie.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Hyperventilation',
+        },
+        {
+          value: 'b',
+          label: 'Hypoglycémie',
+        },
+        {
+          value: 'c',
+          label: 'Effet de Coriolis',
+        },
+        {
+          value: 'd',
+          label: 'Hypothermie',
+        },
+      ],
+    },
+    {
+      id: 'm5-q3',
+      prompt: 'Une douleur aux oreilles due à une descente rapide peut être soulagée en :',
+      correctAnswer: 'a',
+      explanation: 'Avaler ou bâiller aide à équilibrer la pression dans l’oreille moyenne.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Avalant ou bâillant',
+        },
+        {
+          value: 'b',
+          label: 'Tirant sur les lobes des oreilles',
+        },
+        {
+          value: 'c',
+          label: 'Réduisant la fréquence respiratoire',
+        },
+        {
+          value: 'd',
+          label: 'Augmentant la force G',
+        },
+      ],
+    },
+    {
+      id: 'm5-q4',
+      prompt:
+        'Personne ne peut voler en aile libre pendant plus de _____ entre 10 000 et 13 000 pieds ASL sans oxygène facilement accessible au pilote :',
+      correctAnswer: 'b',
+      explanation:
+        'La limite indiquée à l’annexe A dans cette plage est de 30 minutes sans oxygène facilement accessible.',
+      choices: [
+        {
+          value: 'a',
+          label: '15 minutes',
+        },
+        {
+          value: 'b',
+          label: '30 minutes',
+        },
+        {
+          value: 'c',
+          label: '1 heure',
+        },
+        {
+          value: 'd',
+          label: '2 heures',
+        },
+      ],
+    },
+    {
+      id: 'm5-q5',
+      prompt:
+        'Sans utilisation d’oxygène et de masques à oxygène, personne ne peut voler au-dessus de :',
+      correctAnswer: 'a',
+      explanation: 'Le seuil indiqué à l’annexe A est de 13 000 pieds ASL.',
+      choices: [
+        {
+          value: 'a',
+          label: '13 000 pieds ASL',
+        },
+        {
+          value: 'b',
+          label: '12 500 pieds ASL',
+        },
+        {
+          value: 'c',
+          label: '10 000 pieds ASL',
+        },
+        {
+          value: 'd',
+          label: '9 500 pieds ASL',
+        },
+      ],
+    },
+    {
+      id: 'm5-q6',
+      prompt: 'L’alcool réduit la tolérance du cerveau à l’hypoxie. Cet effet :',
+      correctAnswer: 'b',
+      explanation:
+        'La diminution de tolérance liée à l’alcool devient plus importante avec l’altitude.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Diminue avec l’altitude',
+        },
+        {
+          value: 'b',
+          label: 'Augmente avec l’altitude',
+        },
+        {
+          value: 'c',
+          label: 'Ne change pas avec l’altitude',
+        },
+        {
+          value: 'd',
+          label: 'Peut être réduit en buvant du café',
+        },
+      ],
+    },
+  ]}
+/>

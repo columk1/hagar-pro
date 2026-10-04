@@ -1,0 +1,956 @@
+{
+  "version": "3.1-2016-06-20",
+  "questionCount": 78,
+  "questions": [
+    {
+      "id": "Q1",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "En vol VFR, les ailes libres doivent voler :",
+      "answer": "c",
+      "choices": {
+        "a": "À l’extérieur des voies aériennes désignées",
+        "b": "À l’extérieur des zones de contrôle",
+        "c": "Avec des repères visuels au sol ou sur l’eau",
+        "d": "Uniquement en espace aérien de classe D"
+      }
+    },
+    {
+      "id": "Q2",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Sauf pour décoller ou atterrir, une aile libre ne peut pas survoler une zone bâtie à une hauteur inférieure à ________, sauf instruction contraire de l’unité ATC.",
+      "answer": "a",
+      "choices": {
+        "a": "1 000 pieds",
+        "b": "2 000 pieds",
+        "c": "3 000 pieds",
+        "d": "500 pieds"
+      }
+    },
+    {
+      "id": "Q3",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "En approche finale pour atterrir, la priorité de passage est normalement accordée :",
+      "answer": "d",
+      "choices": {
+        "a": "À l’aéronef le plus rapide",
+        "b": "À l’aéronef le plus lent",
+        "c": "À l’aéronef le plus haut",
+        "d": "À l’aéronef le plus bas"
+      }
+    },
+    {
+      "id": "Q4",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "La turbulence de sillage dangereuse est produite par :",
+      "answer": "a",
+      "choices": {
+        "a": "Tous les aéronefs à voilure fixe et tournante",
+        "b": "Les aéronefs à turboréacteurs seulement",
+        "c": "Les avions rapides seulement, quel que soit leur poids",
+        "d": "Les avions lourds seulement, quelle que soit leur vitesse"
+      }
+    },
+    {
+      "id": "Q5",
+      "section": "Chapitre 4 : travail sur carte",
+      "question": "La déclinaison magnétique est définie comme :",
+      "answer": "c",
+      "choices": {
+        "a": "Une erreur du compas causée par les champs magnétiques liés au métal de la cellule et du moteur",
+        "b": "La différence entre la route magnétique et le cap magnétique de l’aéronef",
+        "c": "L’angle entre le nord vrai et le nord magnétique en un point donné de la Terre",
+        "d": "La différence entre la route vraie et la route magnétique"
+      }
+    },
+    {
+      "id": "Q6",
+      "section": "Chapitre 4 : travail sur carte",
+      "question": "Dans l’hémisphère Nord, si votre avion suit un cap vers le nord et vire vers l’est, l’indication du compas :",
+      "answer": "a",
+      "choices": {
+        "a": "Retarde ou indique un virage dans le sens opposé",
+        "b": "Avance ou indique un virage dans le sens opposé",
+        "c": "N’avance ni ne retarde",
+        "d": "Est correcte si le virage est parfaitement coordonné"
+      }
+    },
+    {
+      "id": "Q7",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Les pilotes devraient éviter de voler bas près des activités agricoles, car les aéronefs :",
+      "answer": "d",
+      "choices": {
+        "a": "Effraient le bétail par leur bruit",
+        "b": "Effraient le bétail par leur ombre",
+        "c": "Peuvent provoquer une fuite en panique",
+        "d": "Peuvent provoquer tous les effets ci-dessus"
+      }
+    },
+    {
+      "id": "Q8",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Les pilotes ne devraient pas survoler des rennes, caribous, orignaux ou bœufs musqués à une altitude inférieure à :",
+      "answer": "c",
+      "choices": {
+        "a": "1 000 pieds AGL",
+        "b": "1 500 pieds AGL",
+        "c": "2 000 pieds AGL",
+        "d": "2 500 pieds AGL"
+      }
+    },
+    {
+      "id": "Q9",
+      "section": "Chapitre 2 : cartes VNC",
+      "question": "Les cartes aéronautiques de navigation VFR (série VNC) reposent sur la projection conique conforme de Lambert. La liste suivante contient trois propriétés de cette projection et trois propriétés de celle de Mercator. A. Les méridiens sont des droites parallèles qui coupent à angle droit les parallèles, également droits et parallèles. B. Les méridiens convergent et coupent à angle droit les parallèles, qui sont des arcs de cercles concentriques. C. Une ligne droite représente un grand cercle. D. Une ligne droite représente une loxodromie. E. Les erreurs d’échelle sont faibles : on peut considérer l’échelle comme constante sur une feuille. F. L’échelle varie avec la latitude et n’est constante qu’à l’équateur; il faut donc mesurer les distances sur l’échelle de latitude voisine de la région. Quels sont les trois éléments caractéristiques de la projection conique conforme de Lambert?",
+      "answer": "d",
+      "choices": {
+        "a": "A-C-F",
+        "b": "B-D-F",
+        "c": "A-D-E",
+        "d": "B-C-E"
+      }
+    },
+    {
+      "id": "Q10",
+      "section": "Chapitre 2 : cartes VNC",
+      "question": "Que signifie une échelle de carte de 1:1 000 000?",
+      "answer": "d",
+      "choices": {
+        "a": "1 pouce = 8 milles",
+        "b": "1 pouce sur la carte = un millionième de mille",
+        "c": "1 mille équivaut à 1 000 000 pouces",
+        "d": "1 pouce sur la carte = 1 000 000 pouces au sol"
+      }
+    },
+    {
+      "id": "Q11",
+      "section": "Chapitre 4 : travail sur carte",
+      "question": "Bien connaître la rose des vents est essentiel à la navigation. Quel énoncé est vrai?",
+      "answer": "c",
+      "choices": {
+        "a": "Le cap réciproque de 267 degrés est 117 degrés",
+        "b": "La direction nord-est est 090 degrés",
+        "c": "Un virage de 90 degrés à droite depuis un cap de 145 degrés donne 235 degrés",
+        "d": "Le cap réciproque de 115 degrés est 225 degrés"
+      }
+    },
+    {
+      "id": "Q12",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Un aéroport est :",
+      "answer": "c",
+      "choices": {
+        "a": "Un aérodrome enregistré",
+        "b": "Un aérodrome avec une tour de contrôle",
+        "c": "Un aérodrome pour lequel un certificat est en vigueur",
+        "d": "Un aérodrome avec des pistes revêtues"
+      }
+    },
+    {
+      "id": "Q13",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "L’alcool réduit la tolérance du cerveau à l’hypoxie. Cet effet :",
+      "answer": "b",
+      "choices": {
+        "a": "Diminue avec l’altitude",
+        "b": "Augmente avec l’altitude",
+        "c": "Ne change pas avec l’altitude",
+        "d": "Peut être réduit en buvant du café"
+      }
+    },
+    {
+      "id": "Q14",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "La zone associée à une fréquence obligatoire, dans laquelle le pilote doit contacter la station au sol et signaler ses intentions, a normalement :",
+      "answer": "a",
+      "choices": {
+        "a": "Un rayon de 5 NM et s’étend jusqu’à 3 000 pi AGL",
+        "b": "Un rayon de 10 NM et s’étend jusqu’à 3 000 pi AGL",
+        "c": "Un rayon de 5 NM et s’étend jusqu’à 5 000 pi AGL",
+        "d": "Un rayon de 10 NM et s’étend jusqu’à 5 000 pi AGL"
+      }
+    },
+    {
+      "id": "Q15",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Un pilote VFR qui prévoit atterrir à un aérodrome sans fréquence obligatoire, sans fréquence de circulation d’aérodrome et sans station au sol devrait diffuser ses intentions sur :",
+      "answer": "a",
+      "choices": {
+        "a": "123,2 MHz",
+        "b": "122,8 MHz",
+        "c": "126,7 MHz",
+        "d": "121,5 MHz"
+      }
+    },
+    {
+      "id": "Q16",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "Pour traverser en VFR une partie quelconque de l’espace aérien de classe C, les pilotes doivent :",
+      "answer": "c",
+      "choices": {
+        "a": "Détenir une annotation spéciale de classe C sur leur HAGAR",
+        "b": "Écouter 126,7 MHz",
+        "c": "Informer l’ATC de leurs intentions et obtenir une autorisation",
+        "d": "Obtenir au préalable une permission écrite de l’ATC"
+      }
+    },
+    {
+      "id": "Q17",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "La turbulence de sillage dangereuse produite par les avions en air calme :",
+      "answer": "c",
+      "choices": {
+        "a": "Se dissipe immédiatement",
+        "b": "Se dissipe rapidement",
+        "c": "Peut persister cinq minutes ou plus",
+        "d": "Persiste indéfiniment"
+      }
+    },
+    {
+      "id": "Q18",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "Un espace aérien de classe F indiqué sur une carte par le code CYA(S) désigne :",
+      "answer": "c",
+      "choices": {
+        "a": "Une zone dangereuse avec des activités d’artillerie",
+        "b": "Une zone réglementée avec des activités de surveillance",
+        "c": "Une zone consultative avec des activités de vol à voile",
+        "d": "Une réservation d’espace aérien"
+      }
+    },
+    {
+      "id": "Q19",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Que doit transmettre un pilote pour signaler un danger grave ou imminent et demander une assistance immédiate?",
+      "answer": "a",
+      "choices": {
+        "a": "MAYDAY, MAYDAY, MAYDAY",
+        "b": "PAN PAN, PAN PAN, PAN PAN",
+        "c": "SECUTITY, SECURITY, SECURITY",
+        "d": "EMERGENCY, EMERGENCY, EMERGENCY"
+      }
+    },
+    {
+      "id": "Q20",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Une « instruction » du contrôle de la circulation aérienne :",
+      "answer": "b",
+      "choices": {
+        "a": "Est identique à une « autorisation » ATC",
+        "b": "Doit être respectée dès sa réception par le pilote auquel elle s’adresse, sauf s’il juge dangereux de le faire",
+        "c": "Doit être relue intégralement au contrôleur et confirmée avant de prendre effet",
+        "d": "Est en fait un conseil de l’ATC qui ne nécessite ni acceptation ni accusé de réception officiel du pilote concerné"
+      }
+    },
+    {
+      "id": "Q21",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Au Canada, là où le soleil se lève et se couche chaque jour, on peut considérer le « jour » comme la période :",
+      "answer": "c",
+      "choices": {
+        "a": "Entre le lever et le coucher du soleil",
+        "b": "Commençant une heure avant le lever du soleil et se terminant une heure après son coucher",
+        "c": "Commençant une demi-heure avant le lever du soleil et se terminant une demi-heure après son coucher",
+        "d": "Pendant laquelle le centre du disque solaire n’est pas à plus de 12 degrés sous l’horizon vu de la surface"
+      }
+    },
+    {
+      "id": "Q22",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "La visibilité minimale en vol VFR pour les avions à l’extérieur de l’espace contrôlé, des zones de circulation d’aérodrome et des régions spéciales de Colombie-Britannique est ______; dans les zones de contrôle, elle est ______. Les valeurs manquantes sont :",
+      "answer": "b",
+      "choices": {
+        "a": "500 pieds, 1 mille",
+        "b": "1 mille, 3 milles",
+        "c": "1 mille, 1 mille",
+        "d": "3 milles, 3 milles"
+      }
+    },
+    {
+      "id": "Q23",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "La fréquence VHF d’urgence est :",
+      "answer": "c",
+      "choices": {
+        "a": "122,1 MHz",
+        "b": "118,3 MHz",
+        "c": "121,5 MHz",
+        "d": "123,2 MHz"
+      }
+    },
+    {
+      "id": "Q24",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Au Canada, là où le soleil se lève et se couche chaque jour, le jour est défini comme la période :",
+      "answer": "c",
+      "choices": {
+        "a": "Entre le lever et le coucher du soleil",
+        "b": "Commençant une demi-heure avant le lever du soleil et se terminant une demi-heure après son coucher",
+        "c": "Commençant au crépuscule civil du matin et se terminant au crépuscule civil du soir",
+        "d": "Pendant laquelle le centre du disque solaire n’est pas à plus de 12 degrés sous l’horizon vu de la surface"
+      }
+    },
+    {
+      "id": "Q25",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "À haute altitude, un pilote est exposé à l’hypoxie, soit :",
+      "answer": "d",
+      "choices": {
+        "a": "Un excès de monoxyde de carbone dans l’hémoglobine",
+        "b": "Un déséquilibre de l’oxygène et du dioxyde de carbone dans l’organisme",
+        "c": "Une désorientation spatiale",
+        "d": "Un manque d’oxygène dans les cellules du corps"
+      }
+    },
+    {
+      "id": "Q26",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Pour prévenir l’hypoxie, un pilote devrait :",
+      "answer": "a",
+      "choices": {
+        "a": "Utiliser de l’oxygène au-dessus de 5 000 pieds ASL le jour",
+        "b": "Respirer dans un sac en papier",
+        "c": "Utiliser de l’oxygène au-dessus de 15 000 pieds ASL le jour",
+        "d": "Respirer profondément"
+      }
+    },
+    {
+      "id": "Q27",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Il est interdit d’effectuer un vol acrobatique :",
+      "answer": "d",
+      "choices": {
+        "a": "Sous 2 000 pieds AGL",
+        "b": "En espace aérien non contrôlé",
+        "c": "Sans autorisation du ministre",
+        "d": "Au-dessus d’une zone urbaine ou d’une autre zone populeuse"
+      }
+    },
+    {
+      "id": "Q28",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Un verre d’alcool consommé à 5 000 pieds, comparativement au même verre au niveau de la mer :",
+      "answer": "b",
+      "choices": {
+        "a": "A un effet moindre",
+        "b": "A un effet plus marqué",
+        "c": "N’a pas de différence d’effet appréciable",
+        "d": "Augmente le risque d’effet de Coriolis"
+      }
+    },
+    {
+      "id": "Q29",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Quel énoncé sur l’alcool est vrai?",
+      "answer": "a",
+      "choices": {
+        "a": "Une quantité relativement faible d’alcool réduit considérablement la tolérance du pilote à l’hypoxie",
+        "b": "Une faible quantité d’alcool n’altère pas le jugement du pilote",
+        "c": "Les effets de l’alcool sont constants quelle que soit l’altitude",
+        "d": "Le café accélère la capacité du corps à récupérer des effets de l’alcool"
+      }
+    },
+    {
+      "id": "Q30",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Choisissez l’énoncé qui décrit le mieux les effets de la fatigue.",
+      "answer": "b",
+      "choices": {
+        "a": "Les problèmes financiers ou familiaux n’influencent pas la fatigue",
+        "b": "La fatigue ralentit les réactions et contribue aux erreurs",
+        "c": "Une personne fatiguée récupère plus vite en prenant de l’altitude",
+        "d": "Une personne fatiguée doit manger juste avant et après un vol"
+      }
+    },
+    {
+      "id": "Q31",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Après une activité sous-marine utilisant de l’air comprimé pour respirer, il est recommandé que, pendant les 24 heures suivantes, le pilote :",
+      "answer": "a",
+      "choices": {
+        "a": "Ne vole pas",
+        "b": "Limite ses vols à moins de 7 000 pieds",
+        "c": "Limite les taux de montée et de descente à moins de 300 pieds par minute",
+        "d": "Vole seulement comme passager"
+      }
+    },
+    {
+      "id": "Q32",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "De nombreux médicaments courants, comme les comprimés contre le rhume, les sirops contre la toux, les antihistaminiques et d’autres produits en vente libre, peuvent gravement altérer le jugement et la coordination nécessaires au vol. La règle la plus sûre est :",
+      "answer": "d",
+      "choices": {
+        "a": "De lire l’avertissement du fabricant pour connaître les réactions possibles",
+        "b": "D’attendre au moins 8 heures entre la prise d’un médicament ou d’une drogue et le vol",
+        "c": "D’attendre au moins 48 heures après le début d’un traitement pour détecter les effets secondaires",
+        "d": "De ne prendre aucun médicament en vol, sauf sur l’avis de son médecin-examinateur de l’aviation"
+      }
+    },
+    {
+      "id": "Q33",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Une diminution de la température centrale du corps s’appelle :",
+      "answer": "d",
+      "choices": {
+        "a": "Hyperventilation",
+        "b": "Hypoglycémie",
+        "c": "Effet de Coriolis",
+        "d": "Hypothermie"
+      }
+    },
+    {
+      "id": "Q34",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "1045, heure avancée des Rocheuses, correspond à :",
+      "answer": "b",
+      "choices": {
+        "a": "1745 Z",
+        "b": "1645 Z",
+        "c": "0245 Z",
+        "d": "0345 Z"
+      }
+    },
+    {
+      "id": "Q35",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Normalement, un NOTAM est :",
+      "answer": "b",
+      "choices": {
+        "a": "Publié au moins 48 heures avant son entrée en vigueur",
+        "b": "Diffusé par des systèmes de télécommunication",
+        "c": "Distribué par courrier de première classe",
+        "d": "Publié seulement pour les utilisateurs de l’espace aérien supérieur"
+      }
+    },
+    {
+      "id": "Q36",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Une responsabilité des spécialistes de l’information de vol consiste à :",
+      "answer": "b",
+      "choices": {
+        "a": "Contrôler la circulation aérienne",
+        "b": "Fournir des services de planification de vol",
+        "c": "Fournir des services de la circulation aérienne uniquement en espace non contrôlé",
+        "d": "Vérifier les licences des pilotes et des aéronefs"
+      }
+    },
+    {
+      "id": "Q37",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "À quelle distance du centre d’un aéroport non contrôlé les vols d’ailes libres sont-ils interdits sans permission préalable?",
+      "answer": "a",
+      "choices": {
+        "a": "5 milles nautiques",
+        "b": "7 milles nautiques",
+        "c": "10 milles nautiques",
+        "d": "15 milles nautiques"
+      }
+    },
+    {
+      "id": "Q38",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Une douleur aux oreilles due à une descente rapide peut être soulagée en :",
+      "answer": "a",
+      "choices": {
+        "a": "Avalant ou bâillant",
+        "b": "Tirant sur les lobes des oreilles",
+        "c": "Réduisant la fréquence respiratoire",
+        "d": "Augmentant la force « G »"
+      }
+    },
+    {
+      "id": "Q39",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "L’espace aérien contrôlé est tout espace de dimensions définies dans lequel :",
+      "answer": "a",
+      "choices": {
+        "a": "Un service de contrôle de la circulation aérienne est fourni",
+        "b": "Des règlements de sûreté sont en vigueur",
+        "c": "Seuls les vols VFR spéciaux sont permis",
+        "d": "Les règlements des zones de contrôle sont en vigueur"
+      }
+    },
+    {
+      "id": "Q40",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "L’espace autour d’un aéroport contrôlé par une tour jusqu’à une hauteur déterminée s’appelle :",
+      "answer": "c",
+      "choices": {
+        "a": "Une région de contrôle terminal",
+        "b": "Une région de contrôle",
+        "c": "Une zone de contrôle",
+        "d": "Une zone de circulation d’aérodrome"
+      }
+    },
+    {
+      "id": "Q41",
+      "section": "Chapitre 2 : cartes VNC",
+      "question": "Pour déterminer l’emplacement et le plancher de l’espace aérien contrôlé inférieur, consultez :",
+      "answer": "d",
+      "choices": {
+        "a": "Les cartes aéronautiques de navigation VFR",
+        "b": "Les cartes de région terminale VFR",
+        "c": "Le Manuel des espaces aériens désignés",
+        "d": "N’importe laquelle de ces références"
+      }
+    },
+    {
+      "id": "Q42",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "L’espace aérien inférieur est défini comme tout l’espace :",
+      "answer": "a",
+      "choices": {
+        "a": "Dans l’espace aérien intérieur canadien sous 18 000 pieds ASL",
+        "b": "S’étendant vers le haut à partir de la surface dans les voies aériennes désignées",
+        "c": "S’étendant vers le haut à partir de 700 pieds AGL dans les espaces désignés",
+        "d": "S’étendant vers le haut à partir de 2 200 pieds AGL dans les voies aériennes désignées"
+      }
+    },
+    {
+      "id": "Q43",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "Quel énoncé concernant les « zones réglementées » est correct?",
+      "answer": "d",
+      "choices": {
+        "a": "Les aéronefs de passage entrant dans une zone réglementée active doivent être équipés d’une radio émetteur-récepteur",
+        "b": "Seuls les aéronefs militaires peuvent entrer dans les zones réglementées indiquées sur les cartes aéronautiques",
+        "c": "Les aéronefs peuvent y entrer si les pilotes respectent les heures d’entrée indiquées au plan de vol",
+        "d": "Aucun aéronef ne peut entrer dans une zone réglementée active sans permission de l’autorité responsable"
+      }
+    },
+    {
+      "id": "Q44",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "Le pilote d’une aile libre doit établir le premier contact radio avec une tour en espace aérien de classe C :",
+      "answer": "c",
+      "choices": {
+        "a": "Immédiatement après être entré dans la zone de contrôle",
+        "b": "À 10 NM à l’extérieur de la zone de contrôle",
+        "c": "Avant d’entrer dans la zone de contrôle",
+        "d": "Immédiatement avant de rejoindre le circuit"
+      }
+    },
+    {
+      "id": "Q45",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Lorsqu’une zone de feu de forêt a été désignée, aucun aéronef ne peut voler sous :",
+      "answer": "d",
+      "choices": {
+        "a": "1 000 pieds AGL à moins de 3 NM de cette zone",
+        "b": "2 000 pieds AGL à moins de 3 NM de cette zone",
+        "c": "2 000 pieds AGL à moins de 5 NM de cette zone",
+        "d": "3 000 pieds AGL à moins de 5 NM de cette zone"
+      }
+    },
+    {
+      "id": "Q46",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "Les ailes libres doivent voler :",
+      "answer": "d",
+      "choices": {
+        "a": "À l’écart des voies aériennes désignées",
+        "b": "À l’écart des régions de contrôle terminal",
+        "c": "Avec des repères visuels au sol ou sur l’eau",
+        "d": "En respectant toutes les conditions ci-dessus"
+      }
+    },
+    {
+      "id": "Q47",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "En vol VFR dans une zone de contrôle, un pilote doit rester à une distance des nuages d’au moins :",
+      "answer": "a",
+      "choices": {
+        "a": "500 pieds verticalement et 1 mille horizontalement",
+        "b": "500 pieds verticalement et 2 000 pieds horizontalement",
+        "c": "1 000 pieds verticalement et 1 mille horizontalement",
+        "d": "1 000 pieds verticalement et 3 milles horizontalement"
+      }
+    },
+    {
+      "id": "Q48",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "La visibilité minimale en vol VFR à l’extérieur de l’espace contrôlé, des zones de circulation d’aérodrome et des régions spéciales de Colombie-Britannique est :",
+      "answer": "b",
+      "choices": {
+        "a": "2 000 pieds",
+        "b": "1 mille",
+        "c": "2 milles",
+        "d": "3 milles"
+      }
+    },
+    {
+      "id": "Q49",
+      "section": "Chapitre 3 : espace aérien canadien",
+      "question": "Un aéronef vole en palier en VFR au-dessus de 3 000 pieds AGL en classe E. Sa route étant de 315 degrés, il doit voler à une altitude :",
+      "answer": "b",
+      "choices": {
+        "a": "En milliers de pieds pairs",
+        "b": "En milliers de pieds pairs plus 500 pieds",
+        "c": "En milliers de pieds impairs",
+        "d": "En milliers de pieds impairs plus 500 pieds"
+      }
+    },
+    {
+      "id": "Q50",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Avant tout vol VFR, un pilote doit :",
+      "answer": "d",
+      "choices": {
+        "a": "Déposer un avis de vol",
+        "b": "Obtenir une autorisation ATC",
+        "c": "Lire tous les bulletins météo des stations à moins de 100 milles de la destination",
+        "d": "Se familiariser avec tous les renseignements disponibles pertinents pour le vol"
+      }
+    },
+    {
+      "id": "Q51",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Personne ne peut laisser tomber d’un aéronef en vol un objet :",
+      "answer": "d",
+      "choices": {
+        "a": "Sans qu’il soit attaché à un parachute",
+        "b": "Sans approbation du ministre des Transports",
+        "c": "Ailleurs qu’au-dessus d’une zone de largage autorisée",
+        "d": "Qui crée un danger pour les personnes ou les biens"
+      }
+    },
+    {
+      "id": "Q52",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Lorsque deux ailes libres convergent à une altitude à peu près semblable :",
+      "answer": "d",
+      "choices": {
+        "a": "Les deux modifient leur cap vers la gauche",
+        "b": "Celle de droite évite l’autre en descendant",
+        "c": "Celle qui a l’autre à sa gauche doit céder le passage",
+        "d": "Celle qui a l’autre à sa droite doit céder le passage"
+      }
+    },
+    {
+      "id": "Q53",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Un aéronef qui en rattrape un autre doit s’en écarter en :",
+      "answer": "a",
+      "choices": {
+        "a": "Modifiant son cap vers la droite",
+        "b": "Descendant",
+        "c": "Montant",
+        "d": "Modifiant son cap vers la gauche"
+      }
+    },
+    {
+      "id": "Q54",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Lorsque deux aéronefs approchent de face avec un risque d’abordage, chacun doit :",
+      "answer": "c",
+      "choices": {
+        "a": "Attendre que l’autre monte ou descende et faire l’inverse",
+        "b": "Modifier son cap vers la gauche",
+        "c": "Modifier son cap vers la droite",
+        "d": "Réduire sa vitesse"
+      }
+    },
+    {
+      "id": "Q55",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Lorsque deux aéronefs convergent en vol :",
+      "answer": "c",
+      "choices": {
+        "a": "Les hélicoptères doivent céder le passage aux avions ultra-légers",
+        "b": "Un avion remorquant une banderole doit céder le passage aux avions ultra-légers",
+        "c": "Les avions ultra-légers doivent céder le passage aux ailes libres",
+        "d": "Les ballons doivent céder le passage aux ailes libres"
+      }
+    },
+    {
+      "id": "Q56",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Sauf pour décoller ou atterrir, un aéronef ne doit pas survoler un aérodrome à une hauteur inférieure à :",
+      "answer": "a",
+      "choices": {
+        "a": "2 000 pieds AGL",
+        "b": "2 000 pieds ASL",
+        "c": "1 000 pieds AGL",
+        "d": "1 000 pieds ASL"
+      }
+    },
+    {
+      "id": "Q57",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Au-dessus d’une région non populeuse ou d’un plan d’eau, un pilote peut voler à moins de _____ au-dessus de l’obstacle le plus élevé si le vol ne crée pas de danger pour les personnes ou les biens et si l’aéronef reste à au moins _____ de toute personne, de tout navire, véhicule ou ouvrage. Les valeurs manquantes sont, respectivement :",
+      "answer": "b",
+      "choices": {
+        "a": "500 pieds, 200 pieds",
+        "b": "500 pieds, 500 pieds",
+        "c": "1 000 pieds, 2 000 pieds",
+        "d": "1 000 pieds, 1 mille"
+      }
+    },
+    {
+      "id": "Q58",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Sauf disposition réglementaire contraire, au décollage, à l’atterrissage ou lors d’une tentative d’atterrissage, personne ne peut survoler une zone bâtie d’une ville, d’un village ou d’une autre agglomération, ni un rassemblement de personnes en plein air, sauf à une altitude permettant un atterrissage d’urgence sans danger pour les personnes ou les biens à la surface. Cette altitude ne peut en aucun cas être inférieure à _____ au-dessus de l’obstacle le plus élevé dans un rayon de ______ de l’aéronef. Les valeurs manquantes sont, respectivement :",
+      "answer": "b",
+      "choices": {
+        "a": "500 pieds, 500 pieds",
+        "b": "1 000 pieds, 2 000 pieds",
+        "c": "2 000 pieds, 1 000 pieds",
+        "d": "3 000 pieds, 1 mille"
+      }
+    },
+    {
+      "id": "Q59",
+      "section": "Chapitre 1 : réglementation aérienne",
+      "question": "Les vols en formation sont permis seulement s’ils :",
+      "answer": "a",
+      "choices": {
+        "a": "Ont été convenus à l’avance entre les commandants de bord",
+        "b": "Ont lieu au-dessus de 3 000 pieds AGL",
+        "c": "Sont effectués par des pilotes professionnels",
+        "d": "Sont dirigés par un pilote ayant déjà de l’expérience du vol en formation"
+      }
+    },
+    {
+      "id": "Q60",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Personne ne peut voler en aile libre pendant plus de _____ entre 10 000 et 13 000 pieds ASL sans masque et réserve d’oxygène facilement accessibles au pilote. La valeur manquante est :",
+      "answer": "b",
+      "choices": {
+        "a": "15 minutes",
+        "b": "30 minutes",
+        "c": "1 heure",
+        "d": "2 heures"
+      }
+    },
+    {
+      "id": "Q61",
+      "section": "Chapitre 6 : facteurs humains",
+      "question": "Sans utilisation d’oxygène et de masques à oxygène, personne ne peut voler au-dessus de :",
+      "answer": "a",
+      "choices": {
+        "a": "13 000 pieds ASL",
+        "b": "12 500 pieds ASL",
+        "c": "10 000 pieds ASL",
+        "d": "9 500 pieds ASL"
+      }
+    },
+    {
+      "id": "Q62",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Aux aérodromes non contrôlés sans station au sol, la fréquence de circulation d’aérodrome (ATF) est généralement :",
+      "answer": "c",
+      "choices": {
+        "a": "121,5 MHz",
+        "b": "122,2 MHz",
+        "c": "123,2 MHz",
+        "d": "126,7 MHz"
+      }
+    },
+    {
+      "id": "Q63",
+      "section": "Chapitre 5 : exploitation aérienne",
+      "question": "Quel énoncé décrit le plus complètement le déplacement des tourbillons de bout d’aile?",
+      "answer": "d",
+      "choices": {
+        "a": "Ils descendent normalement sous l’aéronef qui les produit et derrière lui",
+        "b": "Avec un léger vent de travers, un tourbillon peut rester stationnaire au-dessus du sol pendant un certain temps",
+        "c": "Le déplacement latéral peut placer le cœur d’un tourbillon au-dessus d’une piste parallèle",
+        "d": "Les énoncés a, b et c"
+      }
+    },
+    {
+      "id": "Q64",
+      "section": "Chapitre 2 : cartes VNC",
+      "question": "Des bandes jaune chrome et noires peintes sur des pylônes ou sur le toit d’un bâtiment signalent :",
+      "answer": "d",
+      "choices": {
+        "a": "Une zone où des explosifs sont utilisés",
+        "b": "Une mine à ciel ouvert",
+        "c": "Un champ de tir d’artillerie",
+        "d": "Une ferme d’animaux à fourrure"
+      }
+    },
+    {
+      "id": "A1",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "vancouver",
+      "question": "Que trouve-t-on à N48°41.03 W123°55.33?",
+      "answer": "d",
+      "choices": {
+        "a": "L’aérodrome de Duncan",
+        "b": "Le sommet d’une colline",
+        "c": "Un VORTAC",
+        "d": "CYA 118(A)(T)(H)"
+      }
+    },
+    {
+      "id": "A2",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "vancouver",
+      "question": "Vous survolez Lake Cowichan (N48°49.44' W124°3.24') sur un cap vrai de 113° indiqué par votre GPS. Quel est votre cap magnétique?",
+      "answer": "c",
+      "choices": {
+        "a": "129°45’",
+        "b": "129°30’",
+        "c": "96°30’",
+        "d": "96°15’"
+      }
+    },
+    {
+      "id": "A3",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "vancouver",
+      "question": "Quelles sont les coordonnées de l’aéroport international de Victoria?",
+      "answer": "d",
+      "choices": {
+        "a": "N48°40.67' W123°32.10'",
+        "b": "N48°38.88' W123°38.38'",
+        "c": "N48°57.68' W122°27.77’",
+        "d": "N48°38.84' W123°25.89’"
+      }
+    },
+    {
+      "id": "A4",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "vancouver",
+      "question": "Quelles activités peut-on rencontrer dans CYA 118 (A) (T) (H)?",
+      "answer": "b",
+      "choices": {
+        "a": "Vol à voile, entraînement et hélicoptères",
+        "b": "Acrobaties aériennes, entraînement et vol libre",
+        "c": "Essais, acrobaties aériennes et hélicoptères",
+        "d": "Hélicoptères, essais et travaux d’arpentage"
+      }
+    },
+    {
+      "id": "A5",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "vancouver",
+      "question": "Quelle est la classe d’espace aérien dans la CZ de l’aéroport de Nanaimo (N49°03.3' W123°52.2')?",
+      "answer": "a",
+      "choices": {
+        "a": "Classe E",
+        "b": "Classe D",
+        "c": "Classe C",
+        "d": "Classe G"
+      }
+    },
+    {
+      "id": "A6",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "vancouver",
+      "question": "Quelle fréquence utilise la tour de contrôle de l’aéroport de Nanaimo?",
+      "answer": "c",
+      "choices": {
+        "a": "123,2 MHz",
+        "b": "122,1 MHz",
+        "c": "Il n’y a pas de tour de contrôle",
+        "d": "128,425 MHz"
+      }
+    },
+    {
+      "id": "A7",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "vancouver",
+      "question": "Jusqu’à quelle altitude s’étend la classe G juste à l’ouest et à l’extérieur de la CZ de l’aéroport de Nanaimo?",
+      "answer": "c",
+      "choices": {
+        "a": "2 200 pi AGL",
+        "b": "9 500 pi ASL",
+        "c": "700 pi AGL",
+        "d": "1 500 pi AGL"
+      }
+    },
+    {
+      "id": "B1",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "montreal",
+      "question": "Quelle est la classe d’espace aérien à 8 000 pi AGL aux coordonnées N45°54.70' W73°39.98'?",
+      "answer": "c",
+      "choices": {
+        "a": "Classe C",
+        "b": "Classe D",
+        "c": "Classe E",
+        "d": "Aucune de ces réponses"
+      }
+    },
+    {
+      "id": "B2",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "montreal",
+      "question": "Quelle est la classe d’espace aérien à 3 000 pi ASL aux mêmes coordonnées?",
+      "answer": "a",
+      "choices": {
+        "a": "Classe C",
+        "b": "Classe D",
+        "c": "Classe E",
+        "d": "Aucune de ces réponses"
+      }
+    },
+    {
+      "id": "B3",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "montreal",
+      "question": "Quelle est la classe d’espace aérien à 2 400 pi AGL aux mêmes coordonnées?",
+      "answer": "d",
+      "choices": {
+        "a": "Classe C",
+        "b": "Classe D",
+        "c": "Classe E",
+        "d": "Aucune de ces réponses"
+      }
+    },
+    {
+      "id": "B4",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "montreal",
+      "question": "Quel est l’obstacle le plus élevé dans CYA 621 (H) à N45°27.26' W72°50.92'?",
+      "answer": "b",
+      "choices": {
+        "a": "Un sommet à 1 364 pi ABL",
+        "b": "Un sommet à 1 364 pi ASL",
+        "c": "Un sommet à 1 364 pi AGL",
+        "d": "Aucune de ces réponses"
+      }
+    },
+    {
+      "id": "B5",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "montreal",
+      "question": "Quelle est la classe de la CZ de l’aéroport de St-Hubert à N45°31.84' W73°24.98'?",
+      "answer": "d",
+      "choices": {
+        "a": "Classe E",
+        "b": "Classe C",
+        "c": "Classe D",
+        "d": "Classe G"
+      }
+    },
+    {
+      "id": "B6",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "montreal",
+      "question": "Jusqu’à quelle altitude s’étend la CZ de St-Hubert?",
+      "answer": "c",
+      "choices": {
+        "a": "3 000 pi ASL",
+        "b": "3 000 pi AGL",
+        "c": "2 500 pi ASL",
+        "d": "Aucune de ces réponses"
+      }
+    },
+    {
+      "id": "B7",
+      "section": "Chapitre 4 : travail sur carte",
+      "mapRegion": "montreal",
+      "question": "Quel espace aérien se trouve au-dessus de la CZ de St-Hubert?",
+      "answer": "a",
+      "choices": {
+        "a": "Classe C",
+        "b": "Classe D",
+        "c": "Classe E",
+        "d": "Aucune de ces réponses"
+      }
+    }
+  ]
+}

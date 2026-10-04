@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react'
 
+import { ui, type Locale } from '../../lib/i18n/ui'
 import VNCViewer from '../tools/VNCViewer/VNCViewer'
 import type { ExamQuestion } from './examTypes'
 import { generateExamQuestions } from './examUtils'
@@ -7,6 +8,7 @@ import QuestionCard from './QuestionCard'
 
 type ExamAppProps = {
   questionPool: ExamQuestion[]
+  locale?: Locale
 }
 
 const BUTTON_TEXT_CHECK = 'Submit'
@@ -22,7 +24,8 @@ const getMapQuestionOrder = (question: ExamQuestion): number => {
   return Number.parseInt(match[1], 10)
 }
 
-export function ExamApp({ questionPool }: ExamAppProps) {
+export function ExamApp({ questionPool, locale = 'en' }: ExamAppProps) {
+  const t = ui(locale)
   const [hasStarted, setHasStarted] = useState(false)
   const [currentExam, setCurrentExam] = useState<ExamQuestion[]>([])
   const [answersByQuestionId, setAnswersByQuestionId] = useState<Record<string, string>>({})
@@ -109,24 +112,29 @@ export function ExamApp({ questionPool }: ExamAppProps) {
     <>
       {!hasStarted ? (
         <div className="exam-intro">
-          <h2>Ready to Begin?</h2>
+          <h2>{t('Ready to Begin?')}</h2>
           <p>
-            When you click <strong>Start Exam</strong>, the system will dynamically generate your
-            randomized 40-question practice test with a balanced spread across all subjects.
+            {' '}
+            {t('When you click')} <strong>{t('Start Exam')}</strong>
+            {t(
+              ', the system will dynamically generate your randomized 40-question practice test with a balanced spread across all subjects.',
+            )}{' '}
           </p>
           <p>
-            <strong>Before you start:</strong>
+            <strong>{t('Before you start:')}</strong>
           </p>
           <ul>
-            <li>Find a quiet space where you can focus without interruptions.</li>
-            <li>Have your map and navigation tools ready.</li>
+            <li>{t('Find a quiet space where you can focus without interruptions.')}</li>
+            <li>{t('Have your map and navigation tools ready.')}</li>
             <li>
-              Set a timer for <strong>2.5 hours</strong> right when you click start to practice your
-              official pacing.
+              {' '}
+              {t('Set a timer for')} <strong>{t('2.5 hours')}</strong>{' '}
+              {t('right when you click start to practice your official pacing.')}{' '}
             </li>
           </ul>
           <button type="button" className="btn-primary" onClick={handleStartExam}>
-            Start Exam
+            {' '}
+            {t('Start Exam')}{' '}
           </button>
         </div>
       ) : null}
@@ -135,21 +143,25 @@ export function ExamApp({ questionPool }: ExamAppProps) {
         <div className="exam-run" ref={runPanelRef}>
           <div className="exam-toolbar not-content">
             <p className="exam-timer-reminder">
-              Exam in progress. You have <strong>2.5 hours</strong> to answer all questions.
+              {' '}
+              {t('Exam in progress. You have')} <strong>{t('2.5 hours')}</strong>{' '}
+              {t('to answer all questions.')}{' '}
             </p>
             <button type="button" className="btn-primary" onClick={handleRegenerateExam}>
-              Reset
+              {' '}
+              {t('Reset')}{' '}
             </button>
           </div>
 
           <section className="quiz" data-feedback-visible={reviewMode ? 'true' : 'false'}>
             {generalQuestions.map((question, index) => (
               <QuestionCard
+                locale={locale}
                 key={question.id}
                 index={index}
                 question={{
                   ...question,
-                  badgeLabel: question.isMapQuestion ? 'Map reading' : undefined,
+                  badgeLabel: question.isMapQuestion ? t('Map reading') : undefined,
                 }}
                 selectedAnswer={answersByQuestionId[question.id] ?? ''}
                 showFeedback={reviewMode}
@@ -158,22 +170,23 @@ export function ExamApp({ questionPool }: ExamAppProps) {
             ))}
 
             {mapQuestions.length > 0 ? (
-              <section className="quiz-map-work" aria-label="Map Work">
-                <h3 className="quiz-section-title">Map Work</h3>
+              <section className="quiz-map-work" aria-label={t('Map Work')}>
+                <h3 className="quiz-section-title">{t('Map Work')}</h3>
                 <details className="exam-vnc">
-                  <summary>Vancouver VNC reference map</summary>
+                  <summary>{t('Vancouver VNC reference map')}</summary>
                   <div className="exam-vnc-viewer">
-                    <VNCViewer />
+                    <VNCViewer locale={locale} />
                   </div>
                 </details>
 
                 {mapQuestions.map((question, mapIndex) => (
                   <QuestionCard
+                    locale={locale}
                     key={question.id}
                     index={generalQuestions.length + mapIndex}
                     question={{
                       ...question,
-                      badgeLabel: `Map plotting ${mapIndex + 1}`,
+                      badgeLabel: t('Map plotting {count}', { count: mapIndex + 1 }),
                     }}
                     selectedAnswer={answersByQuestionId[question.id] ?? ''}
                     showFeedback={reviewMode}
@@ -185,13 +198,15 @@ export function ExamApp({ questionPool }: ExamAppProps) {
 
             <div className="quiz-actions">
               <p className="quiz-score" hidden={!reviewMode}>
-                Score: {score}/{currentExam.length} ({scorePercentage}%)
+                {' '}
+                {t('Score:')} {score}/{currentExam.length} ({scorePercentage}%)
               </p>
               <p className="quiz-score" hidden={!reviewMode}>
-                Result: {didPass ? 'Pass' : 'Fail'}
+                {' '}
+                {t('Result:')} {didPass ? t('Pass') : t('Fail')}
               </p>
               <button type="button" className="btn-primary" onClick={handleCheckOrReset}>
-                {reviewMode ? BUTTON_TEXT_RESET : BUTTON_TEXT_CHECK}
+                {reviewMode ? t(BUTTON_TEXT_RESET) : t(BUTTON_TEXT_CHECK)}
               </button>
             </div>
           </section>

@@ -1,5 +1,6 @@
 ---
+import { localeFromLang } from '../../lib/i18n/ui';
 import MagneticVariationToolReact from './MagneticVariationTool';
 ---
 
-<MagneticVariationToolReact client:load />
+<MagneticVariationToolReact locale={localeFromLang(Astro.locals.starlightRoute.lang)} client:load />

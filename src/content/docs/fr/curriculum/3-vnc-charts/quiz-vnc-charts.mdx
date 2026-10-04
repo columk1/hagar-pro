@@ -1,0 +1,159 @@
+---
+title: 'Quiz : cartes VNC'
+description: 'Quiz de fin de section 3.'
+---
+
+import Quiz from '../../../../../components/quiz/Quiz.astro'
+
+# Quiz : cartes VNC
+
+Sélectionnez une réponse par question, puis cliquez sur **Vérifier les réponses** pour revoir vos choix.
+
+<Quiz
+  questions={[
+    {
+      id: 'm2-q1',
+      multiline: true,
+      prompt:
+        'Les cartes aéronautiques de navigation VFR (série VNC) reposent sur la projection conique conforme de Lambert. La liste suivante contient trois propriétés de cette projection et trois propriétés de celle de Mercator. A. Les méridiens sont des droites parallèles qui coupent à angle droit les parallèles, également droits et parallèles. B. Les méridiens convergent et coupent à angle droit les parallèles, qui sont des arcs de cercles concentriques. C. Une ligne droite représente un grand cercle. D. Une ligne droite représente une loxodromie. E. Les erreurs d’échelle sont faibles : on peut considérer l’échelle comme constante sur une feuille. F. L’échelle varie avec la latitude et n’est constante qu’à l’équateur; il faut donc mesurer les distances sur l’échelle de latitude voisine de la région. Quels sont les trois éléments caractéristiques de la projection conique conforme de Lambert?',
+      correctAnswer: 'd',
+      choices: [
+        {
+          value: 'a',
+          label: 'A-C-F',
+        },
+        {
+          value: 'b',
+          label: 'B-D-F',
+        },
+        {
+          value: 'c',
+          label: 'A-D-E',
+        },
+        {
+          value: 'd',
+          label: 'B-C-E',
+        },
+      ],
+    },
+    {
+      id: 'm2-q2',
+      prompt: 'Que signifie une échelle de carte de 1:1 000 000?',
+      correctAnswer: 'd',
+      choices: [
+        {
+          value: 'a',
+          label: '1 pouce = 8 milles',
+        },
+        {
+          value: 'b',
+          label: '1 pouce sur la carte = un millionième de mille',
+        },
+        {
+          value: 'c',
+          label: '1 mille équivaut à 1 000 000 pouces',
+        },
+        {
+          value: 'd',
+          label: '1 pouce sur la carte = 1 000 000 pouces au sol',
+        },
+      ],
+    },
+    {
+      id: 'm2-q3',
+      prompt:
+        'Pour déterminer l’emplacement et le plancher de l’espace aérien contrôlé inférieur, consultez :',
+      correctAnswer: 'd',
+      choices: [
+        {
+          value: 'a',
+          label: 'Les cartes aéronautiques de navigation VFR',
+        },
+        {
+          value: 'b',
+          label: 'Les cartes de région terminale VFR',
+        },
+        {
+          value: 'c',
+          label: 'Le Manuel des espaces aériens désignés',
+        },
+        {
+          value: 'd',
+          label: 'N’importe laquelle de ces références',
+        },
+      ],
+    },
+    {
+      id: 'm2-q4',
+      prompt:
+        'Des bandes jaune chrome et noires peintes sur des pylônes ou sur le toit d’un bâtiment signalent :',
+      correctAnswer: 'd',
+      choices: [
+        {
+          value: 'a',
+          label: 'Une zone où des explosifs sont utilisés',
+        },
+        {
+          value: 'b',
+          label: 'Une mine à ciel ouvert',
+        },
+        {
+          value: 'c',
+          label: 'Un champ de tir d’artillerie',
+        },
+        {
+          value: 'd',
+          label: 'Une ferme d’animaux à fourrure',
+        },
+      ],
+    },
+    {
+      id: 'm2-q5',
+      prompt: 'La déclinaison magnétique est définie comme :',
+      correctAnswer: 'c',
+      choices: [
+        {
+          value: 'a',
+          label:
+            'Une erreur du compas causée par les champs magnétiques liés au métal de la cellule et du moteur',
+        },
+        {
+          value: 'b',
+          label: 'La différence entre la route magnétique et le cap magnétique de l’aéronef',
+        },
+        {
+          value: 'c',
+          label: 'L’angle entre le nord vrai et le nord magnétique en un point donné de la Terre',
+        },
+        {
+          value: 'd',
+          label: 'La différence entre la route vraie et la route magnétique',
+        },
+      ],
+    },
+    {
+      id: 'm2-q6',
+      prompt:
+        'Bien connaître la rose des vents est essentiel à la navigation. Quel énoncé est vrai?',
+      correctAnswer: 'c',
+      choices: [
+        {
+          value: 'a',
+          label: 'Le cap réciproque de 267° est 117°',
+        },
+        {
+          value: 'b',
+          label: 'La direction nord-est est 090°',
+        },
+        {
+          value: 'c',
+          label: 'Un virage de 90° à droite depuis un cap de 145° donne 235°',
+        },
+        {
+          value: 'd',
+          label: 'Le cap réciproque de 115° est 225°',
+        },
+      ],
+    },
+  ]}
+/>

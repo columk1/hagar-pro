@@ -1,5 +1,5 @@
 // @ts-check
-import { unified } from '@astrojs/markdown-remark'
+import { isUnifiedProcessor, unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import starlight from '@astrojs/starlight'
@@ -7,10 +7,17 @@ import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeFigureTitle from 'rehype-figure-title'
 
+import frenchHeadingLabels from './scripts/rehype-french-headings.mjs'
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://hagarpro.ca',
   compressHTML: true,
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', { path: 'fr', codes: ['fr-CA', 'fr'] }],
+    routing: { prefixDefaultLocale: false },
+  },
   markdown: {
     processor: unified({
       rehypePlugins: [rehypeFigureTitle, [rehypeExternalLinks, { target: '_blank', rel: [] }]],
@@ -37,65 +44,72 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Curriculum',
+          translations: { 'fr-CA': 'Programme' },
           items: [
             {
               label: '1. Introduction',
+              translations: { 'fr-CA': '1. Introduction' },
               items: [{ autogenerate: { directory: 'curriculum/1-introduction' } }],
               collapsed: true,
             },
             {
               label: '2. Air Regulations',
+              translations: { 'fr-CA': '2. Réglementation aérienne' },
               items: [{ autogenerate: { directory: 'curriculum/2-air-regulations' } }],
               collapsed: true,
             },
             {
               label: '3. VNC Charts',
+              translations: { 'fr-CA': '3. Cartes VNC' },
               items: [{ autogenerate: { directory: 'curriculum/3-vnc-charts' } }],
               collapsed: true,
             },
             {
               label: '4. Canadian Airspace & Airspace Regulations',
+              translations: { 'fr-CA': '4. Espace aérien canadien et réglementation' },
               collapsed: true,
               items: [
-                {
-                  label: '4.1 Canadian Domestic Airspace & Uncontrolled Airspace',
-                  slug: 'curriculum/4-canadian-airspace/4-1-domestic-airspace',
-                },
-                {
-                  label: '4.2 Controlled Airspace (Classes A through E)',
-                  slug: 'curriculum/4-canadian-airspace/4-2-airspace-classes-flight-rules',
-                },
-                {
-                  label: '4.3 Special Use Airspace (Class F)',
-                  slug: 'curriculum/4-canadian-airspace/4-3-special-use-airspace-class-f',
-                },
-                {
-                  label: 'Quiz: Canadian Airspace',
-                  slug: 'curriculum/4-canadian-airspace/quiz-canadian-airspace',
-                },
+                { slug: 'curriculum/4-canadian-airspace/4-1-domestic-airspace' },
+                { slug: 'curriculum/4-canadian-airspace/4-2-airspace-classes-flight-rules' },
+                { slug: 'curriculum/4-canadian-airspace/4-3-special-use-airspace-class-f' },
+                { slug: 'curriculum/4-canadian-airspace/quiz-canadian-airspace' },
               ],
             },
             {
               label: '5. Flight Operations',
+              translations: { 'fr-CA': '5. Exploitation aérienne' },
               items: [{ autogenerate: { directory: 'curriculum/5-flight-operations' } }],
               collapsed: true,
             },
             {
               label: '6. Human Factors',
+              translations: { 'fr-CA': '6. Facteurs humains' },
               items: [{ autogenerate: { directory: 'curriculum/6-human-factors' } }],
               collapsed: true,
             },
             {
               label: '7. Practice Exam',
+              translations: { 'fr-CA': '7. Examen pratique' },
               items: [{ autogenerate: { directory: 'curriculum/7-practice-exam' } }],
               collapsed: true,
             },
           ],
         },
-        { label: 'Resources', slug: 'resources' },
-        { label: 'Continue on Another Device', slug: 'continue-on-another-device' },
+        { slug: 'resources' },
+        { slug: 'continue-on-another-device' },
       ],
     }),
+    {
+      name: 'french-heading-labels',
+      hooks: {
+        'astro:config:setup': ({ config }) => {
+          // Run after Starlight adds its heading-link plugin.
+          if (isUnifiedProcessor(config.markdown.processor)) {
+            config.markdown.processor.options.rehypePlugins.push(frenchHeadingLabels)
+          }
+        },
+      },
+    },
     mdx(),
     react(),
   ],

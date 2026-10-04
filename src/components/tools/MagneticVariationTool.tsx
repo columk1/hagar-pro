@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 
+import { ui, type Locale } from '../../lib/i18n/ui'
+
 type ConversionMode = 'TRUE_TO_MAG' | 'MAG_TO_TRUE'
 type VariationDirection = 'E' | 'W'
 
@@ -7,7 +9,8 @@ function normalizeHeading(value: number): number {
   return ((value % 360) + 360) % 360
 }
 
-export function MagneticVariationTool() {
+export function MagneticVariationTool({ locale = 'en' }: { locale?: Locale }) {
+  const t = ui(locale)
   const [mode, setMode] = useState<ConversionMode>('TRUE_TO_MAG')
   const [variationDirection, setVariationDirection] = useState<VariationDirection>('W')
   const [variationDegrees, setVariationDegrees] = useState<number>(14)
@@ -32,18 +35,18 @@ export function MagneticVariationTool() {
 
   const variationLabel = `${variationDegrees}°${variationDirection}`
   const isEast = variationDirection === 'E'
-  const knownLabel = mode === 'TRUE_TO_MAG' ? 'True Heading (TH)' : 'Magnetic Heading (MH)'
-  const resultLabel = mode === 'TRUE_TO_MAG' ? 'Magnetic Heading (MH)' : 'True Heading (TH)'
-  const resultShortLabel = mode === 'TRUE_TO_MAG' ? 'MH' : 'TH'
+  const knownLabel = mode === 'TRUE_TO_MAG' ? t('True Heading (TH)') : t('Magnetic Heading (MH)')
+  const resultLabel = mode === 'TRUE_TO_MAG' ? t('Magnetic Heading (MH)') : t('True Heading (TH)')
+  const resultShortLabel = mode === 'TRUE_TO_MAG' ? t('MH') : t('TH')
 
   const formula =
     mode === 'TRUE_TO_MAG'
       ? isEast
-        ? 'MH = TH - Variation'
-        : 'MH = TH + Variation'
+        ? t('MH = TH - Variation')
+        : t('MH = TH + Variation')
       : isEast
-        ? 'TH = MH + Variation'
-        : 'TH = MH - Variation'
+        ? t('TH = MH + Variation')
+        : t('TH = MH - Variation')
 
   const arithmeticSign = mode === 'TRUE_TO_MAG' ? (isEast ? '-' : '+') : isEast ? '+' : '-'
 
@@ -57,24 +60,24 @@ export function MagneticVariationTool() {
 
   return (
     <div className="magnetic-variation-tool not-content">
-      <h3 className="mvt-title">Magnetic Variation Tool</h3>
+      <h3 className="mvt-title">{t('Magnetic Variation Tool')}</h3>
 
       {/* <p className="mvt-intro">
         Use this to interactive tool to practice converting between true headings and magnetic headings.
       </p> */}
 
       <div className="mvt-grid">
-        <section className="mvt-panel" aria-label="Heading conversion controls">
+        <section className="mvt-panel" aria-label={t('Heading conversion controls')}>
           <div className="mvt-block">
-            <p className="mvt-label">Conversion</p>
-            <div className="mvt-toggle-row" role="group" aria-label="Conversion direction">
+            <p className="mvt-label">{t('Conversion')}</p>
+            <div className="mvt-toggle-row" role="group" aria-label={t('Conversion direction')}>
               <button
                 type="button"
                 className={`mvt-toggle ${modeTrueToMagClass}`}
                 onClick={() => setMode('TRUE_TO_MAG')}
                 aria-pressed={mode === 'TRUE_TO_MAG'}
               >
-                {'True to Magnetic'}
+                {t('True to Magnetic')}
               </button>
               <button
                 type="button"
@@ -82,21 +85,22 @@ export function MagneticVariationTool() {
                 onClick={() => setMode('MAG_TO_TRUE')}
                 aria-pressed={mode === 'MAG_TO_TRUE'}
               >
-                {'Magnetic to True'}
+                {t('Magnetic to True')}
               </button>
             </div>
           </div>
 
           <div className="mvt-block">
-            <p className="mvt-label">Magnetic variation</p>
-            <div className="mvt-toggle-row" role="group" aria-label="Variation direction">
+            <p className="mvt-label">{t('Magnetic variation')}</p>
+            <div className="mvt-toggle-row" role="group" aria-label={t('Variation direction')}>
               <button
                 type="button"
                 className={`mvt-toggle ${variationWestClass}`}
                 onClick={() => setVariationDirection('W')}
                 aria-pressed={variationDirection === 'W'}
               >
-                West
+                {' '}
+                {t('West')}{' '}
               </button>
               <button
                 type="button"
@@ -104,7 +108,8 @@ export function MagneticVariationTool() {
                 onClick={() => setVariationDirection('E')}
                 aria-pressed={variationDirection === 'E'}
               >
-                East
+                {' '}
+                {t('East')}{' '}
               </button>
             </div>
 
@@ -117,7 +122,7 @@ export function MagneticVariationTool() {
                 step="1"
                 value={variationDegrees}
                 onChange={(event) => setVariationDegrees(Number(event.target.value))}
-                aria-label="Variation in degrees"
+                aria-label={t('Variation in degrees')}
               />
               <span className="mvt-value-pill">{variationLabel}</span>
             </div>
@@ -151,12 +156,13 @@ export function MagneticVariationTool() {
               <span className="mvt-input-suffix">°</span>
             </div>
             <p id="mvt-heading-hint" className="mvt-help">
-              Enter 0 to 359 degrees.
+              {' '}
+              {t('Enter 0 to 359 degrees.')}{' '}
             </p>
           </div>
 
           <div className="mvt-result" aria-live="polite">
-            <p className="mvt-label">Result</p>
+            <p className="mvt-label">{t('Result')}</p>
             <p className="mvt-result-heading">
               {resultLabel}: <strong>{resultHeading}°</strong>
             </p>
@@ -168,13 +174,13 @@ export function MagneticVariationTool() {
           </div>
         </section>
 
-        <section className="mvt-visual" aria-label="True north and magnetic north diagram">
+        <section className="mvt-visual" aria-label={t('True north and magnetic north diagram')}>
           <div className="mvt-visual-main">
             <svg
               viewBox="0 0 220 220"
               className="mvt-compass"
               role="img"
-              aria-label="Compass showing true north and magnetic north offset"
+              aria-label={t('Compass showing true north and magnetic north offset')}
             >
               <circle
                 cx="110"
@@ -260,21 +266,26 @@ export function MagneticVariationTool() {
 
             <ul className="mvt-legend">
               <li>
-                <span className="mvt-dot magnetic" /> Magnetic North ({variationLabel})
+                <span className="mvt-dot magnetic" /> {t('Magnetic North (')}
+                {variationLabel})
               </li>
               <li>
-                <span className="mvt-dot heading-solid" /> True Heading ({trueHeadingForVisual}°)
+                <span className="mvt-dot heading-solid" /> {t('True Heading (')}
+                {trueHeadingForVisual}°)
               </li>
               <li>
-                <span className="mvt-dot heading" /> Magnetic Heading ({magneticHeadingForVisual}°)
+                <span className="mvt-dot heading" /> {t('Magnetic Heading (')}
+                {magneticHeadingForVisual}°)
               </li>
             </ul>
           </div>
 
           <div className="mvt-note">
             <p>
-              <strong>Flight note:</strong> A compass is most reliable in steady, level flight.
-              Turns and acceleration can cause errors.
+              <strong>{t('Flight note:')}</strong>{' '}
+              {t(
+                'A compass is most reliable in steady, level flight. Turns and acceleration can cause errors.',
+              )}{' '}
             </p>
           </div>
         </section>

@@ -4,6 +4,9 @@ export function generateOGURL(currentPath: string): string {
 
   // Map root path to 'index'
   if (!slug) slug = 'index'
+  if (slug === 'fr/404') return '/og/fr/index.png'
+  if (slug === '404') return '/og/index.png'
+  if (slug === 'fr' || slug === 'fr/index') return '/og/fr/index.png'
 
   // Remove trailing '/index' from directory paths just in case
   if (slug.endsWith('/index')) slug = slug.replace(/\/index$/, '')
