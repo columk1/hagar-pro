@@ -2,6 +2,18 @@
 
 An interactive course to help pilots prepare for the Transport Canada HAGAR exam.
 
+## Development
+
+Use Node.js 22.22.1 or newer and the pnpm version specified in `package.json`.
+
+```sh
+pnpm install
+pnpm dev
+```
+
+Before submitting changes, run `pnpm check`, `pnpm lint`, `pnpm exec oxfmt --check`, and `pnpm build`.
+TypeScript stays on version 6 until `@astrojs/check` supports version 7.
+
 ## Overview
 
 HAGAR Pro is a comprehensive study platform for hang glider and paraglider pilots preparing for the Transport Canada Hang Glider Air Regulations (HAGAR) examination. The course covers all required topics including air regulations, VNC charts, Canadian airspace, flight operations, and human factors.

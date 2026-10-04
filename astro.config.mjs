@@ -1,4 +1,5 @@
 // @ts-check
+import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import starlight from '@astrojs/starlight'
@@ -9,8 +10,11 @@ import rehypeFigureTitle from 'rehype-figure-title'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://hagarpro.ca',
+  compressHTML: true,
   markdown: {
-    rehypePlugins: [rehypeFigureTitle, [rehypeExternalLinks, { target: '_blank', rel: [] }]],
+    processor: unified({
+      rehypePlugins: [rehypeFigureTitle, [rehypeExternalLinks, { target: '_blank', rel: [] }]],
+    }),
   },
   integrations: [
     starlight({
@@ -36,17 +40,17 @@ export default defineConfig({
           items: [
             {
               label: '1. Introduction',
-              autogenerate: { directory: 'curriculum/1-introduction' },
+              items: [{ autogenerate: { directory: 'curriculum/1-introduction' } }],
               collapsed: true,
             },
             {
               label: '2. Air Regulations',
-              autogenerate: { directory: 'curriculum/2-air-regulations' },
+              items: [{ autogenerate: { directory: 'curriculum/2-air-regulations' } }],
               collapsed: true,
             },
             {
               label: '3. VNC Charts',
-              autogenerate: { directory: 'curriculum/3-vnc-charts' },
+              items: [{ autogenerate: { directory: 'curriculum/3-vnc-charts' } }],
               collapsed: true,
             },
             {
@@ -73,17 +77,17 @@ export default defineConfig({
             },
             {
               label: '5. Flight Operations',
-              autogenerate: { directory: 'curriculum/5-flight-operations' },
+              items: [{ autogenerate: { directory: 'curriculum/5-flight-operations' } }],
               collapsed: true,
             },
             {
               label: '6. Human Factors',
-              autogenerate: { directory: 'curriculum/6-human-factors' },
+              items: [{ autogenerate: { directory: 'curriculum/6-human-factors' } }],
               collapsed: true,
             },
             {
               label: '7. Practice Exam',
-              autogenerate: { directory: 'curriculum/7-practice-exam' },
+              items: [{ autogenerate: { directory: 'curriculum/7-practice-exam' } }],
               collapsed: true,
             },
           ],
@@ -92,9 +96,7 @@ export default defineConfig({
         { label: 'Continue on Another Device', slug: 'continue-on-another-device' },
       ],
     }),
-    mdx({
-      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: [] }]],
-    }),
+    mdx(),
     react(),
   ],
 })

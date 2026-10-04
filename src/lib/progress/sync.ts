@@ -14,7 +14,7 @@ const encodeBase64Url = (value: string): string => {
   }
 
   return globalThis
-    .btoa(unescape(encodeURIComponent(value)))
+    .btoa(Array.from(new TextEncoder().encode(value), (byte) => String.fromCharCode(byte)).join(''))
     .replace(/\+/g, '-')
     .replace(/\//g, '_')
     .replace(/=+$/g, '')
@@ -28,7 +28,10 @@ const decodeBase64Url = (value: string): string => {
   const padded = value.replace(/-/g, '+').replace(/_/g, '/')
   const withPadding = `${padded}${'='.repeat((4 - (padded.length % 4)) % 4)}`
 
-  return decodeURIComponent(escape(globalThis.atob(withPadding)))
+  const bytes = Uint8Array.from(globalThis.atob(withPadding), (character) =>
+    character.charCodeAt(0),
+  )
+  return new TextDecoder('utf-8', { fatal: true }).decode(bytes)
 }
 
 const compressData = async (data: string): Promise<string> => {
@@ -45,7 +48,7 @@ const compressData = async (data: string): Promise<string> => {
 const decompressData = async (compressedData: string): Promise<string> => {
   try {
     const decompressed = decompress(compressedData)
-    return decompressed
+    return decompressed ?? compressedData
   } catch (error) {
     console.log('LZ decompression failed:', error)
     return compressedData
@@ -79,7 +82,7 @@ export const createSyncLink = async (
   origin: string,
   progressState: Partial<ProgressState>,
 ): Promise<string> => {
-  const url = new URL('/sync', origin)
+  const url = new URL('/sync/', origin)
   url.searchParams.set('data', await serializeProgress(progressState))
   return url.toString()
 }

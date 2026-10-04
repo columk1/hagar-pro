@@ -10,8 +10,8 @@ export async function getStaticPaths() {
   const docs = await getCollection('docs')
 
   return docs.map((doc) => {
-    // 1. Astro 5 uses doc.id (file path), older uses doc.slug
-    let slug = doc.slug || doc.id
+    // Content loader entries use their ID as the route slug.
+    let slug = doc.id
 
     // 2. Strip file extensions if using doc.id (e.g. '.md', '.mdx')
     slug = slug.replace(/\.(md|mdx)$/, '')
