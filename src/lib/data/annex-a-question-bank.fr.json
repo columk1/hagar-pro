@@ -164,10 +164,10 @@
       "question": "La zone associée à une fréquence obligatoire, dans laquelle le pilote doit contacter la station au sol et signaler ses intentions, a normalement :",
       "answer": "a",
       "choices": {
-        "a": "Un rayon de 5 NM et s’étend jusqu’à 3 000 pi AGL",
-        "b": "Un rayon de 10 NM et s’étend jusqu’à 3 000 pi AGL",
-        "c": "Un rayon de 5 NM et s’étend jusqu’à 5 000 pi AGL",
-        "d": "Un rayon de 10 NM et s’étend jusqu’à 5 000 pi AGL"
+        "a": "Un rayon de 5 NM et une limite supérieure de 3 000 pi AGL",
+        "b": "Un rayon de 10 NM et une limite supérieure de 3 000 pi AGL",
+        "c": "Un rayon de 5 NM et une limite supérieure de 5 000 pi AGL",
+        "d": "Un rayon de 10 NM et une limite supérieure de 5 000 pi AGL"
       }
     },
     {
@@ -689,7 +689,7 @@
     {
       "id": "Q58",
       "section": "Chapitre 1 : réglementation aérienne",
-      "question": "Sauf disposition réglementaire contraire, au décollage, à l’atterrissage ou lors d’une tentative d’atterrissage, personne ne peut survoler une zone bâtie d’une ville, d’un village ou d’une autre agglomération, ni un rassemblement de personnes en plein air, sauf à une altitude permettant un atterrissage d’urgence sans danger pour les personnes ou les biens à la surface. Cette altitude ne peut en aucun cas être inférieure à _____ au-dessus de l’obstacle le plus élevé dans un rayon de ______ de l’aéronef. Les valeurs manquantes sont, respectivement :",
+      "question": "Sauf disposition réglementaire contraire et sauf pour décoller, atterrir ou tenter d’atterrir, personne ne peut survoler une zone bâtie d’une ville, d’un village ou d’une autre agglomération, ni un rassemblement de personnes en plein air, sauf à une altitude permettant un atterrissage d’urgence sans danger pour les personnes ou les biens à la surface. Cette altitude ne peut en aucun cas être inférieure à _____ au-dessus de l’obstacle le plus élevé dans un rayon de ______ de l’aéronef. Les valeurs manquantes sont, respectivement :",
       "answer": "b",
       "choices": {
         "a": "500 pieds, 500 pieds",

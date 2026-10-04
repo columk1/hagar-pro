@@ -37,7 +37,7 @@ NAME signifie « nom ». Les encadrements indiquent les services douaniers. Les 
 - 53 : plus longue distance d’atterrissage, en centaines de pieds (53 indique une longueur de 5 270 à 5 369 pieds)
 - DAYS 60 : distance d’atterrissage de jour
 - M : fréquence obligatoire (MF)
-- A : fréquence de trafic d’aérodrome (ATF)
+- A : fréquence de circulation d’aérodrome (ATF)
 - U : station consultative privée (UNICOM); U1 : 122,8, U2 : 123,0
 - C : fréquence commune d’avis de circulation (États-Unis)
 - S : aire d’amarrage abritée
@@ -74,9 +74,9 @@ Tous les parcs nationaux, provinciaux et municipaux sont fermés aux aéronefs, 
 - Zone de contrôle de classe E (zone de contrôle d’aérodrome dans d’autres pays)
 - Classe F : espace aérien à usage spécial; au Canada, CYA : zone consultative, CYD : zone de danger, CYR : zone réglementée
 - États-Unis : A, zone d’alerte; P, zone interdite; R, zone réglementée; W, zone d’avertissement
-- Codes d’activité : A, voltige; F, essais d’aéronefs; H, deltaplane; M, opérations militaires; P, parachutisme; S, vol à voile; T, entraînement
+- Codes d’activité : A, voltige; F, essais d’aéronefs; H, vol libre; M, opérations militaires; P, parachutisme; S, vol à voile; T, entraînement
 - MOA : zone d’opérations militaires (États-Unis)
-- Symboles d’activité : parachutisme, deltaplane, vol à voile, ultra-léger et entraînement
+- Symboles d’activité : parachutisme, vol libre, vol à voile, ultra-léger et entraînement
 
 ![Symboles de la légende : Renseignements sur l’espace aérien](/images/vnc-legend-airspace-information.avif)
 
@@ -84,11 +84,11 @@ Ces symboles et lignes de délimitation indiquent les types d’espace aérien e
 
 ### Aides à la radionavigation
 
-Les installations exploitées par NAV CANADA ou le ministère de la Défense nationale et les stations de radiodiffusion commerciales sont sujettes à des pannes ou modifications sans NOTAM.
+Les installations de radio ou de navigation qui ne sont pas exploitées par NAV CANADA ou le ministère de la Défense nationale, ainsi que les stations de radiodiffusion commerciales, peuvent subir des pannes ou des modifications sans NOTAM.
 
-VHF/UHF : VOR, DME, UHF, UHF/DF et VHF, VHF/DF. Les roses des compas sont orientées vers le nord magnétique, sauf indication contraire.
+VDF = VHF/DF; UDF = UHF/DF; VUDF = VHF/UHF/DF. Les roses des compas sont orientées vers le nord magnétique, sauf indication contraire.
 
-Les installations TACAN et DME militaires sont encadrées et soulignées. Les installations VORTAC comprennent une radiodiffusion météorologique transcrite (TWEB). Un soulignement indique l’absence de communications ATS sur cette fréquence.
+Les canaux TACAN et DME n’offrent pas de communications vocales et ne sont pas soulignés. La mention « Private » indique une installation qui n’est pas exploitée par NAV CANADA ou le ministère de la Défense nationale. TWB signifie « Transcribed Weather Broadcast » (diffusion météorologique transcrite). Un soulignement indique l’absence de communications ATS sur cette fréquence.
 
 - VOR
 - DME
@@ -97,8 +97,8 @@ Les installations TACAN et DME militaires sont encadrées et soulignées. Les in
 - NDB
 - Station de radiodiffusion commerciale
 - Le point indique l’emplacement de l’installation
-- Case TORONTO : aide à la navigation VHF/UHF; 112,15 YYZ est la fréquence ou le canal DME; DME Ch 58(Y) indique obligatoirement le mode TACAN « Y »
-- Case HALIFAX : aides combinées VHF/UHF et LF/MF; DME Ch 98, 248 HZ
+- Case TORONTO : aide à la navigation VHF/UHF, 112,15 YYZ; le symbole DME indique qu’un DME est disponible sur la fréquence ou le canal; DME Ch 58(Y) indique que le mode TACAN « Y » doit être utilisé
+- Case HALIFAX : aides combinées VHF/UHF et LF/MF; 115,1 YHZ, DME Ch 98 et 248 HZ
 - Case KAMLOOPS : aide à la navigation LF/MF; 223 YKA
 
 ![Symboles de la légende : Aides à la radionavigation](/images/vnc-legend-radio-aids-to-navigation.avif)
@@ -126,11 +126,11 @@ Dans les cases à bordure fine, les fréquences au-dessus sont télécommandées
 
 ![Symboles de la légende : Cases de communications air-sol](/images/vnc-legend-communication-boxes.avif)
 
-Ces cases représentent les stations d’information de vol (FSS) et d’autres installations fournissant des services de la circulation aérienne. Les cases à bordure épaisse indiquent les FSS avec les fréquences du groupe standard. Les cases à bordure fine représentent des sites éloignés qui acheminent les communications vers les FSS et depuis celles-ci : installations radio télécommandées (RCO), installations radio télécommandées à composition (DRCO), stations air-sol privées (A/G) et stations radio d’aérodrome communautaire (CARS).
+Ces cases représentent les stations d’information de vol (FSS) et d’autres installations fournissant des services de la circulation aérienne. Les cases à bordure épaisse indiquent les FSS avec les fréquences du groupe standard. Les cases à bordure fine identifient notamment les installations radio télécommandées (RCO) et les installations radio télécommandées à composition (DRCO). La légende montre aussi des cases pour les stations air-sol privées (A/G) et les stations radio d’aérodrome communautaire (CARS).
 
 ### Divers
 
-Les obstacles connus de 300 pi ou plus et les obstacles importants de moins de 300 pi sont montrés. S’il y en a plusieurs dans une même zone, seul le plus haut est représenté. Ils sont balisés, sauf mention « Unlighted » (non balisé).
+Les obstacles connus de 300 pi ou plus et les obstacles importants de moins de 300 pi sont montrés. S’il y en a plusieurs dans une même zone, seul le plus haut est représenté. Ils sont munis d’un balisage lumineux, sauf mention « Unlighted » (sans balisage lumineux).
 
 La cote d’élévation maximale (MEF) est donnée en milliers et centaines de pieds ASL. Elle représente l’élément le plus élevé de chaque quadrilatère. À cette altitude ou en dessous, on peut être au niveau du plus haut obstacle ou en dessous. Il faut ajouter une marge pour le terrain, les obstacles et l’erreur altimétrique. Voir AIM de TC, RAC 5.4, 602.15(2)b) (note), et AIR 1.5. La MEF est calculée à partir du relief et des obstacles connus et inconnus.
 
@@ -155,7 +155,7 @@ Obstacles, feux, lignes électriques et symbole des lignes de même déclinaison
 Seuls les symboles pouvant être difficiles à interpréter sont montrés. Les listes suivent l’ordre des deux colonnes de l’image de référence.
 
 - Limites : internationale; provinciale, d’État ou territoriale; parc national ou provincial; refuge faunique; mer territoriale; limite extérieure de la zone de pêche
-- Hydrographie : lac intermittent (deux symboles possibles); cours d’eau intermittent ou littoral; chutes et rapides; barrage; écluse; rochers à découvert ou à fleur d’eau; marais; terrain sujet aux inondations; tourbière réticulée; récif rocheux; réservoir (en bleu)
+- Hydrographie : lac intermittent (deux symboles possibles); cours d’eau ou ligne de rivage intermittents; chutes et rapides; barrage; écluse; rochers à découvert ou à fleur d’eau; marais; terrain sujet aux inondations; tourbière réticulée; récif rocheux; réservoir (en bleu)
 - Éléments du terrain : esker (deux symboles possibles); moraine (deux symboles possibles); digue (côté faisant face à l’eau); sable (dépôts et plages surélevées); escarpement ou dépression
 - Transport terrestre : autoroute à chaussées séparées; route principale; route secondaire; sentier ou ligne déboisée; chemin de fer à voie simple avec gare; chemin de fer à voie double avec triage; voie ferrée abandonnée
 - Relief : point coté critique en pieds (11386); point coté en pieds (9015); altitude fondée sur des données non fiables (8073); col de montagne (4525)
@@ -176,17 +176,17 @@ Point de contrôle VFR : lorsqu’un aéronef est autorisé à effectuer des orb
 - Surfaces d’aérodrome : piste à revêtement dur; aire de demi-tour; surface en construction, fermée ou abandonnée; piste en sable, gravier, gazon, etc.; piste pour skis, ultra-légers ou planeurs (activité indiquée)
 - Seuil de piste décalé (deux symboles possibles); voie de circulation, aire de trafic ou baie d’attente; désignation de voie de circulation (A)
 - Feux : phare d’aérodrome (rotatif ou stroboscopique); balise de danger; feu d’obstacle; obstacles (hauteurs ASL sauf indication contraire); indicateur de direction d’atterrissage; indicateur de direction du vent
-- Annotations des feux : F, fixe; Fl, à éclats; Occ, à occultations; R, rouge; G, vert; Bl, bleu. Feux blancs sauf indication contraire. « lighted » : balisé; « group » : groupe.
+- Annotations des feux : F, fixe; Fl, à éclats; Occ, à occultations; R, rouge; G, vert; Bl, bleu. Feux blancs sauf indication contraire. « lighted » : muni d’un balisage lumineux; « group » : groupe.
 - Balisage lumineux d’approche : consulter la section A, Balisage lumineux
 - Aides radio : NDB; VOR; VOR/DME; TACAN; VORTAC; aide radio (désignation)
 - Communications en espace aérien de classe C : plafond en centaines de pieds ASL (125); organisme à appeler (ADVSY); fréquences (125,4 et 238,3); plancher en centaines de pieds ASL (30)
 - Espace aérien : zone de contrôle de classe B; zone de contrôle de classe C ou D; zone de contrôle de classe E; séparation des planchers; routes d’hélicoptères; routes VFR à sens fixe (flèche de direction)
 - Classe F : CYA, zone consultative; CYD, zone de danger; CYR, zone réglementée
-- Codes d’activité : A, voltige; F, essais d’aéronefs; H, deltaplane; M, opérations militaires; P, parachutisme; S, vol à voile; T, entraînement
+- Codes d’activité : A, voltige; F, essais d’aéronefs; H, vol libre; M, opérations militaires; P, parachutisme; S, vol à voile; T, entraînement
 - Divers : câble d’arrêt unidirectionnel; câble d’arrêt bidirectionnel; barrière d’arrêt; escarpement ou dépression; ligne électrique; câble tendu; arbres; clôture; zone sensible au bruit; zone bâtie; cimetière; point de cheminement d’approche aux instruments; point de contrôle VFR
 - Héliport (FATO et TLOF imbriquées ou confondues); héliport d’hôpital (FATO et TLOF imbriquées ou confondues); FATO (TLOF non confondue); aire de stationnement d’héliport
 - FATO : aire d’approche finale et de décollage; TLOF : aire de prise de contact et d’envol
-- Activités et aérodromes : vol à voile; deltaplane; exploitation d’ultra-légers; entraînement; parachutisme; aérodrome terrestre; hydroaérodrome; statut inconnu; aérodrome abandonné
+- Activités et aérodromes : vol à voile; vol libre; exploitation d’ultra-légers; entraînement; parachutisme; aérodrome terrestre; hydroaérodrome; statut inconnu; aérodrome abandonné
 
 ![Symboles de la légende : Légende des croquis d’aérodrome et cartes de procédures terminales VFR (VTPC)](/images/vtpc-legend.avif)
 
