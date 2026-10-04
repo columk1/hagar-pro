@@ -95,6 +95,69 @@ const numbers = (text, french = false) => {
   ).replace(/(?<=\d),(?=\d)/g, '.')
   return (normalized.match(/\d+(?:\.\d+)?/g) ?? []).map(Number)
 }
+// Compare number counts, not paragraph order: translations can rearrange prose.
+// Count a repeated value once per paragraph/list item; prose can repeat or refer back to it.
+// These are review warnings, so regional examples can change independently.
+const proseNumbers = (text, french) => {
+  const blank = (match) => match.replace(/[^\n]/g, ' ')
+  const prose = text
+    .replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, blank)
+    .replace(/^\s*(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\s*\1\s*$/gm, blank)
+    // A reviewed local addition can be excluded without silencing the rest of its page.
+    .replace(
+      /\{\/\* i18n-prose-ignore-start:[\s\S]*?\*\/\}[\s\S]*?\{\/\* i18n-prose-ignore-end \*\/\}/g,
+      blank,
+    )
+    .replace(/\{\/\*[\s\S]*?\*\/\}/g, blank)
+    .replace(/<!--[\s\S]*?-->/g, blank)
+    .replace(/<\/?[A-Za-z][^>]*>/g, blank)
+    .replace(/!\[[^\]]*\]\([^\n]*?\)/g, blank)
+    .replace(/\[([^\]]*)\]\([^\n]*?\)/g, '$1')
+    .replace(/https?:\/\/\S+/g, '')
+    .replace(/`[^`\n]*`/g, '')
+  const occurrences = new Map()
+  const paragraphValues = new Set()
+  for (const [index, line] of prose.split('\n').entries()) {
+    if (!line.trim() || /^\s*(?:[-*+]\s|\d+[.)]\s|\|)/.test(line)) paragraphValues.clear()
+    if (/^\s*(?:#{1,6}\s|import\s|export\s)/.test(line)) continue
+    const normalized = line
+      .replace(/^\s*\d+[.)]\s+/, '')
+      .replace(/\b(\d+)\s+(\d+)\/(\d+)\b/g, (match, whole, numerator, denominator) =>
+        Number(denominator)
+          ? String(Number(whole) + Number(numerator) / Number(denominator))
+          : match,
+      )
+      .replace(/\b(\d+)\s*h\s*(\d{1,2})(?:\s*min)?\b/gi, (match, hours, minutes) =>
+        Number(minutes) < 60 ? String(Number(hours) + Number(minutes) / 60) : match,
+      )
+      .replace(/\b(?:one|un|une)\s+(?=atmosph[eè]re\b)/gi, '1 ')
+    for (const value of numbers(normalized, french)) {
+      if (paragraphValues.has(value)) continue
+      paragraphValues.add(value)
+      const lines = occurrences.get(value) ?? []
+      lines.push(index + 1)
+      occurrences.set(value, lines)
+    }
+  }
+  return occurrences
+}
+let proseWarningCount = 0
+const warnProseNumbers = (file, english, french) => {
+  const en = proseNumbers(english, false)
+  const fr = proseNumbers(french, true)
+  const differences = [...new Set([...en.keys(), ...fr.keys()])]
+    .sort((a, b) => a - b)
+    .filter((value) => (en.get(value)?.length ?? 0) !== (fr.get(value)?.length ?? 0))
+  if (!differences.length) return
+  proseWarningCount++
+  console.warn(`Prose number warning: ${file} (review only; regional differences are allowed)`)
+  for (const value of differences.slice(0, 8))
+    console.warn(
+      `  ${value}: English lines ${en.get(value)?.join(', ') ?? 'none'}; French lines ${fr.get(value)?.join(', ') ?? 'none'}`,
+    )
+  if (differences.length > 8)
+    console.warn(`  … ${differences.length - 8} more differing values; compare this page pair.`)
+}
 const quizQuestions = (text) => {
   const expression = text.match(/questions=\{\s*(\[[\s\S]*\])\s*\}/)?.[1]
   assert.ok(expression, 'Quiz questions must be an inline array')
@@ -106,7 +169,10 @@ for (const file of sources) {
   const french = read(`${docsDir}/fr/${file}`)
   assert.match(french, /description:/, `French metadata missing: ${file}`)
   assert.notEqual(french, english, `Page was copied without translation: ${file}`)
-  if (!file.includes('quiz-')) continue
+  if (!file.includes('quiz-')) {
+    warnProseNumbers(file, english, french)
+    continue
+  }
   const en = quizQuestions(english)
   const fr = quizQuestions(french)
   assert.equal(en.length, fr.length, file)
@@ -208,6 +274,7 @@ for (const statement of airspaceSource.statements) {
 console.log(
   `Source parity passed: ${sources.length} pages, ${quizCount} quiz questions, ${frBank.questions.length} exam questions; locale, progress, sync, UI and answer keys verified.`,
 )
+console.log(`Prose review: ${proseWarningCount} page(s) with number warnings (non-blocking).`)
 
 if (process.argv.includes('--built')) {
   assert.ok(existsSync(resolve(root, 'dist/fr/index.html')), 'Run pnpm build first')

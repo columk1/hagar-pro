@@ -45,7 +45,7 @@ Les VNC utilisent la projection conique conforme de Lambert. Pour la comprendre,
 Cette projection présente deux grands avantages pour la navigation aérienne :
 
 - Une ligne droite sur la carte correspond approximativement à un « grand cercle », soit la plus courte distance entre deux points.
-- L’échelle est identique partout sur la carte, ce qui facilite la planification d’un vol avec une règle et un rapporteur.
+- Les variations d’échelle sont faibles sur une feuille VNC, ce qui permet d’utiliser l’échelle de la carte avec une règle pour planifier un vol.
 
 :::note
 Ce n’est pas le cas avec la projection de Mercator : la plus courte distance entre deux points est une courbe et l’échelle varie avec la latitude. On comprend donc la difficulté de planifier précisément un vol avec une carte de Mercator. Les cartes topographiques couvrent des régions beaucoup plus petites que les VNC, ce qui rend ces imprécisions acceptables.
@@ -53,7 +53,7 @@ Ce n’est pas le cas avec la projection de Mercator : la plus courte distance e
 Sur une carte routière, ces imprécisions importent peu, puisque l’on suit les routes : la distance directe entre deux points n’est pas pertinente, la distance parcourue dépendant de la longueur de la route.
 :::
 
-Le principal inconvénient d’une projection conique est que les parallèles et les méridiens ne se coupent pas à 90 degrés, ce qui complique un peu le repérage d’un point sur la carte.
+Sur une carte en projection conique conforme de Lambert, les méridiens convergent et les parallèles sont courbes. Ils se coupent à 90 degrés.
 
 ## Vidéo complémentaire
 

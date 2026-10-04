@@ -9,7 +9,7 @@ export const localizePath = (locale: Locale, path = ''): string => {
   return `/${locale === 'fr' ? 'fr/' : ''}${clean}`
 }
 
-const french: Record<string, string> = {
+const french = {
   Curriculum: 'Programme',
   '1. Introduction': '1. Introduction',
   '2. Air Regulations': '2. Réglementation aérienne',
@@ -187,12 +187,14 @@ const french: Record<string, string> = {
   deg: '°',
   NM: 'NM',
   Untitled: 'Sans titre',
-}
+} satisfies Record<string, string>
+
+export type UiKey = keyof typeof french
 
 /** Missing French strings fail visibly during development/build instead of silently leaking English. */
 export const ui =
   (locale: Locale) =>
-  (text: string, values: Record<string, string | number> = {}): string => {
+  (text: UiKey, values: Record<string, string | number> = {}): string => {
     const translated = locale === 'fr' ? french[text] : text
     if (translated === undefined) throw new Error(`Missing French UI translation: ${text}`)
     return translated.replace(/\{(\w+)\}/g, (match, key: string) => String(values[key] ?? match))

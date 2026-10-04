@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content'
 import { canonicalizePathToContentId, isLessonId } from '../../lib/progress/lessonIds'
-import { localeFromLang, ui } from '../../lib/i18n/ui'
+import { localeFromLang, ui, type UiKey } from '../../lib/i18n/ui'
 import { localeUrl } from '../../lib/i18n/routes'
 const locale = localeFromLang(Astro.locals.starlightRoute.lang)
 const t = ui(locale)
 import ProgressCircle from './ProgressCircle.astro'
 
 const lessonIds = (await getCollection('docs')).map((doc) => canonicalizePathToContentId(doc.id)).filter(isLessonId).sort()
-const sections = [
+const sections: { id: string; title: UiKey }[] = [
   { id: 'curriculum/1-introduction', title: '1. Introduction' },
   { id: 'curriculum/2-air-regulations', title: '2. Air Regulations' },
   { id: 'curriculum/3-vnc-charts', title: '3. VNC Charts' },

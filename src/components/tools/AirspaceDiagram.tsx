@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-import { ui, type Locale } from '../../lib/i18n/ui'
+import { ui, type Locale, type UiKey } from '../../lib/i18n/ui'
 
 type AirspaceClass = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
 
 type AirspaceInfo = {
-  title: string
+  title: UiKey
   color: string
-  vfr: string[]
-  hgpg: string[]
+  vfr: UiKey[]
+  hgpg: UiKey[]
 }
 
 const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {

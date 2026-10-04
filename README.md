@@ -22,7 +22,6 @@ pnpm build
 pnpm check:i18n --built
 ```
 
-The translation checks verify matching pages, quiz and exam answer keys, French routes and links.
 TypeScript stays on version 6 until `@astrojs/check` supports version 7.
 
 ## Overview
@@ -73,25 +72,10 @@ Feedback after taking the exam is especially valuable.
 
 You can also support development by making a donation at https://ko-fi.com/columkelly
 
+English and French lessons are paired MDX files in `src/content/docs/` and `src/content/docs/fr/`. Shared interface translations live in `src/lib/i18n/ui.ts`; practice-exam question banks live in `src/lib/data/`.
+
 ## Copyright Notice
 
 Portions of this course reproduce material from the "HPAC/ACVL Study Guide for the HAGAR Examination Version 3.1" (Andre Nadeau, 2016).
 
 This material is used with permission from HPAC/ACVL and remains their property.
-
-## Updating English and French content
-
-English is the source of truth. The French course is available at `/fr/`, with the same lesson slugs and shared completion progress.
-
-For a lesson update, edit the English MDX file in `src/content/docs/` and its matching file under `src/content/docs/fr/`. For example, `curriculum/1-introduction/index.mdx` pairs with `fr/curriculum/1-introduction/index.mdx`. Update the title, description, lesson text, captions and any quiz prompts, choices and explanations together. Keep question IDs, choice order, correct answers, numerical values and coordinates aligned, then run the checks in the Development section above.
-
-| What changes                                                         | Where to update French                         |
-| -------------------------------------------------------------------- | ---------------------------------------------- |
-| Lesson text, title, captions or section quiz                         | Matching MDX file under `src/content/docs/fr/` |
-| Practice-exam questions in `src/lib/data/annex-a-question-bank.json` | `src/lib/data/annex-a-question-bank.fr.json`   |
-| Custom buttons, feedback or interactive-tool text                    | `src/lib/i18n/ui.ts`                           |
-| Built-in navigation or search labels                                 | `src/content/i18n/fr-CA.json`                  |
-
-Lesson navigation labels come from each page’s title. The interface translation files are needed when changing interface text; ordinary lesson edits stay in the two MDX files.
-
-Use Canadian aviation terminology. The French study guide in `docs/` can help with terminology, but translate the current English lesson. Images currently use the English originals; replacement tasks are in `PLAN.MD`.
