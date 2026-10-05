@@ -13,11 +13,6 @@ import frenchHeadingLabels from './scripts/rehype-french-headings.mjs'
 export default defineConfig({
   site: 'https://hagarpro.ca',
   compressHTML: true,
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', { path: 'fr', codes: ['fr-CA', 'fr'] }],
-    routing: { prefixDefaultLocale: false },
-  },
   markdown: {
     processor: unified({
       rehypePlugins: [rehypeFigureTitle, [rehypeExternalLinks, { target: '_blank', rel: [] }]],
@@ -26,6 +21,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'HAGAR Pro',
+      locales: {
+        root: { lang: 'en', label: 'English' },
+        fr: { lang: 'fr-CA', label: 'Français' },
+      },
       description: 'Structured preparation for the Transport Canada HAGAR exam.',
       logo: {
         light: './src/assets/logo-header-light.svg',
