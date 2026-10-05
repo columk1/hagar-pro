@@ -1,4 +1,5 @@
 ---
+import { localeFromLang } from '../../lib/i18n/ui';
 import QuizApp from './QuizApp';
 import type { QuestionCardQuestion } from './questionCardTypes';
 
@@ -12,7 +13,7 @@ const routeId = Astro.locals.starlightRoute.id;
 const resolvedQuizId = (quizId ?? routeId ?? '').trim();
 ---
 
-<QuizApp client:load questions={questions} quizId={resolvedQuizId} />
+<QuizApp client:load locale={localeFromLang(Astro.locals.starlightRoute.lang)} questions={questions} quizId={resolvedQuizId} />
 
 <style is:global>
 	@layer starlight.core {

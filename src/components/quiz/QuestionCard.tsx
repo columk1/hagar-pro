@@ -1,7 +1,9 @@
+import { ui, type Locale } from '../../lib/i18n/ui'
 import type { QuestionCardQuestion } from './questionCardTypes'
 import { parseAlphaListPrompt } from './questionUtils'
 
 type QuestionCardProps = {
+  locale?: Locale
   index: number
   question: QuestionCardQuestion
   selectedAnswer: string
@@ -12,18 +14,22 @@ type QuestionCardProps = {
 const getFeedback = (
   question: QuestionCardQuestion,
   selectedAnswer: string,
+  locale: Locale,
 ): { status: '' | 'correct' | 'incorrect'; message: string } => {
+  const t = ui(locale)
   if (!selectedAnswer) {
     return {
       status: 'incorrect',
-      message: `No answer selected. Correct answer: ${question.correctAnswer.toUpperCase()}.`,
+      message: t('No answer selected. Correct answer: {answer}.', {
+        answer: question.correctAnswer.toUpperCase(),
+      }),
     }
   }
 
   if (selectedAnswer === question.correctAnswer) {
     return {
       status: 'correct',
-      message: question.explanation ? `Correct. ${question.explanation}` : 'Correct.',
+      message: question.explanation ? `${t('Correct.')} ${question.explanation}` : t('Correct.'),
     }
   }
 
@@ -35,19 +41,21 @@ const getFeedback = (
   return {
     status: 'incorrect',
     message: question.explanation
-      ? `Incorrect. Correct answer: ${correctLabel}. ${question.explanation}`
-      : `Incorrect. Correct answer: ${correctLabel}.`,
+      ? `${t('Incorrect. Correct answer:')} ${correctLabel}. ${question.explanation}`
+      : `${t('Incorrect. Correct answer:')} ${correctLabel}.`,
   }
 }
 
 export function QuestionCard({
+  locale = 'en',
   index,
   question,
   selectedAnswer,
   showFeedback,
   onSelectAnswer,
 }: QuestionCardProps) {
-  const feedback = getFeedback(question, selectedAnswer)
+  const t = ui(locale)
+  const feedback = getFeedback(question, selectedAnswer, locale)
 
   return (
     <fieldset
@@ -56,7 +64,9 @@ export function QuestionCard({
       data-multiline={question.multiline ? 'true' : 'false'}
     >
       <legend className="legend">
-        <span className="quiz-question-number">Question {index + 1}</span>
+        <span className="quiz-question-number">
+          {t('Question')} {index + 1}
+        </span>
         <span className="quiz-question-prompt">
           {question.multiline
             ? (() => {

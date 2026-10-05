@@ -8,7 +8,7 @@ const { hasSidebar } = Astro.locals.starlightRoute;
 	<header class="header"><slot name="header" /></header>
 	{
 		hasSidebar && (
-			<nav class="sidebar print:hidden" aria-label={Astro.locals.t('sidebarNav.accessibleLabel')}>
+			<nav data-progress-sidebar class="sidebar print:hidden" aria-label={Astro.locals.t('sidebarNav.accessibleLabel')}>
 				<MobileMenuToggle />
 				<script>
 					// The mobile menu uses the popover API to open and close without JavaScript. We enhance this

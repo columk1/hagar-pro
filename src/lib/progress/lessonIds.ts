@@ -4,17 +4,22 @@ export const canonicalizePathToContentId = (pathname: string): string => {
   const withoutQuery = pathname.split('?')[0]?.split('#')[0] ?? ''
   const normalized = withoutQuery.trim().replace(/^\/+/, '').replace(/\/+$/, '')
 
-  return decodeURIComponent(normalized)
+  try {
+    return decodeURIComponent(normalized).replace(/^fr(?:\/|$)/, '')
+  } catch {
+    return ''
+  }
 }
 
-export const isLessonId = (contentId: string): boolean => LESSON_ID_PATTERN.test(contentId.trim())
+export const isLessonId = (contentId: string): boolean =>
+  LESSON_ID_PATTERN.test(canonicalizePathToContentId(contentId))
 
 export const getSectionIdFromLessonId = (lessonId: string): string | null => {
   if (!isLessonId(lessonId)) {
     return null
   }
 
-  const parts = lessonId.split('/')
+  const parts = canonicalizePathToContentId(lessonId).split('/')
   if (parts.length < 3) {
     return null
   }

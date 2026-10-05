@@ -1,6 +1,8 @@
 import { persistentAtom } from '@nanostores/persistent'
 import { computed } from 'nanostores'
 
+import { canonicalizePathToContentId } from '../progress/lessonIds'
+
 export const PROGRESS_STORAGE_KEY = 'hagar-pro-progress-v1'
 
 export type ProgressState = {
@@ -20,7 +22,7 @@ export const sanitizeProgressState = (
 
   const completedLessons = progressState.completedLessons
     .filter((lessonId): lessonId is string => typeof lessonId === 'string')
-    .map((lessonId) => lessonId.trim())
+    .map(canonicalizePathToContentId)
     .filter(Boolean)
 
   return { completedLessons: Array.from(new Set(completedLessons)) }
@@ -50,7 +52,7 @@ export const $completedLessons = computed(
 )
 
 export const markLessonComplete = (lessonId: string): void => {
-  const trimmedId = lessonId.trim()
+  const trimmedId = canonicalizePathToContentId(lessonId)
   if (!trimmedId) return
 
   const { completedLessons } = $progress.get()
@@ -64,7 +66,7 @@ export const markLessonComplete = (lessonId: string): void => {
 }
 
 export const markLessonIncomplete = (lessonId: string): void => {
-  const trimmedId = lessonId.trim()
+  const trimmedId = canonicalizePathToContentId(lessonId)
   if (!trimmedId) return
 
   $progress.set({
@@ -94,7 +96,7 @@ export const mergeProgress = (incomingProgressState: Partial<ProgressState>): vo
 }
 
 export const isLessonCompleted = (lessonId: string): boolean => {
-  const trimmedId = lessonId.trim()
+  const trimmedId = canonicalizePathToContentId(lessonId)
   if (!trimmedId) return false
 
   return $progress.get().completedLessons.includes(trimmedId)

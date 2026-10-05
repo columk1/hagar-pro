@@ -1,0 +1,21 @@
+{
+  "search.label": "Rechercher",
+  "search.ctrlKey": "Ctrl",
+  "search.cancelLabel": "Annuler",
+  "tableOfContents.onThisPage": "Dans cette page",
+  "404.text": "Cette page est introuvable. Vérifiez l’adresse ou utilisez la recherche.",
+  "heading.anchorLabel": "Section intitulée « {{title}} »",
+  "languageSelect.accessibleLabel": "Choisir la langue",
+  "themeSelect.accessibleLabel": "Choisir le thème",
+  "sidebarNav.accessibleLabel": "Navigation principale",
+  "pagefind.clear_search": "Effacer",
+  "pagefind.load_more": "Afficher plus de résultats",
+  "pagefind.search_label": "Rechercher dans ce site",
+  "pagefind.filters_label": "Filtres",
+  "pagefind.zero_results": "Aucun résultat pour [SEARCH_TERM]",
+  "pagefind.many_results": "[COUNT] résultats pour [SEARCH_TERM]",
+  "pagefind.one_result": "[COUNT] résultat pour [SEARCH_TERM]",
+  "pagefind.alt_search": "Aucun résultat pour [SEARCH_TERM]. Résultats pour [DIFFERENT_TERM].",
+  "pagefind.search_suggestion": "Aucun résultat pour [SEARCH_TERM]. Essayez une des recherches suivantes :",
+  "pagefind.searching": "Recherche de [SEARCH_TERM]…"
+}

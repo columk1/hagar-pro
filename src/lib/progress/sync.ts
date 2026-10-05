@@ -1,5 +1,6 @@
 import { compress, decompress } from 'lz-utils'
 
+import { localizePath, type Locale } from '../i18n/ui'
 import type { ProgressState } from '../stores/progressStore'
 import { sanitizeProgressState } from '../stores/progressStore'
 
@@ -81,8 +82,9 @@ export const deserializeProgress = async (encodedProgress: string): Promise<Prog
 export const createSyncLink = async (
   origin: string,
   progressState: Partial<ProgressState>,
+  locale: Locale = 'en',
 ): Promise<string> => {
-  const url = new URL('/sync/', origin)
+  const url = new URL(localizePath(locale, 'sync/'), origin)
   url.searchParams.set('data', await serializeProgress(progressState))
   return url.toString()
 }

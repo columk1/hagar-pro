@@ -1,13 +1,15 @@
 import type { LatLngTuple, Layer, LeafletMouseEvent, Map, Polyline, Tooltip } from 'leaflet'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import 'leaflet/dist/leaflet.css'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { ui, type Locale } from '../../../lib/i18n/ui'
 
 import styles from './VNCViewer.module.css'
 
 type VariationDirection = 'E' | 'W'
 
 type VNCViewerProps = {
+  locale?: Locale
   chartImageUrl?: string
   chartBounds?: [LatLngTuple, LatLngTuple]
   initialCenter?: LatLngTuple
@@ -89,10 +91,11 @@ function formatDms(value: number, axis: 'lat' | 'lon'): string {
   const degreeLabel =
     axis === 'lat' ? String(degrees).padStart(2, '0') : String(degrees).padStart(3, '0')
 
-  return `${degreeLabel}deg ${minutes.toFixed(2).padStart(5, '0')}' ${hemisphere}`
+  return `${degreeLabel}° ${minutes.toFixed(2).padStart(5, '0')}' ${hemisphere}`
 }
 
 export function VNCViewer({
+  locale = 'en',
   chartImageUrl = '/maps/vancouver-vnc.png',
   chartBounds = DEFAULT_BOUNDS,
   initialCenter = DEFAULT_INITIAL_CENTER,
@@ -106,6 +109,13 @@ export function VNCViewer({
   magneticVariationDirection = 'E',
   magneticVariationDegrees = 16,
 }: VNCViewerProps) {
+  const t = ui(locale)
+  const formatDistance = (value: number) =>
+    value.toLocaleString(locale === 'fr' ? 'fr-CA' : 'en', {
+      useGrouping: false,
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    })
   const mapElementRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<Map | null>(null)
   const leafletRef = useRef<LeafletModule | null>(null)
@@ -165,7 +175,7 @@ export function VNCViewer({
         leafletRef.current = L
 
         const map = L.map(mapElementRef.current, {
-          zoomControl: true,
+          zoomControl: false,
           attributionControl: true,
           minZoom,
           maxZoom,
@@ -173,9 +183,16 @@ export function VNCViewer({
           maxBoundsViscosity: 1.0,
         })
 
+        map.attributionControl.setPrefix(
+          `<a href="https://leafletjs.com" title="${t('A JavaScript library for interactive maps')}">Leaflet</a>`,
+        )
+
         if (baseMapUrlTemplate) {
           L.tileLayer(baseMapUrlTemplate, {
-            attribution: baseMapAttribution,
+            attribution:
+              baseMapAttribution === '&copy; OpenStreetMap contributors &copy; CARTO'
+                ? t(baseMapAttribution)
+                : baseMapAttribution,
             minZoom,
             maxZoom,
             bounds: chartBounds,
@@ -198,6 +215,7 @@ export function VNCViewer({
           }).addTo(map)
         }
 
+        L.control.zoom({ zoomInTitle: t('Zoom in'), zoomOutTitle: t('Zoom out') }).addTo(map)
         map.setView(initialCenter, initialZoom)
         map.setMaxBounds(chartBounds)
 
@@ -229,7 +247,7 @@ export function VNCViewer({
 
         mapRef.current = map
       } catch {
-        setLoadError('Leaflet failed to load. Ensure the package is installed and reload.')
+        setLoadError(t('Leaflet failed to load. Ensure the package is installed and reload.'))
       }
     }
 
@@ -253,6 +271,7 @@ export function VNCViewer({
     maxZoom,
     minZoom,
     tileUrlTemplate,
+    locale,
   ])
 
   useEffect(() => {
@@ -315,23 +334,25 @@ export function VNCViewer({
       })
         .setLatLng(midpoint)
         .setContent(
-          `TT ${routeMetrics.trueTrack.toFixed(0)}deg | MT ${routeMetrics.magneticTrack.toFixed(0)}deg | ${routeMetrics.distanceNm.toFixed(1)} NM`,
+          `${locale === 'fr' ? 'RV' : 'TT'} ${routeMetrics.trueTrack.toFixed(0)}° | ${locale === 'fr' ? 'RM' : 'MT'} ${routeMetrics.magneticTrack.toFixed(0)}° | ${formatDistance(routeMetrics.distanceNm)} NM`,
         )
         .addTo(map)
     }
-  }, [pointA, pointB, routeMetrics])
+  }, [pointA, pointB, routeMetrics, locale])
 
   const cursorLabel = cursorCoordinate
     ? `${formatDms(cursorCoordinate[0], 'lat')} / ${formatDms(cursorCoordinate[1], 'lon')}`
-    : 'Move your cursor over the chart to inspect coordinates.'
+    : t('Move your cursor over the chart to inspect coordinates.')
 
   return (
-    <section className={`${styles.viewer} not-content`} aria-label="VNC chart viewer">
+    <section className={`${styles.viewer} not-content`} aria-label={t('VNC chart viewer')}>
       <header className={styles.head}>
-        <h3>VNC Chart Viewer + Virtual Plotter</h3>
+        <h3>{t('VNC Chart Viewer + Virtual Plotter')}</h3>
         <p>
-          Click Point A, then Point B to draw a route and measure its distance. A third click resets
-          the route with a new Point A.
+          {' '}
+          {t(
+            'Click Point A, then Point B to draw a route and measure its distance. A third click resets the route with a new Point A.',
+          )}{' '}
         </p>
       </header>
 
@@ -346,19 +367,34 @@ export function VNCViewer({
       </div>
 
       <div className={styles.dataPanel} aria-live="polite">
-        <p className={styles.label}>Coordinate finder</p>
+        <p className={styles.label}>{t('Coordinate finder')}</p>
         <p className={styles.value}>{cursorLabel}</p>
 
-        <p className={styles.label}>Plotter</p>
+        <p className={styles.label}>{t('Plotter')}</p>
         {routeMetrics ? (
           <p className={styles.value}>
-            True Track: <strong>{routeMetrics.trueTrack.toFixed(0)}deg</strong> | Magnetic Track (
-            {magneticVariationDegrees}deg{magneticVariationDirection}):{' '}
-            <strong>{routeMetrics.magneticTrack.toFixed(0)}deg</strong> | Distance:{' '}
-            <strong>{routeMetrics.distanceNm.toFixed(1)} NM</strong>
+            {' '}
+            {t('True Track:')}{' '}
+            <strong>
+              {routeMetrics.trueTrack.toFixed(0)}
+              {t('deg')}
+            </strong>{' '}
+            {t('| Magnetic Track (')} {magneticVariationDegrees}
+            {t('deg')}
+            {magneticVariationDirection}):{' '}
+            <strong>
+              {routeMetrics.magneticTrack.toFixed(0)}
+              {t('deg')}
+            </strong>{' '}
+            {t('| Distance:')}{' '}
+            <strong>
+              {formatDistance(routeMetrics.distanceNm)} {t('NM')}
+            </strong>
           </p>
         ) : (
-          <p className={styles.value}>Set two points to calculate true track and distance.</p>
+          <p className={styles.value}>
+            {t('Set two points to calculate true track and distance.')}
+          </p>
         )}
 
         <button
@@ -369,7 +405,8 @@ export function VNCViewer({
             setPointB(null)
           }}
         >
-          Clear Plotter
+          {' '}
+          {t('Clear Plotter')}{' '}
         </button>
       </div>
     </section>

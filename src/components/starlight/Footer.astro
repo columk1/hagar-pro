@@ -1,4 +1,6 @@
 ---
+import { localeFromLang, ui } from '../../lib/i18n/ui';
+const t = ui(localeFromLang(Astro.locals.starlightRoute.lang));
 import EditLink from 'virtual:starlight/components/EditLink';
 import LastUpdated from 'virtual:starlight/components/LastUpdated';
 import Pagination from 'virtual:starlight/components/Pagination';
@@ -21,7 +23,7 @@ const lessonId = isLessonId(routeId) ? routeId : null;
 			<div class="lesson-progress-footer-wrap">
 				<div class="lesson-progress-card">
 					<button type="button" class="lesson-progress-action btn-primary" data-lesson-progress-action>
-						Mark Complete
+						{t('Mark Complete')}
 					</button>
 				</div>
 			</div>

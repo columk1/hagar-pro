@@ -11,7 +11,17 @@ pnpm install
 pnpm dev
 ```
 
-Before submitting changes, run `pnpm check`, `pnpm lint`, `pnpm exec oxfmt --check`, and `pnpm build`.
+Before submitting changes, run:
+
+```sh
+pnpm check
+pnpm lint
+pnpm exec oxfmt --check
+pnpm check:i18n
+pnpm build
+pnpm check:i18n --built
+```
+
 TypeScript stays on version 6 until `@astrojs/check` supports version 7.
 
 ## Overview
@@ -61,6 +71,8 @@ This course is maintained for the HPAC/ACVL community. You can help improve it b
 Feedback after taking the exam is especially valuable.
 
 You can also support development by making a donation at https://ko-fi.com/columkelly
+
+English and French lessons are paired MDX files in `src/content/docs/` and `src/content/docs/fr/`. Shared interface translations live in `src/lib/i18n/ui.ts`; practice-exam question banks live in `src/lib/data/`.
 
 ## Copyright Notice
 

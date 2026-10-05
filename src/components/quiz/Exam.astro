@@ -1,5 +1,8 @@
 ---
-import annexQuestionBank from '../../lib/data/annex-a-question-bank.json';
+import { localeFromLang } from '../../lib/i18n/ui';
+import englishBank from '../../lib/data/annex-a-question-bank.json';
+import frenchBank from '../../lib/data/annex-a-question-bank.fr.json';
+const annexQuestionBank = localeFromLang(Astro.locals.starlightRoute.lang) === 'fr' ? frenchBank : englishBank;
 import ExamApp from './ExamApp';
 import type { ExamQuestion } from './examTypes';
 
@@ -66,7 +69,7 @@ const examQuestionPool = (annexQuestionBank.questions as RawQuestion[])
 ---
 
 <section class="exam">
-	<ExamApp client:load questionPool={examQuestionPool} />
+	<ExamApp client:load locale={localeFromLang(Astro.locals.starlightRoute.lang)} questionPool={examQuestionPool} />
 </section>
 
 <style is:global>

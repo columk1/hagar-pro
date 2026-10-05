@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 
+import { ui, type Locale } from '../../lib/i18n/ui'
 import { canonicalizePathToContentId } from '../../lib/progress/lessonIds'
 import { isLessonCompleted, markLessonComplete } from '../../lib/stores/progressStore'
 import QuestionCard from './QuestionCard'
@@ -8,12 +9,14 @@ import type { QuestionCardQuestion } from './questionCardTypes'
 type QuizAppProps = {
   questions: QuestionCardQuestion[]
   quizId?: string
+  locale?: Locale
 }
 
 const BUTTON_TEXT_CHECK = 'Check Answers'
 const BUTTON_TEXT_RESET = 'Reset'
 
-export function QuizApp({ questions, quizId }: QuizAppProps) {
+export function QuizApp({ questions, quizId, locale = 'en' }: QuizAppProps) {
+  const t = ui(locale)
   const [answersByQuestionId, setAnswersByQuestionId] = useState<Record<string, string>>({})
   const [reviewMode, setReviewMode] = useState(false)
   const completionMarkedRef = useRef(false)
@@ -23,7 +26,7 @@ export function QuizApp({ questions, quizId }: QuizAppProps) {
     const explicitQuizId = (quizId ?? '').trim()
     const inferredQuizId =
       typeof window !== 'undefined' ? canonicalizePathToContentId(window.location.pathname) : ''
-    const resolvedQuizId = explicitQuizId || inferredQuizId
+    const resolvedQuizId = canonicalizePathToContentId(explicitQuizId || inferredQuizId)
     resolvedQuizIdRef.current = resolvedQuizId
     completionMarkedRef.current = resolvedQuizId ? isLessonCompleted(resolvedQuizId) : false
   }, [quizId])
@@ -62,6 +65,7 @@ export function QuizApp({ questions, quizId }: QuizAppProps) {
     <section className="quiz" data-feedback-visible={reviewMode ? 'true' : 'false'}>
       {questions.map((question, index) => (
         <QuestionCard
+          locale={locale}
           key={question.id}
           index={index}
           question={question}
@@ -73,10 +77,11 @@ export function QuizApp({ questions, quizId }: QuizAppProps) {
 
       <div className="quiz-actions">
         <p className="quiz-score" hidden={!reviewMode}>
-          Score: {score}/{questions.length}
+          {' '}
+          {t('Score:')} {score}/{questions.length}
         </p>
         <button type="button" className="btn-primary" onClick={handleCheckOrReset}>
-          {reviewMode ? BUTTON_TEXT_RESET : BUTTON_TEXT_CHECK}
+          {reviewMode ? t(BUTTON_TEXT_RESET) : t(BUTTON_TEXT_CHECK)}
         </button>
       </div>
     </section>

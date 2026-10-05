@@ -1,5 +1,6 @@
 ---
+import { localeFromLang } from '../../lib/i18n/ui';
 import AirspaceDiagramReact from './AirspaceDiagram';
 ---
 
-<AirspaceDiagramReact client:load />
+<AirspaceDiagramReact locale={localeFromLang(Astro.locals.starlightRoute.lang)} client:load />

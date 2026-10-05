@@ -1,3 +1,4 @@
+import { localeFromLang, localizePath, ui } from '../i18n/ui'
 import {
   $progress,
   isLessonCompleted,
@@ -40,7 +41,7 @@ const contentIdFromHref = (href: string): string => {
 
 const decorateSidebarLessons = (completedLessonIds: Set<string>): void => {
   const lessonLinks = document.querySelectorAll<HTMLAnchorElement>(
-    'nav[aria-label="Main"] a[href^="/curriculum/"]',
+    'nav[data-progress-sidebar] a[href]',
   )
 
   for (const link of lessonLinks) {
@@ -67,7 +68,7 @@ const decorateSidebarLessons = (completedLessonIds: Set<string>): void => {
 
 const decorateSidebarSectionCounts = (completedLessonIds: Set<string>): void => {
   const sectionSummaries = document.querySelectorAll<HTMLElement>(
-    'nav[aria-label="Main"] details > summary',
+    'nav[data-progress-sidebar] details > summary',
   )
 
   for (const summary of sectionSummaries) {
@@ -86,7 +87,7 @@ const decorateSidebarSectionCounts = (completedLessonIds: Set<string>): void => 
       continue
     }
 
-    const lessonLinks = detail.querySelectorAll<HTMLAnchorElement>('a[href^="/curriculum/"]')
+    const lessonLinks = detail.querySelectorAll<HTMLAnchorElement>('a[href]')
     const lessonIds = Array.from(lessonLinks)
       .map((link) => contentIdFromHref(link.getAttribute('href') ?? ''))
       .filter(isLessonId)
@@ -121,7 +122,7 @@ const getSectionLessonIds = (sectionId: string): string[] => {
   }
 
   const sectionLessonLinks = document.querySelectorAll<HTMLAnchorElement>(
-    `nav[aria-label="Main"] a[href^="/${normalizedSectionId}/"]`,
+    `nav[data-progress-sidebar] a[href^="${localizePath(localeFromLang(document.documentElement.lang), normalizedSectionId)}/"]`,
   )
 
   const sectionLessonIds = Array.from(sectionLessonLinks)
@@ -154,7 +155,7 @@ const getSectionFirstUncompletedHref = (
   const firstUncompletedLessonId =
     sectionLessonIds.find((lessonId) => !completedLessonIds.has(lessonId)) ?? sectionLessonIds[0]
 
-  return `/${firstUncompletedLessonId}/`
+  return localizePath(localeFromLang(document.documentElement.lang), `${firstUncompletedLessonId}/`)
 }
 
 const renderSectionProgress = (
@@ -209,9 +210,13 @@ const renderLessonCard = (
 ): void => {
   const complete = isLessonCompleted(lessonId)
   if (statusElement) {
-    statusElement.textContent = complete ? 'Completed' : 'Not completed'
+    statusElement.textContent = ui(localeFromLang(document.documentElement.lang))(
+      complete ? 'Completed' : 'Not completed',
+    )
   }
-  actionButton.textContent = complete ? 'Lesson Completed' : 'Mark Complete'
+  actionButton.textContent = ui(localeFromLang(document.documentElement.lang))(
+    complete ? 'Lesson Completed' : 'Mark Complete',
+  )
   actionButton.setAttribute('aria-pressed', complete ? 'true' : 'false')
   actionButton.classList.toggle('btn-primary', !complete)
   actionButton.classList.toggle('btn-success', complete)

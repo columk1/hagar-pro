@@ -1,0 +1,166 @@
+---
+title: 'Quiz : réglementation aérienne'
+description: 'Quiz de fin de section 2.'
+---
+
+import Quiz from '../../../../../components/quiz/Quiz.astro'
+
+# Quiz : réglementation aérienne
+
+Sélectionnez une réponse par question, puis cliquez sur **Vérifier les réponses** pour revoir vos choix.
+
+<Quiz
+  questions={[
+    {
+      id: 'm1-q1',
+      prompt:
+        'Sauf pour décoller ou atterrir, quelle est la hauteur minimale au-dessus d’une zone bâtie, à moins d’une instruction contraire de l’ATC?',
+      correctAnswer: 'a',
+      explanation:
+        'Le cours souligne la hauteur de 1 000 pieds au-dessus des zones bâties selon le RAC 602.14.',
+      choices: [
+        {
+          value: 'a',
+          label: '1 000 pieds',
+        },
+        {
+          value: 'b',
+          label: '2 000 pieds',
+        },
+        {
+          value: 'c',
+          label: '3 000 pieds',
+        },
+        {
+          value: 'd',
+          label: '500 pieds',
+        },
+      ],
+    },
+    {
+      id: 'm1-q2',
+      prompt:
+        'En approche finale pour atterrir, à quel aéronef accorde-t-on normalement la priorité?',
+      correctAnswer: 'd',
+      explanation: 'L’aéronef le plus bas en finale a généralement la priorité.',
+      choices: [
+        {
+          value: 'a',
+          label: 'L’aéronef le plus rapide',
+        },
+        {
+          value: 'b',
+          label: 'L’aéronef le plus lent',
+        },
+        {
+          value: 'c',
+          label: 'L’aéronef le plus haut',
+        },
+        {
+          value: 'd',
+          label: 'L’aéronef le plus bas',
+        },
+      ],
+    },
+    {
+      id: 'm1-q3',
+      prompt: 'Pourquoi faut-il éviter les vols bas près des activités agricoles?',
+      correctAnswer: 'd',
+      explanation:
+        'Le bruit, les ombres et le survol rapproché peuvent tous perturber le bétail et poser des problèmes de sécurité.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Le bruit peut effrayer le bétail',
+        },
+        {
+          value: 'b',
+          label: 'Les ombres peuvent effrayer le bétail',
+        },
+        {
+          value: 'c',
+          label: 'Ils peuvent provoquer une fuite en panique',
+        },
+        {
+          value: 'd',
+          label: 'Tous ces effets sont possibles',
+        },
+      ],
+    },
+    {
+      id: 'm1-q4',
+      prompt: 'La meilleure définition d’un aéroport est :',
+      correctAnswer: 'c',
+      explanation:
+        'Dans ce contexte, un aéroport est un aérodrome dont le certificat d’aéroport est en vigueur.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Tout aérodrome enregistré',
+        },
+        {
+          value: 'b',
+          label: 'Un aérodrome avec une tour de contrôle',
+        },
+        {
+          value: 'c',
+          label: 'Un aérodrome pour lequel un certificat est en vigueur',
+        },
+        {
+          value: 'd',
+          label: 'Un aérodrome avec des pistes revêtues',
+        },
+      ],
+    },
+    {
+      id: 'm1-q5',
+      prompt: 'Il est interdit d’effectuer un vol acrobatique :',
+      correctAnswer: 'd',
+      explanation:
+        'Le vol acrobatique est interdit au-dessus d’une zone urbaine ou d’une autre zone populeuse.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Sous 2 000 pieds AGL',
+        },
+        {
+          value: 'b',
+          label: 'En espace aérien non contrôlé',
+        },
+        {
+          value: 'c',
+          label: 'Sans autorisation du ministre',
+        },
+        {
+          value: 'd',
+          label: 'Au-dessus d’une zone urbaine ou d’une autre zone populeuse',
+        },
+      ],
+    },
+    {
+      id: 'm1-q6',
+      prompt:
+        'À quelle distance du centre d’un aéroport non contrôlé les vols d’ailes libres sont-ils interdits sans permission préalable?',
+      correctAnswer: 'a',
+      explanation: 'La distance d’interdiction est ici de 5 milles nautiques.',
+      choices: [
+        {
+          value: 'a',
+          label: '5 milles nautiques',
+        },
+        {
+          value: 'b',
+          label: '7 milles nautiques',
+        },
+        {
+          value: 'c',
+          label: '10 milles nautiques',
+        },
+        {
+          value: 'd',
+          label: '15 milles nautiques',
+        },
+      ],
+    },
+  ]}
+/>

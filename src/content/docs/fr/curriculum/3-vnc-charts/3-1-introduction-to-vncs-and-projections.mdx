@@ -1,0 +1,67 @@
+---
+title: '3.1 Introduction aux VNC et aux projections'
+description: 'Rôle et accès aux VNC, projection de Mercator et projection conique conforme de Lambert pour préparer le HAGAR.'
+---
+
+import { YouTube } from '@astro-community/astro-embed-youtube'
+
+Cette leçon présente les cartes aéronautiques de navigation VFR (VNC) utilisées à l’examen HAGAR.
+
+## Qu’est-ce qu’une VNC?
+
+Les cartes aéronautiques de navigation VFR (VNC) sont utilisées par les pilotes VFR. Elles présentent les renseignements aéronautiques et suffisamment de détails topographiques pour faciliter la navigation aérienne grâce à une combinaison particulière de couleurs, de teintes hypsométriques et d’ombrage du relief.
+
+- **Échelle :** une VNC est à l’échelle **1:500 000**.
+- **Couverture :** la série comprend **52 cartes** couvrant tout l’espace aérien canadien.
+
+### Où les trouver
+
+NAV CANADA ne fournit pas les VNC gratuitement : elle vend des exemplaires papier ou des versions numériques sous licence dans sa [boutique en ligne](https://produits.navcanada.ca/Produits-VFR/Les-cartes-aronautiques-de-navigation-VFR-VNC/).
+
+Vous pouvez toutefois trouver des cartes gratuites sur [FltPlan.com](https://www.fltplan.com/). Dans l’application mobile, téléchargez précisément les VNC canadiennes, et pas seulement les cartes américaines proposées par défaut.
+
+Le [Canadian Airspace Viewer](https://airspace.canadarasp.com/) est un autre site utile qui superpose l’espace aérien canadien à une carte Google.
+
+:::tip[Le saviez-vous?]
+Aux États-Unis, la FAA est un organisme fédéral et les cartes aéronautiques sont gratuites. Cela favorise un marché dynamique d’outils et d’applications abordables qui peuvent améliorer la sécurité. NAV CANADA est plutôt une société privée qui recouvre ses coûts au moyen de frais d’utilisation et de licence.
+:::
+
+## Projection des cartes VNC
+
+Toutes les cartes sont produites au moyen d’une technique appelée projection. Il existe de nombreuses projections.
+
+### Projection de Mercator
+
+La projection la plus courante est celle de Mercator, dans laquelle les parallèles et les méridiens sont perpendiculaires. Les cartes routières et topographiques utilisent cette projection.
+
+**Pourquoi elle convient mal à l’aviation :** la plus courte distance entre deux points est une courbe et l’échelle varie avec la latitude. Il est donc difficile de planifier précisément un vol.
+
+### Projection conique conforme de Lambert
+
+Les VNC utilisent la projection conique conforme de Lambert. Pour la comprendre, imaginez une source lumineuse juste au-dessus du pôle Nord, éclairant vers le bas un demi-globe transparent et projetant ses lignes sur une feuille de papier plane placée à l’équateur.
+
+![Projection conique](/images/conical-projection.avif 'Projection conique')
+
+Cette projection présente deux grands avantages pour la navigation aérienne :
+
+- Une ligne droite sur la carte correspond approximativement à un « grand cercle », soit la plus courte distance entre deux points.
+- Les variations d’échelle sont faibles sur une feuille VNC, ce qui permet d’utiliser l’échelle de la carte avec une règle pour planifier un vol.
+
+:::note
+Ce n’est pas le cas avec la projection de Mercator : la plus courte distance entre deux points est une courbe et l’échelle varie avec la latitude. On comprend donc la difficulté de planifier précisément un vol avec une carte de Mercator. Les cartes topographiques couvrent des régions beaucoup plus petites que les VNC, ce qui rend ces imprécisions acceptables.
+
+Sur une carte routière, ces imprécisions importent peu, puisque l’on suit les routes : la distance directe entre deux points n’est pas pertinente, la distance parcourue dépendant de la longueur de la route.
+:::
+
+Sur une carte en projection conique conforme de Lambert, les méridiens convergent et les parallèles sont courbes. Ils se coupent à 90 degrés.
+
+## Vidéo complémentaire
+
+Avant de continuer, vous pouvez regarder ou mettre en signet la vidéo suivante de Coastal Drone. Elle offre un bon aperçu des VNC et vous aidera à comprendre cette section.
+
+<YouTube
+  id="CSI7YqfRBXg"
+  title="Introduction aux cartes VNC"
+  playlabel="Lire la vidéo"
+  params="hl=fr&amp;cc_lang_pref=fr"
+/>

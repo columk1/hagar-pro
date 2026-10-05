@@ -1,0 +1,166 @@
+---
+title: 'Quiz : exploitation aérienne'
+description: 'Quiz de fin de section 5.'
+---
+
+import Quiz from '../../../../../components/quiz/Quiz.astro'
+
+# Quiz : exploitation aérienne
+
+Sélectionnez une réponse par question, puis cliquez sur **Vérifier les réponses** pour revoir vos choix.
+
+<Quiz
+  questions={[
+    {
+      id: 'm4-q1',
+      prompt: 'La turbulence de sillage dangereuse est produite par :',
+      correctAnswer: 'a',
+      explanation:
+        'Tous les aéronefs produisant de la portance génèrent de la turbulence de sillage, à voilure fixe comme à voilure tournante.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Tous les aéronefs à voilure fixe et tournante',
+        },
+        {
+          value: 'b',
+          label: 'Les aéronefs à turboréacteurs seulement',
+        },
+        {
+          value: 'c',
+          label: 'Les avions rapides seulement, quel que soit leur poids',
+        },
+        {
+          value: 'd',
+          label: 'Les avions lourds seulement, quelle que soit leur vitesse',
+        },
+      ],
+    },
+    {
+      id: 'm4-q2',
+      prompt: 'La turbulence de sillage dangereuse produite par les avions en air calme :',
+      correctAnswer: 'c',
+      explanation:
+        'En air calme, les tourbillons peuvent rester dangereux plusieurs minutes; l’espacement et l’évitement sont donc essentiels.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Se dissipe immédiatement',
+        },
+        {
+          value: 'b',
+          label: 'Se dissipe rapidement',
+        },
+        {
+          value: 'c',
+          label: 'Peut persister cinq minutes ou plus',
+        },
+        {
+          value: 'd',
+          label: 'Persiste indéfiniment',
+        },
+      ],
+    },
+    {
+      id: 'm4-q3',
+      prompt:
+        'Que doit transmettre un pilote pour signaler un danger grave ou imminent et demander une assistance immédiate?',
+      correctAnswer: 'a',
+      explanation:
+        'MAYDAY est le signal de détresse utilisé en cas de danger grave et imminent nécessitant une assistance immédiate.',
+      choices: [
+        {
+          value: 'a',
+          label: 'MAYDAY, MAYDAY, MAYDAY',
+        },
+        {
+          value: 'b',
+          label: 'PAN PAN, PAN PAN, PAN PAN',
+        },
+        {
+          value: 'c',
+          label: 'SECURITY, SECURITY, SECURITY',
+        },
+        {
+          value: 'd',
+          label: 'EMERGENCY, EMERGENCY, EMERGENCY',
+        },
+      ],
+    },
+    {
+      id: 'm4-q4',
+      prompt: 'La fréquence VHF d’urgence est :',
+      correctAnswer: 'c',
+      explanation:
+        '121,5 MHz est la fréquence VHF internationale d’urgence, aussi appelée fréquence de garde.',
+      choices: [
+        {
+          value: 'a',
+          label: '122,1 MHz',
+        },
+        {
+          value: 'b',
+          label: '118,3 MHz',
+        },
+        {
+          value: 'c',
+          label: '121,5 MHz',
+        },
+        {
+          value: 'd',
+          label: '123,2 MHz',
+        },
+      ],
+    },
+    {
+      id: 'm4-q5',
+      prompt: 'Normalement, un NOTAM est :',
+      correctAnswer: 'b',
+      explanation:
+        'Les NOTAM sont diffusés par des systèmes de télécommunication pour fournir rapidement les mises à jour opérationnelles.',
+      choices: [
+        {
+          value: 'a',
+          label: 'Publié au moins 48 heures avant son entrée en vigueur',
+        },
+        {
+          value: 'b',
+          label: 'Diffusé par des systèmes de télécommunication',
+        },
+        {
+          value: 'c',
+          label: 'Distribué par courrier de première classe',
+        },
+        {
+          value: 'd',
+          label: 'Publié seulement pour les utilisateurs de l’espace aérien supérieur',
+        },
+      ],
+    },
+    {
+      id: 'm4-q6',
+      prompt:
+        'Aux aérodromes non contrôlés sans station au sol, la fréquence de circulation d’aérodrome (ATF) est généralement :',
+      correctAnswer: 'c',
+      explanation: 'L’ATF généralement désignée dans ce contexte est 123,2 MHz.',
+      choices: [
+        {
+          value: 'a',
+          label: '121,5 MHz',
+        },
+        {
+          value: 'b',
+          label: '122,2 MHz',
+        },
+        {
+          value: 'c',
+          label: '123,2 MHz',
+        },
+        {
+          value: 'd',
+          label: '126,7 MHz',
+        },
+      ],
+    },
+  ]}
+/>

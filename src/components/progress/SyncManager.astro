@@ -1,17 +1,24 @@
+---
+import { localeFromLang, ui } from '../../lib/i18n/ui'
+const t = ui(localeFromLang(Astro.locals.starlightRoute.lang))
+---
 <section class="sync-manager" data-sync-manager>
-	<h2>Resume Progress</h2>
+	<h2>{t('Resume Progress')}</h2>
 	<p class="sync-meta" data-sync-meta>
-		Completed lessons: 0
+		{t('Completed lessons:')} 0
 	</p>
 	<div class="sync-actions">
 		<button type="button" class="btn-primary" data-copy-link>
 			<svg class="sync-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"/></svg>
-			<span>Copy Link</span>
+			<span>{t('Copy Link')}</span>
 		</button>
 	</div>
 </section>
 
 <script>
+	import { localeFromLang, ui } from '../../lib/i18n/ui';
+  const locale = localeFromLang(document.documentElement.lang);
+  const t = ui(locale);
 	import { $progress } from '../../lib/stores/progressStore';
 	import { createSyncLink } from '../../lib/progress/sync';
 
@@ -40,18 +47,18 @@
 	) => {
 		switch (state) {
 			case 'copied':
-				copyButton.innerHTML = `${copiedIcon}<span>Copied</span>`;
+				copyButton.innerHTML = `${copiedIcon}<span>${t('Copied')}</span>`;
 				break;
 			case 'failed':
-				copyButton.innerHTML = `${copyIcon}<span>Copy failed</span>`;
+				copyButton.innerHTML = `${copyIcon}<span>${t('Copy failed')}</span>`;
 				break;
 			default:
-				copyButton.innerHTML = `${copyIcon}<span>Copy Link</span>`;
+				copyButton.innerHTML = `${copyIcon}<span>${t('Copy Link')}</span>`;
 		}
 	};
 
 	const renderMeta = () => {
-		meta.textContent = `Completed lessons: ${$progress.get().completedLessons.length}`;
+		meta.textContent = `${t('Completed lessons:')} ${$progress.get().completedLessons.length}`;
 	};
 
 	renderMeta();
@@ -85,7 +92,7 @@
 	copyButton.addEventListener('click', async () => {
 		try {
 			copyButton.disabled = true;
-			const syncLink = await createSyncLink(window.location.origin, $progress.get());
+			const syncLink = await createSyncLink(window.location.origin, $progress.get(), locale);
 			await navigator.clipboard.writeText(syncLink);
 			setCopyButtonLabel('copied');
 			queueCopyButtonReset();

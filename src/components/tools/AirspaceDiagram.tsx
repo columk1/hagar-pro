@@ -1,12 +1,14 @@
 import { useState } from 'react'
 
+import { ui, type Locale, type UiKey } from '../../lib/i18n/ui'
+
 type AirspaceClass = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
 
 type AirspaceInfo = {
-  title: string
+  title: UiKey
   color: string
-  vfr: string[]
-  hgpg: string[]
+  vfr: UiKey[]
+  hgpg: UiKey[]
 }
 
 const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {
@@ -80,7 +82,8 @@ const AIRSPACE_INFO: Record<AirspaceClass, AirspaceInfo> = {
 
 const CLASS_ORDER: AirspaceClass[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
-export function AirspaceDiagram() {
+export function AirspaceDiagram({ locale = 'en' }: { locale?: Locale }) {
+  const t = ui(locale)
   const [activeClass, setActiveClass] = useState<AirspaceClass>('A')
 
   const activeData = AIRSPACE_INFO[activeClass]
@@ -90,19 +93,25 @@ export function AirspaceDiagram() {
   }
 
   return (
-    <section className="airspace-diagram not-content" aria-label="Canadian domestic airspace model">
+    <section
+      className="airspace-diagram not-content"
+      aria-label={t('Canadian domestic airspace model')}
+    >
       <header className="airspace-header">
-        <h3>Aerodromes and Air Navigation (AARN) Airspace Model</h3>
+        <h3>{t('Aerodromes and Air Navigation (AARN) Airspace Model')}</h3>
         <p>
-          Use the class buttons below to view VFR minima and HG/PG-focused operating requirements.
+          {' '}
+          {t(
+            'Use the class buttons below to view VFR minima and HG/PG-focused operating requirements.',
+          )}{' '}
         </p>
       </header>
 
       <div className="airspace-canvas">
-        <div className="airspace-image-shell" aria-label="Static airspace chart image">
+        <div className="airspace-image-shell" aria-label={t('Static airspace chart image')}>
           <img
             src="/images/tc-aarn.png"
-            alt="Layered Class A B C D E F and G domestic airspace diagram"
+            alt={t('Layered Class A B C D E F and G domestic airspace diagram')}
             width={1024}
             height={353}
             loading="lazy"
@@ -114,7 +123,7 @@ export function AirspaceDiagram() {
       <div
         className="airspace-class-buttons"
         role="group"
-        aria-label="Select airspace class details"
+        aria-label={t('Select airspace class details')}
       >
         {CLASS_ORDER.map((classKey) => (
           <button
@@ -123,7 +132,8 @@ export function AirspaceDiagram() {
             className={activeClass === classKey ? 'active' : ''}
             onClick={() => activate(classKey)}
           >
-            Class {classKey}
+            {' '}
+            {t('Class')} {classKey}
           </button>
         ))}
       </div>
@@ -131,21 +141,21 @@ export function AirspaceDiagram() {
       <section
         className="airspace-output"
         aria-live="polite"
-        aria-label="Selected airspace requirements"
+        aria-label={t('Selected airspace requirements')}
       >
-        <p className="tip-title">{activeData.title}</p>
+        <p className="tip-title">{t(activeData.title)}</p>
 
-        <p className="tip-label">VFR minima</p>
+        <p className="tip-label">{t('VFR minima')}</p>
         <ul>
           {activeData.vfr.map((line) => (
-            <li key={line}>{line}</li>
+            <li key={line}>{t(line)}</li>
           ))}
         </ul>
 
-        <p className="tip-label">HG / PG pilot requirements</p>
+        <p className="tip-label">{t('HG / PG pilot requirements')}</p>
         <ul>
           {activeData.hgpg.map((line) => (
-            <li key={line}>{line}</li>
+            <li key={line}>{t(line)}</li>
           ))}
         </ul>
       </section>

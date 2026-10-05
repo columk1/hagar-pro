@@ -21,10 +21,11 @@ export async function getStaticPaths() {
 
     // 4. Starlight root index is often empty string or 'index'
     if (!slug) slug = 'index'
+    if (slug === 'fr') slug = 'fr/index'
 
     // 5. Remove trailing '/index' for nested folder indices
     // (e.g., 'curriculum/index' -> 'curriculum')
-    if (slug !== 'index' && slug.endsWith('/index')) {
+    if (slug !== 'index' && slug !== 'fr/index' && slug.endsWith('/index')) {
       slug = slug.replace(/\/index$/, '')
     }
 
